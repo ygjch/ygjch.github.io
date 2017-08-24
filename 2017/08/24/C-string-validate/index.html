@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Tag: github | YGjch&#39;s Blog</title>
+  <title>C# string validate | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/tags/github/index.html">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# string validate">
+<meta property="og:url" content="http://ygjch.github.io/2017/08/24/C-string-validate/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2017-08-24T11:31:02.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="C# string validate">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -143,136 +145,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-C-string-validate" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C# string validate
+    </h1>
+  
+
+        
+        <a href="/2017/08/24/C-string-validate/" class="archive-article-date">
+  	<time datetime="2017-08-24T11:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System;</div><div class="line"><span class="keyword">using</span> System.Text.RegularExpressions;</div><div class="line"><span class="keyword">namespace</span> <span class="title">MetarCommonSupport</span></div><div class="line">&#123;</div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">    <span class="comment"><span class="doctag">///</span> 通过Framwork类库中的Regex类实现了一些特殊功能数据检查</span></div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MetarnetRegex</span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> MetarnetRegex instance = <span class="literal">null</span>;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MetarnetRegex <span class="title">GetInstance</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">if</span> (MetarnetRegex.instance == <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                MetarnetRegex.instance = <span class="keyword">new</span> MetarnetRegex();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> MetarnetRegex.instance;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">MetarnetRegex</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串只包含汉字</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsChineseCh</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^[\u4e00-\u9fa5]+$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 匹配3位或4位区号的电话号码，其中区号可以用小括号括起来，</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 也可以不用，区号与本地号间可以用连字号或空格间隔，</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 也可以没有间隔</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> \(0\d&#123;2&#125;\)[- ]?\d&#123;8&#125;|0\d&#123;2&#125;[- ]?\d&#123;8&#125;|\(0\d&#123;3&#125;\)[- ]?\d&#123;7&#125;|0\d&#123;3&#125;[- ]?\d&#123;7&#125;</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsPhone</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">"^\\(0\\d&#123;2&#125;\\)[- ]?\\d&#123;8&#125;$|^0\\d&#123;2&#125;[- ]?\\d&#123;8&#125;$|^\\(0\\d&#123;3&#125;\\)[- ]?\\d&#123;7&#125;$|^0\\d&#123;3&#125;[- ]?\\d&#123;7&#125;$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是一个合法的手机号</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsMobilePhone</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^13\\d&#123;9&#125;$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串只包含数字</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 可以匹配整数和浮点数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> ^-?\d+$|^(-?\d+)(\.\d+)?$</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsNumber</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">"^-?\\d+$|^(-?\\d+)(\\.\\d+)?$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 匹配非负整数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsNotNagtive</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">@"^\d+$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 匹配正整数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsUint</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^[0-9]*[1-9][0-9]*$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串字包含英文字母</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsEnglisCh</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^[A-Za-z]+$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是一个合法的Email地址</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsEmail</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">@"^([\w-\.]+)@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.)|(([\w-]+\.)+))([a-zA-Z]&#123;2,4&#125;|[0-9]&#123;1,3&#125;)(\]?)$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否只包含数字和英文字母</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsNumAndEnCh</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">@"^[A-Za-z0-9]+$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是一个超链接</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsURL</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="comment">//string pattern = @"http://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?";</span></div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">@"^[a-zA-Z]+://(\w+(-\w+)*)(\.(\w+(-\w+)*))*(\?\S*)?$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是表示一个IP地址</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>被比较的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>是IP地址则为True<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsIPv4</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line"></div><div class="line">            <span class="keyword">string</span>[] IPs = input.Split(<span class="string">'.'</span>);</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">@"^\d+$"</span>);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; IPs.Length; i++)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (!regex.IsMatch(IPs[i]))</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (Convert.ToUInt16(IPs[i]) &gt; <span class="number">255</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 计算字符串的字符长度，一个汉字字符将被计算为两个字符</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>需要计算的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>返回字符串的长度<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">GetCount</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">return</span> Regex.Replace(input, <span class="string">@"[\u4e00-\u9fa5/g]"</span>, <span class="string">"aa"</span>).Length;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 调用Regex中IsMatch函数实现一般的正则表达式匹配</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="pattern"&gt;</span>要匹配的正则表达式模式。<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>要搜索匹配项的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>如果正则表达式找到匹配项，则为 true；否则，为 false。<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsMatch</span>(<span class="params"><span class="keyword">string</span> pattern, <span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 从输入字符串中的第一个字符开始，用替换字符串替换指定的正则表达式模式的所有匹配项。</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="pattern"&gt;</span>模式字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>输入字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="replacement"&gt;</span>用于替换的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>返回被替换后的结果<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">Replace</span>(<span class="params"><span class="keyword">string</span> pattern, <span class="keyword">string</span> input, <span class="keyword">string</span> replacement</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.Replace(input, replacement);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 在由正则表达式模式定义的位置拆分输入字符串。</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="pattern"&gt;</span>模式字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>输入字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span>[] <span class="title">Split</span>(<span class="params"><span class="keyword">string</span> pattern, <span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.Split(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是合法的IPV6 地址</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsIPV6</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">""</span>;</div><div class="line">            <span class="keyword">string</span> temp = input;</div><div class="line">            <span class="keyword">string</span>[] strs = temp.Split(<span class="string">':'</span>);</div><div class="line">            <span class="keyword">if</span> (strs.Length &gt; <span class="number">8</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> count = MetarnetRegex.GetStringCount(input, <span class="string">"::"</span>);</div><div class="line">            <span class="keyword">if</span> (count &gt; <span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (count == <span class="number">0</span>)</div><div class="line">            &#123;</div><div class="line">                pattern = <span class="string">@"^([\da-f]&#123;1,4&#125;:)&#123;7&#125;[\da-f]&#123;1,4&#125;$"</span>;</div><div class="line"></div><div class="line">                Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">                <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                pattern = <span class="string">@"^([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;::([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;[\da-f]&#123;1,4&#125;$"</span>;</div><div class="line">                Regex regex1 = <span class="keyword">new</span> Regex(pattern);</div><div class="line">                <span class="keyword">return</span> regex1.IsMatch(input);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="comment">/* *******************************************************************</span></div><div class="line"><span class="comment">        * 1、通过“:”来分割字符串看得到的字符串数组长度是否小于等于8</span></div><div class="line"><span class="comment">        * 2、判断输入的IPV6字符串中是否有“::”。</span></div><div class="line"><span class="comment">        * 3、如果没有“::”采用 ^([\da-f]&#123;1,4&#125;:)&#123;7&#125;[\da-f]&#123;1,4&#125;$ 来判断</span></div><div class="line"><span class="comment">        * 4、如果有“::” ，判断"::"是否止出现一次</span></div><div class="line"><span class="comment">        * 5、如果出现一次以上 返回false</span></div><div class="line"><span class="comment">        * 6、^([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;::([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;[\da-f]&#123;1,4&#125;$</span></div><div class="line"><span class="comment">        * ******************************************************************/</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断字符串compare 在 input字符串中出现的次数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>源字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="compare"&gt;</span>用于比较的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>字符串compare 在 input字符串中出现的次数<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">GetStringCount</span>(<span class="params"><span class="keyword">string</span> input, <span class="keyword">string</span> compare</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">int</span> index = input.IndexOf(compare);</div><div class="line">            <span class="keyword">if</span> (index != <span class="number">-1</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span> + GetStringCount(input.Substring(index + compare.Length), compare);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+	  
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>Thank you very much~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/14/hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a/" class="archive-article-date">
-  	<time datetime="2017-08-14T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/14/hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a/"> hexo YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key a</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/08/24/C-string-validate/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/git-pull new changes/" class="archive-article-date">
-  	<time datetime="2017-08-11T14:50:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/17/router-link-bind-the-id/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">router-link bind the id</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/git-pull new changes/">GIT Commands --- pull new changes</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/hexo commands/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:20:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/hexo commands/">Common commands of Hexo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="C-string-validate" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
+  
 
 
           </div>
@@ -295,9 +376,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
