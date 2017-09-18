@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>vue develop Learning-Links | YGjch&#39;s Blog</title>
+  <title>asp.net mvc Datatable | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
+  <meta name="description" content="Bug Information:  When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table. I introduced the script and css, but it didn’t work. Fi">
+<meta name="keywords" content="asp.net mvc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue develop Learning-Links">
-<meta property="og:url" content="http://ygjch.github.io/2017/08/30/vue-develop-Learning-Links/index.html">
+<meta property="og:title" content="asp.net mvc Datatable">
+<meta property="og:url" content="http://ygjch.github.io/2017/09/17/asp-net-mvc-Datatable/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="Bug Information:  When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table. I introduced the script and css, but it didn’t work. Fi">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-08-30T02:44:05.787Z">
+<meta property="og:updated_time" content="2017-09-18T09:23:39.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue develop Learning-Links">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="asp.net mvc Datatable">
+<meta name="twitter:description" content="Bug Information:  When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table. I introduced the script and css, but it didn’t work. Fi">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -150,30 +151,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue-develop-Learning-Links" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-asp-net-mvc-Datatable" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue develop Learning-Links
+      asp.net mvc Datatable
     </h1>
   
 
         
-        <a href="/2017/08/30/vue-develop-Learning-Links/" class="archive-article-date">
-  	<time datetime="2017-08-30T02:44:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-30</time>
+        <a href="/2017/09/17/asp-net-mvc-Datatable/" class="archive-article-date">
+  	<time datetime="2017-09-17T15:58:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Bug Information: </p>
+<p>When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table.</p>
+<p>I introduced the script and css, but it didn’t work.</p>
+<p>Finally, I found the solutions:<br>    Jquery.js must be put before datatable.js, and you should look that whether jquery was introduced twice in _layout.cshtml and “view”.cshtml.</p>
+<pre><code>They should help you~
+</code></pre>
       
 
 	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 	  
@@ -203,6 +233,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -253,7 +294,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/08/30/vue-develop-Learning-Links/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/09/17/asp-net-mvc-Datatable/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,18 +308,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/08/abp-develop-note-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          abp develop note (1)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/24/C-string-validate/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C# string validate</div>
+    <a href="/2017/09/08/abp-develop-note-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">abp develop note (1)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -298,6 +330,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -308,7 +353,7 @@
   
 
   
-  <div id="SOHUCS" sid="vue-develop-Learning-Links" ></div> 
+  <div id="SOHUCS" sid="asp-net-mvc-Datatable" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "true"; 
