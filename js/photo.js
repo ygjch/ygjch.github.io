@@ -4,7 +4,7 @@ define([], function () {
             offset: 20,
             init: function () {
                 var that = this;
-                $.getJSON("/source/photo/output.json", function (data) {
+                $.getJSON("/photo/output.json", function (data) {
                     that.render(that.page, data);
 
                     that.scroll(data);
@@ -18,8 +18,8 @@ define([], function () {
                 var html, li = "";
                 for (var i = begin; i < end && i < data.length; i++) {
                     li += '<li><div class="img-box">' +
-                        '<a class="img-bg" rel="example_group" href="https://github.com/ygjch/ygjch.github.io/photo/' + data[i] + '?raw=true"></a>' +
-                        '<img lazy-src="https://github.com/ygjch/ygjch.github.io/photo/' + data[i] + '?raw=true" />' +
+                        '<a class="img-bg" rel="example_group" href="https://github.com/ygjch/ygjch.github.io/master/photo/' + data[i] + '?raw=true"></a>' +
+                        '<img lazy-src="https://github.com/ygjch/ygjch.github.io/master/photo/' + data[i] + '?raw=true" />' +
                         '</li>';
                 }
 
