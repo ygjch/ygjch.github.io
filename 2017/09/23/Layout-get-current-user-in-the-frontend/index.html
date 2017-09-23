@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YGjch&#39;s Blog">
 <meta property="og:description" content="I need to change displayName according to current Account.  Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.Find solution in stackflow: Partial">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-09-23T10:31:36.390Z">
+<meta property="og:updated_time" content="2017-09-23T10:34:32.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Layout gets current user in the frontend">
 <meta name="twitter:description" content="I need to change displayName according to current Account.  Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.Find solution in stackflow: Partial">
@@ -177,7 +177,7 @@
 <p>We can get model in _layout directly in this method.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@using LibraryProject.Models</div><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/favicon.ico?v=2"</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>NWPU Library System<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'</span> <span class="attr">name</span>=<span class="string">'viewport'</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- bootstrap 3.0.2 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- font Awesome --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/font-awesome.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
 <p>At the beginning, you should add <code>@using LibraryProject.Models</code>. And you can get context after that.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></div><div class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">    &lt;![endif]--&gt;</span></div><div class="line">    @Scripts.Render("http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js")</div><div class="line">    @Styles.Render("http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css")</div><div class="line"></div><div class="line">    @&#123; </div><div class="line">        User user = (User)CheckLogin.Instance.GetUser();</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Method:<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">	<span class="keyword">User</span> <span class="title">user</span> = (User)CheckLogin.Instance.GetUser();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Method"><a href="#Method" class="headerlink" title="Method:"></a>Method:</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">	<span class="keyword">User</span> <span class="title">user</span> = (User)CheckLogin.Instance.GetUser();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>can get user Entity. And you can judge Authority and Role, etc… It’s excellent!!</p>
 
       
@@ -191,7 +191,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Method"><span class="toc-number">1.</span> <span class="toc-text">Method:</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -319,7 +319,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Method"><span class="toc-number">1.</span> <span class="toc-text">Method:</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -459,11 +459,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
               <li class="article-tag-list-item">
