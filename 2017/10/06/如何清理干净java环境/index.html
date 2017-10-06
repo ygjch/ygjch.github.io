@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Tag: github | YGjch&#39;s Blog</title>
+  <title>如何清理干净java环境 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/tags/github/index.html">
+  <meta name="description" content="介绍很多人在删除JDK时，往往会遇到大麻烦——即使将电脑中所有与JAVA有关 的文件删得一干二净（但通常情况下有些文件你是删不掉的，只有通过改名字的办法才能删掉，当然很多人也是这样做才将它们给删掉的），控制面板上仍然还显示 着JAVA的图标，这时候不论是卸载JDK还是你想安装新版的JDK，都会出现严重错误的警告。   有人想试图用超级兔子 或者是优化大师之类的工具清除注册表中与JAVA有关的信息，">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何清理干净java环境">
+<meta property="og:url" content="http://ygjch.github.io/2017/10/06/如何清理干净java环境/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="介绍很多人在删除JDK时，往往会遇到大麻烦——即使将电脑中所有与JAVA有关 的文件删得一干二净（但通常情况下有些文件你是删不掉的，只有通过改名字的办法才能删掉，当然很多人也是这样做才将它们给删掉的），控制面板上仍然还显示 着JAVA的图标，这时候不论是卸载JDK还是你想安装新版的JDK，都会出现严重错误的警告。   有人想试图用超级兔子 或者是优化大师之类的工具清除注册表中与JAVA有关的信息，">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2017-10-06T03:09:40.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="如何清理干净java环境">
+<meta name="twitter:description" content="介绍很多人在删除JDK时，往往会遇到大麻烦——即使将电脑中所有与JAVA有关 的文件删得一干二净（但通常情况下有些文件你是删不掉的，只有通过改名字的办法才能删掉，当然很多人也是这样做才将它们给删掉的），控制面板上仍然还显示 着JAVA的图标，这时候不论是卸载JDK还是你想安装新版的JDK，都会出现严重错误的警告。   有人想试图用超级兔子 或者是优化大师之类的工具清除注册表中与JAVA有关的信息，">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -149,136 +151,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-如何清理干净java环境" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何清理干净java环境
+    </h1>
+  
+
+        
+        <a href="/2017/10/06/如何清理干净java环境/" class="archive-article-date">
+  	<time datetime="2017-10-06T03:07:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人在删除JDK时，往往会遇到大麻烦——即使将电脑中所有与JAVA有关 的文件删得一干二净（但通常情况下有些文件你是删不掉的，只有通过改名字的办法才能删掉，当然很多人也是这样做才将它们给删掉的），控制面板上仍然还显示 着JAVA的图标，这时候不论是卸载JDK还是你想安装新版的JDK，都会出现严重错误的警告。<br>   有人想试图用超级兔子 或者是优化大师之类的工具清除注册表中与JAVA有关的信息，也有人想自己手动删除它们（不得不说这样做很危险，你有可能使自己的电脑瘫痪），但结果是什 么？——还是出现错误警告，想安装新版的JDK安装不了，想删除旧版的JDK却删不干净，束手无策的人在绞尽脑汁之后，唯一能想到的办法就是重装系统。重 装系统？这个结果谁能接受？<br>   难道除了重装系统就没有别的办法了吗？<br>   办法当然有，既然问题出现在JAVA和操作系统这两个上面，那好，就在他们身上找答案？我们先找JAVA，看看SUN公司给我们的答复是什么？上SUN公司的官网，进入帮助中心，也就是这个网址：<a href="http://java.com/en/download/help/uninstall_java.xml" target="_blank" rel="external">http://java.com/en/download/help/uninstall_java.xml</a><br>   可以看到这里也有人遇到了同样的问题，看来这个问题出现的范围不小。下面是SUN公司给出的解决办法：<br>    If the normal uninstallation process (as mentioned above) fails, then please try Microsoft Windows Installer Cleanup Utility. This tool will ensure that all irrelevant Java Runtime Environment Microsoft Installer (msi) registries are removed. Detailed information and download is available at: Description of the Windows Installer CleanUp Utility<br>   可以看到，它是让我们去Windows的官网去下载一个所谓的Windows安装清理工具，说这个工具可以将注册表中的信息一起清掉，既然SUN公司都这么说了，那我们只好照办了，下载这个工具之后，就使用它卸载掉JAVA，这个时候你就会发现自己的新JDK可以安装了</p>
+<h3 id="建议几点："><a href="#建议几点：" class="headerlink" title="建议几点："></a>建议几点：</h3><p>（1）安装JDK的时候尽量将它装到C盘下，因为这里还有系统提供的一些与JAVA有关的文件<br>（2）要卸载JDK，先用控制面板里的添加/删除程序这个工具，万一删不掉，就使用上面的工具去删。<br>（3）卸载JDK前，先将环境变量中的CLASSPATH删掉，将PATH中与JAVA有关的部分也给去掉。</p>
+<p>原文地址：<a href="http://java-cd.javaeye.com/blog/537557" target="_blank" rel="external">http://java-cd.javaeye.com/blog/537557</a><br>windows 清理工具地址：<a href="http://down.tech.sina.com.cn/page/16877.html" target="_blank" rel="external">http://down.tech.sina.com.cn/page/16877.html</a></p>
+
+      
+
+	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建议几点："><span class="toc-number">2.</span> <span class="toc-text">建议几点：</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/14/hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a/" class="archive-article-date">
-  	<time datetime="2017-08-14T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/14/hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a/"> hexo YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key a</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/06/如何清理干净java环境/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/git-pull new changes/" class="archive-article-date">
-  	<time datetime="2017-08-11T14:50:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/26/认识-CDN/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">认识 CDN</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/git-pull new changes/">GIT Commands --- pull new changes</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建议几点："><span class="toc-number">2.</span> <span class="toc-text">建议几点：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/hexo commands/" class="archive-article-date">
-  	<time datetime="2017-08-11T13:20:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/hexo commands/">Common commands of Hexo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="如何清理干净java环境" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdLJ4RN"; 
+var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
+  
 
 
           </div>
@@ -301,9 +363,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
