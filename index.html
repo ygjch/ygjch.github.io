@@ -151,6 +151,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-富文本编辑器插入图片显示-html-代码问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/">富文本编辑器插入图片显示 html 代码问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/" class="archive-article-date">
+  	<time datetime="2017-10-12T13:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在做图书管理系统的内容管理模块时，使用的是 <strong>ueditor</strong> 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。<br><img ...="">， 类似这样。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">Html</span>.<span class="keyword">DisplayFor</span>(<span class="keyword">model</span>=&gt;<span class="keyword">model</span>.<span class="keyword">Content</span>)</div></pre></td></tr></table></figure></p>
+<p>这样展示的问题是所有的内容均以 html 编码输出展示。</p>
+<p>修改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@(<span class="keyword">new</span> htmlString(<span class="function"><span class="params">model</span>=&gt;</span>model.Content))</div></pre></td></tr></table></figure></p>
+<p>成功将 图片 显示出来~</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-sql-server-错误18456" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -895,90 +977,9 @@
 
 
   
-    <article id="post-asp-net-mvc-Seed-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/21/asp-net-mvc-Seed-init/">asp.net mvc Seed init</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/21/asp-net-mvc-Seed-init/" class="archive-article-date">
-  	<time datetime="2017-09-21T04:34:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When I create Role for Library System project, I need to init seed for User Table. </p>
-<p>After <strong>Enable-migrations</strong>, you will find <strong>configuration.cs</strong> in the folder named <strong>Migrations</strong>. You should init data in this file.</p>
-<p>Code like this:</p>
-<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">protected override void Seed(LibraryProject.DAL.LibraryContext context)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">//  This method will be called after migrating to the latest version.</span></div><div class="line"></div><div class="line">            <span class="comment">//  You can use the DbSet&lt;T&gt;.AddOrUpdate() helper extension method </span></div><div class="line">            <span class="comment">//  to avoid creating duplicate seed data. E.g.</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">//    context.People.AddOrUpdate(</span></div><div class="line">            <span class="comment">//      p =&gt; p.FullName,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Andrew Peters" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Brice Lambson" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Rowan Miller" &#125;</span></div><div class="line">            <span class="comment">//    );</span></div><div class="line">            <span class="comment">//</span></div><div class="line"></div><div class="line">            context.Users.AddOrUpdate(ctx =&gt; ctx.UserName,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"admin"</span>,</div><div class="line">                     Password = <span class="string">"12345678"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"12345678"</span>,</div><div class="line">                     Email = <span class="string">"0000@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1212123123"</span>,</div><div class="line">                     Role = <span class="string">"admin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"libraryadmin"</span>,</div><div class="line">                     Password = <span class="string">"87654321"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"87654321"</span>,</div><div class="line">                     Email = <span class="string">"1111@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1231231"</span>,</div><div class="line">                     Role = <span class="string">"libraryadmin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"student"</span>,</div><div class="line">                     Password = <span class="string">"88888888"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"88888888"</span>,</div><div class="line">                     Email = <span class="string">"888@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"123123"</span>,</div><div class="line">                     Role = <span class="string">"user"</span></div><div class="line">             &#125;</div><div class="line">           );</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/21/asp-net-mvc-Seed-init/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1094,11 +1095,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1106,7 +1107,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,11 +1115,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
