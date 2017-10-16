@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>YGjch&#39;s Blog</title>
+  <title>PIL 生成缩略图 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/page/2/index.html">
+  <meta name="description" content="python 处理图片，生成图片缩略图。 使用Pillow库 12345from PIL import Imageim = Image.open(&apos;touxiang.jpg&apos;)print(im.format, im.size, im.mode)im.thumbnail((200, 100))im.save(&apos;thumb.jpg&apos;, &apos;JPEG&apos;) 生成缩略图thumbnail函数接受一个元组作为参">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PIL 生成缩略图">
+<meta property="og:url" content="http://ygjch.github.io/2017/10/16/PIL-生成缩略图/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="python 处理图片，生成图片缩略图。 使用Pillow库 12345from PIL import Imageim = Image.open(&apos;touxiang.jpg&apos;)print(im.format, im.size, im.mode)im.thumbnail((200, 100))im.save(&apos;thumb.jpg&apos;, &apos;JPEG&apos;) 生成缩略图thumbnail函数接受一个元组作为参">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2017-10-16T12:44:02.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="PIL 生成缩略图">
+<meta name="twitter:description" content="python 处理图片，生成图片缩略图。 使用Pillow库 12345from PIL import Imageim = Image.open(&apos;touxiang.jpg&apos;)print(im.format, im.size, im.mode)im.thumbnail((200, 100))im.save(&apos;thumb.jpg&apos;, &apos;JPEG&apos;) 生成缩略图thumbnail函数接受一个元组作为参">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -149,39 +151,57 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-sql-server-connnect-error-233" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-PIL-生成缩略图" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/24/sql-server-connnect-error-233/">sql server connnect error: 233</a>
+    <h1 class="article-title" itemprop="name">
+      PIL 生成缩略图
     </h1>
   
 
         
-        <a href="/2017/09/24/sql-server-connnect-error-233/" class="archive-article-date">
-  	<time datetime="2017-09-24T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
+        <a href="/2017/10/16/PIL-生成缩略图/" class="archive-article-date">
+  	<time datetime="2017-10-16T12:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>After openning <strong>sql server 2012</strong>, I click the connnecting buttion. However, sql server pop up the error message.</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">error: </span>233 管道另一端无任何进程</div></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><ol>
-<li>Open <strong>Microsoft SQL Server 2008–配置工具–SQL Server 配置管理器</strong></li>
-<li>“SQL Server 2008 网络配置”–”MSSQLSERVER的协议”–启用”TCP/IP”和”Named Pipes”.在启动TCP/IP协议后,还要把其属性中的TCP端口号改为1433(动态端口)或修改为自己想要的端口号.    </li>
-<li>重启”SQL Server”</li>
-</ol>
+        <p>python 处理图片，生成图片缩略图。 使用Pillow库</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from PIL import Image</div><div class="line"><span class="keyword">im</span> = Image.<span class="keyword">open</span>(<span class="string">'touxiang.jpg'</span>)</div><div class="line"><span class="keyword">print</span>(<span class="keyword">im</span>.format, <span class="keyword">im</span>.size, <span class="keyword">im</span>.<span class="keyword">mode</span>)</div><div class="line"><span class="keyword">im</span>.thumbnail((<span class="number">200</span>, <span class="number">100</span>))</div><div class="line"><span class="keyword">im</span>.save(<span class="string">'thumb.jpg'</span>, <span class="string">'JPEG'</span>)</div></pre></td></tr></table></figure>
+<p>生成缩略图<br>thumbnail函数接受一个元组作为参数，分别对应着缩略图的宽高，在缩略时，函数会保持图片的宽高比例。如果输入的参数宽高和原图像宽高比不同，则会依据最小对应边进行原比例缩放。<br>比如:<br>一张图片为300<em>420大小的图片<br>当参数为（200,200）时，生成的缩略图大小为71</em>100，保持原图的宽高比</p>
 
       
 
 	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 	  
@@ -195,7 +215,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -204,16 +224,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/24/sql-server-connnect-error-233/">Expand the Article >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/16/PIL-生成缩略图/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/16/yield-study/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">yield study</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -228,748 +307,39 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Layout-get-current-user-in-the-frontend" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Layout gets current user in the frontend</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Layout-get-current-user-in-the-frontend/" class="archive-article-date">
-  	<time datetime="2017-09-23T10:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>I need to change displayName according to current Account. </p>
-<p>Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.<br>Find solution in stackflow: <strong>Partial View shares data with _layout. In other words, Model is same in Partial View and _layout.</strong></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>We can get model in _layout directly in this method.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@using LibraryProject.Models</div><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/favicon.ico?v=2"</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>NWPU Library System<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'</span> <span class="attr">name</span>=<span class="string">'viewport'</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- bootstrap 3.0.2 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- font Awesome --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/font-awesome.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<p>At the beginning, you should add <code>@using LibraryProject.Models</code>. And you can get context after that.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></div><div class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">    &lt;![endif]--&gt;</span></div><div class="line">    @Scripts.Render("http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js")</div><div class="line">    @Styles.Render("http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css")</div><div class="line"></div><div class="line">    @&#123; </div><div class="line">        User user = (User)CheckLogin.Instance.GetUser();</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Method:<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">	<span class="keyword">User</span> <span class="title">user</span> = (User)CheckLogin.Instance.GetUser();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>can get user Entity. And you can judge Authority and Role, etc… It’s excellent!!</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-asp-net-mvc-Seed-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/21/asp-net-mvc-Seed-init/">asp.net mvc Seed init</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/21/asp-net-mvc-Seed-init/" class="archive-article-date">
-  	<time datetime="2017-09-21T04:34:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When I create Role for Library System project, I need to init seed for User Table. </p>
-<p>After <strong>Enable-migrations</strong>, you will find <strong>configuration.cs</strong> in the folder named <strong>Migrations</strong>. You should init data in this file.</p>
-<p>Code like this:</p>
-<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">protected override void Seed(LibraryProject.DAL.LibraryContext context)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">//  This method will be called after migrating to the latest version.</span></div><div class="line"></div><div class="line">            <span class="comment">//  You can use the DbSet&lt;T&gt;.AddOrUpdate() helper extension method </span></div><div class="line">            <span class="comment">//  to avoid creating duplicate seed data. E.g.</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">//    context.People.AddOrUpdate(</span></div><div class="line">            <span class="comment">//      p =&gt; p.FullName,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Andrew Peters" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Brice Lambson" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Rowan Miller" &#125;</span></div><div class="line">            <span class="comment">//    );</span></div><div class="line">            <span class="comment">//</span></div><div class="line"></div><div class="line">            context.Users.AddOrUpdate(ctx =&gt; ctx.UserName,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"admin"</span>,</div><div class="line">                     Password = <span class="string">"12345678"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"12345678"</span>,</div><div class="line">                     Email = <span class="string">"0000@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1212123123"</span>,</div><div class="line">                     Role = <span class="string">"admin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"libraryadmin"</span>,</div><div class="line">                     Password = <span class="string">"87654321"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"87654321"</span>,</div><div class="line">                     Email = <span class="string">"1111@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1231231"</span>,</div><div class="line">                     Role = <span class="string">"libraryadmin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"student"</span>,</div><div class="line">                     Password = <span class="string">"88888888"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"88888888"</span>,</div><div class="line">                     Email = <span class="string">"888@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"123123"</span>,</div><div class="line">                     Role = <span class="string">"user"</span></div><div class="line">             &#125;</div><div class="line">           );</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/21/asp-net-mvc-Seed-init/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Newton-Json-Serialize-and-Deserialize" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/">Newton.Json Serialize and Deserialize</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/" class="archive-article-date">
-  	<time datetime="2017-09-20T15:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Json and Entity can convert each other by Newton.Json package.</p>
-<h3 id="Entity-to-Json-string"><a href="#Entity-to-Json-string" class="headerlink" title="Entity to Json(string)"></a>Entity to Json(string)</h3><p>JsonConvert.SerializeObject(user);</p>
-<h3 id="Json-string-to-Entity"><a href="#Json-string-to-Entity" class="headerlink" title="Json(string) to Entity"></a>Json(string) to Entity</h3><p>JsonConvert.DeserializeObject<entity>(string);</entity></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-asp-net-mvc-authority" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/20/asp-net-mvc-authority/">asp.net mvc authority</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/20/asp-net-mvc-authority/" class="archive-article-date">
-  	<time datetime="2017-09-20T15:08:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>asp.net mvc Library project needs authority—————————</p>
-<p> 1.Create folder named <strong>Authority</strong>.</p>
-<p> 2.Create class named <strong>CheckLogin.cs</strong></p>
-<pre><code><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class CheckLogin</div><div class="line">&#123;</div><div class="line">	public readonly static CheckLogin<span class="built_in"> Instance </span>= new CheckLogin();</div><div class="line"></div><div class="line">	public bool IsLogin;</div><div class="line"></div><div class="line">	public<span class="built_in"> User </span>GetUser()</div><div class="line">	&#123;</div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			return <span class="literal">null</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);</div><div class="line">			return JsonConvert.DeserializeObject&lt;User&gt;(Ticket.UserData);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 3.Create class named <strong>AuthAttribute.cs</strong>. In this class, we will override the method named <strong>OnActionExecuting()</strong>.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthAttribute</span> : <span class="title">ActionFilterAttribute</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Code &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnActionExecuting</span>(<span class="params">ActionExecutingContext filterContext</span>)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//如果不存在身份信息</span></div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">			Content.Content = <span class="keyword">string</span>.Format(<span class="string">"&lt;script type='text/javascript'&gt;alert('请先登录！');window.location.href='&#123;0&#125;';&lt;/script&gt;"</span>, FormsAuthentication.LoginUrl);</div><div class="line">			filterContext.Result = Content;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="comment">/* var Instance = CheckLogin.Instance;</span></div><div class="line"><span class="comment">			var user = Instance.GetUser();</span></div><div class="line"><span class="comment">			var Roles = user.Role;</span></div><div class="line"><span class="comment">			string[] Role = Roles.Split(','); */</span></div><div class="line">			<span class="keyword">string</span>[] Role = CheckLogin.Instance.GetUser().Role.Split(<span class="string">','</span>);<span class="comment">//获取所有角色</span></div><div class="line">			<span class="keyword">if</span> (!Role.Contains(Code))<span class="comment">//验证权限</span></div><div class="line">			&#123;</div><div class="line">				<span class="comment">//验证不通过</span></div><div class="line">				ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">				Content.Content = <span class="string">"&lt;script type='text/javascript'&gt;alert('权限验证不通过！');history.go(-1);&lt;/script&gt;"</span>;</div><div class="line">				filterContext.Result = Content;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 4.In the <strong>UsersController.cs</strong>, we should create cookie for current user after confirming that whether UserName and Password are valid.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">[<span class="meta">HttpPost</span>]</div><div class="line">	<span class="function"><span class="keyword">public</span> ActionResult <span class="title">Login</span>(<span class="params">[Bind(Include =<span class="string">"UserName,Password"</span></span>)] User user)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">var</span> userObj = unitOfWork.UserRepository.Get()</div><div class="line">			.Where(item =&gt; item.UserName.Equals(user.UserName) == <span class="literal">true</span>)</div><div class="line">			.ToList();</div><div class="line">		<span class="keyword">if</span>(userObj[<span class="number">0</span>] != <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span> (userObj[<span class="number">0</span>].Password.Equals(user.Password) == <span class="literal">true</span>)</div><div class="line">			&#123;</div><div class="line">				CheckLogin.Instance.IsLogin = <span class="literal">true</span>;</div><div class="line">				<span class="comment">// Session 实现</span></div><div class="line"></div><div class="line">				<span class="comment">// 序列化用户实体</span></div><div class="line">				<span class="keyword">string</span> UserData = JsonConvert.SerializeObject(userObj[<span class="number">0</span>]);</div><div class="line"></div><div class="line">				<span class="comment">// 保存身份信息</span></div><div class="line">				FormsAuthenticationTicket Ticket = <span class="keyword">new</span> FormsAuthenticationTicket(<span class="number">1</span>, user.UserName,</div><div class="line">					DateTime.Now, DateTime.Now.AddHours(<span class="number">12</span>), <span class="literal">false</span>, UserData);</div><div class="line"></div><div class="line">				HttpCookie Cookie = <span class="keyword">new</span> HttpCookie(FormsAuthentication.FormsCookieName,</div><div class="line">					FormsAuthentication.Encrypt(Ticket));</div><div class="line"></div><div class="line">				Response.Cookies.Add(Cookie);</div><div class="line"></div><div class="line">				<span class="comment">//return RedirectToAction("Index","Books","Index");</span></div><div class="line">				<span class="keyword">return</span> Redirect(<span class="string">"/Home/Index/"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			ModelState.AddModelError(<span class="string">"UserName"</span>, <span class="string">"No User"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> View(user);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 5.Logout Method<br>     <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注销登录</span></div><div class="line">	<span class="keyword">public</span> ActionResult Logout()</div><div class="line">	&#123;</div><div class="line">		FormsAuthentication.SignOut();</div><div class="line">		<span class="function"><span class="keyword">return</span> <span class="title">Redirect</span><span class="params">(<span class="string">"/Home/Index/"</span>)</span></span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p> 6.Before the method that we want to add authority, we should add <strong>[Auth(Code =”libraryadmin,admin”)]</strong>.</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/20/asp-net-mvc-authority/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-asp-net-mvc-favicon-change" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/19/asp-net-mvc-favicon-change/">asp.net mvc favicon change</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/19/asp-net-mvc-favicon-change/" class="archive-article-date">
-  	<time datetime="2017-09-19T06:38:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.<br>Because browser doesn’t cache favicon.</p>
-<p>Solution: </p>
-<p>In _layout.cshtml, you can change the url of favicon. Like this:</p>
-<pre><code>&lt;link href=&quot;~/favicon.ico?v=2&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;
-</code></pre><p>Reference Link:<br><a href="http://findnerd.com/list/view/How-to-set-favicon-in-Asp-net-mvc/21886/" target="_blank" rel="external">http://findnerd.com/list/view/How-to-set-favicon-in-Asp-net-mvc/21886/</a></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/19/asp-net-mvc-favicon-change/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-asp-net-mvc-connect-sql-server-2012" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/18/asp-net-mvc-connect-sql-server-2012/">asp.net mvc connect to sql server 2012</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/18/asp-net-mvc-connect-sql-server-2012/" class="archive-article-date">
-  	<time datetime="2017-09-18T11:11:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>During developing the Library System, I need to connect to sql server.</p>
-<p>It needs to use <strong><connectstring></connectstring></strong>, like this:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">"LibraryContext"</span> <span class="attr">connectionString</span>=<span class="string">"Data Source=.;database=MvcDemo;uid=sa;pwd=123456;AttachDBFilename=|DataDirectory|\Library.mdf;"</span> <span class="attr">providerName</span>=<span class="string">"System.Data.SqlClient"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/18/asp-net-mvc-connect-sql-server-2012/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-asp-net-mvc-Datatable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/17/asp-net-mvc-Datatable/">asp.net mvc Datatable</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/17/asp-net-mvc-Datatable/" class="archive-article-date">
-  	<time datetime="2017-09-17T15:58:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Bug Information: </p>
-<p>When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table.</p>
-<p>I introduced the script and css, but it didn’t work.</p>
-<p>Finally, I found the solutions:<br>    <strong>Jquery.js must be introduced before datatable.js</strong>, and you should look that whether <strong>jquery was introduced twice in _layout.cshtml and “view”.cshtml</strong>.</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/17/asp-net-mvc-Datatable/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-string-validate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/C-string-validate/">C# string validate</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/24/C-string-validate/" class="archive-article-date">
-  	<time datetime="2017-08-24T11:29:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System;</div><div class="line"><span class="keyword">using</span> System.Text.RegularExpressions;</div><div class="line"><span class="keyword">namespace</span> <span class="title">MetarCommonSupport</span></div><div class="line">&#123;</div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">    <span class="comment"><span class="doctag">///</span> 通过Framwork类库中的Regex类实现了一些特殊功能数据检查</span></div><div class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MetarnetRegex</span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> MetarnetRegex instance = <span class="literal">null</span>;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MetarnetRegex <span class="title">GetInstance</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">if</span> (MetarnetRegex.instance == <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                MetarnetRegex.instance = <span class="keyword">new</span> MetarnetRegex();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> MetarnetRegex.instance;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="title">MetarnetRegex</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串只包含汉字</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsChineseCh</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^[\u4e00-\u9fa5]+$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 匹配3位或4位区号的电话号码，其中区号可以用小括号括起来，</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 也可以不用，区号与本地号间可以用连字号或空格间隔，</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 也可以没有间隔</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> \(0\d&#123;2&#125;\)[- ]?\d&#123;8&#125;|0\d&#123;2&#125;[- ]?\d&#123;8&#125;|\(0\d&#123;3&#125;\)[- ]?\d&#123;7&#125;|0\d&#123;3&#125;[- ]?\d&#123;7&#125;</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsPhone</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">"^\\(0\\d&#123;2&#125;\\)[- ]?\\d&#123;8&#125;$|^0\\d&#123;2&#125;[- ]?\\d&#123;8&#125;$|^\\(0\\d&#123;3&#125;\\)[- ]?\\d&#123;7&#125;$|^0\\d&#123;3&#125;[- ]?\\d&#123;7&#125;$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是一个合法的手机号</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsMobilePhone</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^13\\d&#123;9&#125;$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串只包含数字</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 可以匹配整数和浮点数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> ^-?\d+$|^(-?\d+)(\.\d+)?$</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsNumber</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">"^-?\\d+$|^(-?\\d+)(\\.\\d+)?$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 匹配非负整数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsNotNagtive</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">@"^\d+$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 匹配正整数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsUint</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^[0-9]*[1-9][0-9]*$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串字包含英文字母</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsEnglisCh</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">"^[A-Za-z]+$"</span>);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是一个合法的Email地址</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsEmail</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">@"^([\w-\.]+)@((\[[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.[0-9]&#123;1,3&#125;\.)|(([\w-]+\.)+))([a-zA-Z]&#123;2,4&#125;|[0-9]&#123;1,3&#125;)(\]?)$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否只包含数字和英文字母</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsNumAndEnCh</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">@"^[A-Za-z0-9]+$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是一个超链接</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsURL</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="comment">//string pattern = @"http://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?";</span></div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">@"^[a-zA-Z]+://(\w+(-\w+)*)(\.(\w+(-\w+)*))*(\?\S*)?$"</span>;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是表示一个IP地址</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>被比较的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>是IP地址则为True<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsIPv4</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line"></div><div class="line">            <span class="keyword">string</span>[] IPs = input.Split(<span class="string">'.'</span>);</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(<span class="string">@"^\d+$"</span>);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; IPs.Length; i++)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span> (!regex.IsMatch(IPs[i]))</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (Convert.ToUInt16(IPs[i]) &gt; <span class="number">255</span>)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 计算字符串的字符长度，一个汉字字符将被计算为两个字符</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>需要计算的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>返回字符串的长度<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">GetCount</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">return</span> Regex.Replace(input, <span class="string">@"[\u4e00-\u9fa5/g]"</span>, <span class="string">"aa"</span>).Length;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 调用Regex中IsMatch函数实现一般的正则表达式匹配</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="pattern"&gt;</span>要匹配的正则表达式模式。<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>要搜索匹配项的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>如果正则表达式找到匹配项，则为 true；否则，为 false。<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsMatch</span>(<span class="params"><span class="keyword">string</span> pattern, <span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 从输入字符串中的第一个字符开始，用替换字符串替换指定的正则表达式模式的所有匹配项。</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="pattern"&gt;</span>模式字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>输入字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="replacement"&gt;</span>用于替换的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>返回被替换后的结果<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">Replace</span>(<span class="params"><span class="keyword">string</span> pattern, <span class="keyword">string</span> input, <span class="keyword">string</span> replacement</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.Replace(input, replacement);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 在由正则表达式模式定义的位置拆分输入字符串。</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="pattern"&gt;</span>模式字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>输入字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span>[] <span class="title">Split</span>(<span class="params"><span class="keyword">string</span> pattern, <span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">            <span class="keyword">return</span> regex.Split(input);</div><div class="line">        &#125;</div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断输入的字符串是否是合法的IPV6 地址</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">IsIPV6</span>(<span class="params"><span class="keyword">string</span> input</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">string</span> pattern = <span class="string">""</span>;</div><div class="line">            <span class="keyword">string</span> temp = input;</div><div class="line">            <span class="keyword">string</span>[] strs = temp.Split(<span class="string">':'</span>);</div><div class="line">            <span class="keyword">if</span> (strs.Length &gt; <span class="number">8</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> count = MetarnetRegex.GetStringCount(input, <span class="string">"::"</span>);</div><div class="line">            <span class="keyword">if</span> (count &gt; <span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (count == <span class="number">0</span>)</div><div class="line">            &#123;</div><div class="line">                pattern = <span class="string">@"^([\da-f]&#123;1,4&#125;:)&#123;7&#125;[\da-f]&#123;1,4&#125;$"</span>;</div><div class="line"></div><div class="line">                Regex regex = <span class="keyword">new</span> Regex(pattern);</div><div class="line">                <span class="keyword">return</span> regex.IsMatch(input);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                pattern = <span class="string">@"^([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;::([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;[\da-f]&#123;1,4&#125;$"</span>;</div><div class="line">                Regex regex1 = <span class="keyword">new</span> Regex(pattern);</div><div class="line">                <span class="keyword">return</span> regex1.IsMatch(input);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="comment">/* *******************************************************************</span></div><div class="line"><span class="comment">        * 1、通过“:”来分割字符串看得到的字符串数组长度是否小于等于8</span></div><div class="line"><span class="comment">        * 2、判断输入的IPV6字符串中是否有“::”。</span></div><div class="line"><span class="comment">        * 3、如果没有“::”采用 ^([\da-f]&#123;1,4&#125;:)&#123;7&#125;[\da-f]&#123;1,4&#125;$ 来判断</span></div><div class="line"><span class="comment">        * 4、如果有“::” ，判断"::"是否止出现一次</span></div><div class="line"><span class="comment">        * 5、如果出现一次以上 返回false</span></div><div class="line"><span class="comment">        * 6、^([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;::([\da-f]&#123;1,4&#125;:)&#123;0,5&#125;[\da-f]&#123;1,4&#125;$</span></div><div class="line"><span class="comment">        * ******************************************************************/</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> 判断字符串compare 在 input字符串中出现的次数</span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="input"&gt;</span>源字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="compare"&gt;</span>用于比较的字符串<span class="doctag">&lt;/param&gt;</span></span></div><div class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span>字符串compare 在 input字符串中出现的次数<span class="doctag">&lt;/returns&gt;</span></span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">GetStringCount</span>(<span class="params"><span class="keyword">string</span> input, <span class="keyword">string</span> compare</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">int</span> index = input.IndexOf(compare);</div><div class="line">            <span class="keyword">if</span> (index != <span class="number">-1</span>)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span> + GetStringCount(input.Substring(index + compare.Length), compare);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/24/C-string-validate/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-router-link-bind-the-id" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/17/router-link-bind-the-id/">router-link bind the id</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/17/router-link-bind-the-id/" class="archive-article-date">
-  	<time datetime="2017-08-17T06:14:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Link"><a href="#Link" class="headerlink" title="Link:"></a>Link:</h3><p><a href="https://segmentfault.com/q/1010000009749320" target="_blank" rel="external">https://segmentfault.com/q/1010000009749320</a><br><a href="https://segmentfault.com/q/1010000007621328?_ea=1402047" target="_blank" rel="external">https://segmentfault.com/q/1010000007621328?_ea=1402047</a><br><a href="http://blog.csdn.net/sangjinchao/article/details/70888259" target="_blank" rel="external">http://blog.csdn.net/sangjinchao/article/details/70888259</a></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/17/router-link-bind-the-id/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="PIL-生成缩略图" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdLJ4RN"; 
+var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
   
 
 
@@ -992,8 +362,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
