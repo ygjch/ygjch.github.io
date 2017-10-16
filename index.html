@@ -151,6 +151,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yield-study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/16/yield-study/">yield study</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/16/yield-study/" class="archive-article-date">
+  	<time datetime="2017-10-16T05:12:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="廖雪峰网站python学习笔记"><a href="#廖雪峰网站python学习笔记" class="headerlink" title="廖雪峰网站python学习笔记"></a>廖雪峰网站python学习笔记</h2><h3 id="generator-介绍-（"><a href="#generator-介绍-（" class="headerlink" title="generator 介绍 （"></a>generator 介绍 （</h3><pre><code>通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
+而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面
+几个元素，那后面绝大多数元素占用的空间都白白浪费了。
+
+如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必
+创建完整的list，从而节省大量的空间。
+
+**在 python 中一边循环一边计算的机制称为 生成器 generator**
+
+#### 创建 generator 的方法
+1. 把列表生成式的 [] 改成 () 
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; L = [x * x for x in range(<span class="number">10</span>)]</div><div class="line">&gt;&gt;&gt; L</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>]</div><div class="line">&gt;&gt;&gt; g = (x * x for x in range(<span class="number">10</span>))</div><div class="line">&gt;&gt;&gt; g</div><div class="line">&lt;generator object &lt;genexpr&gt; at <span class="number">0x1022ef630</span>&gt;</div></pre></td></tr></table></figure>
+
+
+如果要打印list每一个元素， 可以通过 **next(g)** 获得 generator 的下一个返回值。
+</code></pre><h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><pre><code>generator 和函数的执行流程不一样，函数是顺序执行的，或者遇到return就返回。变成generator函数，每次调用next()
+的时候执行，遇到 **yield** 语句返回，再次执行时从上次返回的 yield 语句处继续执行。
+
+例如：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">odd</span><span class="params">()</span>:</span></div><div class="line">	print(<span class="string">'step1'</span>)</div><div class="line">	<span class="keyword">yield</span> <span class="number">1</span></div><div class="line">	print(<span class="string">'step2'</span>)</div><div class="line">	<span class="keyword">yield</span>(<span class="number">3</span>)</div><div class="line">	print(<span class="string">'step3'</span>)</div><div class="line">	<span class="keyword">yield</span>(<span class="number">5</span>)</div></pre></td></tr></table></figure>
+
+
+把函数改成 generator 后， 我们基本不用 next() 来获取下一个返回值， 而是直接使用 for 循环来迭代。
+
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">fib</span>(<span class="number">6</span>):</div><div class="line">	<span class="built_in">print</span>(n)</div></pre></td></tr></table></figure>
+
+
+但是用 for 循环调用 generator 时，发现拿不到 return 语句的返回值。如果想要拿到返回值，必须捕获StopIteration
+错误，返回值包含在StopIteration的value中
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">g = fib(<span class="number">6</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">	<span class="keyword">try</span>:</div><div class="line">		x = next(g)</div><div class="line">		print(<span class="string">'g:'</span>, x)</div><div class="line">	<span class="keyword">except</span> StopIteration <span class="keyword">as</span> s:</div><div class="line">		print(<span class="string">'Generator return value:'</span>, e.value)</div><div class="line">		<span class="keyword">break</span></div></pre></td></tr></table></figure>
+</code></pre>
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/16/yield-study/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-富文本编辑器插入图片显示-html-代码问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -893,90 +1001,6 @@
 
 
   
-    <article id="post-Layout-get-current-user-in-the-frontend" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Layout gets current user in the frontend</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Layout-get-current-user-in-the-frontend/" class="archive-article-date">
-  	<time datetime="2017-09-23T10:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>I need to change displayName according to current Account. </p>
-<p>Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.<br>Find solution in stackflow: <strong>Partial View shares data with _layout. In other words, Model is same in Partial View and _layout.</strong></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>We can get model in _layout directly in this method.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@using LibraryProject.Models</div><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/favicon.ico?v=2"</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>NWPU Library System<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'</span> <span class="attr">name</span>=<span class="string">'viewport'</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- bootstrap 3.0.2 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- font Awesome --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/font-awesome.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<p>At the beginning, you should add <code>@using LibraryProject.Models</code>. And you can get context after that.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></div><div class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">    &lt;![endif]--&gt;</span></div><div class="line">    @Scripts.Render("http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js")</div><div class="line">    @Styles.Render("http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css")</div><div class="line"></div><div class="line">    @&#123; </div><div class="line">        User user = (User)CheckLogin.Instance.GetUser();</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Method:<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">	<span class="keyword">User</span> <span class="title">user</span> = (User)CheckLogin.Instance.GetUser();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>can get user Entity. And you can judge Authority and Role, etc… It’s excellent!!</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1120,6 +1144,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">

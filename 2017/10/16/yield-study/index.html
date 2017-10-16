@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Tag: Net | YGjch&#39;s Blog</title>
+  <title>yield study | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/tags/Net/index.html">
+  <meta name="description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面 几个元素，那后面绝大多数元素占用的空间都白白浪费了。  如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必 创建完整的list，">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yield study">
+<meta property="og:url" content="http://ygjch.github.io/2017/10/16/yield-study/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面 几个元素，那后面绝大多数元素占用的空间都白白浪费了。  如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必 创建完整的list，">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2017-10-16T05:31:57.365Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="yield study">
+<meta name="twitter:description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。 而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面 几个元素，那后面绝大多数元素占用的空间都白白浪费了。  如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必 创建完整的list，">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -149,60 +151,224 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-yield-study" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/26/认识-CDN/" class="archive-article-date">
-  	<time datetime="2017-09-26T04:49:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/26/认识-CDN/">认识 CDN</a>
+    <h1 class="article-title" itemprop="name">
+      yield study
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/10/16/yield-study/" class="archive-article-date">
+  	<time datetime="2017-10-16T05:12:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="廖雪峰网站python学习笔记"><a href="#廖雪峰网站python学习笔记" class="headerlink" title="廖雪峰网站python学习笔记"></a>廖雪峰网站python学习笔记</h2><h3 id="generator-介绍-（"><a href="#generator-介绍-（" class="headerlink" title="generator 介绍 （"></a>generator 介绍 （</h3><pre><code>通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
+而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面
+几个元素，那后面绝大多数元素占用的空间都白白浪费了。
+
+如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必
+创建完整的list，从而节省大量的空间。
+
+**在 python 中一边循环一边计算的机制称为 生成器 generator**
+
+#### 创建 generator 的方法
+1. 把列表生成式的 [] 改成 () 
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; L = [x * x for x in range(<span class="number">10</span>)]</div><div class="line">&gt;&gt;&gt; L</div><div class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>]</div><div class="line">&gt;&gt;&gt; g = (x * x for x in range(<span class="number">10</span>))</div><div class="line">&gt;&gt;&gt; g</div><div class="line">&lt;generator object &lt;genexpr&gt; at <span class="number">0x1022ef630</span>&gt;</div></pre></td></tr></table></figure>
+
+
+如果要打印list每一个元素， 可以通过 **next(g)** 获得 generator 的下一个返回值。
+</code></pre><h3 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h3><pre><code>generator 和函数的执行流程不一样，函数是顺序执行的，或者遇到return就返回。变成generator函数，每次调用next()
+的时候执行，遇到 **yield** 语句返回，再次执行时从上次返回的 yield 语句处继续执行。
+
+例如：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">odd</span><span class="params">()</span>:</span></div><div class="line">	print(<span class="string">'step1'</span>)</div><div class="line">	<span class="keyword">yield</span> <span class="number">1</span></div><div class="line">	print(<span class="string">'step2'</span>)</div><div class="line">	<span class="keyword">yield</span>(<span class="number">3</span>)</div><div class="line">	print(<span class="string">'step3'</span>)</div><div class="line">	<span class="keyword">yield</span>(<span class="number">5</span>)</div></pre></td></tr></table></figure>
+
+
+把函数改成 generator 后， 我们基本不用 next() 来获取下一个返回值， 而是直接使用 for 循环来迭代。
+
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">fib</span>(<span class="number">6</span>):</div><div class="line">	<span class="built_in">print</span>(n)</div></pre></td></tr></table></figure>
+
+
+但是用 for 循环调用 generator 时，发现拿不到 return 语句的返回值。如果想要拿到返回值，必须捕获StopIteration
+错误，返回值包含在StopIteration的value中
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">g = fib(<span class="number">6</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">	<span class="keyword">try</span>:</div><div class="line">		x = next(g)</div><div class="line">		print(<span class="string">'g:'</span>, x)</div><div class="line">	<span class="keyword">except</span> StopIteration <span class="keyword">as</span> s:</div><div class="line">		print(<span class="string">'Generator return value:'</span>, e.value)</div><div class="line">		<span class="keyword">break</span></div></pre></td></tr></table></figure>
+</code></pre>
+      
+
+	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#廖雪峰网站python学习笔记"><span class="toc-number">1.</span> <span class="toc-text">廖雪峰网站python学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#generator-介绍-（"><span class="toc-number">1.1.</span> <span class="toc-text">generator 介绍 （</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield"><span class="toc-number">1.2.</span> <span class="toc-text">yield</span></a></li></ol></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Net</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/16/yield-study/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">富文本编辑器插入图片显示 html 代码问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#廖雪峰网站python学习笔记"><span class="toc-number">1.</span> <span class="toc-text">廖雪峰网站python学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#generator-介绍-（"><span class="toc-number">1.1.</span> <span class="toc-text">generator 介绍 （</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yield"><span class="toc-number">1.2.</span> <span class="toc-text">yield</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="yield-study" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdLJ4RN"; 
+var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
+  
 
 
           </div>
@@ -225,9 +391,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
