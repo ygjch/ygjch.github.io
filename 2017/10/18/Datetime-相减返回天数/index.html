@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>YGjch&#39;s Blog</title>
+  <title>Datetime 相减返回天数 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/page/2/index.html">
+  <meta name="description" content="根据两个 Datetime 类型的日期，求的两个日期间隔的天数。 12345// 已知获得了两个日期 dt1, dt2var tmp = dt1 - dt2; // System.TimeSpan 类型var days = tmp.Days; // Days 为间隔的天数">
+<meta name="keywords" content="asp.net mvc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Datetime 相减返回天数">
+<meta property="og:url" content="http://ygjch.github.io/2017/10/18/Datetime-相减返回天数/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="根据两个 Datetime 类型的日期，求的两个日期间隔的天数。 12345// 已知获得了两个日期 dt1, dt2var tmp = dt1 - dt2; // System.TimeSpan 类型var days = tmp.Days; // Days 为间隔的天数">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2017-10-18T03:59:23.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="Datetime 相减返回天数">
+<meta name="twitter:description" content="根据两个 Datetime 类型的日期，求的两个日期间隔的天数。 12345// 已知获得了两个日期 dt1, dt2var tmp = dt1 - dt2; // System.TimeSpan 类型var days = tmp.Days; // Days 为间隔的天数">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -149,612 +151,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Palindrome-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Datetime-相减返回天数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/Palindrome-Number/">Palindrome Number</a>
+    <h1 class="article-title" itemprop="name">
+      Datetime 相减返回天数
     </h1>
   
 
         
-        <a href="/2017/10/10/Palindrome-Number/" class="archive-article-date">
-  	<time datetime="2017-10-10T14:00:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+        <a href="/2017/10/18/Datetime-相减返回天数/" class="archive-article-date">
+  	<time datetime="2017-10-18T03:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="https://leetcode.com/problems/palindrome-number/" target="_blank" rel="external">https://leetcode.com/problems/palindrome-number/</a></p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>判断 整数 是否为 回文数<br>首先明确<br>1.负数不是回文数<br>2.0~9 均为回文数<br>3.能整除10且不为0的数均不是回文数<br>4.通过 Reverse Integer 将整数反转，和原数进行比较，如果相等则为回文数，否则不是。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;x&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x%<span class="number">10</span>==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> p=x;</div><div class="line">            <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span>(x)&#123;</div><div class="line">                res=res*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">                x/=<span class="number">10</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(p==res)<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+        <p>根据两个 Datetime 类型的日期，求的两个日期间隔的天数。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 已知获得了两个日期 dt1, dt2</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> tmp = dt1 - dt2; <span class="comment">// System.TimeSpan 类型</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> days = tmp.Days; <span class="comment">// Days 为间隔的天数</span></div></pre></td></tr></table></figure>
 
       
 
 	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/Palindrome-Number/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Reverse-Integer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/Reverse-Integer/">Reverse Integer</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/Reverse-Integer/" class="archive-article-date">
-  	<time datetime="2017-10-10T14:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="https://leetcode.com/problems/reverse-integer/description/" target="_blank" rel="external">https://leetcode.com/problems/reverse-integer/description/</a></p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>整数反转， 将123-》321， -123-》-321<br><strong>注意题中判断反转后的数是否超出 int 大小，通过 INT_MAX 和 INT_MIN 比较来判断是否越界。</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">		<span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(x) &#123;</div><div class="line">           res = x%<span class="number">10</span> + res*<span class="number">10</span>;</div><div class="line">            x/=<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (res&lt;INT_MIN||res&gt;INT_MAX)?<span class="number">0</span>:res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/Reverse-Integer/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Eclipse-Customize-Perspective-无反应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/06/Eclipse-Customize-Perspective-无反应/">Eclipse Customize Perspective 无反应</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/06/Eclipse-Customize-Perspective-无反应/" class="archive-article-date">
-  	<time datetime="2017-10-06T12:37:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在解决工具栏无法显示 Eclemma 插件的问题，在另一篇文章中的解决方案是在 customize perspective 中勾选上 Eclemma。<br>但是点击 <strong>Customize Perspective</strong> 没有响应。</p>
-<p>在网上搜索到两个方案解决了此问题。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>官网查了下，解释如下：</p>
-<p>附上链接<a href="https://www.myeclipseide.com/PNphpBB2-viewtopic-t-30151.html，大概意思是按如下图所示步骤更新即可。读者可以试试官网给出的方法，如果可以打开Customize" target="_blank" rel="external">https://www.myeclipseide.com/PNphpBB2-viewtopic-t-30151.html，大概意思是按如下图所示步骤更新即可。读者可以试试官网给出的方法，如果可以打开Customize</a> Perspective,就没有必要看下去了。</p>
-<p>但是Lz人品不好，出现了下图情况。</p>
-<p>没有可用更新。。。。。没办法了。。。在网上查了半天一无所获，就在Lz要放弃之时，在CSDN上找到了解决办法。链接：<a href="http://download.csdn.net/detail/miragepp/711238" target="_blank" rel="external">http://download.csdn.net/detail/miragepp/711238</a> </p>
-<p>解决方法如下：<br>myeclipse 2014中customize persperctive设置无效，导致无法调整工具栏按钮，能联网的朋友可以通过自动更新解决，此工具提供给内网环境无法自动更新的朋友</p>
-<p>1、将9个jar复制到myeclipse安装目录\plugins中<br>2、删除和这9个jar同包名但是版本号较低的9个文件<br>3、重启myeclipse 2014</p>
-<p>CSDN下载需要积分，链接 <a href="http://pan.baidu.com/s/1sjN3Lwh" target="_blank" rel="external">http://pan.baidu.com/s/1sjN3Lwh</a></p>
-<h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4><p>经过了方案一发现并没有解决问题，使用方案二。<br>把 <strong>workplace</strong> 目录下的 <strong>.metadata</strong> 文件夹删掉（<code>D:\Workspace\.metadata</code>）。重启 Eclipse，重新定向此工作空间，解决~</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/06/Eclipse-Customize-Perspective-无反应/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Eclipse-工具栏无法加载出下载好的插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/">Eclipse 工具栏无法加载出下载好的插件</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/" class="archive-article-date">
-  	<time datetime="2017-10-06T12:34:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>软件测试中有一个可以查看覆盖率的插件<strong>Eclemma</strong>，下载完之后在Eclipse的工具栏中发现并没有显示这个插件。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p><code>Eclipse -&gt; window -&gt; Customize Perspective</code>， 勾选上 <strong>Eclemma</strong>。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-如何清理干净java环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/06/如何清理干净java环境/">如何清理干净java环境</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/06/如何清理干净java环境/" class="archive-article-date">
-  	<time datetime="2017-10-06T03:07:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人在删除JDK时，往往会遇到大麻烦——即使将电脑中所有与JAVA有关 的文件删得一干二净（但通常情况下有些文件你是删不掉的，只有通过改名字的办法才能删掉，当然很多人也是这样做才将它们给删掉的），控制面板上仍然还显示 着JAVA的图标，这时候不论是卸载JDK还是你想安装新版的JDK，都会出现严重错误的警告。<br>   有人想试图用超级兔子 或者是优化大师之类的工具清除注册表中与JAVA有关的信息，也有人想自己手动删除它们（不得不说这样做很危险，你有可能使自己的电脑瘫痪），但结果是什 么？——还是出现错误警告，想安装新版的JDK安装不了，想删除旧版的JDK却删不干净，束手无策的人在绞尽脑汁之后，唯一能想到的办法就是重装系统。重 装系统？这个结果谁能接受？<br>   难道除了重装系统就没有别的办法了吗？<br>   办法当然有，既然问题出现在JAVA和操作系统这两个上面，那好，就在他们身上找答案？我们先找JAVA，看看SUN公司给我们的答复是什么？上SUN公司的官网，进入帮助中心，也就是这个网址：<a href="http://java.com/en/download/help/uninstall_java.xml" target="_blank" rel="external">http://java.com/en/download/help/uninstall_java.xml</a><br>   可以看到这里也有人遇到了同样的问题，看来这个问题出现的范围不小。下面是SUN公司给出的解决办法：<br>    If the normal uninstallation process (as mentioned above) fails, then please try Microsoft Windows Installer Cleanup Utility. This tool will ensure that all irrelevant Java Runtime Environment Microsoft Installer (msi) registries are removed. Detailed information and download is available at: Description of the Windows Installer CleanUp Utility<br>   可以看到，它是让我们去Windows的官网去下载一个所谓的Windows安装清理工具，说这个工具可以将注册表中的信息一起清掉，既然SUN公司都这么说了，那我们只好照办了，下载这个工具之后，就使用它卸载掉JAVA，这个时候你就会发现自己的新JDK可以安装了</p>
-<h3 id="建议几点："><a href="#建议几点：" class="headerlink" title="建议几点："></a>建议几点：</h3><p>（1）安装JDK的时候尽量将它装到C盘下，因为这里还有系统提供的一些与JAVA有关的文件<br>（2）要卸载JDK，先用控制面板里的添加/删除程序这个工具，万一删不掉，就使用上面的工具去删。<br>（3）卸载JDK前，先将环境变量中的CLASSPATH删掉，将PATH中与JAVA有关的部分也给去掉。</p>
-<p>原文地址：<a href="http://java-cd.javaeye.com/blog/537557" target="_blank" rel="external">http://java-cd.javaeye.com/blog/537557</a><br>windows 清理工具地址：<a href="http://down.tech.sina.com.cn/page/16877.html" target="_blank" rel="external">http://down.tech.sina.com.cn/page/16877.html</a></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/06/如何清理干净java环境/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-认识-CDN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/26/认识-CDN/">认识 CDN</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/26/认识-CDN/" class="archive-article-date">
-  	<time datetime="2017-09-26T04:49:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="初识-CDN"><a href="#初识-CDN" class="headerlink" title="初识 CDN"></a>初识 CDN</h3><p>CDN的全称是Content Delivery Network，即内容分发网络。其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，<br>使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据<br>网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户<br>可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度。</p>
-<h3 id="简介及原理"><a href="#简介及原理" class="headerlink" title="简介及原理"></a>简介及原理</h3><p>CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。<br>CDN的基本原理是广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求。</p>
-<h3 id="服务模式"><a href="#服务模式" class="headerlink" title="服务模式"></a>服务模式</h3><p>内容分发网络(CDN)是一种新型网络构建方式，它是为能在传统的IP网发布宽带丰富媒体而特别优化的网络覆盖层；而从广义的角度，CDN代表了一种基于质量与秩序的网络服务模式。<br>简单地说，内容分发网络(CDN)是一个经策略性部署的整体系统，包括分布式存储、负载均衡、网络请求的重定向和内容管理4个要件，而内容管理和全局的网络流量管理(Traffic Management)是CDN的核心所在。通过用户就近性和服务器负载的判断，CDN确保内容以一种极为高效的方式为用户的请求提供服务。<br>总的来说，内容服务基于缓存服务器，也称作代理缓存(Surrogate)，它位于网络的边缘，距用户仅有”一跳”(Single Hop)之遥。同时，代理缓存是内容提供商源服务器（通常位于CDN服务提供商的数据中心）的一个透明镜像。这样的架构使得CDN服务提供商能够代表他们客户，即内容供应商，向最终用户提供尽可能好的体验，而这些用户是不能容忍请求响应时间有任何延迟的。</p>
-<h3 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h3><p>（1）内容发布：它借助于建立索引、缓存、流分裂、组播（Multicast）等技术，将内容发布或投递到距离用户最近的远程服务点（POP）处；<br>（2）内容路由：它是整体性的网络负载均衡技术，通过内容路由器中的重定向（DNS）机制，在多个远程POP上均衡用户的请求，以使用户请求得到最近内容源的响应；<br>（3）内容交换：它根据内容的可用性、服务器的可用性以及用户的背景，在POP的缓存服务器上，利用应用层交换、流分裂、重定向（ICP、WCCP）等技术，智能地平衡负载流量；<br>（4）性能管理：它通过内部和外部监控系统，获取网络部件的状况信息，测量内容发布的端到端性能（如包丢失、延时、平均带宽、启动时间、帧速率等），保证网络处于最佳的运行状态。</p>
-<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><p>1、本地Cache加速 提高了企业站点(尤其含有大量图片和静态页面站点)的访问速度，并大大提高以上性质站点的稳定性<br>2、镜像服务 消除了不同运营商之间互联的瓶颈造成的影响，实现了跨运营商的网络加速，保证不同网络中的用户都能得到良好的访问质量。<br>3、远程加速 远程访问用户根据DNS负载均衡技术智能自动选择Cache服务器，选择最快的Cache服务器，加快远程访问的速度<br>4、带宽优化 自动生成服务器的远程Mirror（镜像）cache服务器，远程用户访问时从cache服务器上读取数据，减少远程访问的带宽、分担网络流量、减轻原站点WEB服务器负载等功能。<br>5、集群抗攻击 广泛分布的CDN节点加上节点之间的智能冗余机制，可以有效地预防黑客入侵以及降低各种D.D.o.S攻击对网站的影响，同时保证较好的服务质量 。</p>
-<p><strong>摘自百度百科，用于收集及之后的深入学习</strong></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Net</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/26/认识-CDN/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sql-server-connnect-error-233" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/24/sql-server-connnect-error-233/">sql server connnect error: 233</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/24/sql-server-connnect-error-233/" class="archive-article-date">
-  	<time datetime="2017-09-24T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>After openning <strong>sql server 2012</strong>, I click the connnecting buttion. However, sql server pop up the error message.</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">error: </span>233 管道另一端无任何进程</div></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><ol>
-<li>Open <strong>Microsoft SQL Server 2008–配置工具–SQL Server 配置管理器</strong></li>
-<li>“SQL Server 2008 网络配置”–”MSSQLSERVER的协议”–启用”TCP/IP”和”Named Pipes”.在启动TCP/IP协议后,还要把其属性中的TCP端口号改为1433(动态端口)或修改为自己想要的端口号.    </li>
-<li>重启”SQL Server”</li>
-</ol>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/24/sql-server-connnect-error-233/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Layout-get-current-user-in-the-frontend" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Layout gets current user in the frontend</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Layout-get-current-user-in-the-frontend/" class="archive-article-date">
-  	<time datetime="2017-09-23T10:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>I need to change displayName according to current Account. </p>
-<p>Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.<br>Find solution in stackflow: <strong>Partial View shares data with _layout. In other words, Model is same in Partial View and _layout.</strong></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>We can get model in _layout directly in this method.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@using LibraryProject.Models</div><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/favicon.ico?v=2"</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>NWPU Library System<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'</span> <span class="attr">name</span>=<span class="string">'viewport'</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- bootstrap 3.0.2 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- font Awesome --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/font-awesome.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<p>At the beginning, you should add <code>@using LibraryProject.Models</code>. And you can get context after that.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></div><div class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">    &lt;![endif]--&gt;</span></div><div class="line">    @Scripts.Render("http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js")</div><div class="line">    @Styles.Render("http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css")</div><div class="line"></div><div class="line">    @&#123; </div><div class="line">        User user = (User)CheckLogin.Instance.GetUser();</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Method:<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">	<span class="keyword">User</span> <span class="title">user</span> = (User)CheckLogin.Instance.GetUser();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>can get user Entity. And you can judge Authority and Role, etc… It’s excellent!!</p>
-
-      
-
-	  <!-- 目录内容 -->
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 	  
@@ -777,16 +223,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Expand the Article >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/18/Datetime-相减返回天数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/10/18/Datetime2-转换-datetime-类型出错/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Datetime2 转换 datetime 类型出错
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/17/豆瓣api-调用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">豆瓣api 调用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -801,178 +315,39 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-asp-net-mvc-Seed-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/21/asp-net-mvc-Seed-init/">asp.net mvc Seed init</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/21/asp-net-mvc-Seed-init/" class="archive-article-date">
-  	<time datetime="2017-09-21T04:34:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When I create Role for Library System project, I need to init seed for User Table. </p>
-<p>After <strong>Enable-migrations</strong>, you will find <strong>configuration.cs</strong> in the folder named <strong>Migrations</strong>. You should init data in this file.</p>
-<p>Code like this:</p>
-<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">protected override void Seed(LibraryProject.DAL.LibraryContext context)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">//  This method will be called after migrating to the latest version.</span></div><div class="line"></div><div class="line">            <span class="comment">//  You can use the DbSet&lt;T&gt;.AddOrUpdate() helper extension method </span></div><div class="line">            <span class="comment">//  to avoid creating duplicate seed data. E.g.</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">//    context.People.AddOrUpdate(</span></div><div class="line">            <span class="comment">//      p =&gt; p.FullName,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Andrew Peters" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Brice Lambson" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Rowan Miller" &#125;</span></div><div class="line">            <span class="comment">//    );</span></div><div class="line">            <span class="comment">//</span></div><div class="line"></div><div class="line">            context.Users.AddOrUpdate(ctx =&gt; ctx.UserName,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"admin"</span>,</div><div class="line">                     Password = <span class="string">"12345678"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"12345678"</span>,</div><div class="line">                     Email = <span class="string">"0000@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1212123123"</span>,</div><div class="line">                     Role = <span class="string">"admin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"libraryadmin"</span>,</div><div class="line">                     Password = <span class="string">"87654321"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"87654321"</span>,</div><div class="line">                     Email = <span class="string">"1111@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1231231"</span>,</div><div class="line">                     Role = <span class="string">"libraryadmin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"student"</span>,</div><div class="line">                     Password = <span class="string">"88888888"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"88888888"</span>,</div><div class="line">                     Email = <span class="string">"888@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"123123"</span>,</div><div class="line">                     Role = <span class="string">"user"</span></div><div class="line">             &#125;</div><div class="line">           );</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/21/asp-net-mvc-Seed-init/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Newton-Json-Serialize-and-Deserialize" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/">Newton.Json Serialize and Deserialize</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/" class="archive-article-date">
-  	<time datetime="2017-09-20T15:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Json and Entity can convert each other by Newton.Json package.</p>
-<h3 id="Entity-to-Json-string"><a href="#Entity-to-Json-string" class="headerlink" title="Entity to Json(string)"></a>Entity to Json(string)</h3><p>JsonConvert.SerializeObject(user);</p>
-<h3 id="Json-string-to-Entity"><a href="#Json-string-to-Entity" class="headerlink" title="Json(string) to Entity"></a>Json(string) to Entity</h3><p>JsonConvert.DeserializeObject<entity>(string);</entity></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="Datetime-相减返回天数" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdLJ4RN"; 
+var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
   
 
 
@@ -995,8 +370,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
