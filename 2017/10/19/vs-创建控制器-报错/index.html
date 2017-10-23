@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="http://ygjch.github.io">
   <title>vs 创建控制器 报错 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
+  <meta name="description" content="目前只有两种情况： 定义Model的时候没有添加 ID  创建完 Model 后没有 重新生成解决方案">
+<meta name="keywords" content="asp.net mvc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vs 创建控制器 报错">
 <meta property="og:url" content="http://ygjch.github.io/2017/10/19/vs-创建控制器-报错/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="目前只有两种情况： 定义Model的时候没有添加 ID  创建完 Model 后没有 重新生成解决方案">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-10-19T06:52:12.655Z">
+<meta property="og:updated_time" content="2017-10-23T13:12:37.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vs 创建控制器 报错">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:description" content="目前只有两种情况： 定义Model的时候没有添加 ID  创建完 Model 后没有 重新生成解决方案">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -170,10 +171,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="目前只有两种情况："><a href="#目前只有两种情况：" class="headerlink" title="目前只有两种情况："></a>目前只有两种情况：</h3><ul>
+<li>定义Model的时候没有添加 <strong>ID</strong> </li>
+<li>创建完 Model 后没有 <strong>重新生成解决方案</strong></li>
+</ul>
+
       
 
 	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目前只有两种情况："><span class="toc-number">1.</span> <span class="toc-text">目前只有两种情况：</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 	  
@@ -182,6 +211,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -276,6 +316,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目前只有两种情况："><span class="toc-number">1.</span> <span class="toc-text">目前只有两种情况：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -447,11 +500,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
