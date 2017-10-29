@@ -6,16 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>photo | YGjch&#39;s Blog</title>
+  <title>opencv 灰度图转伪彩色图 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="photo">
-<meta property="og:url" content="http://ygjch.github.io/photo/index.html">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829#include &amp;lt;opencv2/opencv.hpp&amp;gt;#include &amp;lt;stdio.h&amp;gt;using namespace cv;int main(int argc, char* argv[])&amp;#123;	Mat img = imread(&quot;1.jpg&quot;, CV_LOAD">
+<meta name="keywords" content="计算机视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencv 灰度图转伪彩色图">
+<meta property="og:url" content="http://ygjch.github.io/2017/10/29/opencv-灰度图转伪彩色图/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829#include &amp;lt;opencv2/opencv.hpp&amp;gt;#include &amp;lt;stdio.h&amp;gt;using namespace cv;int main(int argc, char* argv[])&amp;#123;	Mat img = imread(&quot;1.jpg&quot;, CV_LOAD">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-09-18T09:57:16.814Z">
+<meta property="og:image" content="http://ygjch.github.io/img/weicaisetu.png">
+<meta property="og:updated_time" content="2017-10-29T08:23:05.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="photo">
+<meta name="twitter:title" content="opencv 灰度图转伪彩色图">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829#include &amp;lt;opencv2/opencv.hpp&amp;gt;#include &amp;lt;stdio.h&amp;gt;using namespace cv;int main(int argc, char* argv[])&amp;#123;	Mat img = imread(&quot;1.jpg&quot;, CV_LOAD">
+<meta name="twitter:image" content="http://ygjch.github.io/img/weicaisetu.png">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -147,29 +153,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-opencv-灰度图转伪彩色图" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      photo
+      opencv 灰度图转伪彩色图
     </h1>
   
 
+        
+        <a href="/2017/10/29/opencv-灰度图转伪彩色图/" class="archive-article-date">
+  	<time datetime="2017-10-29T08:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
-<div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
+        <p><img src="/img/weicaisetu.png" width="1000px" height="200px"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line"></div><div class="line">	Mat img = imread(<span class="string">"1.jpg"</span>, CV_LOAD_IMAGE_GRAYSCALE);<span class="comment">//采用灰度格式读取图片</span></div><div class="line">	namedWindow(<span class="string">"bmp_img"</span>);</div><div class="line">	imshow(<span class="string">"bmp_img"</span>, img);</div><div class="line"></div><div class="line">	<span class="function">Mat <span class="title">img_pseudocolor</span><span class="params">(img.rows, img.cols, CV_8UC3)</span></span>;<span class="comment">//构造RGB图像，参数CV_8UC3教程文档里面有讲解</span></div><div class="line">	<span class="keyword">int</span> tmp = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y&lt;img.rows; y++)<span class="comment">//转为伪彩色图像的具体算法</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x&lt;img.cols; x++)</div><div class="line">		&#123;</div><div class="line">			tmp = img.at&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>&gt;(y, x);</div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">0</span>] = <span class="built_in">abs</span>(<span class="number">255</span> - tmp); <span class="comment">//blue</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">1</span>] = <span class="built_in">abs</span>(<span class="number">127</span> - tmp); <span class="comment">//green</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">2</span>] = <span class="built_in">abs</span>(<span class="number">0</span> - tmp); <span class="comment">//red</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	namedWindow(<span class="string">"img_pseudocolor"</span>);</div><div class="line">	imshow(<span class="string">"img_pseudocolor"</span>, img_pseudocolor);</div><div class="line">	waitKey(<span class="number">0</span>);</div><div class="line">	destroyAllWindows();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-<script src="/js/photo.js"></script>
       
 
 	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 	  
@@ -178,6 +211,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -228,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/photo/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/29/opencv-灰度图转伪彩色图/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -240,6 +284,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/29/霍夫曼编码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">霍夫曼编码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -254,6 +308,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -264,7 +331,7 @@
   
 
   
-  <div id="SOHUCS" sid="" ></div> 
+  <div id="SOHUCS" sid="opencv-灰度图转伪彩色图" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
@@ -297,7 +364,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
