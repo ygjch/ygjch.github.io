@@ -151,6 +151,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-豆瓣api-调用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/17/豆瓣api-调用/">豆瓣api 调用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/17/豆瓣api-调用/" class="archive-article-date">
+  	<time datetime="2017-10-17T14:07:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="项目应用"><a href="#项目应用" class="headerlink" title="项目应用"></a>项目应用</h3><p><strong>github地址：</strong> <a href="https://github.com/ariescc/LibrarySystemProject" target="_blank" rel="external">https://github.com/ariescc/LibrarySystemProject</a></p>
+<h3 id="豆瓣开发者"><a href="#豆瓣开发者" class="headerlink" title="豆瓣开发者"></a>豆瓣开发者</h3><p><a href="https://developers.douban.com/wiki/?title=book_v2" target="_blank" rel="external">https://developers.douban.com/wiki/?title=book_v2</a></p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
+<li>BooksController.cs</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">// POST: <span class="keyword">Books/Create</span></div><div class="line"><span class="keyword"> </span>       // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 </div><div class="line">        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId<span class="number">=317598</span>。</div><div class="line">        [HttpPost]</div><div class="line">        [ValidateAntiForgeryToken]</div><div class="line">        [Auth(<span class="meta">Code</span> = <span class="string">"libraryadmin"</span>)]</div><div class="line">        public ActionResult Create([<span class="keyword">Bind(Include </span>= <span class="string">"ID,Isbn,Title,Publisher,Image,Isbn10,Isbn13,Summary,Pages,Price,msg,code,Location,IsAvaliable"</span>)] <span class="keyword">Book </span><span class="keyword">book)</span></div><div class="line"><span class="keyword"> </span>       &#123;</div><div class="line">            <span class="meta">if</span> (ModelState.IsValid)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">string </span><span class="keyword">isbn </span>= <span class="keyword">book.Isbn;</span></div><div class="line"><span class="keyword"> </span>               <span class="keyword">Book </span><span class="keyword">bookInfo;</span></div><div class="line"><span class="keyword"> </span>               <span class="keyword">string </span>json<span class="comment">;</span></div><div class="line"></div><div class="line">                // 获取豆瓣api信息</div><div class="line">                GetInfo(<span class="keyword">isbn, </span>out <span class="keyword">bookInfo, </span>out json)<span class="comment">;</span></div><div class="line"></div><div class="line">                <span class="meta">if</span> (<span class="keyword">bookInfo </span>!= null)</div><div class="line">                &#123;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.msg </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        //throw new Exception(<span class="string">"获取失败"</span> + <span class="keyword">bookInfo.msg);</span></div><div class="line"><span class="keyword"> </span>                       ModelState.<span class="keyword">AddModelError("Isbn", </span><span class="string">"No data are gotten from Douban!"</span>)<span class="comment">;</span></div><div class="line">                    &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Title </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Title </span>= <span class="keyword">bookInfo.Title;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Author </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Author </span>= <span class="keyword">bookInfo.Author;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Publisher </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Publisher </span>= <span class="keyword">bookInfo.Publisher;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Isbn10!=null)&#123;</span></div><div class="line"><span class="keyword"> </span>                       <span class="keyword">book.Isbn10 </span>= <span class="keyword">bookInfo.Isbn10;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Image </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Image </span>= <span class="keyword">bookInfo.Image;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Isbn13 </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Isbn13 </span>= <span class="keyword">bookInfo.Isbn13;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Summary </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Summary </span>= <span class="keyword">bookInfo.Summary;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Pages </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Pages </span>= <span class="keyword">bookInfo.Pages;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Price </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Price </span>= <span class="keyword">bookInfo.Price;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="keyword">string </span>jsonOutput = json<span class="comment">;</span></div><div class="line">                    unitOfWork.<span class="keyword">BookRepository.Insert(book);</span></div><div class="line"><span class="keyword"> </span>                   unitOfWork.Save()<span class="comment">;</span></div><div class="line">                    return RedirectToAction(<span class="string">"BooksManage"</span>)<span class="comment">;</span></div><div class="line">                &#125;</div><div class="line">                <span class="meta">else</span></div><div class="line">                &#123;</div><div class="line">                    //throw new Exception(<span class="string">"获取失败"</span>)<span class="comment">;</span></div><div class="line">                    ModelState.<span class="keyword">AddModelError("Isbn", </span><span class="string">"No data can be gotten, please Manual input！"</span>)<span class="comment">;</span></div><div class="line">                    <span class="meta">if</span>(<span class="keyword">book.Title </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Isbn13 </span>= <span class="keyword">book.Isbn;</span></div><div class="line"><span class="keyword"> </span>                       unitOfWork.<span class="keyword">BookRepository.Insert(book);</span></div><div class="line"><span class="keyword"> </span>                       unitOfWork.Save()<span class="comment">;</span></div><div class="line">                        return RedirectToAction(<span class="string">"BooksManage"</span>)<span class="comment">;</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                </div><div class="line">            &#125;</div><div class="line"></div><div class="line">            return View(<span class="keyword">book);</span></div><div class="line"><span class="keyword"> </span>       &#125;</div></pre></td></tr></table></figure>
+<p>我是在图书管理系统<strong>添加一本新的图书</strong>时调用的这个接口，通过图书的<strong>Isbn</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 调用 豆瓣图书 api </span></div><div class="line">        <span class="comment">// 根据 ISBN 从豆瓣api获取图书的详细信息</span></div><div class="line">        <span class="comment">//根据ISBN码从豆瓣API获取书籍详细信息</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">GetInfo</span>(<span class="params"><span class="keyword">string</span> isbn, <span class="keyword">out</span> Book bookInfo, <span class="keyword">out</span> <span class="keyword">string</span> json</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">try</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//豆瓣API</span></div><div class="line">                <span class="keyword">string</span> uri = <span class="string">"https://api.douban.com/v2/book/isbn/"</span> + isbn;</div><div class="line">                <span class="comment">//获取书籍详细信息，Json格式</span></div><div class="line">                json = DoGet(uri, <span class="string">"utf-8"</span>);</div><div class="line">                <span class="comment">//将获取到的Json格式的文件转换为定义的类</span></div><div class="line">                bookInfo = ToMap(json);</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//信息获取失败</span></div><div class="line">                bookInfo = <span class="literal">null</span>;</div><div class="line">                json = <span class="string">""</span>;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Json 实例化为 book 实体</span></div><div class="line">        <span class="comment">//Json解析</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Book <span class="title">ToMap</span>(<span class="params"><span class="keyword">string</span> jsonString</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="comment">//实例化JavaScriptSerializer类的新实例</span></div><div class="line">            JavaScriptSerializer jss = <span class="keyword">new</span> JavaScriptSerializer();</div><div class="line">            <span class="keyword">try</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//将指定的 JSON 字符串转换为 Dictionary&lt;string, object&gt; 类型的对象</span></div><div class="line">                <span class="keyword">return</span> jss.Deserialize&lt;Book&gt;(jsonString);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//HTTP的GET请求，获取书籍详细信息</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">DoGet</span>(<span class="params"><span class="keyword">string</span> url, <span class="keyword">string</span> charset</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);</div><div class="line">            request.Method = <span class="string">"GET"</span>;</div><div class="line">            request.ContentType = <span class="string">"text/html;charset=UTF-8"</span>;</div><div class="line">            HttpWebResponse response = (HttpWebResponse)request.GetResponse();</div><div class="line">            <span class="keyword">if</span> (response != <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                Stream myResponseStream = response.GetResponseStream();</div><div class="line">                StreamReader myStreamReader = <span class="keyword">new</span> StreamReader(myResponseStream, System.Text.Encoding.GetEncoding(charset));</div><div class="line">                <span class="keyword">string</span> retString = myStreamReader.ReadToEnd();</div><div class="line">                myStreamReader.Close();</div><div class="line">                myResponseStream.Close();</div><div class="line">                <span class="keyword">return</span> retString;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Http 获取图书封面</span></div><div class="line">        <span class="comment">//HTTP获取图片，获取书籍封面</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Image <span class="title">DoGetImage</span>(<span class="params"><span class="keyword">string</span> url</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            WebRequest request = WebRequest.Create(url);</div><div class="line">            WebResponse response = request.GetResponse();</div><div class="line">            <span class="keyword">if</span> (response != <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                Stream stream = response.GetResponseStream();</div><div class="line">                <span class="keyword">return</span> Image.FromStream(stream);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> DrawCover();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 绘制封面</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Bitmap <span class="title">DrawCover</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Bitmap image = <span class="keyword">new</span> Bitmap(<span class="number">102</span>, <span class="number">145</span>);</div><div class="line">            Graphics g = Graphics.FromImage(image);</div><div class="line">            g.Clear(Color.Silver);</div><div class="line">            StringFormat format = <span class="keyword">new</span> StringFormat &#123; Alignment = StringAlignment.Center &#125;;</div><div class="line">            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;</div><div class="line">            <span class="comment">//封面显示内容：暂无封面</span></div><div class="line">            g.DrawString(<span class="string">"No Drawing"</span>, <span class="keyword">new</span> Font(<span class="string">"黑体"</span>, <span class="number">12</span>f, FontStyle.Regular), Brushes.Black, <span class="number">51</span>, <span class="number">50</span>, format);</div><div class="line">            <span class="keyword">return</span> image;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>以上为后端代码</p>
+<ul>
+<li>Create.cshtml</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="keyword">class</span>=<span class="string">"form-group"</span>&gt;</div><div class="line">	@Html.LabelFor(model=&gt;model.Isbn, htmlAttributes: <span class="keyword">new</span> &#123; @<span class="keyword">class</span> = <span class="string">"control-label col-md-2"</span>&#125;)</div><div class="line">	&lt;div <span class="keyword">class</span>=<span class="string">"col-md-10"</span>&gt;</div><div class="line">		@Html.EditorFor(model=&gt;model.Isbn, <span class="keyword">new</span> &#123; htmlattributes = <span class="keyword">new</span> &#123; @<span class="keyword">class</span>=<span class="string">"form-control"</span>&#125;&#125;)</div><div class="line">		@Html.ValidationMessageFor(model=&gt;model.Isbn, <span class="string">""</span>, <span class="keyword">new</span> &#123; @<span class="keyword">class</span>=<span class="string">"text-danger"</span>&#125;)</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>以上为前端代码，只需要向后端提交一个表单，传入要搜索的Isbn即可。</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/17/豆瓣api-调用/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ISBN-介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -901,85 +992,6 @@
 
 
   
-    <article id="post-Eclipse-工具栏无法加载出下载好的插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/">Eclipse 工具栏无法加载出下载好的插件</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/" class="archive-article-date">
-  	<time datetime="2017-10-06T12:34:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>软件测试中有一个可以查看覆盖率的插件<strong>Eclemma</strong>，下载完之后在Eclipse的工具栏中发现并没有显示这个插件。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p><code>Eclipse -&gt; window -&gt; Customize Perspective</code>， 勾选上 <strong>Eclemma</strong>。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1098,10 +1110,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
@@ -1110,11 +1118,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,10 +1142,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -1138,19 +1150,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">computer application</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">computer application</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
             
             <div class="clearfix"></div>
