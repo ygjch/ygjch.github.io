@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://ygjch.github.io">
   <title>appium-doctor 不是内部或外部命令 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="appium-doctor 命令执行时提示不是内部或外部命令单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法 在设置系统环境变量的地方新建 Android_Home">
+  <meta name="description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法 在设置系统环境变量的地方新建 Android_Home ( 注意是 系统变量  变量值： D:\SDK (就是SD">
 <meta name="keywords" content="软件测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="appium-doctor 不是内部或外部命令">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/02/appium-doctor-不是内部或外部命令/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="appium-doctor 命令执行时提示不是内部或外部命令单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法 在设置系统环境变量的地方新建 Android_Home">
+<meta property="og:description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法 在设置系统环境变量的地方新建 Android_Home ( 注意是 系统变量  变量值： D:\SDK (就是SD">
 <meta property="og:locale" content="English">
-<meta property="og:image" content="http://ygjch.github.io/img/appium/success.png">
-<meta property="og:updated_time" content="2017-11-02T16:04:31.959Z">
+<meta property="og:image" content="http://ygjch.github.io/img/success.png">
+<meta property="og:updated_time" content="2017-11-02T16:10:45.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="appium-doctor 不是内部或外部命令">
-<meta name="twitter:description" content="appium-doctor 命令执行时提示不是内部或外部命令单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法 在设置系统环境变量的地方新建 Android_Home">
-<meta name="twitter:image" content="http://ygjch.github.io/img/appium/success.png">
+<meta name="twitter:description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法 在设置系统环境变量的地方新建 Android_Home ( 注意是 系统变量  变量值： D:\SDK (就是SD">
+<meta name="twitter:image" content="http://ygjch.github.io/img/success.png">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -173,7 +173,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="appium-doctor-命令执行时提示不是内部或外部命令"><a href="#appium-doctor-命令执行时提示不是内部或外部命令" class="headerlink" title="appium-doctor 命令执行时提示不是内部或外部命令"></a>appium-doctor 命令执行时提示不是内部或外部命令</h2><h3 id="单独配置-Android-Home-系统变量"><a href="#单独配置-Android-Home-系统变量" class="headerlink" title="单独配置 Android_Home 系统变量"></a>单独配置 Android_Home 系统变量</h3><p>开始配置安卓环境的时候，没有新建 <strong>Android_Home</strong> 系统变量，而是直接将 <strong>D:\SDK\tools</strong>和 <strong>D:\SDK\platform-tools</strong><br>配置到了 <strong>Path</strong> 里。这样就会导致 appium-doctor 运行时失败。</p>
+        <h3 id="单独配置-Android-Home-系统变量"><a href="#单独配置-Android-Home-系统变量" class="headerlink" title="单独配置 Android_Home 系统变量"></a>单独配置 Android_Home 系统变量</h3><p>开始配置安卓环境的时候，没有新建 <strong>Android_Home</strong> 系统变量，而是直接将 <strong>D:\SDK\tools</strong>和 <strong>D:\SDK\platform-tools</strong><br>配置到了 <strong>Path</strong> 里。这样就会导致 appium-doctor 运行时失败。</p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
 <li><p>在设置系统环境变量的地方新建 <strong>Android_Home</strong> ( 注意是 <strong>系统变量</strong></p>
 <ul>
@@ -192,7 +192,7 @@
 <li><p>第3步如果还不行，就将 <strong>Appium</strong> 文件夹下的 <strong>Appium\node_modules.bin</strong> 加到系统环境变量 <strong>Path</strong> 中。</p>
 </li>
 </ol>
-<p>运行结果如图所示：<br><img src="/img/appium/success.png" width="1000px" height="300px"></p>
+<p>运行结果如图所示：<br><img src="/img/success.png" width="1000px" height="300px"></p>
 
       
 
@@ -205,7 +205,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#appium-doctor-命令执行时提示不是内部或外部命令"><span class="toc-number">1.</span> <span class="toc-text">appium-doctor 命令执行时提示不是内部或外部命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单独配置-Android-Home-系统变量"><span class="toc-number">1.1.</span> <span class="toc-text">单独配置 Android_Home 系统变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法"><span class="toc-number">1.2.</span> <span class="toc-text">解决方法</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#单独配置-Android-Home-系统变量"><span class="toc-number">1.</span> <span class="toc-text">单独配置 Android_Home 系统变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -333,7 +333,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#appium-doctor-命令执行时提示不是内部或外部命令"><span class="toc-number">1.</span> <span class="toc-text">appium-doctor 命令执行时提示不是内部或外部命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单独配置-Android-Home-系统变量"><span class="toc-number">1.1.</span> <span class="toc-text">单独配置 Android_Home 系统变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法"><span class="toc-number">1.2.</span> <span class="toc-text">解决方法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#单独配置-Android-Home-系统变量"><span class="toc-number">1.</span> <span class="toc-text">单独配置 Android_Home 系统变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -493,11 +493,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
