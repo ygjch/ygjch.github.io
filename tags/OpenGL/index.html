@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>asp.net mvc authority | YGjch&#39;s Blog</title>
+  <title>Tag: OpenGL | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
-<meta name="keywords" content="asp.net mvc">
-<meta property="og:type" content="article">
-<meta property="og:title" content="asp.net mvc authority">
-<meta property="og:url" content="http://ygjch.github.io/2017/09/20/asp-net-mvc-authority/index.html">
+  <meta name="description" content="Do one thing at a time, and do well.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YGjch&#39;s Blog">
+<meta property="og:url" content="http://ygjch.github.io/tags/OpenGL/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
+<meta property="og:description" content="Do one thing at a time, and do well.">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-09-20T15:21:39.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="asp.net mvc authority">
-<meta name="twitter:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
+<meta name="twitter:title" content="YGjch&#39;s Blog">
+<meta name="twitter:description" content="Do one thing at a time, and do well.">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,212 +149,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-asp-net-mvc-authority" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      asp.net mvc authority
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/04/OpenGL学习笔记（二）/" class="archive-article-date">
+  	<time datetime="2017-11-04T02:29:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/04/OpenGL学习笔记（二）/">OpenGL学习笔记（二）</a>
     </h1>
   
 
-        
-        <a href="/2017/09/20/asp-net-mvc-authority/" class="archive-article-date">
-  	<time datetime="2017-09-20T15:08:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>asp.net mvc Library project needs authority—————————</p>
-<p> 1.Create folder named <strong>Authority</strong>.</p>
-<p> 2.Create class named <strong>CheckLogin.cs</strong></p>
-<pre><code><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class CheckLogin</div><div class="line">&#123;</div><div class="line">	public readonly static CheckLogin<span class="built_in"> Instance </span>= new CheckLogin();</div><div class="line"></div><div class="line">	public bool IsLogin;</div><div class="line"></div><div class="line">	public<span class="built_in"> User </span>GetUser()</div><div class="line">	&#123;</div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			return <span class="literal">null</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);</div><div class="line">			return JsonConvert.DeserializeObject&lt;User&gt;(Ticket.UserData);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 3.Create class named <strong>AuthAttribute.cs</strong>. In this class, we will override the method named <strong>OnActionExecuting()</strong>.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthAttribute</span> : <span class="title">ActionFilterAttribute</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Code &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnActionExecuting</span>(<span class="params">ActionExecutingContext filterContext</span>)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//如果不存在身份信息</span></div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">			Content.Content = <span class="keyword">string</span>.Format(<span class="string">"&lt;script type='text/javascript'&gt;alert('请先登录！');window.location.href='&#123;0&#125;';&lt;/script&gt;"</span>, FormsAuthentication.LoginUrl);</div><div class="line">			filterContext.Result = Content;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="comment">/* var Instance = CheckLogin.Instance;</span></div><div class="line"><span class="comment">			var user = Instance.GetUser();</span></div><div class="line"><span class="comment">			var Roles = user.Role;</span></div><div class="line"><span class="comment">			string[] Role = Roles.Split(','); */</span></div><div class="line">			<span class="keyword">string</span>[] Role = CheckLogin.Instance.GetUser().Role.Split(<span class="string">','</span>);<span class="comment">//获取所有角色</span></div><div class="line">			<span class="keyword">if</span> (!Role.Contains(Code))<span class="comment">//验证权限</span></div><div class="line">			&#123;</div><div class="line">				<span class="comment">//验证不通过</span></div><div class="line">				ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">				Content.Content = <span class="string">"&lt;script type='text/javascript'&gt;alert('权限验证不通过！');history.go(-1);&lt;/script&gt;"</span>;</div><div class="line">				filterContext.Result = Content;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 4.In the <strong>UsersController.cs</strong>, we should create cookie for current user after confirming that whether UserName and Password are valid.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">[<span class="meta">HttpPost</span>]</div><div class="line">	<span class="function"><span class="keyword">public</span> ActionResult <span class="title">Login</span>(<span class="params">[Bind(Include =<span class="string">"UserName,Password"</span></span>)] User user)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">var</span> userObj = unitOfWork.UserRepository.Get()</div><div class="line">			.Where(item =&gt; item.UserName.Equals(user.UserName) == <span class="literal">true</span>)</div><div class="line">			.ToList();</div><div class="line">		<span class="keyword">if</span>(userObj[<span class="number">0</span>] != <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span> (userObj[<span class="number">0</span>].Password.Equals(user.Password) == <span class="literal">true</span>)</div><div class="line">			&#123;</div><div class="line">				CheckLogin.Instance.IsLogin = <span class="literal">true</span>;</div><div class="line">				<span class="comment">// Session 实现</span></div><div class="line"></div><div class="line">				<span class="comment">// 序列化用户实体</span></div><div class="line">				<span class="keyword">string</span> UserData = JsonConvert.SerializeObject(userObj[<span class="number">0</span>]);</div><div class="line"></div><div class="line">				<span class="comment">// 保存身份信息</span></div><div class="line">				FormsAuthenticationTicket Ticket = <span class="keyword">new</span> FormsAuthenticationTicket(<span class="number">1</span>, user.UserName,</div><div class="line">					DateTime.Now, DateTime.Now.AddHours(<span class="number">12</span>), <span class="literal">false</span>, UserData);</div><div class="line"></div><div class="line">				HttpCookie Cookie = <span class="keyword">new</span> HttpCookie(FormsAuthentication.FormsCookieName,</div><div class="line">					FormsAuthentication.Encrypt(Ticket));</div><div class="line"></div><div class="line">				Response.Cookies.Add(Cookie);</div><div class="line"></div><div class="line">				<span class="comment">//return RedirectToAction("Index","Books","Index");</span></div><div class="line">				<span class="keyword">return</span> Redirect(<span class="string">"/Home/Index/"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			ModelState.AddModelError(<span class="string">"UserName"</span>, <span class="string">"No User"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> View(user);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 5.Logout Method<br>     <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注销登录</span></div><div class="line">	<span class="keyword">public</span> ActionResult Logout()</div><div class="line">	&#123;</div><div class="line">		FormsAuthentication.SignOut();</div><div class="line">		<span class="function"><span class="keyword">return</span> <span class="title">Redirect</span><span class="params">(<span class="string">"/Home/Index/"</span>)</span></span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p> 6.Before the method that we want to add authority, we should add <strong>[Auth(Code =”libraryadmin,admin”)]</strong>.</p>
-
-      
-
-	  <!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/09/20/asp-net-mvc-authority/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Newton.Json Serialize and Deserialize
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/09/19/asp-net-mvc-favicon-change/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">asp.net mvc favicon change</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/04/OpenGL学习笔记（一）/" class="archive-article-date">
+  	<time datetime="2017-11-04T02:17:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/04/OpenGL学习笔记（一）/">OpenGL学习笔记（一）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
-  
-
-  
-  <div id="SOHUCS" sid="asp-net-mvc-authority" ></div> 
-<script type="text/javascript"> 
-(function(){ 
-var appid = "cytdLJ4RN"; 
-var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    </div></section>
   
 
-  
+    
 
 
           </div>
@@ -379,9 +263,9 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>asp.net mvc authority | YGjch&#39;s Blog</title>
+  <title>OpenGL学习笔记（二） | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
-<meta name="keywords" content="asp.net mvc">
+  <meta name="description" content="创建窗口首先创建一个OpenGL上下文(Context)和一个用于显示的窗口。 最流行的几个库有 GLUT，SDL，SFML，GLFW。 GLFWGLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及处理用户输入。 123456789101112#include&amp;lt;glad\glad.h&amp;gt;#include&amp;">
+<meta name="keywords" content="OpenGL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="asp.net mvc authority">
-<meta property="og:url" content="http://ygjch.github.io/2017/09/20/asp-net-mvc-authority/index.html">
+<meta property="og:title" content="OpenGL学习笔记（二）">
+<meta property="og:url" content="http://ygjch.github.io/2017/11/04/OpenGL学习笔记（二）/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
+<meta property="og:description" content="创建窗口首先创建一个OpenGL上下文(Context)和一个用于显示的窗口。 最流行的几个库有 GLUT，SDL，SFML，GLFW。 GLFWGLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及处理用户输入。 123456789101112#include&amp;lt;glad\glad.h&amp;gt;#include&amp;">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-09-20T15:21:39.420Z">
+<meta property="og:updated_time" content="2017-11-04T04:20:15.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="asp.net mvc authority">
-<meta name="twitter:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
+<meta name="twitter:title" content="OpenGL学习笔记（二）">
+<meta name="twitter:description" content="创建窗口首先创建一个OpenGL上下文(Context)和一个用于显示的窗口。 最流行的几个库有 GLUT，SDL，SFML，GLFW。 GLFWGLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及处理用户输入。 123456789101112#include&amp;lt;glad\glad.h&amp;gt;#include&amp;">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,36 +151,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-asp-net-mvc-authority" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-OpenGL学习笔记（二）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      asp.net mvc authority
+      OpenGL学习笔记（二）
     </h1>
   
 
         
-        <a href="/2017/09/20/asp-net-mvc-authority/" class="archive-article-date">
-  	<time datetime="2017-09-20T15:08:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
+        <a href="/2017/11/04/OpenGL学习笔记（二）/" class="archive-article-date">
+  	<time datetime="2017-11-04T02:29:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>asp.net mvc Library project needs authority—————————</p>
-<p> 1.Create folder named <strong>Authority</strong>.</p>
-<p> 2.Create class named <strong>CheckLogin.cs</strong></p>
-<pre><code><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class CheckLogin</div><div class="line">&#123;</div><div class="line">	public readonly static CheckLogin<span class="built_in"> Instance </span>= new CheckLogin();</div><div class="line"></div><div class="line">	public bool IsLogin;</div><div class="line"></div><div class="line">	public<span class="built_in"> User </span>GetUser()</div><div class="line">	&#123;</div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			return <span class="literal">null</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);</div><div class="line">			return JsonConvert.DeserializeObject&lt;User&gt;(Ticket.UserData);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 3.Create class named <strong>AuthAttribute.cs</strong>. In this class, we will override the method named <strong>OnActionExecuting()</strong>.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthAttribute</span> : <span class="title">ActionFilterAttribute</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Code &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnActionExecuting</span>(<span class="params">ActionExecutingContext filterContext</span>)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//如果不存在身份信息</span></div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">			Content.Content = <span class="keyword">string</span>.Format(<span class="string">"&lt;script type='text/javascript'&gt;alert('请先登录！');window.location.href='&#123;0&#125;';&lt;/script&gt;"</span>, FormsAuthentication.LoginUrl);</div><div class="line">			filterContext.Result = Content;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="comment">/* var Instance = CheckLogin.Instance;</span></div><div class="line"><span class="comment">			var user = Instance.GetUser();</span></div><div class="line"><span class="comment">			var Roles = user.Role;</span></div><div class="line"><span class="comment">			string[] Role = Roles.Split(','); */</span></div><div class="line">			<span class="keyword">string</span>[] Role = CheckLogin.Instance.GetUser().Role.Split(<span class="string">','</span>);<span class="comment">//获取所有角色</span></div><div class="line">			<span class="keyword">if</span> (!Role.Contains(Code))<span class="comment">//验证权限</span></div><div class="line">			&#123;</div><div class="line">				<span class="comment">//验证不通过</span></div><div class="line">				ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">				Content.Content = <span class="string">"&lt;script type='text/javascript'&gt;alert('权限验证不通过！');history.go(-1);&lt;/script&gt;"</span>;</div><div class="line">				filterContext.Result = Content;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 4.In the <strong>UsersController.cs</strong>, we should create cookie for current user after confirming that whether UserName and Password are valid.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">[<span class="meta">HttpPost</span>]</div><div class="line">	<span class="function"><span class="keyword">public</span> ActionResult <span class="title">Login</span>(<span class="params">[Bind(Include =<span class="string">"UserName,Password"</span></span>)] User user)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">var</span> userObj = unitOfWork.UserRepository.Get()</div><div class="line">			.Where(item =&gt; item.UserName.Equals(user.UserName) == <span class="literal">true</span>)</div><div class="line">			.ToList();</div><div class="line">		<span class="keyword">if</span>(userObj[<span class="number">0</span>] != <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span> (userObj[<span class="number">0</span>].Password.Equals(user.Password) == <span class="literal">true</span>)</div><div class="line">			&#123;</div><div class="line">				CheckLogin.Instance.IsLogin = <span class="literal">true</span>;</div><div class="line">				<span class="comment">// Session 实现</span></div><div class="line"></div><div class="line">				<span class="comment">// 序列化用户实体</span></div><div class="line">				<span class="keyword">string</span> UserData = JsonConvert.SerializeObject(userObj[<span class="number">0</span>]);</div><div class="line"></div><div class="line">				<span class="comment">// 保存身份信息</span></div><div class="line">				FormsAuthenticationTicket Ticket = <span class="keyword">new</span> FormsAuthenticationTicket(<span class="number">1</span>, user.UserName,</div><div class="line">					DateTime.Now, DateTime.Now.AddHours(<span class="number">12</span>), <span class="literal">false</span>, UserData);</div><div class="line"></div><div class="line">				HttpCookie Cookie = <span class="keyword">new</span> HttpCookie(FormsAuthentication.FormsCookieName,</div><div class="line">					FormsAuthentication.Encrypt(Ticket));</div><div class="line"></div><div class="line">				Response.Cookies.Add(Cookie);</div><div class="line"></div><div class="line">				<span class="comment">//return RedirectToAction("Index","Books","Index");</span></div><div class="line">				<span class="keyword">return</span> Redirect(<span class="string">"/Home/Index/"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			ModelState.AddModelError(<span class="string">"UserName"</span>, <span class="string">"No User"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> View(user);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 5.Logout Method<br>     <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注销登录</span></div><div class="line">	<span class="keyword">public</span> ActionResult Logout()</div><div class="line">	&#123;</div><div class="line">		FormsAuthentication.SignOut();</div><div class="line">		<span class="function"><span class="keyword">return</span> <span class="title">Redirect</span><span class="params">(<span class="string">"/Home/Index/"</span>)</span></span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p> 6.Before the method that we want to add authority, we should add <strong>[Auth(Code =”libraryadmin,admin”)]</strong>.</p>
+        <h3 id="创建窗口"><a href="#创建窗口" class="headerlink" title="创建窗口"></a>创建窗口</h3><p>首先创建一个OpenGL上下文(Context)和一个用于显示的窗口。</p>
+<p>最流行的几个库有 <strong>GLUT，SDL，SFML，GLFW</strong>。</p>
+<h3 id="GLFW"><a href="#GLFW" class="headerlink" title="GLFW"></a>GLFW</h3><p>GLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及<br>处理用户输入。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;glad\glad.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;GLFW\glfw3.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	glfwInit(); <span class="comment">// 初始化 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>); <span class="comment">// 配置 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</div><div class="line">	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>glfwWindowHint 函数</strong>的第一个参数代表选项的名称，我们可以从很多以 GLFW_ 开头的枚举值中选择； 第二个参数接受一个整形， 用来设置这个选项的值。<br>所有选项以及对应的值都可以在 <a href="http://www.glfw.org/docs/latest/window.html#window_hints" target="_blank" rel="external">http://www.glfw.org/docs/latest/window.html#window_hints</a> 这篇文档中找到。</p>
+<p>如果使用的是 <strong>Mac OS X 系统</strong>， 需要加入下面这行代码到配置中 <figure class="highlight plain"><figcaption><span>GL_TRUE);```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被GLFW的其他函数频繁地用到**</div></pre></td></tr></table></figure></p>
+<p>// 创建窗口对象<br>    GLFWwindow* window = glfwCreateWindow(800, 600, “Hello, OpenGL”, NULL, NULL);<br>    if (window == NULL)<br>    {<br>        std::cout &lt;&lt; “创建窗口失败” &lt;&lt; std::endl;<br>        glfwTerminate();<br>        return -1;<br>    }<br>    glfwMakeContextCurrent(window);<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**glfwCreateWindow 函数**参数 <span class="number">1</span>)宽 <span class="number">2</span>)高 <span class="number">3</span>)窗口名称 <span class="number">4</span>)？？ <span class="number">5</span>)？？</div><div class="line"></div><div class="line">创建完窗口将通知 GLFW 将我们的窗口的上下文设置为当前线程的主上下文。</div><div class="line"></div><div class="line">### GLAD</div><div class="line"></div><div class="line">GLAD 是用来管理OpenGL的函数指针的， 所以在调用任何OpenGL函数之前我们需要初始化 GLAD</div></pre></td></tr></table></figure></p>
+<p>// 初始化 GLAD<br>    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))<br>    {<br>        std::cout &lt;&lt; “初始化GLAD失败” &lt;&lt; std::endl;<br>        return -1;<br>    }<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">给GLAD传入了用来加载系统相关的OpenGL函数指针地址的函数。 GLFW 给我们的是 *<span class="strong">*glfwGetProcAddress*</span><span class="strong">*，它根据我们编译的系统定义了正确的函数。</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">### 视口</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">*</span><span class="strong">*？？ 视口和创建窗口 区别*</span><span class="strong">*</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">在开始渲染之前必须告诉 OpenGL 渲染窗口的尺寸大小， 即视口(Viewport)，这样OpenGL才只能知道怎样根据窗口大小显示数据和坐标。</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">可以调用 *</span><span class="strong">*glViewport 函数*</span>* 来设置窗口的维度(Dimension)</div></pre></td></tr></table></figure></p>
+<p>glViewport(0, 0, 800, 600);<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 参数： 前两个参数控制窗口左下角的位置 <span class="number">3</span>）渲染窗口的宽度 <span class="number">4</span>）渲染窗口的高度</div><div class="line"></div><div class="line">- 我们实际上也可以将视口的维度设置为比GLFW的维度小，这样子之后所有的OpenGL渲染将会在一个更小的窗口中显示，这样子的话我们也可以将一些其它元素显示在OpenGL视口之外。</div><div class="line"></div><div class="line">- OpenGL幕后使用glViewport中定义的位置和宽高进行<span class="number">2</span>D坐标的转换，将OpenGL中的位置坐标转换为你的屏幕坐标。例如，OpenGL中的坐标(<span class="number">-0.5</span>, <span class="number">0.5</span>)有可能（最终）</div><div class="line">被映射为屏幕中的坐标(<span class="number">200</span>,<span class="number">450</span>)。注意，处理过的OpenGL坐标范围只为<span class="number">-1</span>到<span class="number">1</span>，因此我们事实上将(<span class="number">-1</span>到<span class="number">1</span>)范围内的坐标映射到(<span class="number">0</span>, <span class="number">800</span>)和(<span class="number">0</span>, <span class="number">600</span>)。</div><div class="line"></div><div class="line">- 当用户改变窗口大小的时候，视口也应该被调整。 我们可以对窗口注册一个回调函数(Callback Function), 它会在每次窗口大小被调整的时候被调用。 </div><div class="line">回调函数原型为：</div></pre></td></tr></table></figure></p>
+<p>void framebuffer_size_callback(GLFWwindow* window, int width, int height);<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 这个帧缓冲大小函数需要一个GLFWwindow作为它的第一个参数，以及两个整数表示窗口的新维度。**每当窗口改变大小，GLFW会调用这个函数并填充相应的参数供你处理。**</div></pre></td></tr></table></figure></p>
+<p>void framebuffer_size_callback(GLFWwindow* window, int width, int height)<br>{<br>    glViewport(0, 0, width, height);<br>}<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 我们还需要注册这个函数，告诉 GLFW 我们希望每当窗口调整大小的时候调用这个函数：</div></pre></td></tr></table></figure></p>
+<p>glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 当窗口第一次显示的时候framebuffer_size_callback也会被调用。</div><div class="line"></div><div class="line">### 准备好引擎</div><div class="line"></div><div class="line">希望程序在关闭前不断绘制图像并能接受用户输入。 在程序中添加一个 while 循环， **循环渲染(Render Loop)**，它能在我们让GLFW退出前一直保持运行。</div></pre></td></tr></table></figure></p>
+<p>#include<glad\glad.h></glad\glad.h></p>
+<p>#include<glfw\glfw3.h></glfw\glfw3.h></p>
+<p>#include<iostream></iostream></p>
+<p>// 函数声明</p>
+<p>void framebuffer_size_callback(GLFWwindow<em> window, int width, int height);<br>void processInput(GLFWwindow </em>window);</p>
+<p>int main()<br>{<br>    glfwInit(); // 初始化 GLFW<br>    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // 配置 GLFW<br>    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);<br>    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</p>
+<p>#ifdef <strong>APPLE</strong><br>    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, TRUE);</p>
+<p>#endif</p>
+<pre><code>// 创建窗口对象
+GLFWwindow* window = glfwCreateWindow(800, 600, &quot;Hello, OpenGL&quot;, NULL, NULL);
+if (window == NULL)
+{
+    std::cout &lt;&lt; &quot;创建窗口失败&quot; &lt;&lt; std::endl;
+    glfwTerminate();
+    return -1;
+}
+glfwMakeContextCurrent(window);
+glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+// 初始化 GLAD
+if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+{
+    std::cout &lt;&lt; &quot;初始化GLAD失败&quot; &lt;&lt; std::endl;
+    return -1;
+}
+
+// 循环渲染
+while (!glfwWindowShouldClose(window)) // 检查 GLFW 是否要求退出
+{
+    processInput(window);
+
+    // render
+    // ------
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+    glfwSwapBuffers(window); // 交换颜色缓冲，在迭代中被用来绘制，将会作为输出显示在屏幕上
+    glfwPollEvents(); // 检查触发事件、更新窗口状态，并调用对应的回调函数
+}
+
+glfwTerminate();
+return 0;
+</code></pre><p>}</p>
+<p>void processInput(GLFWwindow *window)<br>{<br>    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)<br>        glfwSetWindowShouldClose(window, true);<br>}</p>
+<p>void framebuffer_size_callback(GLFWwindow* window, int width, int height)<br>{<br>    glViewport(0, 0, width, height);<br>}<br>```</p>
 
       
 
@@ -193,7 +241,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建窗口"><span class="toc-number">1.</span> <span class="toc-text">创建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLFW"><span class="toc-number">2.</span> <span class="toc-text">GLFW</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -222,7 +270,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
         		</li>
       		
 		</ul>
@@ -278,7 +326,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/09/20/asp-net-mvc-authority/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/04/OpenGL学习笔记（二）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +340,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Newton.Json Serialize and Deserialize
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/19/asp-net-mvc-favicon-change/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">asp.net mvc favicon change</div>
+    <a href="/2017/11/04/OpenGL学习笔记（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OpenGL学习笔记（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -330,7 +369,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建窗口"><span class="toc-number">1.</span> <span class="toc-text">创建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLFW"><span class="toc-number">2.</span> <span class="toc-text">GLFW</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -346,7 +385,7 @@
   
 
   
-  <div id="SOHUCS" sid="asp-net-mvc-authority" ></div> 
+  <div id="SOHUCS" sid="OpenGL学习笔记（二）" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
