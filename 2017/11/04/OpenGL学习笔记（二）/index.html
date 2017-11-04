@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YGjch&#39;s Blog">
 <meta property="og:description" content="创建窗口首先创建一个OpenGL上下文(Context)和一个用于显示的窗口。 最流行的几个库有 GLUT，SDL，SFML，GLFW。 GLFWGLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及处理用户输入。 123456789101112#include&amp;lt;glad\glad.h&amp;gt;#include&amp;">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-11-04T04:20:15.571Z">
+<meta property="og:updated_time" content="2017-11-04T04:25:20.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenGL学习笔记（二）">
 <meta name="twitter:description" content="创建窗口首先创建一个OpenGL上下文(Context)和一个用于显示的窗口。 最流行的几个库有 GLUT，SDL，SFML，GLFW。 GLFWGLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及处理用户输入。 123456789101112#include&amp;lt;glad\glad.h&amp;gt;#include&amp;">
@@ -176,59 +176,41 @@
 <h3 id="GLFW"><a href="#GLFW" class="headerlink" title="GLFW"></a>GLFW</h3><p>GLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及<br>处理用户输入。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;glad\glad.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;GLFW\glfw3.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	glfwInit(); <span class="comment">// 初始化 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>); <span class="comment">// 配置 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</div><div class="line">	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>glfwWindowHint 函数</strong>的第一个参数代表选项的名称，我们可以从很多以 GLFW_ 开头的枚举值中选择； 第二个参数接受一个整形， 用来设置这个选项的值。<br>所有选项以及对应的值都可以在 <a href="http://www.glfw.org/docs/latest/window.html#window_hints" target="_blank" rel="external">http://www.glfw.org/docs/latest/window.html#window_hints</a> 这篇文档中找到。</p>
-<p>如果使用的是 <strong>Mac OS X 系统</strong>， 需要加入下面这行代码到配置中 <figure class="highlight plain"><figcaption><span>GL_TRUE);```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被GLFW的其他函数频繁地用到**</div></pre></td></tr></table></figure></p>
-<p>// 创建窗口对象<br>    GLFWwindow* window = glfwCreateWindow(800, 600, “Hello, OpenGL”, NULL, NULL);<br>    if (window == NULL)<br>    {<br>        std::cout &lt;&lt; “创建窗口失败” &lt;&lt; std::endl;<br>        glfwTerminate();<br>        return -1;<br>    }<br>    glfwMakeContextCurrent(window);<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**glfwCreateWindow 函数**参数 <span class="number">1</span>)宽 <span class="number">2</span>)高 <span class="number">3</span>)窗口名称 <span class="number">4</span>)？？ <span class="number">5</span>)？？</div><div class="line"></div><div class="line">创建完窗口将通知 GLFW 将我们的窗口的上下文设置为当前线程的主上下文。</div><div class="line"></div><div class="line">### GLAD</div><div class="line"></div><div class="line">GLAD 是用来管理OpenGL的函数指针的， 所以在调用任何OpenGL函数之前我们需要初始化 GLAD</div></pre></td></tr></table></figure></p>
-<p>// 初始化 GLAD<br>    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))<br>    {<br>        std::cout &lt;&lt; “初始化GLAD失败” &lt;&lt; std::endl;<br>        return -1;<br>    }<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">给GLAD传入了用来加载系统相关的OpenGL函数指针地址的函数。 GLFW 给我们的是 *<span class="strong">*glfwGetProcAddress*</span><span class="strong">*，它根据我们编译的系统定义了正确的函数。</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">### 视口</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">*</span><span class="strong">*？？ 视口和创建窗口 区别*</span><span class="strong">*</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">在开始渲染之前必须告诉 OpenGL 渲染窗口的尺寸大小， 即视口(Viewport)，这样OpenGL才只能知道怎样根据窗口大小显示数据和坐标。</span></div><div class="line"><span class="strong"></span></div><div class="line"><span class="strong">可以调用 *</span><span class="strong">*glViewport 函数*</span>* 来设置窗口的维度(Dimension)</div></pre></td></tr></table></figure></p>
-<p>glViewport(0, 0, 800, 600);<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 参数： 前两个参数控制窗口左下角的位置 <span class="number">3</span>）渲染窗口的宽度 <span class="number">4</span>）渲染窗口的高度</div><div class="line"></div><div class="line">- 我们实际上也可以将视口的维度设置为比GLFW的维度小，这样子之后所有的OpenGL渲染将会在一个更小的窗口中显示，这样子的话我们也可以将一些其它元素显示在OpenGL视口之外。</div><div class="line"></div><div class="line">- OpenGL幕后使用glViewport中定义的位置和宽高进行<span class="number">2</span>D坐标的转换，将OpenGL中的位置坐标转换为你的屏幕坐标。例如，OpenGL中的坐标(<span class="number">-0.5</span>, <span class="number">0.5</span>)有可能（最终）</div><div class="line">被映射为屏幕中的坐标(<span class="number">200</span>,<span class="number">450</span>)。注意，处理过的OpenGL坐标范围只为<span class="number">-1</span>到<span class="number">1</span>，因此我们事实上将(<span class="number">-1</span>到<span class="number">1</span>)范围内的坐标映射到(<span class="number">0</span>, <span class="number">800</span>)和(<span class="number">0</span>, <span class="number">600</span>)。</div><div class="line"></div><div class="line">- 当用户改变窗口大小的时候，视口也应该被调整。 我们可以对窗口注册一个回调函数(Callback Function), 它会在每次窗口大小被调整的时候被调用。 </div><div class="line">回调函数原型为：</div></pre></td></tr></table></figure></p>
-<p>void framebuffer_size_callback(GLFWwindow* window, int width, int height);<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 这个帧缓冲大小函数需要一个GLFWwindow作为它的第一个参数，以及两个整数表示窗口的新维度。**每当窗口改变大小，GLFW会调用这个函数并填充相应的参数供你处理。**</div></pre></td></tr></table></figure></p>
-<p>void framebuffer_size_callback(GLFWwindow* window, int width, int height)<br>{<br>    glViewport(0, 0, width, height);<br>}<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 我们还需要注册这个函数，告诉 GLFW 我们希望每当窗口调整大小的时候调用这个函数：</div></pre></td></tr></table></figure></p>
-<p>glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 当窗口第一次显示的时候framebuffer_size_callback也会被调用。</div><div class="line"></div><div class="line">### 准备好引擎</div><div class="line"></div><div class="line">希望程序在关闭前不断绘制图像并能接受用户输入。 在程序中添加一个 while 循环， **循环渲染(Render Loop)**，它能在我们让GLFW退出前一直保持运行。</div></pre></td></tr></table></figure></p>
-<p>#include<glad\glad.h></glad\glad.h></p>
-<p>#include<glfw\glfw3.h></glfw\glfw3.h></p>
-<p>#include<iostream></iostream></p>
-<p>// 函数声明</p>
-<p>void framebuffer_size_callback(GLFWwindow<em> window, int width, int height);<br>void processInput(GLFWwindow </em>window);</p>
-<p>int main()<br>{<br>    glfwInit(); // 初始化 GLFW<br>    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // 配置 GLFW<br>    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);<br>    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</p>
-<p>#ifdef <strong>APPLE</strong><br>    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, TRUE);</p>
-<p>#endif</p>
-<pre><code>// 创建窗口对象
-GLFWwindow* window = glfwCreateWindow(800, 600, &quot;Hello, OpenGL&quot;, NULL, NULL);
-if (window == NULL)
-{
-    std::cout &lt;&lt; &quot;创建窗口失败&quot; &lt;&lt; std::endl;
-    glfwTerminate();
-    return -1;
-}
-glfwMakeContextCurrent(window);
-glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-// 初始化 GLAD
-if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-{
-    std::cout &lt;&lt; &quot;初始化GLAD失败&quot; &lt;&lt; std::endl;
-    return -1;
-}
-
-// 循环渲染
-while (!glfwWindowShouldClose(window)) // 检查 GLFW 是否要求退出
-{
-    processInput(window);
-
-    // render
-    // ------
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-
-    glfwSwapBuffers(window); // 交换颜色缓冲，在迭代中被用来绘制，将会作为输出显示在屏幕上
-    glfwPollEvents(); // 检查触发事件、更新窗口状态，并调用对应的回调函数
-}
-
-glfwTerminate();
-return 0;
-</code></pre><p>}</p>
-<p>void processInput(GLFWwindow *window)<br>{<br>    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)<br>        glfwSetWindowShouldClose(window, true);<br>}</p>
-<p>void framebuffer_size_callback(GLFWwindow* window, int width, int height)<br>{<br>    glViewport(0, 0, width, height);<br>}<br>```</p>
+<p>如果使用的是 <strong>Mac OS X 系统</strong>， 需要加入下面这行代码到配置中<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glfwWindowHint(<span class="name">GLFW_OPENGL_FORWARD_COMPAT</span>, GL_TRUE)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p><strong>创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被GLFW的其他函数频繁地用到</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建窗口对象</span></div><div class="line">	GLFWwindow* window = glfwCreateWindow(<span class="number">800</span>, <span class="number">600</span>, <span class="string">"Hello, OpenGL"</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">	<span class="keyword">if</span> (window == <span class="literal">NULL</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"创建窗口失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		glfwTerminate();</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	glfwMakeContextCurrent(window);</div></pre></td></tr></table></figure>
+<p><strong>glfwCreateWindow 函数</strong>参数 1)宽 2)高 3)窗口名称 4)？？ 5)？？</p>
+<p>创建完窗口将通知 GLFW 将我们的窗口的上下文设置为当前线程的主上下文。</p>
+<h3 id="GLAD"><a href="#GLAD" class="headerlink" title="GLAD"></a>GLAD</h3><p>GLAD 是用来管理OpenGL的函数指针的， 所以在调用任何OpenGL函数之前我们需要初始化 GLAD</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 初始化 GLAD</span></div><div class="line">	<span class="keyword">if</span> (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"初始化GLAD失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>给GLAD传入了用来加载系统相关的OpenGL函数指针地址的函数。 GLFW 给我们的是 <strong>glfwGetProcAddress</strong>，它根据我们编译的系统定义了正确的函数。</p>
+<h3 id="视口"><a href="#视口" class="headerlink" title="视口"></a>视口</h3><p><strong>？？ 视口和创建窗口 区别</strong></p>
+<p>在开始渲染之前必须告诉 OpenGL 渲染窗口的尺寸大小， 即视口(Viewport)，这样OpenGL才只能知道怎样根据窗口大小显示数据和坐标。</p>
+<p>可以调用 <strong>glViewport 函数</strong> 来设置窗口的维度(Dimension)</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glViewport(<span class="number">0</span>, <span class="number">0</span>, <span class="number">800</span>, <span class="number">600</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>参数： 前两个参数控制窗口左下角的位置 3）渲染窗口的宽度 4）渲染窗口的高度</p>
+</li>
+<li><p>我们实际上也可以将视口的维度设置为比GLFW的维度小，这样子之后所有的OpenGL渲染将会在一个更小的窗口中显示，这样子的话我们也可以将一些其它元素显示在OpenGL视口之外。</p>
+</li>
+<li><p>OpenGL幕后使用glViewport中定义的位置和宽高进行2D坐标的转换，将OpenGL中的位置坐标转换为你的屏幕坐标。例如，OpenGL中的坐标(-0.5, 0.5)有可能（最终）<br>被映射为屏幕中的坐标(200,450)。注意，处理过的OpenGL坐标范围只为-1到1，因此我们事实上将(-1到1)范围内的坐标映射到(0, 800)和(0, 600)。</p>
+</li>
+<li><p>当用户改变窗口大小的时候，视口也应该被调整。 我们可以对窗口注册一个回调函数(Callback Function), 它会在每次窗口大小被调整的时候被调用。<br>回调函数原型为： </p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> framebuffer_size_callback(GLFWwindow* window, <span class="keyword">int</span> <span class="built_in">width</span>, <span class="keyword">int</span> <span class="built_in">height</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个帧缓冲大小函数需要一个GLFWwindow作为它的第一个参数，以及两个整数表示窗口的新维度。<strong>每当窗口改变大小，GLFW会调用这个函数并填充相应的参数供你处理。</strong></p>
+</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> framebuffer_size_callback(GLFWwindow* window, <span class="keyword">int</span> <span class="built_in">width</span>, <span class="keyword">int</span> <span class="built_in">height</span>)</div><div class="line">&#123;</div><div class="line">	glViewport(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>我们还需要注册这个函数，告诉 GLFW 我们希望每当窗口调整大小的时候调用这个函数：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glfwSetFramebufferSizeCallback(<span class="name">window</span>, framebuffer_size_callback)<span class="comment">;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>当窗口第一次显示的时候framebuffer_size_callback也会被调用。</p>
+</li>
+</ul>
+<h3 id="准备好引擎"><a href="#准备好引擎" class="headerlink" title="准备好引擎"></a>准备好引擎</h3><p>希望程序在关闭前不断绘制图像并能接受用户输入。 在程序中添加一个 while 循环， <strong>循环渲染(Render Loop)</strong>，它能在我们让GLFW退出前一直保持运行。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;glad\glad.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;GLFW\glfw3.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">// 函数声明</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow *window)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	glfwInit(); <span class="comment">// 初始化 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>); <span class="comment">// 配置 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</div><div class="line">	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __APPLE__</span></div><div class="line">	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, TRUE);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">	<span class="comment">// 创建窗口对象</span></div><div class="line">	GLFWwindow* window = glfwCreateWindow(<span class="number">800</span>, <span class="number">600</span>, <span class="string">"Hello, OpenGL"</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">	<span class="keyword">if</span> (window == <span class="literal">NULL</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"创建窗口失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		glfwTerminate();</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	glfwMakeContextCurrent(window);</div><div class="line">	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);</div><div class="line"></div><div class="line">	<span class="comment">// 初始化 GLAD</span></div><div class="line">	<span class="keyword">if</span> (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"初始化GLAD失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 循环渲染</span></div><div class="line">	<span class="keyword">while</span> (!glfwWindowShouldClose(window)) <span class="comment">// 检查 GLFW 是否要求退出</span></div><div class="line">	&#123;</div><div class="line">		processInput(window);</div><div class="line"></div><div class="line">		<span class="comment">// render</span></div><div class="line">		<span class="comment">// ------</span></div><div class="line">		glClearColor(<span class="number">0.2f</span>, <span class="number">0.3f</span>, <span class="number">0.3f</span>, <span class="number">1.0f</span>);</div><div class="line">		glClear(GL_COLOR_BUFFER_BIT);</div><div class="line"></div><div class="line"></div><div class="line">		glfwSwapBuffers(window); <span class="comment">// 交换颜色缓冲，在迭代中被用来绘制，将会作为输出显示在屏幕上</span></div><div class="line">		glfwPollEvents(); <span class="comment">// 检查触发事件、更新窗口状态，并调用对应的回调函数</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	glfwTerminate();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow *window)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">if</span> (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)</div><div class="line">		glfwSetWindowShouldClose(window, <span class="literal">true</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	glViewport(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -241,7 +223,7 @@ return 0;
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建窗口"><span class="toc-number">1.</span> <span class="toc-text">创建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLFW"><span class="toc-number">2.</span> <span class="toc-text">GLFW</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建窗口"><span class="toc-number">1.</span> <span class="toc-text">创建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLFW"><span class="toc-number">2.</span> <span class="toc-text">GLFW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLAD"><span class="toc-number">3.</span> <span class="toc-text">GLAD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视口"><span class="toc-number">4.</span> <span class="toc-text">视口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备好引擎"><span class="toc-number">5.</span> <span class="toc-text">准备好引擎</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -369,7 +351,7 @@ return 0;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建窗口"><span class="toc-number">1.</span> <span class="toc-text">创建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLFW"><span class="toc-number">2.</span> <span class="toc-text">GLFW</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建窗口"><span class="toc-number">1.</span> <span class="toc-text">创建窗口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLFW"><span class="toc-number">2.</span> <span class="toc-text">GLFW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLAD"><span class="toc-number">3.</span> <span class="toc-text">GLAD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视口"><span class="toc-number">4.</span> <span class="toc-text">视口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#准备好引擎"><span class="toc-number">5.</span> <span class="toc-text">准备好引擎</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -525,10 +507,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">OpenGL</a>
               </li>
              
@@ -549,6 +527,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -557,7 +543,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,10 +552,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
             
             <div class="clearfix"></div>
