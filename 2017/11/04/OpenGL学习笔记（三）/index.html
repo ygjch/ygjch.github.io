@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Eclipse 工具栏无法加载出下载好的插件 | YGjch&#39;s Blog</title>
+  <title>OpenGL学习笔记（三） | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述软件测试中有一个可以查看覆盖率的插件Eclemma，下载完之后在Eclipse的工具栏中发现并没有显示这个插件。 解决方案Eclipse -&amp;gt; window -&amp;gt; Customize Perspective， 勾选上 Eclemma。">
-<meta name="keywords" content="java">
+  <meta name="description" content="在学习此节之前，建议将这三个单词先记下来：  顶点数组对象：Vertex Array Object，VAO 顶点缓冲对象：Vertex Buffer Object，VBO 索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO  在OpenGL中，任何事物都在3D空间中，而屏幕和窗口却是2D像素数组，这导致OpenGL的大部分工作都是关于把">
+<meta name="keywords" content="OpenGL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Eclipse 工具栏无法加载出下载好的插件">
-<meta property="og:url" content="http://ygjch.github.io/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/index.html">
+<meta property="og:title" content="OpenGL学习笔记（三）">
+<meta property="og:url" content="http://ygjch.github.io/2017/11/04/OpenGL学习笔记（三）/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="问题描述软件测试中有一个可以查看覆盖率的插件Eclemma，下载完之后在Eclipse的工具栏中发现并没有显示这个插件。 解决方案Eclipse -&amp;gt; window -&amp;gt; Customize Perspective， 勾选上 Eclemma。">
+<meta property="og:description" content="在学习此节之前，建议将这三个单词先记下来：  顶点数组对象：Vertex Array Object，VAO 顶点缓冲对象：Vertex Buffer Object，VBO 索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO  在OpenGL中，任何事物都在3D空间中，而屏幕和窗口却是2D像素数组，这导致OpenGL的大部分工作都是关于把">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-10-06T12:44:37.556Z">
+<meta property="og:updated_time" content="2017-11-04T13:18:56.457Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eclipse 工具栏无法加载出下载好的插件">
-<meta name="twitter:description" content="问题描述软件测试中有一个可以查看覆盖率的插件Eclemma，下载完之后在Eclipse的工具栏中发现并没有显示这个插件。 解决方案Eclipse -&amp;gt; window -&amp;gt; Customize Perspective， 勾选上 Eclemma。">
+<meta name="twitter:title" content="OpenGL学习笔记（三）">
+<meta name="twitter:description" content="在学习此节之前，建议将这三个单词先记下来：  顶点数组对象：Vertex Array Object，VAO 顶点缓冲对象：Vertex Buffer Object，VBO 索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO  在OpenGL中，任何事物都在3D空间中，而屏幕和窗口却是2D像素数组，这导致OpenGL的大部分工作都是关于把">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,28 +151,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Eclipse-工具栏无法加载出下载好的插件" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-OpenGL学习笔记（三）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Eclipse 工具栏无法加载出下载好的插件
+      OpenGL学习笔记（三）
     </h1>
   
 
         
-        <a href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/" class="archive-article-date">
-  	<time datetime="2017-10-06T12:34:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
+        <a href="/2017/11/04/OpenGL学习笔记（三）/" class="archive-article-date">
+  	<time datetime="2017-11-04T13:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>软件测试中有一个可以查看覆盖率的插件<strong>Eclemma</strong>，下载完之后在Eclipse的工具栏中发现并没有显示这个插件。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p><code>Eclipse -&gt; window -&gt; Customize Perspective</code>， 勾选上 <strong>Eclemma</strong>。</p>
+        <p>在学习此节之前，建议将这三个单词先记下来：</p>
+<ul>
+<li>顶点数组对象：Vertex Array Object，VAO</li>
+<li>顶点缓冲对象：Vertex Buffer Object，VBO</li>
+<li>索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO</li>
+</ul>
+<p>在OpenGL中，任何事物都在3D空间中，而屏幕和窗口却是2D像素数组，这导致OpenGL的大部分工作都是关于把3D坐标转变为适应你屏幕的2D像素。</p>
+<p>3D坐标转为2D坐标的处理过程是由OpenGL的<strong>图形渲染管线</strong>（Graphics Pipeline，大多译为管线，实际上指的是一堆原始图形数据途经一个输送管道，期间经过各种变化处理最终出现在屏幕的过程）管理的。</p>
+<p>图形渲染管线可以被划分为两个主要部分：</p>
+<ul>
+<li>第一部分把你的3D坐标转换为2D坐标</li>
+<li>第二部分是把2D坐标转变为实际的有颜色的像素。</li>
+</ul>
+<p><strong>2D坐标和像素也是不同的，2D坐标精确表示一个点在2D空间中的位置，而2D像素是这个点的近似值，2D像素受到你的屏幕/窗口分辨率的限制。</strong></p>
 
       
 
@@ -185,7 +197,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
+                
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -214,7 +226,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
         		</li>
       		
 		</ul>
@@ -270,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/04/OpenGL学习笔记（三）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +296,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/06/Eclipse-Customize-Perspective-无反应/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Eclipse Customize Perspective 无反应
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/06/如何清理干净java环境/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">如何清理干净java环境</div>
+    <a href="/2017/11/04/百度人脸识别api学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">百度人脸识别api学习</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -322,7 +325,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -338,7 +341,7 @@
   
 
   
-  <div id="SOHUCS" sid="Eclipse-工具栏无法加载出下载好的插件" ></div> 
+  <div id="SOHUCS" sid="OpenGL学习笔记（三）" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
