@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>YGjch&#39;s Blog</title>
+  <title>695. Max Area of Island 题解 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/index.html">
+  <meta name="description" content="题意给定一二维数组，1 代表陆地， 0 代表海。 每一个元素上下左右四个方向连通为一个连接陆地。求这个数组中最大的陆地面积。 题解对二维数组的每一位元素进行深度优先搜索，看当前元素的上下左右是否为陆地。 如果为陆地，则沿陆地方向搜索到底，知道越界或当前遍历位置已经遍历过了为止。 对每一个位置的四个方向分别深搜，将每个方向的连通陆地相加，即为当前位置所处的最大连通面积。 代码（C++）1234567">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="695. Max Area of Island 题解">
+<meta property="og:url" content="http://ygjch.github.io/2017/11/06/695-Max-Area-of-Island-题解/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="题意给定一二维数组，1 代表陆地， 0 代表海。 每一个元素上下左右四个方向连通为一个连接陆地。求这个数组中最大的陆地面积。 题解对二维数组的每一位元素进行深度优先搜索，看当前元素的上下左右是否为陆地。 如果为陆地，则沿陆地方向搜索到底，知道越界或当前遍历位置已经遍历过了为止。 对每一个位置的四个方向分别深搜，将每个方向的连通陆地相加，即为当前位置所处的最大连通面积。 代码（C++）1234567">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2017-11-06T05:20:55.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="695. Max Area of Island 题解">
+<meta name="twitter:description" content="题意给定一二维数组，1 代表陆地， 0 代表海。 每一个元素上下左右四个方向连通为一个连接陆地。求这个数组中最大的陆地面积。 题解对二维数组的每一位元素进行深度优先搜索，看当前元素的上下左右是否为陆地。 如果为陆地，则沿陆地方向搜索到底，知道越界或当前遍历位置已经遍历过了为止。 对每一个位置的四个方向分别深搜，将每个方向的连通陆地相加，即为当前位置所处的最大连通面积。 代码（C++）1234567">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -149,16 +151,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-695-Max-Area-of-Island-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-695-Max-Area-of-Island-题解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/06/695-Max-Area-of-Island-题解/">695. Max Area of Island 题解</a>
+    <h1 class="article-title" itemprop="name">
+      695. Max Area of Island 题解
     </h1>
   
 
@@ -180,6 +180,30 @@
       
 
 	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题解"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（C-）"><span class="toc-number">3.</span> <span class="toc-text">代码（C++）</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
              
         <!-- 目录内容结束 -->
 	  
@@ -202,16 +226,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/06/695-Max-Area-of-Island-题解/">Expand the Article >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/06/695-Max-Area-of-Island-题解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/05/697-Degree-of-an-Array-题解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">697. Degree of an Array 题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -226,814 +309,39 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-697-Degree-of-an-Array-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/05/697-Degree-of-an-Array-题解/">697. Degree of an Array 题解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/05/697-Degree-of-an-Array-题解/" class="archive-article-date">
-  	<time datetime="2017-11-05T12:48:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一个给定数组，求包含出现次数最多元素的最短子序列长度。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>要求这个最短子序列要包含出现次数最多的元素。就要找到这个出现次数最多的元素，然后在给定数组中找到第一次和最后一次出现的位置，<br>然后两个位置下标做差加一即为最短子序列长度。</p>
-<h3 id="代码-C"><a href="#代码-C" class="headerlink" title="代码(C++)"></a>代码(C++)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findShortestSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mmp;</div><div class="line">		</div><div class="line">		<span class="comment">// 统计每个element出现的次数</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)</div><div class="line">		&#123;</div><div class="line">			mmp[nums[i]]++;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator p;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> maxium = <span class="number">-1</span>;</div><div class="line">		</div><div class="line">		<span class="comment">// 找到出现次数最多element的次数</span></div><div class="line">		<span class="keyword">for</span>(p = mmp.begin(); p != mmp.end(); p++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(p-&gt;second &gt; maxium) maxium = p-&gt;second;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr;</div><div class="line">		</div><div class="line">		<span class="comment">// 寻找到出现次数最多的所有element</span></div><div class="line">		<span class="keyword">for</span>(p = mmp.begin(); p != mmp.end(); p++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(p-&gt;second == maxium) arr.push_back(p-&gt;first);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> result[<span class="number">50000</span>], k = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">int</span> front, back;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(nums[j] == arr[i]) </div><div class="line">				&#123;</div><div class="line">					front = j;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = nums.size()<span class="number">-1</span>; j &gt;= <span class="number">0</span>; j--)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(nums[j] == arr[i])</div><div class="line">				&#123;</div><div class="line">					back = j;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			result[k++] = back - front; <span class="comment">// 求出每个element的子串长度</span></div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		sort(result, result + k);</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> result[<span class="number">0</span>] + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/05/697-Degree-of-an-Array-题解/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题解"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（C-）"><span class="toc-number">3.</span> <span class="toc-text">代码（C++）</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-717-1-bit-and-2-bit-Characters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/05/717-1-bit-and-2-bit-Characters/">717. 1-bit and 2-bit Characters</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/05/717-1-bit-and-2-bit-Characters/" class="archive-article-date">
-  	<time datetime="2017-11-05T04:15:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给一个数组，数组为01串组成。最后一位是否是一位</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>先两位一判断，是否为11 或者 10， 循环至最后一位或者恰好能两两一组遍历完。</p>
-<ul>
-<li>如果是剩一位，进行特判。0true,1false</li>
-<li>如果恰好两两一组遍历完 false</li>
-</ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    bool isOneBitCharacter(vector&lt;<span class="keyword">int</span>&gt;&amp; bits) &#123;</div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		</div><div class="line">        <span class="keyword">while</span>(i &lt; bits.<span class="keyword">size</span>())</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(i&lt;bits.<span class="keyword">size</span>()-<span class="number">1</span> &amp;&amp; bits[i] == <span class="number">1</span>)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(bits[i+<span class="number">1</span>] == <span class="number">1</span> || bits[i+<span class="number">1</span>] == <span class="number">0</span>) </div><div class="line">				&#123;</div><div class="line">					i = i+<span class="number">2</span>;</div><div class="line">					<span class="keyword">if</span>(i&gt;=bits.<span class="keyword">size</span>())</div><div class="line">					&#123;</div><div class="line">						<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">					&#125;</div><div class="line">					<span class="keyword">else</span> <span class="keyword">if</span>(i == bits.<span class="keyword">size</span>()-<span class="number">1</span>)</div><div class="line">					&#123;</div><div class="line">						<span class="keyword">if</span>(bits[i] == <span class="number">0</span>)</div><div class="line">						&#123;</div><div class="line">							<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">						&#125;</div><div class="line">						<span class="keyword">else</span> </div><div class="line">						&#123;</div><div class="line">							<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i == bits.<span class="keyword">size</span>()-<span class="number">1</span>)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(bits[i] == <span class="number">0</span>)</div><div class="line">				&#123;</div><div class="line">					<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span> </div><div class="line">				&#123;</div><div class="line">					<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> </div><div class="line">			&#123;</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/05/717-1-bit-and-2-bit-Characters/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OpenGL学习笔记（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/OpenGL学习笔记（三）/">OpenGL学习笔记（三）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/04/OpenGL学习笔记（三）/" class="archive-article-date">
-  	<time datetime="2017-11-04T13:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习此节之前，建议将这三个单词先记下来：</p>
-<ul>
-<li>顶点数组对象：Vertex Array Object，VAO</li>
-<li>顶点缓冲对象：Vertex Buffer Object，VBO</li>
-<li>索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO</li>
-</ul>
-<p>在OpenGL中，任何事物都在3D空间中，而屏幕和窗口却是2D像素数组，这导致OpenGL的大部分工作都是关于把3D坐标转变为适应你屏幕的2D像素。</p>
-<p>3D坐标转为2D坐标的处理过程是由OpenGL的<strong>图形渲染管线</strong>（Graphics Pipeline，大多译为管线，实际上指的是一堆原始图形数据途经一个输送管道，期间经过各种变化处理最终出现在屏幕的过程）管理的。</p>
-<p>图形渲染管线可以被划分为两个主要部分：</p>
-<ul>
-<li>第一部分把你的3D坐标转换为2D坐标</li>
-<li>第二部分是把2D坐标转变为实际的有颜色的像素。</li>
-</ul>
-<p><strong>2D坐标和像素也是不同的，2D坐标精确表示一个点在2D空间中的位置，而2D像素是这个点的近似值，2D像素受到你的屏幕/窗口分辨率的限制。</strong></p>
-<p>图形渲染管线包含很多部分，每个部分都将在转换顶点数据到最终像素这一过程中处理各自特定的阶段。我们会概括性地解释一下渲染管线的每个部分，让你对图形渲染管线的工作方式有个大概了解。</p>
-<p>首先，我们以数组的形式传递3个3D坐标作为图形渲染管线的输入，用来表示一个三角形，这个数组叫做顶点数据(Vertex Data)；顶点数据是一系列顶点的集合。一个顶点(Vertex)是一个3D坐标的数据的集合。而顶点数据是用顶点属性(Vertex Attribute)表示的，它可以包含任何我们想用的数据</p>
-<p>为了让OpenGL知道我们的坐标和颜色值构成的到底是什么，OpenGL需要你去指定这些数据所表示的渲染类型。我们是希望把这些数据渲染成一系列的点？一系列的三角形？还是仅仅是一个长长的线？做出的这些提示叫做图元(Primitive)，任何一个绘制指令的调用都将把图元传递给OpenGL。这是其中的几个：GL_POINTS、GL_TRIANGLES、GL_LINE_STRIP。</p>
-<p>图形渲染管线的第一个部分是顶点着色器(Vertex Shader)，它把一个单独的顶点作为输入。顶点着色器主要的目的是把3D坐标转为另一种3D坐标（后面会解释），同时顶点着色器允许我们对顶点属性进行一些基本处理。</p>
-<p>图元装配(Primitive Assembly)阶段将顶点着色器输出的所有顶点作为输入（如果是GL_POINTS，那么就是一个顶点），并所有的点装配成指定图元的形状；本节例子中是一个三角形。</p>
-<p>图元装配阶段的输出会传递给几何着色器(Geometry Shader)。几何着色器把图元形式的一系列顶点的集合作为输入，它可以通过产生新顶点构造出新的（或是其它的）图元来生成其他形状。例子中，它生成了另一个三角形。</p>
-<p>几何着色器的输出会被传入光栅化阶段(Rasterization Stage)，这里它会把图元映射为最终屏幕上相应的像素，生成供片段着色器(Fragment Shader)使用的片段(Fragment)。在片段着色器运行之前会执行裁切(Clipping)。裁切会丢弃超出你的视图以外的所有像素，用来提升执行效率。</p>
-<p>开始绘制图形之前，我们必须先给OpenGL输入一些顶点数据。OpenGL是一个3D图形库，所以我们在OpenGL中指定的所有坐标都是3D坐标（x、y和z）。OpenGL不是简单地把所有的3D坐标变换为屏幕上的2D像素；OpenGL仅当3D坐标在3个轴（x、y和z）上都为-1.0到1.0的范围内时才处理它。所有在所谓的标准化设备坐标(Normalized Device Coordinates)范围内的坐标才会最终呈现在屏幕上（在这个范围以外的坐标都不会显示）。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/04/OpenGL学习笔记（三）/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-百度人脸识别api学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/百度人脸识别api学习/">百度人脸识别api学习</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/04/百度人脸识别api学习/" class="archive-article-date">
-  	<time datetime="2017-11-04T12:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>百度AI平台人脸识别api学习</p>
-<p>实践了人脸识别api，python实现。</p>
-<p>api文档参看 百度AI平台官网</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipFace</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipFace = AipFace(APP_ID, API_KEY, SECRET_KEY)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(path)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(path, <span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">face_detect</span><span class="params">(path)</span>:</span></div><div class="line">    options = &#123;</div><div class="line">        <span class="string">'max_face_num'</span>: <span class="number">10</span>,</div><div class="line">        <span class="string">'face_fields'</span>: <span class="string">"age, beauty, expression, faceshape"</span>,</div><div class="line">    &#125;</div><div class="line">    result = aipFace.detect(path, options)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">face_match</span><span class="params">(images)</span>:</span></div><div class="line">    options = &#123;</div><div class="line">        <span class="string">'result'</span>: <span class="string">"score"</span>,</div><div class="line">    &#125;</div><div class="line">    result = aipFace.match(images, options)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    image1 = get_file_content(<span class="string">'erren.jpg'</span>)</div><div class="line">    <span class="comment"># image2 = get_file_content('b.jpg')</span></div><div class="line">    <span class="comment"># images = [image1, image2]</span></div><div class="line"></div><div class="line">    c1 = get_file_content(<span class="string">'fa.jpg'</span>)</div><div class="line">    c2 = get_file_content(<span class="string">'c.jpg'</span>)</div><div class="line">    lan = get_file_content(<span class="string">'lanni.jpg'</span>)</div><div class="line">    images = [c1, c2]</div><div class="line"></div><div class="line">    <span class="comment"># print face_match(images)</span></div><div class="line">    <span class="keyword">print</span> face_detect(lan)</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/04/百度人脸识别api学习/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OpenGL学习笔记（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/OpenGL学习笔记（二）/">OpenGL学习笔记（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/04/OpenGL学习笔记（二）/" class="archive-article-date">
-  	<time datetime="2017-11-04T02:29:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="创建窗口"><a href="#创建窗口" class="headerlink" title="创建窗口"></a>创建窗口</h3><p>首先创建一个OpenGL上下文(Context)和一个用于显示的窗口。</p>
-<p>最流行的几个库有 <strong>GLUT，SDL，SFML，GLFW</strong>。</p>
-<h3 id="GLFW"><a href="#GLFW" class="headerlink" title="GLFW"></a>GLFW</h3><p>GLFW 是一个专门针对OpenGL的C语言库，提供了一些渲染物体所需的最低限度的接口。允许用户创建OpenGL上下文，定义窗口参数以及<br>处理用户输入。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;glad\glad.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;GLFW\glfw3.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	glfwInit(); <span class="comment">// 初始化 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>); <span class="comment">// 配置 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</div><div class="line">	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>glfwWindowHint 函数</strong>的第一个参数代表选项的名称，我们可以从很多以 GLFW_ 开头的枚举值中选择； 第二个参数接受一个整形， 用来设置这个选项的值。<br>所有选项以及对应的值都可以在 <a href="http://www.glfw.org/docs/latest/window.html#window_hints" target="_blank" rel="external">http://www.glfw.org/docs/latest/window.html#window_hints</a> 这篇文档中找到。</p>
-<p>如果使用的是 <strong>Mac OS X 系统</strong>， 需要加入下面这行代码到配置中<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glfwWindowHint(<span class="name">GLFW_OPENGL_FORWARD_COMPAT</span>, GL_TRUE)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<p><strong>创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被GLFW的其他函数频繁地用到</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建窗口对象</span></div><div class="line">	GLFWwindow* window = glfwCreateWindow(<span class="number">800</span>, <span class="number">600</span>, <span class="string">"Hello, OpenGL"</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">	<span class="keyword">if</span> (window == <span class="literal">NULL</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"创建窗口失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		glfwTerminate();</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	glfwMakeContextCurrent(window);</div></pre></td></tr></table></figure>
-<p><strong>glfwCreateWindow 函数</strong>参数 1)宽 2)高 3)窗口名称 4)？？ 5)？？</p>
-<p>创建完窗口将通知 GLFW 将我们的窗口的上下文设置为当前线程的主上下文。</p>
-<h3 id="GLAD"><a href="#GLAD" class="headerlink" title="GLAD"></a>GLAD</h3><p>GLAD 是用来管理OpenGL的函数指针的， 所以在调用任何OpenGL函数之前我们需要初始化 GLAD</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 初始化 GLAD</span></div><div class="line">	<span class="keyword">if</span> (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"初始化GLAD失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<p>给GLAD传入了用来加载系统相关的OpenGL函数指针地址的函数。 GLFW 给我们的是 <strong>glfwGetProcAddress</strong>，它根据我们编译的系统定义了正确的函数。</p>
-<h3 id="视口"><a href="#视口" class="headerlink" title="视口"></a>视口</h3><p><strong>？？ 视口和创建窗口 区别</strong></p>
-<p>在开始渲染之前必须告诉 OpenGL 渲染窗口的尺寸大小， 即视口(Viewport)，这样OpenGL才只能知道怎样根据窗口大小显示数据和坐标。</p>
-<p>可以调用 <strong>glViewport 函数</strong> 来设置窗口的维度(Dimension)</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glViewport(<span class="number">0</span>, <span class="number">0</span>, <span class="number">800</span>, <span class="number">600</span>);</div></pre></td></tr></table></figure>
-<ul>
-<li><p>参数： 前两个参数控制窗口左下角的位置 3）渲染窗口的宽度 4）渲染窗口的高度</p>
-</li>
-<li><p>我们实际上也可以将视口的维度设置为比GLFW的维度小，这样子之后所有的OpenGL渲染将会在一个更小的窗口中显示，这样子的话我们也可以将一些其它元素显示在OpenGL视口之外。</p>
-</li>
-<li><p>OpenGL幕后使用glViewport中定义的位置和宽高进行2D坐标的转换，将OpenGL中的位置坐标转换为你的屏幕坐标。例如，OpenGL中的坐标(-0.5, 0.5)有可能（最终）<br>被映射为屏幕中的坐标(200,450)。注意，处理过的OpenGL坐标范围只为-1到1，因此我们事实上将(-1到1)范围内的坐标映射到(0, 800)和(0, 600)。</p>
-</li>
-<li><p>当用户改变窗口大小的时候，视口也应该被调整。 我们可以对窗口注册一个回调函数(Callback Function), 它会在每次窗口大小被调整的时候被调用。<br>回调函数原型为： </p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> framebuffer_size_callback(GLFWwindow* window, <span class="keyword">int</span> <span class="built_in">width</span>, <span class="keyword">int</span> <span class="built_in">height</span>);</div></pre></td></tr></table></figure>
-</li>
-<li><p>这个帧缓冲大小函数需要一个GLFWwindow作为它的第一个参数，以及两个整数表示窗口的新维度。<strong>每当窗口改变大小，GLFW会调用这个函数并填充相应的参数供你处理。</strong></p>
-</li>
-</ul>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> framebuffer_size_callback(GLFWwindow* window, <span class="keyword">int</span> <span class="built_in">width</span>, <span class="keyword">int</span> <span class="built_in">height</span>)</div><div class="line">&#123;</div><div class="line">	glViewport(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>我们还需要注册这个函数，告诉 GLFW 我们希望每当窗口调整大小的时候调用这个函数：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">glfwSetFramebufferSizeCallback(<span class="name">window</span>, framebuffer_size_callback)<span class="comment">;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>当窗口第一次显示的时候framebuffer_size_callback也会被调用。</p>
-</li>
-</ul>
-<h3 id="准备好引擎"><a href="#准备好引擎" class="headerlink" title="准备好引擎"></a>准备好引擎</h3><p>希望程序在关闭前不断绘制图像并能接受用户输入。 在程序中添加一个 while 循环， <strong>循环渲染(Render Loop)</strong>，它能在我们让GLFW退出前一直保持运行。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;glad\glad.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;GLFW\glfw3.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">// 函数声明</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow *window)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	glfwInit(); <span class="comment">// 初始化 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>); <span class="comment">// 配置 GLFW</span></div><div class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</div><div class="line">	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __APPLE__</span></div><div class="line">	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, TRUE);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">	<span class="comment">// 创建窗口对象</span></div><div class="line">	GLFWwindow* window = glfwCreateWindow(<span class="number">800</span>, <span class="number">600</span>, <span class="string">"Hello, OpenGL"</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">	<span class="keyword">if</span> (window == <span class="literal">NULL</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"创建窗口失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		glfwTerminate();</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	glfwMakeContextCurrent(window);</div><div class="line">	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);</div><div class="line"></div><div class="line">	<span class="comment">// 初始化 GLAD</span></div><div class="line">	<span class="keyword">if</span> (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))</div><div class="line">	&#123;</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"初始化GLAD失败"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 循环渲染</span></div><div class="line">	<span class="keyword">while</span> (!glfwWindowShouldClose(window)) <span class="comment">// 检查 GLFW 是否要求退出</span></div><div class="line">	&#123;</div><div class="line">		processInput(window);</div><div class="line"></div><div class="line">		<span class="comment">// render</span></div><div class="line">		<span class="comment">// ------</span></div><div class="line">		glClearColor(<span class="number">0.2f</span>, <span class="number">0.3f</span>, <span class="number">0.3f</span>, <span class="number">1.0f</span>);</div><div class="line">		glClear(GL_COLOR_BUFFER_BIT);</div><div class="line"></div><div class="line"></div><div class="line">		glfwSwapBuffers(window); <span class="comment">// 交换颜色缓冲，在迭代中被用来绘制，将会作为输出显示在屏幕上</span></div><div class="line">		glfwPollEvents(); <span class="comment">// 检查触发事件、更新窗口状态，并调用对应的回调函数</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	glfwTerminate();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow *window)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">if</span> (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)</div><div class="line">		glfwSetWindowShouldClose(window, <span class="literal">true</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	glViewport(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/04/OpenGL学习笔记（二）/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OpenGL学习笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/OpenGL学习笔记（一）/">OpenGL学习笔记（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/04/OpenGL学习笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-11-04T02:17:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="核心模式与立即渲染模式"><a href="#核心模式与立即渲染模式" class="headerlink" title="核心模式与立即渲染模式"></a>核心模式与立即渲染模式</h3><p>早期OpenGL使用立即渲染模式(Immediate mode , 固定渲染管线)， 这个模式绘图很方便。OpenGL大多数库被隐藏起来，开发者不能控制<br>OpenGL如何计算自由。</p>
-<p>从OpenGL 3.2开始，规范文档开始废弃立即渲染模式，鼓励开发者使用OpenGL 核心模式（Core-profile）</p>
-<h3 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h3><p>OpenGL 自身是巨大的状态机(State Machine): 一系列的变量描述OpenGL此刻应当如何运行。</p>
-<p>OpenGL 的状态通常被称为 OpenGL上下文(Context)。<br>通常使用如下途径改变OpenGL状态：</p>
-<ul>
-<li>设置选项</li>
-<li>操作缓冲<br>最后使用当前OpenGL上下文进行渲染</li>
-</ul>
-<p>当使用OpenGL的时候，<strong>状态设置函数(State-changing Function)</strong>，这类函数将会改变上下文。<br><strong>状态使用函数(State-using Function)</strong>，这类函数将会根据当前OpenGL的状态执行一些操作。</p>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>对象是指一些选项的集合，代表OpenGL状态的一个子集。</p>
-<p>比如可以用一个对象来代表绘图窗口的设置， 就可以设置它的大小、支持的颜色位数等等。</p>
-<p>可以看成 （Struct）</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/04/OpenGL学习笔记（一）/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-appium-doctor-不是内部或外部命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/02/appium-doctor-不是内部或外部命令/">appium-doctor 不是内部或外部命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/02/appium-doctor-不是内部或外部命令/" class="archive-article-date">
-  	<time datetime="2017-11-02T15:50:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="单独配置-Android-Home-系统变量"><a href="#单独配置-Android-Home-系统变量" class="headerlink" title="单独配置 Android_Home 系统变量"></a>单独配置 Android_Home 系统变量</h3><p>开始配置安卓环境的时候，没有新建 <strong>Android_Home</strong> 系统变量，而是直接将 <strong>D:\SDK\tools</strong>和 <strong>D:\SDK\platform-tools</strong><br>配置到了 <strong>Path</strong> 里。这样就会导致 appium-doctor 运行时失败。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在设置系统环境变量的地方新建 <strong>Android_Home</strong> ( 注意是 <strong>系统变量</strong></p>
-<ul>
-<li>变量值： <strong>D:\SDK</strong> (就是SDK的目录</li>
-<li>在 <strong>Path</strong> 中加入 <strong>%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;</strong> ，在 <strong>tools</strong> 目录下执行 <strong>android</strong> 命令，并且在 <strong>platform-tools</strong> 目录下执行 <strong>adb</strong> 命令。</li>
-</ul>
-<p>创建系统变量 <strong>Appium_Home</strong></p>
-<ul>
-<li>变量值：<strong>D:\Appium</strong> ( 也就是Appium的目录</li>
-<li>在 <strong>Path</strong> 中加入 <strong>%Appium_Home%</strong></li>
-</ul>
-<p>进入 <strong>D:\Appium\node_modules.bin</strong> ，运行 <strong>appium-doctor</strong> 即可成功。</p>
-<p>第3步如果还不行，就将 <strong>Appium</strong> 文件夹下的 <strong>Appium\node_modules.bin</strong> 加到系统环境变量 <strong>Path</strong> 中。</p>
-<p>运行结果如图所示：<br><img src="/img/success.png" width="1000px" height="300px"></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/02/appium-doctor-不是内部或外部命令/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-如何连接外远程桌面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/01/如何连接外远程桌面/">如何连接外远程桌面</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/01/如何连接外远程桌面/" class="archive-article-date">
-  	<time datetime="2017-11-01T11:32:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="本机连接其他电脑的远程桌面"><a href="#本机连接其他电脑的远程桌面" class="headerlink" title="本机连接其他电脑的远程桌面"></a>本机连接其他电脑的远程桌面</h3><p><strong>Win + R</strong> -&gt; <strong>mstsc</strong></p>
-<p>输入 IP，点击 <strong>选项</strong>， 输入用户名和密码登录即可。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">computer application</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/01/如何连接外远程桌面/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-opencv-灰度图转伪彩色图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/29/opencv-灰度图转伪彩色图/">opencv 灰度图转伪彩色图</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/29/opencv-灰度图转伪彩色图/" class="archive-article-date">
-  	<time datetime="2017-10-29T08:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/weicaisetu.png" width="1000px" height="200px"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line"></div><div class="line">	Mat img = imread(<span class="string">"1.jpg"</span>, CV_LOAD_IMAGE_GRAYSCALE);<span class="comment">//采用灰度格式读取图片</span></div><div class="line">	namedWindow(<span class="string">"bmp_img"</span>);</div><div class="line">	imshow(<span class="string">"bmp_img"</span>, img);</div><div class="line"></div><div class="line">	<span class="function">Mat <span class="title">img_pseudocolor</span><span class="params">(img.rows, img.cols, CV_8UC3)</span></span>;<span class="comment">//构造RGB图像，参数CV_8UC3教程文档里面有讲解</span></div><div class="line">	<span class="keyword">int</span> tmp = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y&lt;img.rows; y++)<span class="comment">//转为伪彩色图像的具体算法</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x&lt;img.cols; x++)</div><div class="line">		&#123;</div><div class="line">			tmp = img.at&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>&gt;(y, x);</div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">0</span>] = <span class="built_in">abs</span>(<span class="number">255</span> - tmp); <span class="comment">//blue</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">1</span>] = <span class="built_in">abs</span>(<span class="number">127</span> - tmp); <span class="comment">//green</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">2</span>] = <span class="built_in">abs</span>(<span class="number">0</span> - tmp); <span class="comment">//red</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	namedWindow(<span class="string">"img_pseudocolor"</span>);</div><div class="line">	imshow(<span class="string">"img_pseudocolor"</span>, img_pseudocolor);</div><div class="line">	waitKey(<span class="number">0</span>);</div><div class="line">	destroyAllWindows();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/29/opencv-灰度图转伪彩色图/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+  <div id="SOHUCS" sid="695-Max-Area-of-Island-题解" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdLJ4RN"; 
+var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
   
 
 
@@ -1056,8 +364,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
