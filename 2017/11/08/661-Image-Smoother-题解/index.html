@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://ygjch.github.io">
   <title>661. Image Smoother 题解 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意将二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索通过 int dx[], int dy[] 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索的元素索引进行判断 nx = i + dx[k]ny =">
+  <meta name="description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索通过 int dx[], int dy[] 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索的元素索引进行判断 nx = i + dx[k]ny =">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="661. Image Smoother 题解">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/08/661-Image-Smoother-题解/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="题意将二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索通过 int dx[], int dy[] 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索的元素索引进行判断 nx = i + dx[k]ny =">
+<meta property="og:description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索通过 int dx[], int dy[] 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索的元素索引进行判断 nx = i + dx[k]ny =">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-11-08T10:13:58.897Z">
+<meta property="og:updated_time" content="2017-11-08T10:17:47.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="661. Image Smoother 题解">
-<meta name="twitter:description" content="题意将二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索通过 int dx[], int dy[] 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索的元素索引进行判断 nx = i + dx[k]ny =">
+<meta name="twitter:description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索通过 int dx[], int dy[] 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索的元素索引进行判断 nx = i + dx[k]ny =">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>将二维数组每一个值为周围元素求和的平均值。</p>
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>二维数组每一个值为周围元素求和的平均值。</p>
 <p>| 1 1 1 |<br>| 1 0 1 |<br>| 1 1 1 |</p>
 <p>output : </p>
 <p>| 0 0 0 |<br>| 0 0 0 |<br>| 0 0 0 |</p>
@@ -471,15 +471,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,7 +495,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,10 +511,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -519,11 +519,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
