@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YGjch&#39;s Blog">
 <meta property="og:description" content="Windows 上 Python2 和 3 如何兼容？ 目前国内网站经常会让大家把其中一个python.exe改个名字。（之前我就是这样搞的，但是这个是错误做法！！！ 这样区分两个可执行文件的名字，但是这样做有一个重大的隐患，就是修改了名字的 python 对应的 pip 将无法使用。 官方的做法： 在安装 python3（&amp;gt;= 3.3）的时候，python 的安装包在系统中安装了一个启动器">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-11-09T09:18:05.490Z">
+<meta property="og:updated_time" content="2017-11-09T09:19:48.956Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="py -2 报错： Requested Python version (2) not installed ">
 <meta name="twitter:description" content="Windows 上 Python2 和 3 如何兼容？ 目前国内网站经常会让大家把其中一个python.exe改个名字。（之前我就是这样搞的，但是这个是错误做法！！！ 这样区分两个可执行文件的名字，但是这样做有一个重大的隐患，就是修改了名字的 python 对应的 pip 将无法使用。 官方的做法： 在安装 python3（&amp;gt;= 3.3）的时候，python 的安装包在系统中安装了一个启动器">
@@ -184,6 +184,7 @@
 <p>打开注册表<strong>regedit</strong>， HKEY_LOCAL_MACHINE|HKEY_CURRENT_USER\SOFTWARE\xxx 这两个位置下面的python， 查看下python<br>的路径，发现路径是错的。 将路径改成当前的 python 路径。</p>
 <p>改完之后尝试执行 py -2 和 py -3 两个命令， 发现 py -3 可以正常执行了， 但是 <strong>py -2</strong> 还是无法执行，仍<br>报刚刚的错误。</p>
 <p><strong>这种情况说明是先安装的 python2 后安装的 python3</strong>。 那就找到 python2 的安装包把 python2 重新安装下或者修复<br>一下。</p>
+<p>解决链接： <a href="https://stackoverflow.com/questions/27503003/py-launcher-does-not-find-my-python-2-7" target="_blank" rel="external">https://stackoverflow.com/questions/27503003/py-launcher-does-not-find-my-python-2-7</a></p>
 
       
 
@@ -472,11 +473,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
