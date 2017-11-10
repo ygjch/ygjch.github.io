@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>605. Can Place Flowers 题解 | YGjch&#39;s Blog</title>
+  <title>语音录制并识别 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。 题解从 0 位置开始遍历， 直到最后一位。 在当前位置满足 前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1，并且栽花数 cnt++。 要对 首位和最后一位进行特判： 首位为0， 第二位为0， 首位种花 flower[">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667import wavefrom pyaudio import PyAudio,paInt16from aip import AipSpeech">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="605. Can Place Flowers 题解">
-<meta property="og:url" content="http://ygjch.github.io/2017/11/09/605-Can-Place-Flowers-题解/index.html">
+<meta property="og:title" content="语音录制并识别">
+<meta property="og:url" content="http://ygjch.github.io/2017/11/10/语音录制并识别/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。 题解从 0 位置开始遍历， 直到最后一位。 在当前位置满足 前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1，并且栽花数 cnt++。 要对 首位和最后一位进行特判： 首位为0， 第二位为0， 首位种花 flower[">
+<meta property="og:description" content="代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667import wavefrom pyaudio import PyAudio,paInt16from aip import AipSpeech">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-11-09T14:15:37.277Z">
+<meta property="og:updated_time" content="2017-11-10T10:49:38.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="605. Can Place Flowers 题解">
-<meta name="twitter:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。 题解从 0 位置开始遍历， 直到最后一位。 在当前位置满足 前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1，并且栽花数 cnt++。 要对 首位和最后一位进行特判： 首位为0， 第二位为0， 首位种花 flower[">
+<meta name="twitter:title" content="语音录制并识别">
+<meta name="twitter:description" content="代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667import wavefrom pyaudio import PyAudio,paInt16from aip import AipSpeech">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,34 +151,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-605-Can-Place-Flowers-题解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-语音录制并识别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      605. Can Place Flowers 题解
+      语音录制并识别
     </h1>
   
 
         
-        <a href="/2017/11/09/605-Can-Place-Flowers-题解/" class="archive-article-date">
-  	<time datetime="2017-11-09T14:07:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+        <a href="/2017/11/10/语音录制并识别/" class="archive-article-date">
+  	<time datetime="2017-11-10T10:47:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。 </p>
-<p>给定一数字 n， 问能否在该花坛中栽 n 株花。</p>
-<p>栽花需要符合 <strong>相邻位置不栽花</strong> 的原则。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>从 0 位置开始遍历， 直到最后一位。 在当前位置满足 <strong>前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1</strong>，并且栽花数 cnt++。</p>
-<p>要对 首位和最后一位进行特判：</p>
-<p>首位为0， 第二位为0， 首位种花 flower[0] = 1, cnt++</p>
-<p>末位为0， 倒数第二位为0， 最后一位种花 flower[flower.size()-2] = 1, cnt++</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; flowerbed, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; flowerbed.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; i != flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span></div><div class="line">				&amp;&amp; flowerbed[i] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i == flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(cnt &gt;= n) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+        <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> wave</div><div class="line"><span class="keyword">from</span> pyaudio <span class="keyword">import</span> PyAudio,paInt16</div><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipSpeech</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipSpeech = AipSpeech(APP_ID,API_KEY,SECRET_KEY)</div><div class="line"></div><div class="line">framerate = <span class="number">8000</span></div><div class="line">NUM_SAMPLES = <span class="number">2000</span></div><div class="line">channels = <span class="number">1</span></div><div class="line">sampwidth = <span class="number">2</span></div><div class="line">TIME = <span class="number">2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_wave_file</span><span class="params">(filename,data)</span>:</span></div><div class="line">    wf = wave.open(filename,<span class="string">'wb'</span>)</div><div class="line">    wf.setnchannels(channels)</div><div class="line">    wf.setsampwidth(sampwidth)</div><div class="line">    wf.setframerate(framerate)</div><div class="line">    wf.writeframes(<span class="string">b""</span>.join(data))</div><div class="line">    wf.close()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_wave</span><span class="params">()</span>:</span></div><div class="line">    pa = PyAudio()</div><div class="line">    stream = pa.open(format = paInt16,channels = <span class="number">1</span>,</div><div class="line">                     rate = framerate, input = <span class="keyword">True</span>,</div><div class="line">                     frames_per_buffer = NUM_SAMPLES)</div><div class="line">    my_buff = []</div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> count &lt; TIME*<span class="number">10</span>:</div><div class="line">        string_audio_data = stream.read(NUM_SAMPLES)</div><div class="line">        my_buff.append(string_audio_data)</div><div class="line">        count+=<span class="number">1</span></div><div class="line">        print(<span class="string">'.'</span>)</div><div class="line">    save_wave_file(<span class="string">'01.wav'</span>,my_buff)</div><div class="line">    stream.close()</div><div class="line"></div><div class="line">chunk = <span class="number">2014</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">()</span>:</span></div><div class="line">    wf = wave.open(<span class="string">r"01.wav"</span>,<span class="string">'rb'</span>)</div><div class="line">    p = PyAudio()</div><div class="line">    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),channels=</div><div class="line">    wf.getnchannels(),rate=wf.getframerate(),output=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        data = wf.readframes(chunk)</div><div class="line">        <span class="keyword">if</span> data == <span class="string">""</span>: <span class="keyword">break</span></div><div class="line">        stream.write(data)</div><div class="line">    stream.close()</div><div class="line">    p.terminate()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(filepath)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(filepath,<span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">regorinize_voice</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> aipSpeech.asr(get_file_content(<span class="string">'2.wav'</span>),<span class="string">'pcm'</span>,<span class="number">16000</span>, &#123;</div><div class="line">        <span class="string">'lan'</span>: <span class="string">'zh'</span>,</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    record_wave()</div><div class="line">    print(<span class="string">'over!!!'</span>)</div><div class="line">    play()</div><div class="line">    print(regorinize_voice())</div></pre></td></tr></table></figure>
+
       
 
 	  <!-- 目录内容 -->
@@ -190,7 +184,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题解"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（C-）"><span class="toc-number">3.</span> <span class="toc-text">代码（C++）</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.</span> <span class="toc-text">代码实现</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -219,7 +213,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -275,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/09/605-Can-Place-Flowers-题解/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/10/语音录制并识别/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +283,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/10/566-Reshape-the-Matrix-题解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          566. Reshape the Matrix 题解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/09/py-2-报错：-Requested-Python-version-2-not-installed/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">py -2 报错： Requested Python version (2) not installed </div>
+    <a href="/2017/11/10/566-Reshape-the-Matrix-题解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">566. Reshape the Matrix 题解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +312,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题解"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（C-）"><span class="toc-number">3.</span> <span class="toc-text">代码（C++）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现"><span class="toc-number">1.</span> <span class="toc-text">代码实现</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -343,7 +328,7 @@
   
 
   
-  <div id="SOHUCS" sid="605-Can-Place-Flowers-题解" ></div> 
+  <div id="SOHUCS" sid="语音录制并识别" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
