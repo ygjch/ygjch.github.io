@@ -151,6 +151,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-在图像右上角添加文字内容-pillow应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/在图像右上角添加文字内容-pillow应用/">在图像右上角添加文字内容 pillow应用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/07/在图像右上角添加文字内容-pillow应用/" class="archive-article-date">
+  	<time datetime="2017-11-07T05:39:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在图像右上角添加文字内容。</p>
+<p>示例图如下：</p>
+<p><img src="/img/touxiang.jpg" width="500px" height="500px"></p>
+<p><img src="/img/result.jpg" width="500px" height="500px"></p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">from PIL <span class="keyword">import</span> ImageDraw, ImageFont, ImageColor, Image</div><div class="line"></div><div class="line"></div><div class="line">def add_num(img):</div><div class="line">    # 创建 <span class="title">draw</span> 对象</div><div class="line">    <span class="title">draw</span> = ImageDraw.Draw(img)</div><div class="line"></div><div class="line">    # 创建字体</div><div class="line">    myfont = ImageFont.truetype(<span class="string">'C:/windows/fonts/Arial.ttf'</span>, <span class="built_in">size</span>=<span class="number">60</span>)</div><div class="line">    fillcolor = ImageColor.colormap.<span class="built_in">get</span>(<span class="string">'red'</span>)</div><div class="line">    <span class="built_in">width</span>, <span class="built_in">height</span> = img.<span class="built_in">size</span></div><div class="line">    <span class="title">draw</span>.<span class="built_in">text</span>((<span class="built_in">width</span><span class="number">-120</span>,<span class="number">0</span>), <span class="string">'99+'</span>, <span class="built_in">fill</span>=fillcolor, font=myfont)</div><div class="line">    img.<span class="built_in">save</span>(<span class="string">'result.jpg'</span>, <span class="string">'jpeg'</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="built_in">image</span> = Image.<span class="built_in">open</span>(<span class="string">'touxiang.jpg'</span>)</div><div class="line">    add_num(<span class="built_in">image</span>)eight=<span class="string">"1500px"</span>&gt;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/07/在图像右上角添加文字内容-pillow应用/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-695-Max-Area-of-Island-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -951,85 +1033,6 @@
 
 
   
-    <article id="post-opencv-灰度图转伪彩色图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/29/opencv-灰度图转伪彩色图/">opencv 灰度图转伪彩色图</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/29/opencv-灰度图转伪彩色图/" class="archive-article-date">
-  	<time datetime="2017-10-29T08:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/img/weicaisetu.png" width="1000px" height="200px"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line"></div><div class="line">	Mat img = imread(<span class="string">"1.jpg"</span>, CV_LOAD_IMAGE_GRAYSCALE);<span class="comment">//采用灰度格式读取图片</span></div><div class="line">	namedWindow(<span class="string">"bmp_img"</span>);</div><div class="line">	imshow(<span class="string">"bmp_img"</span>, img);</div><div class="line"></div><div class="line">	<span class="function">Mat <span class="title">img_pseudocolor</span><span class="params">(img.rows, img.cols, CV_8UC3)</span></span>;<span class="comment">//构造RGB图像，参数CV_8UC3教程文档里面有讲解</span></div><div class="line">	<span class="keyword">int</span> tmp = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y&lt;img.rows; y++)<span class="comment">//转为伪彩色图像的具体算法</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x&lt;img.cols; x++)</div><div class="line">		&#123;</div><div class="line">			tmp = img.at&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>&gt;(y, x);</div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">0</span>] = <span class="built_in">abs</span>(<span class="number">255</span> - tmp); <span class="comment">//blue</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">1</span>] = <span class="built_in">abs</span>(<span class="number">127</span> - tmp); <span class="comment">//green</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">2</span>] = <span class="built_in">abs</span>(<span class="number">0</span> - tmp); <span class="comment">//red</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	namedWindow(<span class="string">"img_pseudocolor"</span>);</div><div class="line">	imshow(<span class="string">"img_pseudocolor"</span>, img_pseudocolor);</div><div class="line">	waitKey(<span class="number">0</span>);</div><div class="line">	destroyAllWindows();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/29/opencv-灰度图转伪彩色图/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1152,6 +1155,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
@@ -1160,7 +1167,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1168,15 +1175,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,11 +1191,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,11 +1207,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>

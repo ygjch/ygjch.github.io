@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>opencv 环境配置 | YGjch&#39;s Blog</title>
+  <title>414. Third Maximum Number 题解 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工具 vs2017  opencv 3.3  配置过程 进入 opencv 官网 https://opencv.org/releases.html， 点击 Win pack 下载。 将下载好的压缩包放到你想要放置的磁盘中(最后建一个新的文件夹 如 D:\opencv， 解压缩选择此文件路径 然后配置环境变量 在 Path 中将 bin 文件夹路径配置进去。 打开 vs2017, 右击 项目 -&amp;g">
-<meta name="keywords" content="计算机视觉">
+  <meta name="description" content="题意找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。 要求在O(n)复杂度内解决此题 题解使用最小堆Heap找到第三大的元素。 先将数组放入map中，用来统计每一个元素在数组中出现的次数，只需要把数组中不同的元素压入堆中。 pop() 两次，如果当前堆为空，说明不存在第三大的元素。如果不为空，当前堆顶元素即为第三大元素。 代码（C++）1234567891011121314">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="opencv 环境配置">
-<meta property="og:url" content="http://ygjch.github.io/2017/10/23/opencv-环境配置/index.html">
+<meta property="og:title" content="414. Third Maximum Number 题解">
+<meta property="og:url" content="http://ygjch.github.io/2017/11/12/414-Third-Maximum-Number-题解/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="工具 vs2017  opencv 3.3  配置过程 进入 opencv 官网 https://opencv.org/releases.html， 点击 Win pack 下载。 将下载好的压缩包放到你想要放置的磁盘中(最后建一个新的文件夹 如 D:\opencv， 解压缩选择此文件路径 然后配置环境变量 在 Path 中将 bin 文件夹路径配置进去。 打开 vs2017, 右击 项目 -&amp;g">
+<meta property="og:description" content="题意找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。 要求在O(n)复杂度内解决此题 题解使用最小堆Heap找到第三大的元素。 先将数组放入map中，用来统计每一个元素在数组中出现的次数，只需要把数组中不同的元素压入堆中。 pop() 两次，如果当前堆为空，说明不存在第三大的元素。如果不为空，当前堆顶元素即为第三大元素。 代码（C++）1234567891011121314">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-10-23T12:18:01.204Z">
+<meta property="og:updated_time" content="2017-11-12T06:42:54.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv 环境配置">
-<meta name="twitter:description" content="工具 vs2017  opencv 3.3  配置过程 进入 opencv 官网 https://opencv.org/releases.html， 点击 Win pack 下载。 将下载好的压缩包放到你想要放置的磁盘中(最后建一个新的文件夹 如 D:\opencv， 解压缩选择此文件路径 然后配置环境变量 在 Path 中将 bin 文件夹路径配置进去。 打开 vs2017, 右击 项目 -&amp;g">
+<meta name="twitter:title" content="414. Third Maximum Number 题解">
+<meta name="twitter:description" content="题意找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。 要求在O(n)复杂度内解决此题 题解使用最小堆Heap找到第三大的元素。 先将数组放入map中，用来统计每一个元素在数组中出现的次数，只需要把数组中不同的元素压入堆中。 pop() 两次，如果当前堆为空，说明不存在第三大的元素。如果不为空，当前堆顶元素即为第三大元素。 代码（C++）1234567891011121314">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,45 +151,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-opencv-环境配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-414-Third-Maximum-Number-题解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      opencv 环境配置
+      414. Third Maximum Number 题解
     </h1>
   
 
         
-        <a href="/2017/10/23/opencv-环境配置/" class="archive-article-date">
-  	<time datetime="2017-10-23T11:59:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
+        <a href="/2017/11/12/414-Third-Maximum-Number-题解/" class="archive-article-date">
+  	<time datetime="2017-11-12T06:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul>
-<li>vs2017 </li>
-<li>opencv 3.3</li>
-</ul>
-<h3 id="配置过程"><a href="#配置过程" class="headerlink" title="配置过程"></a>配置过程</h3><ol>
-<li>进入 opencv 官网 <a href="https://opencv.org/releases.html，" target="_blank" rel="external">https://opencv.org/releases.html，</a> 点击 <strong>Win pack</strong> 下载。</li>
-<li>将下载好的压缩包放到你想要放置的磁盘中(最后建一个新的文件夹 <strong>如 D:\opencv</strong>， 解压缩选择此文件路径</li>
-<li>然后配置环境变量<ul>
-<li>在 <strong>Path</strong> 中将 <strong>bin</strong> 文件夹路径配置进去。</li>
-<li>打开 <strong>vs2017</strong>, 右击 <strong>项目 -&gt; 属性</strong>, 我配置的是 x64 位， 将平台均改为 x64 位。( 不然会出现 LNK1112 错误。。坑</li>
-<li>在上面一步属性的页面 <strong>VC++目录</strong> 的 <strong>包含目录</strong> 中， 配置好 <strong>D:\opencv\opencv\build\include</strong> 和 <strong>D:\opencv\opencv\build\include\opencv</strong><br>和 <strong>D:\opencv\opencv\build\include\opencv2</strong></li>
-<li><strong>库目录</strong> 中添加 <strong>lib</strong> 文件夹路径 <strong>D:\opencv\opencv\build\x64\vc14\lib</strong></li>
-<li>进入 <strong>链接器 -&gt; 输入</strong>， 在 <strong>附加依赖项</strong> 中将 <strong>lib</strong> 文件夹下的 .lib 文件添加进去（<strong>这里只需要写名字即可，不需要写路径</strong></li>
-</ul>
-</li>
-</ol>
-<h3 id="按照以上步骤就陪完-opencv-环境，-如果出现-LNK-1112-错误见下面方法"><a href="#按照以上步骤就陪完-opencv-环境，-如果出现-LNK-1112-错误见下面方法" class="headerlink" title="按照以上步骤就陪完 opencv 环境， 如果出现 LNK 1112 错误见下面方法"></a>按照以上步骤就陪完 opencv 环境， 如果出现 LNK 1112 错误见下面方法</h3><p>先把属性页里面所有能看到需要选择平台和运行环境的都选择为 <strong>x64(以64位举例)</strong><br>有一个巨坑的地方！！！ 在属性页上方有 <strong>配置</strong>、 <strong>平台</strong>、 <strong>配置管理器</strong> 三个内容。 将<strong>平台</strong>选择为x64后进入<br><strong>配置管理器</strong>，发现里面的<strong>活动解决方案平台</strong>仍为x86，改为x64就可以了。。。</p>
-<p>仍不行的话，自行百度吧。。。</p>
-
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。</p>
+<p>要求在O(n)复杂度内解决此题</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>使用最小堆Heap找到第三大的元素。</p>
+<p>先将数组放入map中，用来统计每一个元素在数组中出现的次数，只需要把数组中不同的元素压入堆中。</p>
+<p>pop() 两次，如果当前堆为空，说明不存在第三大的元素。如果不为空，当前堆顶元素即为第三大元素。</p>
+<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">thirdMax</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</div><div class="line">        priority_queue&lt;<span class="keyword">int</span>&gt; heap;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            mp[nums[i]]++;</div><div class="line">            <span class="keyword">if</span>(mp[nums[i]] == <span class="number">1</span>) heap.push(nums[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> maxium = heap.top();</div><div class="line">        heap.pop();</div><div class="line">        heap.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(heap.empty()) <span class="keyword">return</span> maxium;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> heap.top();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
       
 
 	  <!-- 目录内容 -->
@@ -201,7 +188,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#工具"><span class="toc-number">1.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置过程"><span class="toc-number">2.</span> <span class="toc-text">配置过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按照以上步骤就陪完-opencv-环境，-如果出现-LNK-1112-错误见下面方法"><span class="toc-number">3.</span> <span class="toc-text">按照以上步骤就陪完 opencv 环境， 如果出现 LNK 1112 错误见下面方法</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题解"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（C-）"><span class="toc-number">3.</span> <span class="toc-text">代码（C++）</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -230,7 +217,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		
 		</ul>
@@ -286,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/23/opencv-环境配置/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/12/414-Third-Maximum-Number-题解/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,18 +287,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/29/霍夫曼编码/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          霍夫曼编码
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/19/asp-net-mvc5-根据输入框Key友好提示-Error/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">asp.net mvc5 根据输入框Key友好提示 Error</div>
+    <a href="/2017/11/12/532-K-diff-Pairs-in-an-Array-题解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">532. K-diff Pairs in an Array 题解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -338,7 +316,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#工具"><span class="toc-number">1.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置过程"><span class="toc-number">2.</span> <span class="toc-text">配置过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按照以上步骤就陪完-opencv-环境，-如果出现-LNK-1112-错误见下面方法"><span class="toc-number">3.</span> <span class="toc-text">按照以上步骤就陪完 opencv 环境， 如果出现 LNK 1112 错误见下面方法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题解"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码（C-）"><span class="toc-number">3.</span> <span class="toc-text">代码（C++）</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -354,7 +332,7 @@
   
 
   
-  <div id="SOHUCS" sid="opencv-环境配置" ></div> 
+  <div id="SOHUCS" sid="414-Third-Maximum-Number-题解" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 

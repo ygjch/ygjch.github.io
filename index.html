@@ -151,6 +151,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-414-Third-Maximum-Number-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/12/414-Third-Maximum-Number-题解/">414. Third Maximum Number 题解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/12/414-Third-Maximum-Number-题解/" class="archive-article-date">
+  	<time datetime="2017-11-12T06:37:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。</p>
+<p>要求在O(n)复杂度内解决此题</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>使用最小堆Heap找到第三大的元素。</p>
+<p>先将数组放入map中，用来统计每一个元素在数组中出现的次数，只需要把数组中不同的元素压入堆中。</p>
+<p>pop() 两次，如果当前堆为空，说明不存在第三大的元素。如果不为空，当前堆顶元素即为第三大元素。</p>
+<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">thirdMax</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</div><div class="line">        priority_queue&lt;<span class="keyword">int</span>&gt; heap;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            mp[nums[i]]++;</div><div class="line">            <span class="keyword">if</span>(mp[nums[i]] == <span class="number">1</span>) heap.push(nums[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> maxium = heap.top();</div><div class="line">        heap.pop();</div><div class="line">        heap.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(heap.empty()) <span class="keyword">return</span> maxium;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> heap.top();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/12/414-Third-Maximum-Number-题解/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-532-K-diff-Pairs-in-an-Array-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -896,88 +978,6 @@
 
 
   
-    <article id="post-在图像右上角添加文字内容-pillow应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/在图像右上角添加文字内容-pillow应用/">在图像右上角添加文字内容 pillow应用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/07/在图像右上角添加文字内容-pillow应用/" class="archive-article-date">
-  	<time datetime="2017-11-07T05:39:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在图像右上角添加文字内容。</p>
-<p>示例图如下：</p>
-<p><img src="/img/touxiang.jpg" width="500px" height="500px"></p>
-<p><img src="/img/result.jpg" width="500px" height="500px"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">from PIL <span class="keyword">import</span> ImageDraw, ImageFont, ImageColor, Image</div><div class="line"></div><div class="line"></div><div class="line">def add_num(img):</div><div class="line">    # 创建 <span class="title">draw</span> 对象</div><div class="line">    <span class="title">draw</span> = ImageDraw.Draw(img)</div><div class="line"></div><div class="line">    # 创建字体</div><div class="line">    myfont = ImageFont.truetype(<span class="string">'C:/windows/fonts/Arial.ttf'</span>, <span class="built_in">size</span>=<span class="number">60</span>)</div><div class="line">    fillcolor = ImageColor.colormap.<span class="built_in">get</span>(<span class="string">'red'</span>)</div><div class="line">    <span class="built_in">width</span>, <span class="built_in">height</span> = img.<span class="built_in">size</span></div><div class="line">    <span class="title">draw</span>.<span class="built_in">text</span>((<span class="built_in">width</span><span class="number">-120</span>,<span class="number">0</span>), <span class="string">'99+'</span>, <span class="built_in">fill</span>=fillcolor, font=myfont)</div><div class="line">    img.<span class="built_in">save</span>(<span class="string">'result.jpg'</span>, <span class="string">'jpeg'</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="built_in">image</span> = Image.<span class="built_in">open</span>(<span class="string">'touxiang.jpg'</span>)</div><div class="line">    add_num(<span class="built_in">image</span>)eight=<span class="string">"1500px"</span>&gt;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/07/在图像右上角添加文字内容-pillow应用/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1100,6 +1100,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
@@ -1108,7 +1112,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1116,15 +1120,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,11 +1136,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1152,11 +1152,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
