@@ -151,6 +151,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-661-Image-Smoother-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/08/661-Image-Smoother-题解/">661. Image Smoother 题解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/08/661-Image-Smoother-题解/" class="archive-article-date">
+  	<time datetime="2017-11-08T10:04:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>二维数组每一个值为周围元素求和的平均值。</p>
+<p>| 1 1 1 |<br>| 1 0 1 |<br>| 1 1 1 |</p>
+<p>output : </p>
+<p>| 0 0 0 |<br>| 0 0 0 |<br>| 0 0 0 |</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>每个元素周围都有8个方向，算上自身为9个方向。</p>
+<p>向9个方向搜索（通过 int dx[], int dy[]）</p>
+<p>对每个元素都要在9个方向遍历下 <strong>dx,dy </strong>。</p>
+<p>对搜索目标元素的索引进行判断：<br><strong>（索引）</strong><br>nx = i + dx[k]<br>ny = j + dy[k]</p>
+<p>bool judge()  函数 judge(nx,ny) 判断元素是否合法（在边界之内）。如果合法 <strong>cnt++</strong> （累加出该元素是由<br>周围几个元素所求</p>
+<p>num+=M[nx][ny]</p>
+<p>res = num/cnt 即为该元素最后的值 </p>
+<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">if</span>(x &lt; <span class="number">0</span> || y &lt; <span class="number">0</span> || x &gt;= n || y &gt;= m) </div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; imageSmoother(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; M) &#123;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> dx[] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</div><div class="line">		<span class="keyword">int</span> dy[] = &#123;<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> n = M.size();</div><div class="line">		<span class="keyword">int</span> m = M[<span class="number">0</span>].size();</div><div class="line">		</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;	</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">				<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">9</span>; k++)</div><div class="line">				&#123;</div><div class="line">					<span class="keyword">int</span> nx = i + dx[k];</div><div class="line">					<span class="keyword">int</span> ny = j + dy[k];</div><div class="line">					</div><div class="line">					<span class="keyword">if</span>(judge(nx, ny, n, m))</div><div class="line">					&#123;</div><div class="line">						num += M[nx][ny];</div><div class="line">						cnt++;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				temp.push_back(num/cnt);</div><div class="line">			&#125;</div><div class="line">			ans.push_back(temp);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/08/661-Image-Smoother-题解/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-665-Non-decreasing-Array-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -935,95 +1024,6 @@
 
 
   
-    <article id="post-OpenGL学习笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/OpenGL学习笔记（一）/">OpenGL学习笔记（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/04/OpenGL学习笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-11-04T02:17:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="核心模式与立即渲染模式"><a href="#核心模式与立即渲染模式" class="headerlink" title="核心模式与立即渲染模式"></a>核心模式与立即渲染模式</h3><p>早期OpenGL使用立即渲染模式(Immediate mode , 固定渲染管线)， 这个模式绘图很方便。OpenGL大多数库被隐藏起来，开发者不能控制<br>OpenGL如何计算自由。</p>
-<p>从OpenGL 3.2开始，规范文档开始废弃立即渲染模式，鼓励开发者使用OpenGL 核心模式（Core-profile）</p>
-<h3 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h3><p>OpenGL 自身是巨大的状态机(State Machine): 一系列的变量描述OpenGL此刻应当如何运行。</p>
-<p>OpenGL 的状态通常被称为 OpenGL上下文(Context)。<br>通常使用如下途径改变OpenGL状态：</p>
-<ul>
-<li>设置选项</li>
-<li>操作缓冲<br>最后使用当前OpenGL上下文进行渲染</li>
-</ul>
-<p>当使用OpenGL的时候，<strong>状态设置函数(State-changing Function)</strong>，这类函数将会改变上下文。<br><strong>状态使用函数(State-using Function)</strong>，这类函数将会根据当前OpenGL的状态执行一些操作。</p>
-<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>对象是指一些选项的集合，代表OpenGL状态的一个子集。</p>
-<p>比如可以用一个对象来代表绘图窗口的设置， 就可以设置它的大小、支持的颜色位数等等。</p>
-<p>可以看成 （Struct）</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/04/OpenGL学习笔记（一）/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1154,11 +1154,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1194,11 +1194,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">

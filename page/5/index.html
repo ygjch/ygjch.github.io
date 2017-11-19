@@ -151,6 +151,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Eclipse-Customize-Perspective-无反应" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/06/Eclipse-Customize-Perspective-无反应/">Eclipse Customize Perspective 无反应</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/06/Eclipse-Customize-Perspective-无反应/" class="archive-article-date">
+  	<time datetime="2017-10-06T12:37:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在解决工具栏无法显示 Eclemma 插件的问题，在另一篇文章中的解决方案是在 customize perspective 中勾选上 Eclemma。<br>但是点击 <strong>Customize Perspective</strong> 没有响应。</p>
+<p>在网上搜索到两个方案解决了此问题。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>官网查了下，解释如下：</p>
+<p>附上链接<a href="https://www.myeclipseide.com/PNphpBB2-viewtopic-t-30151.html，大概意思是按如下图所示步骤更新即可。读者可以试试官网给出的方法，如果可以打开Customize" target="_blank" rel="external">https://www.myeclipseide.com/PNphpBB2-viewtopic-t-30151.html，大概意思是按如下图所示步骤更新即可。读者可以试试官网给出的方法，如果可以打开Customize</a> Perspective,就没有必要看下去了。</p>
+<p>但是Lz人品不好，出现了下图情况。</p>
+<p>没有可用更新。。。。。没办法了。。。在网上查了半天一无所获，就在Lz要放弃之时，在CSDN上找到了解决办法。链接：<a href="http://download.csdn.net/detail/miragepp/711238" target="_blank" rel="external">http://download.csdn.net/detail/miragepp/711238</a> </p>
+<p>解决方法如下：<br>myeclipse 2014中customize persperctive设置无效，导致无法调整工具栏按钮，能联网的朋友可以通过自动更新解决，此工具提供给内网环境无法自动更新的朋友</p>
+<p>1、将9个jar复制到myeclipse安装目录\plugins中<br>2、删除和这9个jar同包名但是版本号较低的9个文件<br>3、重启myeclipse 2014</p>
+<p>CSDN下载需要积分，链接 <a href="http://pan.baidu.com/s/1sjN3Lwh" target="_blank" rel="external">http://pan.baidu.com/s/1sjN3Lwh</a></p>
+<h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4><p>经过了方案一发现并没有解决问题，使用方案二。<br>把 <strong>workplace</strong> 目录下的 <strong>.metadata</strong> 文件夹删掉（<code>D:\Workspace\.metadata</code>）。重启 Eclipse，重新定向此工作空间，解决~</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/06/Eclipse-Customize-Perspective-无反应/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Eclipse-工具栏无法加载出下载好的插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -891,86 +978,6 @@
 
 
   
-    <article id="post-asp-net-mvc-connect-sql-server-2012" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/18/asp-net-mvc-connect-sql-server-2012/">asp.net mvc connect to sql server 2012</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/18/asp-net-mvc-connect-sql-server-2012/" class="archive-article-date">
-  	<time datetime="2017-09-18T11:11:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>During developing the Library System, I need to connect to sql server.</p>
-<p>It needs to use <strong><connectstring></connectstring></strong>, like this:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">connectionStrings</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">name</span>=<span class="string">"LibraryContext"</span> <span class="attr">connectionString</span>=<span class="string">"Data Source=.;database=MvcDemo;uid=sa;pwd=123456;AttachDBFilename=|DataDirectory|\Library.mdf;"</span> <span class="attr">providerName</span>=<span class="string">"System.Data.SqlClient"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">connectionStrings</span>&gt;</span></div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/18/asp-net-mvc-connect-sql-server-2012/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1101,11 +1108,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1141,11 +1148,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">

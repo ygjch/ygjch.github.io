@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Tag: Net | YGjch&#39;s Blog</title>
+  <title>jquery.form.js 实现文件上传 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/tags/Net/index.html">
+  <meta name="description" content="使用 jquery.form.js 实现文件上传前端1234567891011121314151617181920212223@&amp;#123;    ViewBag.Title = &quot;Upload&quot;;&amp;#125;&amp;lt;form enctype=&quot;multipart/form-data&quot; method=&quot;post&quot; id=&quot;upload&quot;&amp;gt;    &amp;lt;input type=&quot;file&quot; i">
+<meta name="keywords" content="asp.net mvc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery.form.js 实现文件上传">
+<meta property="og:url" content="http://ygjch.github.io/2017/11/19/jquery-form-js-实现文件上传/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="使用 jquery.form.js 实现文件上传前端1234567891011121314151617181920212223@&amp;#123;    ViewBag.Title = &quot;Upload&quot;;&amp;#125;&amp;lt;form enctype=&quot;multipart/form-data&quot; method=&quot;post&quot; id=&quot;upload&quot;&amp;gt;    &amp;lt;input type=&quot;file&quot; i">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2017-11-19T11:43:54.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="jquery.form.js 实现文件上传">
+<meta name="twitter:description" content="使用 jquery.form.js 实现文件上传前端1234567891011121314151617181920212223@&amp;#123;    ViewBag.Title = &quot;Upload&quot;;&amp;#125;&amp;lt;form enctype=&quot;multipart/form-data&quot; method=&quot;post&quot; id=&quot;upload&quot;&amp;gt;    &amp;lt;input type=&quot;file&quot; i">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -149,60 +151,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jquery-form-js-实现文件上传" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/26/认识-CDN/" class="archive-article-date">
-  	<time datetime="2017-09-26T04:49:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/26/认识-CDN/">认识 CDN</a>
+    <h1 class="article-title" itemprop="name">
+      jquery.form.js 实现文件上传
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/11/19/jquery-form-js-实现文件上传/" class="archive-article-date">
+  	<time datetime="2017-11-19T11:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用-jquery-form-js-实现文件上传"><a href="#使用-jquery-form-js-实现文件上传" class="headerlink" title="使用 jquery.form.js 实现文件上传"></a>使用 jquery.form.js 实现文件上传</h3><h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">    ViewBag.Title = "Upload";</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">id</span>=<span class="string">"upload"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"fileupload"</span> <span class="attr">name</span>=<span class="string">"Upload"</span> /&gt;</span></div><div class="line">    @* button 而不是 submit *@</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"上传"</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">    $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">        $(<span class="string">"#upload"</span>).ajaxSubmit(&#123;</span></div><div class="line"><span class="actionscript">            url: <span class="string">"/Doc/UploadDoc"</span>,</span></div><div class="line"><span class="actionscript">            type: <span class="string">"post"</span>,</span></div><div class="line"><span class="actionscript">            success: <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(data);</span></div><div class="line"><span class="undefined">            &#125;,</span></div><div class="line"><span class="actionscript">            error: <span class="function"><span class="keyword">function</span> <span class="params">(aa)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(aa);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">        &#125;);</span></div><div class="line"><span class="undefined">    &#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>.ajaxSubmit</strong> 是 <strong>jquery.form.js</strong> 里的方法。ajaxSubmit 中的 url 参数中使用 Controller 中的方法，上面代码在提交<br>表单调用的方法是 DocController 中 UploadDoc 方法。</p>
+<h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DocController</span> : <span class="title">Controller</span></div><div class="line">&#123;</div><div class="line">    [<span class="meta">HttpPost</span>]</div><div class="line">    <span class="function"><span class="keyword">public</span> JsonResult <span class="title">UploadFile</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        HttpPostFileBase file = Request.Files[<span class="number">0</span>];</div><div class="line">        <span class="keyword">if</span>(file != <span class="literal">null</span>) &#123;</div><div class="line">            <span class="keyword">string</span> fileName = Path.GetFileName(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileExt = Path.GetExtension(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileSaveDir = server.MapPath(<span class="string">"~/upload"</span>);</div><div class="line">            <span class="keyword">if</span>(!Directory.Exists(fileSaveDir))</div><div class="line">            &#123;</div><div class="line">                Directory.CreateDirectory(fileSaveDir);</div><div class="line">            &#125;</div><div class="line">            file.SaveAs(Path.Combine(fileSaveDir, fileName));</div><div class="line"></div><div class="line">            <span class="comment">// 如果表单有其他项，在此处写提交逻辑</span></div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">            &#123;</div><div class="line">                Data = <span class="keyword">new</span></div><div class="line">                &#123;</div><div class="line">                    _code = <span class="number">200</span>,</div><div class="line">                    _msg = <span class="string">"上传成功"</span>,</div><div class="line">                    _data = <span class="keyword">new</span></div><div class="line">                    &#123;</div><div class="line">                        _url = <span class="string">"/upload/"</span> + fileNewName,</div><div class="line">                        _oldName = fileName</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">        &#123;</div><div class="line">            Data = <span class="keyword">new</span></div><div class="line">            &#123;</div><div class="line">                _code = <span class="number">200</span>,</div><div class="line">                _msg = <span class="string">"上传失败"</span></div><div class="line">            &#125;,</div><div class="line">            JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="jquery-form-js-下载地址"><a href="#jquery-form-js-下载地址" class="headerlink" title="jquery.form.js 下载地址"></a>jquery.form.js 下载地址</h3><p><a href="https://malsup.github.io/jquery.form.js" target="_blank" rel="external">https://malsup.github.io/jquery.form.js</a></p>
+
+      
+
+	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-jquery-form-js-实现文件上传"><span class="toc-number">1.</span> <span class="toc-text">使用 jquery.form.js 实现文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#前端"><span class="toc-number">1.1.</span> <span class="toc-text">前端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后端"><span class="toc-number">1.2.</span> <span class="toc-text">后端</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jquery-form-js-下载地址"><span class="toc-number">2.</span> <span class="toc-text">jquery.form.js 下载地址</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Net</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/19/jquery-form-js-实现文件上传/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/11/19/53-Maximum-Subarray-ac-题解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">53. Maximum Subarray ac 题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-jquery-form-js-实现文件上传"><span class="toc-number">1.</span> <span class="toc-text">使用 jquery.form.js 实现文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#前端"><span class="toc-number">1.1.</span> <span class="toc-text">前端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#后端"><span class="toc-number">1.2.</span> <span class="toc-text">后端</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jquery-form-js-下载地址"><span class="toc-number">2.</span> <span class="toc-text">jquery.form.js 下载地址</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="jquery-form-js-实现文件上传" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdLJ4RN"; 
+var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
+
+  
 
 
           </div>
@@ -225,9 +364,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
