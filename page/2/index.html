@@ -151,6 +151,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-665-Non-decreasing-Array-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/665-Non-decreasing-Array-题解/">665. Non-decreasing Array 题解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/07/665-Non-decreasing-Array-题解/" class="archive-article-date">
+  	<time datetime="2017-11-07T12:45:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkPossibility</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="keyword">int</span> maxium = max(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</div><div class="line">		<span class="keyword">int</span> maxci = min(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</div><div class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] &gt; maxci &amp;&amp; nums[i] &lt; maxium) maxci = nums[i];</div><div class="line">			<span class="keyword">if</span>(nums[i] &gt; maxium) &#123;maxci = maxium; maxium = nums[i];&#125;</div><div class="line">			</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(i &gt;= <span class="number">2</span> &amp;&amp; maxci &gt; nums[i] &amp;&amp; i != nums.size()<span class="number">-1</span> &amp;&amp; nums[i<span class="number">-1</span>] &gt; nums[i+<span class="number">1</span>]) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(nums[i] &lt; nums[i<span class="number">-1</span>]) cnt++;</div><div class="line">			<span class="keyword">if</span>(cnt &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/07/665-Non-decreasing-Array-题解/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-674-Longest-Continuous-Increasing-Subsequence-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -946,97 +1024,6 @@
 
 
   
-    <article id="post-appium-doctor-不是内部或外部命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/02/appium-doctor-不是内部或外部命令/">appium-doctor 不是内部或外部命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/02/appium-doctor-不是内部或外部命令/" class="archive-article-date">
-  	<time datetime="2017-11-02T15:50:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="单独配置-Android-Home-系统变量"><a href="#单独配置-Android-Home-系统变量" class="headerlink" title="单独配置 Android_Home 系统变量"></a>单独配置 Android_Home 系统变量</h3><p>开始配置安卓环境的时候，没有新建 <strong>Android_Home</strong> 系统变量，而是直接将 <strong>D:\SDK\tools</strong>和 <strong>D:\SDK\platform-tools</strong><br>配置到了 <strong>Path</strong> 里。这样就会导致 appium-doctor 运行时失败。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在设置系统环境变量的地方新建 <strong>Android_Home</strong> ( 注意是 <strong>系统变量</strong></p>
-<ul>
-<li>变量值： <strong>D:\SDK</strong> (就是SDK的目录</li>
-<li>在 <strong>Path</strong> 中加入 <strong>%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;</strong> ，在 <strong>tools</strong> 目录下执行 <strong>android</strong> 命令，并且在 <strong>platform-tools</strong> 目录下执行 <strong>adb</strong> 命令。</li>
-</ul>
-<p>创建系统变量 <strong>Appium_Home</strong></p>
-<ul>
-<li>变量值：<strong>D:\Appium</strong> ( 也就是Appium的目录</li>
-<li>在 <strong>Path</strong> 中加入 <strong>%Appium_Home%</strong></li>
-</ul>
-<p>进入 <strong>D:\Appium\node_modules.bin</strong> ，运行 <strong>appium-doctor</strong> 即可成功。</p>
-<p>第3步如果还不行，就将 <strong>Appium</strong> 文件夹下的 <strong>Appium\node_modules.bin</strong> 加到系统环境变量 <strong>Path</strong> 中。</p>
-<p>运行结果如图所示：<br><img src="/img/success.png" width="1000px" height="300px"></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/02/appium-doctor-不是内部或外部命令/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1159,10 +1146,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
@@ -1175,7 +1158,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1188,6 +1171,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1211,11 +1198,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
             
             <div class="clearfix"></div>
