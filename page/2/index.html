@@ -151,6 +151,249 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-语音录制并识别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/10/语音录制并识别/">语音录制并识别</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/10/语音录制并识别/" class="archive-article-date">
+  	<time datetime="2017-11-10T10:47:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> wave</div><div class="line"><span class="keyword">from</span> pyaudio <span class="keyword">import</span> PyAudio,paInt16</div><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipSpeech</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipSpeech = AipSpeech(APP_ID,API_KEY,SECRET_KEY)</div><div class="line"></div><div class="line">framerate = <span class="number">8000</span></div><div class="line">NUM_SAMPLES = <span class="number">2000</span></div><div class="line">channels = <span class="number">1</span></div><div class="line">sampwidth = <span class="number">2</span></div><div class="line">TIME = <span class="number">2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_wave_file</span><span class="params">(filename,data)</span>:</span></div><div class="line">    wf = wave.open(filename,<span class="string">'wb'</span>)</div><div class="line">    wf.setnchannels(channels)</div><div class="line">    wf.setsampwidth(sampwidth)</div><div class="line">    wf.setframerate(framerate)</div><div class="line">    wf.writeframes(<span class="string">b""</span>.join(data))</div><div class="line">    wf.close()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_wave</span><span class="params">()</span>:</span></div><div class="line">    pa = PyAudio()</div><div class="line">    stream = pa.open(format = paInt16,channels = <span class="number">1</span>,</div><div class="line">                     rate = framerate, input = <span class="keyword">True</span>,</div><div class="line">                     frames_per_buffer = NUM_SAMPLES)</div><div class="line">    my_buff = []</div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> count &lt; TIME*<span class="number">10</span>:</div><div class="line">        string_audio_data = stream.read(NUM_SAMPLES)</div><div class="line">        my_buff.append(string_audio_data)</div><div class="line">        count+=<span class="number">1</span></div><div class="line">        print(<span class="string">'.'</span>)</div><div class="line">    save_wave_file(<span class="string">'01.wav'</span>,my_buff)</div><div class="line">    stream.close()</div><div class="line"></div><div class="line">chunk = <span class="number">2014</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">()</span>:</span></div><div class="line">    wf = wave.open(<span class="string">r"01.wav"</span>,<span class="string">'rb'</span>)</div><div class="line">    p = PyAudio()</div><div class="line">    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),channels=</div><div class="line">    wf.getnchannels(),rate=wf.getframerate(),output=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        data = wf.readframes(chunk)</div><div class="line">        <span class="keyword">if</span> data == <span class="string">""</span>: <span class="keyword">break</span></div><div class="line">        stream.write(data)</div><div class="line">    stream.close()</div><div class="line">    p.terminate()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(filepath)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(filepath,<span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">regorinize_voice</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> aipSpeech.asr(get_file_content(<span class="string">'2.wav'</span>),<span class="string">'pcm'</span>,<span class="number">16000</span>, &#123;</div><div class="line">        <span class="string">'lan'</span>: <span class="string">'zh'</span>,</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    record_wave()</div><div class="line">    print(<span class="string">'over!!!'</span>)</div><div class="line">    play()</div><div class="line">    print(regorinize_voice())</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/10/语音录制并识别/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-566-Reshape-the-Matrix-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/10/566-Reshape-the-Matrix-题解/">566. Reshape the Matrix 题解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/10/566-Reshape-the-Matrix-题解/" class="archive-article-date">
+  	<time datetime="2017-11-10T07:02:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一二维数组，问能否用r*c维数组装下此数组。 保证此数组的数据遍历顺序不改变。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>r * c 为目标数组数据的个数， 当目标数组需要的数据个数和给定数组提供数据的个数相等时，对给定数组进行遍历，获得结果。</p>
+<p>当两个数组的数据个数不相等时， 就返回原给定数组 vector<int> nums</int></p>
+<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; matrixReshape(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; nums, <span class="keyword">int</span> r, <span class="keyword">int</span> c) &#123;</div><div class="line">        <span class="keyword">int</span> need = r * c;</div><div class="line">        <span class="keyword">int</span> have = nums.size() * nums[<span class="number">0</span>].size();</div><div class="line">        <span class="keyword">int</span> k = <span class="number">0</span>, p = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;</div><div class="line">        <span class="keyword">if</span>(have != need) <span class="keyword">return</span> nums;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums[<span class="number">0</span>].size(); j++) &#123;</div><div class="line">                    temp.push_back(nums[i][j]);</div><div class="line">                    cnt++;</div><div class="line">                    <span class="keyword">if</span>(cnt == c) &#123;</div><div class="line">                        ans.push_back(temp);</div><div class="line">                        temp.clear();</div><div class="line">                        cnt = <span class="number">0</span>;</div><div class="line">                    &#125; </div><div class="line">                    p++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/10/566-Reshape-the-Matrix-题解/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-605-Can-Place-Flowers-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/605-Can-Place-Flowers-题解/">605. Can Place Flowers 题解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/09/605-Can-Place-Flowers-题解/" class="archive-article-date">
+  	<time datetime="2017-11-09T14:07:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。 </p>
+<p>给定一数字 n， 问能否在该花坛中栽 n 株花。</p>
+<p>栽花需要符合 <strong>相邻位置不栽花</strong> 的原则。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>从 0 位置开始遍历， 直到最后一位。 在当前位置满足 <strong>前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1</strong>，并且栽花数 cnt++。</p>
+<p>要对 首位和最后一位进行特判：</p>
+<p>首位为0， 第二位为0， 首位种花 flower[0] = 1, cnt++</p>
+<p>末位为0， 倒数第二位为0， 最后一位种花 flower[flower.size()-2] = 1, cnt++</p>
+<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; flowerbed, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; flowerbed.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; i != flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span></div><div class="line">				&amp;&amp; flowerbed[i] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i == flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(cnt &gt;= n) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/09/605-Can-Place-Flowers-题解/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-py-2-报错：-Requested-Python-version-2-not-installed" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -735,272 +978,9 @@
 
 
   
-    <article id="post-717-1-bit-and-2-bit-Characters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/05/717-1-bit-and-2-bit-Characters/">717. 1-bit and 2-bit Characters</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/05/717-1-bit-and-2-bit-Characters/" class="archive-article-date">
-  	<time datetime="2017-11-05T04:15:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给一个数组，数组为01串组成。最后一位是否是一位</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>先两位一判断，是否为11 或者 10， 循环至最后一位或者恰好能两两一组遍历完。</p>
-<ul>
-<li>如果是剩一位，进行特判。0true,1false</li>
-<li>如果恰好两两一组遍历完 false</li>
-</ul>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    bool isOneBitCharacter(vector&lt;<span class="keyword">int</span>&gt;&amp; bits) &#123;</div><div class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">		</div><div class="line">        <span class="keyword">while</span>(i &lt; bits.<span class="keyword">size</span>())</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(i&lt;bits.<span class="keyword">size</span>()-<span class="number">1</span> &amp;&amp; bits[i] == <span class="number">1</span>)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(bits[i+<span class="number">1</span>] == <span class="number">1</span> || bits[i+<span class="number">1</span>] == <span class="number">0</span>) </div><div class="line">				&#123;</div><div class="line">					i = i+<span class="number">2</span>;</div><div class="line">					<span class="keyword">if</span>(i&gt;=bits.<span class="keyword">size</span>())</div><div class="line">					&#123;</div><div class="line">						<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">					&#125;</div><div class="line">					<span class="keyword">else</span> <span class="keyword">if</span>(i == bits.<span class="keyword">size</span>()-<span class="number">1</span>)</div><div class="line">					&#123;</div><div class="line">						<span class="keyword">if</span>(bits[i] == <span class="number">0</span>)</div><div class="line">						&#123;</div><div class="line">							<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">						&#125;</div><div class="line">						<span class="keyword">else</span> </div><div class="line">						&#123;</div><div class="line">							<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">						&#125;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i == bits.<span class="keyword">size</span>()-<span class="number">1</span>)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(bits[i] == <span class="number">0</span>)</div><div class="line">				&#123;</div><div class="line">					<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span> </div><div class="line">				&#123;</div><div class="line">					<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> </div><div class="line">			&#123;</div><div class="line">				i++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/05/717-1-bit-and-2-bit-Characters/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OpenGL学习笔记（三）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/OpenGL学习笔记（三）/">OpenGL学习笔记（三）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/04/OpenGL学习笔记（三）/" class="archive-article-date">
-  	<time datetime="2017-11-04T13:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习此节之前，建议将这三个单词先记下来：</p>
-<ul>
-<li>顶点数组对象：Vertex Array Object，VAO</li>
-<li>顶点缓冲对象：Vertex Buffer Object，VBO</li>
-<li>索引缓冲对象：Element Buffer Object，EBO或Index Buffer Object，IBO</li>
-</ul>
-<p>在OpenGL中，任何事物都在3D空间中，而屏幕和窗口却是2D像素数组，这导致OpenGL的大部分工作都是关于把3D坐标转变为适应你屏幕的2D像素。</p>
-<p>3D坐标转为2D坐标的处理过程是由OpenGL的<strong>图形渲染管线</strong>（Graphics Pipeline，大多译为管线，实际上指的是一堆原始图形数据途经一个输送管道，期间经过各种变化处理最终出现在屏幕的过程）管理的。</p>
-<p>图形渲染管线可以被划分为两个主要部分：</p>
-<ul>
-<li>第一部分把你的3D坐标转换为2D坐标</li>
-<li>第二部分是把2D坐标转变为实际的有颜色的像素。</li>
-</ul>
-<p><strong>2D坐标和像素也是不同的，2D坐标精确表示一个点在2D空间中的位置，而2D像素是这个点的近似值，2D像素受到你的屏幕/窗口分辨率的限制。</strong></p>
-<p>图形渲染管线包含很多部分，每个部分都将在转换顶点数据到最终像素这一过程中处理各自特定的阶段。我们会概括性地解释一下渲染管线的每个部分，让你对图形渲染管线的工作方式有个大概了解。</p>
-<p>首先，我们以数组的形式传递3个3D坐标作为图形渲染管线的输入，用来表示一个三角形，这个数组叫做顶点数据(Vertex Data)；顶点数据是一系列顶点的集合。一个顶点(Vertex)是一个3D坐标的数据的集合。而顶点数据是用顶点属性(Vertex Attribute)表示的，它可以包含任何我们想用的数据</p>
-<p>为了让OpenGL知道我们的坐标和颜色值构成的到底是什么，OpenGL需要你去指定这些数据所表示的渲染类型。我们是希望把这些数据渲染成一系列的点？一系列的三角形？还是仅仅是一个长长的线？做出的这些提示叫做图元(Primitive)，任何一个绘制指令的调用都将把图元传递给OpenGL。这是其中的几个：GL_POINTS、GL_TRIANGLES、GL_LINE_STRIP。</p>
-<p>图形渲染管线的第一个部分是顶点着色器(Vertex Shader)，它把一个单独的顶点作为输入。顶点着色器主要的目的是把3D坐标转为另一种3D坐标（后面会解释），同时顶点着色器允许我们对顶点属性进行一些基本处理。</p>
-<p>图元装配(Primitive Assembly)阶段将顶点着色器输出的所有顶点作为输入（如果是GL_POINTS，那么就是一个顶点），并所有的点装配成指定图元的形状；本节例子中是一个三角形。</p>
-<p>图元装配阶段的输出会传递给几何着色器(Geometry Shader)。几何着色器把图元形式的一系列顶点的集合作为输入，它可以通过产生新顶点构造出新的（或是其它的）图元来生成其他形状。例子中，它生成了另一个三角形。</p>
-<p>几何着色器的输出会被传入光栅化阶段(Rasterization Stage)，这里它会把图元映射为最终屏幕上相应的像素，生成供片段着色器(Fragment Shader)使用的片段(Fragment)。在片段着色器运行之前会执行裁切(Clipping)。裁切会丢弃超出你的视图以外的所有像素，用来提升执行效率。</p>
-<p>开始绘制图形之前，我们必须先给OpenGL输入一些顶点数据。OpenGL是一个3D图形库，所以我们在OpenGL中指定的所有坐标都是3D坐标（x、y和z）。OpenGL不是简单地把所有的3D坐标变换为屏幕上的2D像素；OpenGL仅当3D坐标在3个轴（x、y和z）上都为-1.0到1.0的范围内时才处理它。所有在所谓的标准化设备坐标(Normalized Device Coordinates)范围内的坐标才会最终呈现在屏幕上（在这个范围以外的坐标都不会显示）。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">OpenGL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/04/OpenGL学习笔记（三）/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-百度人脸识别api学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/04/百度人脸识别api学习/">百度人脸识别api学习</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/04/百度人脸识别api学习/" class="archive-article-date">
-  	<time datetime="2017-11-04T12:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>百度AI平台人脸识别api学习</p>
-<p>实践了人脸识别api，python实现。</p>
-<p>api文档参看 百度AI平台官网</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipFace</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipFace = AipFace(APP_ID, API_KEY, SECRET_KEY)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(path)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(path, <span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">face_detect</span><span class="params">(path)</span>:</span></div><div class="line">    options = &#123;</div><div class="line">        <span class="string">'max_face_num'</span>: <span class="number">10</span>,</div><div class="line">        <span class="string">'face_fields'</span>: <span class="string">"age, beauty, expression, faceshape"</span>,</div><div class="line">    &#125;</div><div class="line">    result = aipFace.detect(path, options)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">face_match</span><span class="params">(images)</span>:</span></div><div class="line">    options = &#123;</div><div class="line">        <span class="string">'result'</span>: <span class="string">"score"</span>,</div><div class="line">    &#125;</div><div class="line">    result = aipFace.match(images, options)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    image1 = get_file_content(<span class="string">'erren.jpg'</span>)</div><div class="line">    <span class="comment"># image2 = get_file_content('b.jpg')</span></div><div class="line">    <span class="comment"># images = [image1, image2]</span></div><div class="line"></div><div class="line">    c1 = get_file_content(<span class="string">'fa.jpg'</span>)</div><div class="line">    c2 = get_file_content(<span class="string">'c.jpg'</span>)</div><div class="line">    lan = get_file_content(<span class="string">'lanni.jpg'</span>)</div><div class="line">    images = [c1, c2]</div><div class="line"></div><div class="line">    <span class="comment"># print face_match(images)</span></div><div class="line">    <span class="keyword">print</span> face_detect(lan)</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/04/百度人脸识别api学习/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -1124,11 +1104,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,11 +1120,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1160,11 +1140,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,11 +1156,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
             
             <div class="clearfix"></div>

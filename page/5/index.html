@@ -151,6 +151,255 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-富文本编辑器插入图片显示-html-代码问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/">富文本编辑器插入图片显示 html 代码问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/" class="archive-article-date">
+  	<time datetime="2017-10-12T13:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在做图书管理系统的内容管理模块时，使用的是 <strong>ueditor</strong> 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。<br><img ...="">， 类似这样。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">Html</span>.<span class="keyword">DisplayFor</span>(<span class="keyword">model</span>=&gt;<span class="keyword">model</span>.<span class="keyword">Content</span>)</div></pre></td></tr></table></figure></p>
+<p>这样展示的问题是所有的内容均以 html 编码输出展示。</p>
+<p>修改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@(<span class="keyword">new</span> htmlString(<span class="function"><span class="params">model</span>=&gt;</span>model.Content))</div></pre></td></tr></table></figure></p>
+<p>成功将 图片 显示出来~</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-sql-server-错误18456" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/11/sql-server-错误18456/">sql server 错误18456</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/11/sql-server-错误18456/" class="archive-article-date">
+  	<time datetime="2017-10-11T05:37:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>当以<strong>sa</strong>登录sql server 2012 报错 18456</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
+<li>确定 登录的用户名和密码 是否正确。</li>
+<li>确定 <strong>sa</strong>用户登录状态启用。</li>
+<li>确定 服务器 允许sql server 和 Window 身份验证。</li>
+<li>均成功后 在 <strong>sql server 配置服务器</strong>中确保动态端口号正确。</li>
+<li>以上均不行，将所有的sql server 相关服务重启一遍。</li>
+</ul>
+<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><p><a href="https://jingyan.baidu.com/article/656db918faf80fe381249c1e.html" target="_blank" rel="external">https://jingyan.baidu.com/article/656db918faf80fe381249c1e.html</a></p>
+<p><strong>再不行，就继续搜索解决方案吧！&gt;_&lt;</strong></p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/11/sql-server-错误18456/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Palindrome-Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/Palindrome-Number/">Palindrome Number</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/Palindrome-Number/" class="archive-article-date">
+  	<time datetime="2017-10-10T14:00:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="https://leetcode.com/problems/palindrome-number/" target="_blank" rel="external">https://leetcode.com/problems/palindrome-number/</a></p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>判断 整数 是否为 回文数<br>首先明确<br>1.负数不是回文数<br>2.0~9 均为回文数<br>3.能整除10且不为0的数均不是回文数<br>4.通过 Reverse Integer 将整数反转，和原数进行比较，如果相等则为回文数，否则不是。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;x&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x%<span class="number">10</span>==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> p=x;</div><div class="line">            <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span>(x)&#123;</div><div class="line">                res=res*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">                x/=<span class="number">10</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(p==res)<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/Palindrome-Number/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Reverse-Integer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -728,257 +977,9 @@
 
 
   
-    <article id="post-asp-net-mvc-Seed-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/21/asp-net-mvc-Seed-init/">asp.net mvc Seed init</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/21/asp-net-mvc-Seed-init/" class="archive-article-date">
-  	<time datetime="2017-09-21T04:34:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>When I create Role for Library System project, I need to init seed for User Table. </p>
-<p>After <strong>Enable-migrations</strong>, you will find <strong>configuration.cs</strong> in the folder named <strong>Migrations</strong>. You should init data in this file.</p>
-<p>Code like this:</p>
-<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">protected override void Seed(LibraryProject.DAL.LibraryContext context)</div><div class="line">        &#123;</div><div class="line">            <span class="comment">//  This method will be called after migrating to the latest version.</span></div><div class="line"></div><div class="line">            <span class="comment">//  You can use the DbSet&lt;T&gt;.AddOrUpdate() helper extension method </span></div><div class="line">            <span class="comment">//  to avoid creating duplicate seed data. E.g.</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">//    context.People.AddOrUpdate(</span></div><div class="line">            <span class="comment">//      p =&gt; p.FullName,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Andrew Peters" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Brice Lambson" &#125;,</span></div><div class="line">            <span class="comment">//      new Person &#123; FullName = "Rowan Miller" &#125;</span></div><div class="line">            <span class="comment">//    );</span></div><div class="line">            <span class="comment">//</span></div><div class="line"></div><div class="line">            context.Users.AddOrUpdate(ctx =&gt; ctx.UserName,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"admin"</span>,</div><div class="line">                     Password = <span class="string">"12345678"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"12345678"</span>,</div><div class="line">                     Email = <span class="string">"0000@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1212123123"</span>,</div><div class="line">                     Role = <span class="string">"admin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"libraryadmin"</span>,</div><div class="line">                     Password = <span class="string">"87654321"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"87654321"</span>,</div><div class="line">                     Email = <span class="string">"1111@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"1231231"</span>,</div><div class="line">                     Role = <span class="string">"libraryadmin"</span></div><div class="line">                 &#125;,</div><div class="line">                 new User</div><div class="line">                 &#123;</div><div class="line">                     UserName = <span class="string">"student"</span>,</div><div class="line">                     Password = <span class="string">"88888888"</span>,</div><div class="line">                     PasswordComfirm = <span class="string">"88888888"</span>,</div><div class="line">                     Email = <span class="string">"888@qq.com"</span>,</div><div class="line">                     PhoneNum = <span class="string">"123123"</span>,</div><div class="line">                     Role = <span class="string">"user"</span></div><div class="line">             &#125;</div><div class="line">           );</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/21/asp-net-mvc-Seed-init/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Newton-Json-Serialize-and-Deserialize" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/">Newton.Json Serialize and Deserialize</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/" class="archive-article-date">
-  	<time datetime="2017-09-20T15:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Json and Entity can convert each other by Newton.Json package.</p>
-<h3 id="Entity-to-Json-string"><a href="#Entity-to-Json-string" class="headerlink" title="Entity to Json(string)"></a>Entity to Json(string)</h3><p>JsonConvert.SerializeObject(user);</p>
-<h3 id="Json-string-to-Entity"><a href="#Json-string-to-Entity" class="headerlink" title="Json(string) to Entity"></a>Json(string) to Entity</h3><p>JsonConvert.DeserializeObject<entity>(string);</entity></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">C#</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/20/Newton-Json-Serialize-and-Deserialize/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-asp-net-mvc-authority" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/20/asp-net-mvc-authority/">asp.net mvc authority</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/20/asp-net-mvc-authority/" class="archive-article-date">
-  	<time datetime="2017-09-20T15:08:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>asp.net mvc Library project needs authority—————————</p>
-<p> 1.Create folder named <strong>Authority</strong>.</p>
-<p> 2.Create class named <strong>CheckLogin.cs</strong></p>
-<pre><code><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class CheckLogin</div><div class="line">&#123;</div><div class="line">	public readonly static CheckLogin<span class="built_in"> Instance </span>= new CheckLogin();</div><div class="line"></div><div class="line">	public bool IsLogin;</div><div class="line"></div><div class="line">	public<span class="built_in"> User </span>GetUser()</div><div class="line">	&#123;</div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			return <span class="literal">null</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);</div><div class="line">			return JsonConvert.DeserializeObject&lt;User&gt;(Ticket.UserData);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 3.Create class named <strong>AuthAttribute.cs</strong>. In this class, we will override the method named <strong>OnActionExecuting()</strong>.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthAttribute</span> : <span class="title">ActionFilterAttribute</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Code &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnActionExecuting</span>(<span class="params">ActionExecutingContext filterContext</span>)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//如果不存在身份信息</span></div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">			Content.Content = <span class="keyword">string</span>.Format(<span class="string">"&lt;script type='text/javascript'&gt;alert('请先登录！');window.location.href='&#123;0&#125;';&lt;/script&gt;"</span>, FormsAuthentication.LoginUrl);</div><div class="line">			filterContext.Result = Content;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="comment">/* var Instance = CheckLogin.Instance;</span></div><div class="line"><span class="comment">			var user = Instance.GetUser();</span></div><div class="line"><span class="comment">			var Roles = user.Role;</span></div><div class="line"><span class="comment">			string[] Role = Roles.Split(','); */</span></div><div class="line">			<span class="keyword">string</span>[] Role = CheckLogin.Instance.GetUser().Role.Split(<span class="string">','</span>);<span class="comment">//获取所有角色</span></div><div class="line">			<span class="keyword">if</span> (!Role.Contains(Code))<span class="comment">//验证权限</span></div><div class="line">			&#123;</div><div class="line">				<span class="comment">//验证不通过</span></div><div class="line">				ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">				Content.Content = <span class="string">"&lt;script type='text/javascript'&gt;alert('权限验证不通过！');history.go(-1);&lt;/script&gt;"</span>;</div><div class="line">				filterContext.Result = Content;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 4.In the <strong>UsersController.cs</strong>, we should create cookie for current user after confirming that whether UserName and Password are valid.</p>
-<pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">[<span class="meta">HttpPost</span>]</div><div class="line">	<span class="function"><span class="keyword">public</span> ActionResult <span class="title">Login</span>(<span class="params">[Bind(Include =<span class="string">"UserName,Password"</span></span>)] User user)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">var</span> userObj = unitOfWork.UserRepository.Get()</div><div class="line">			.Where(item =&gt; item.UserName.Equals(user.UserName) == <span class="literal">true</span>)</div><div class="line">			.ToList();</div><div class="line">		<span class="keyword">if</span>(userObj[<span class="number">0</span>] != <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span> (userObj[<span class="number">0</span>].Password.Equals(user.Password) == <span class="literal">true</span>)</div><div class="line">			&#123;</div><div class="line">				CheckLogin.Instance.IsLogin = <span class="literal">true</span>;</div><div class="line">				<span class="comment">// Session 实现</span></div><div class="line"></div><div class="line">				<span class="comment">// 序列化用户实体</span></div><div class="line">				<span class="keyword">string</span> UserData = JsonConvert.SerializeObject(userObj[<span class="number">0</span>]);</div><div class="line"></div><div class="line">				<span class="comment">// 保存身份信息</span></div><div class="line">				FormsAuthenticationTicket Ticket = <span class="keyword">new</span> FormsAuthenticationTicket(<span class="number">1</span>, user.UserName,</div><div class="line">					DateTime.Now, DateTime.Now.AddHours(<span class="number">12</span>), <span class="literal">false</span>, UserData);</div><div class="line"></div><div class="line">				HttpCookie Cookie = <span class="keyword">new</span> HttpCookie(FormsAuthentication.FormsCookieName,</div><div class="line">					FormsAuthentication.Encrypt(Ticket));</div><div class="line"></div><div class="line">				Response.Cookies.Add(Cookie);</div><div class="line"></div><div class="line">				<span class="comment">//return RedirectToAction("Index","Books","Index");</span></div><div class="line">				<span class="keyword">return</span> Redirect(<span class="string">"/Home/Index/"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			ModelState.AddModelError(<span class="string">"UserName"</span>, <span class="string">"No User"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> View(user);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</code></pre><p> 5.Logout Method<br>     <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注销登录</span></div><div class="line">	<span class="keyword">public</span> ActionResult Logout()</div><div class="line">	&#123;</div><div class="line">		FormsAuthentication.SignOut();</div><div class="line">		<span class="function"><span class="keyword">return</span> <span class="title">Redirect</span><span class="params">(<span class="string">"/Home/Index/"</span>)</span></span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p> 6.Before the method that we want to add authority, we should add <strong>[Auth(Code =”libraryadmin,admin”)]</strong>.</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/20/asp-net-mvc-authority/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -1102,11 +1103,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1118,11 +1119,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1138,11 +1139,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1154,11 +1155,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
             
             <div class="clearfix"></div>
