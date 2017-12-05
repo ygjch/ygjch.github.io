@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>asp.net mvc Datatable | YGjch&#39;s Blog</title>
+  <title>图形学复习 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Bug Information:  When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table. I introduced the script and css, but it didn’t work. Fi">
-<meta name="keywords" content="asp.net mvc">
+  <meta name="description" content="第一章：绪论计算机图形学的定义：计算机图形学是研究怎样用计算机生成、处理和显示图形的一门学科。  生成：在计算机内表示客观世界物体的模型，即图形建模。 显示：模型对象在计算机显示设备或其他输出设备上的显示。 处理：利用计算机实现客观世界、对象模型和输出图形这三者之间映射的一系列操作和处理过程。  什么是图形？在计算机图形学中，构成图形的要素可以分成两类：  一类是刻画形状的点、线、面、体等几何要素">
+<meta name="keywords" content="图形学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="asp.net mvc Datatable">
-<meta property="og:url" content="http://ygjch.github.io/2017/09/17/asp-net-mvc-Datatable/index.html">
+<meta property="og:title" content="图形学复习">
+<meta property="og:url" content="http://ygjch.github.io/2017/12/05/图形学复习/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Bug Information:  When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table. I introduced the script and css, but it didn’t work. Fi">
+<meta property="og:description" content="第一章：绪论计算机图形学的定义：计算机图形学是研究怎样用计算机生成、处理和显示图形的一门学科。  生成：在计算机内表示客观世界物体的模型，即图形建模。 显示：模型对象在计算机显示设备或其他输出设备上的显示。 处理：利用计算机实现客观世界、对象模型和输出图形这三者之间映射的一系列操作和处理过程。  什么是图形？在计算机图形学中，构成图形的要素可以分成两类：  一类是刻画形状的点、线、面、体等几何要素">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-09-18T09:39:46.648Z">
+<meta property="og:updated_time" content="2017-12-05T14:11:02.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="asp.net mvc Datatable">
-<meta name="twitter:description" content="Bug Information:  When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table. I introduced the script and css, but it didn’t work. Fi">
+<meta name="twitter:title" content="图形学复习">
+<meta name="twitter:description" content="第一章：绪论计算机图形学的定义：计算机图形学是研究怎样用计算机生成、处理和显示图形的一门学科。  生成：在计算机内表示客观世界物体的模型，即图形建模。 显示：模型对象在计算机显示设备或其他输出设备上的显示。 处理：利用计算机实现客观世界、对象模型和输出图形这三者之间映射的一系列操作和处理过程。  什么是图形？在计算机图形学中，构成图形的要素可以分成两类：  一类是刻画形状的点、线、面、体等几何要素">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,58 +151,431 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-asp-net-mvc-Datatable" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-图形学复习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      asp.net mvc Datatable
+      图形学复习
     </h1>
   
 
         
-        <a href="/2017/09/17/asp-net-mvc-Datatable/" class="archive-article-date">
-  	<time datetime="2017-09-17T15:58:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-17</time>
+        <a href="/2017/12/05/图形学复习/" class="archive-article-date">
+  	<time datetime="2017-12-05T14:10:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Bug Information: </p>
-<p>When I develop asp.net mvc project, I want to use Datatable to achieve the sort of data and search specific data in the table.</p>
-<p>I introduced the script and css, but it didn’t work.</p>
-<p>Finally, I found the solutions:<br>    <strong>Jquery.js must be introduced before datatable.js</strong>, and you should look that whether <strong>jquery was introduced twice in _layout.cshtml and “view”.cshtml</strong>.</p>
+        <h1 id="第一章：绪论"><a href="#第一章：绪论" class="headerlink" title="第一章：绪论"></a>第一章：绪论</h1><h4 id="计算机图形学的定义："><a href="#计算机图形学的定义：" class="headerlink" title="计算机图形学的定义："></a>计算机图形学的定义：</h4><p>计算机图形学是研究怎样用计算机生成、处理和显示图形的一门学科。</p>
+<ul>
+<li>生成：在计算机内表示客观世界物体的模型，即图形建模。</li>
+<li>显示：模型对象在计算机显示设备或其他输出设备上的显示。</li>
+<li>处理：利用计算机实现客观世界、对象模型和输出图形这三者之间映射的一系列操作和处理过程。</li>
+</ul>
+<h4 id="什么是图形？"><a href="#什么是图形？" class="headerlink" title="什么是图形？"></a>什么是图形？</h4><p>在计算机图形学中，<strong>构成图形的要素</strong>可以分成两类：</p>
+<ul>
+<li>一类是刻画形状的点、线、面、体等几何要素；</li>
+<li>一类是反映物体表面属性或材料的明暗、色彩等非几何要素；</li>
+</ul>
+<h4 id="图的两种表示方法"><a href="#图的两种表示方法" class="headerlink" title="图的两种表示方法"></a>图的两种表示方法</h4><ul>
+<li>点阵法</li>
+</ul>
+<p>枚举出图形中所有的点来表示，强调图形由点及点的属性（颜色）构成：像素图、位图、图像</p>
+<p>点阵图形的特点：</p>
+<ul>
+<li>点阵图形需要大量的存储空间；</li>
+<li>对点阵图形进行编辑、修改较困难；</li>
+<li>点阵图的放大操作会使图形失真；</li>
+</ul>
+<p>常见点阵图形文件格式：</p>
+<p>JPEG,BMP,Tif,GIF,PNG</p>
+<ul>
+<li>参数法</li>
+</ul>
+<p>由图形的形状参数和属性参数来表示图形。参数法生成的图也称为矢量图、图形</p>
+<ul>
+<li>形状参数：方程或分析表达式的参数，线段的端点坐标</li>
+<li>属性参数：颜色、线型</li>
+</ul>
+<p>常用的矢量图形文件格式：</p>
+<ul>
+<li>DXF,OBJ,3DS</li>
+</ul>
+<p><strong>图形是指参数法表示的。图形和图像的含义是完全不同的。</strong></p>
+<h3 id="图形图像的比较："><a href="#图形图像的比较：" class="headerlink" title="图形图像的比较："></a>图形图像的比较：</h3><h4 id="图像的特点和分类："><a href="#图像的特点和分类：" class="headerlink" title="图像的特点和分类："></a>图像的特点和分类：</h4><ul>
+<li>图像一定是二维的</li>
+<li>基本单位是像素<ul>
+<li>像素：组成图像的颜色点（或亮度点），是数字图像的最小信息单位，通常是一个整数，其大小称为像素值。</li>
+</ul>
+</li>
+<li>基本参数：<ul>
+<li>图幅参数：也称图像空间分辨率，通常 行数*列数 表示</li>
+<li>灰度级分辨率、颜色分辨率</li>
+</ul>
+</li>
+<li>图像分为两色图（黑白）、灰度图、彩色图、真彩色图</li>
+</ul>
+<h4 id="图形的特点："><a href="#图形的特点：" class="headerlink" title="图形的特点："></a>图形的特点：</h4><ul>
+<li>图形可以是二维的、或者三维的</li>
+<li>图形的基本信息包括它的基本几何元素，拓扑关系，以及颜色、材质、纹理等可选要素</li>
+</ul>
+<h4 id="什么是真实感图形："><a href="#什么是真实感图形：" class="headerlink" title="什么是真实感图形："></a>什么是真实感图形：</h4><p>建立图形所描述的场景的几何表示，再用某种光照模型，计算在假想的光源、纹理、材质属性下的光照明效果。生成图形为真实感模型。</p>
+<h4 id="计算机图形系统的软件结构"><a href="#计算机图形系统的软件结构" class="headerlink" title="计算机图形系统的软件结构"></a>计算机图形系统的软件结构</h4><p>图形软件分为<strong>图形数据模型</strong>、<strong>图形应用软件</strong>、<strong>图形支撑软件</strong>三部分。</p>
+<ul>
+<li>图形数据模型：也称为图形对象描述模型，对应于一组图形数据文件，其中存放着欲生成的图形对象的全部描述信息。</li>
+<li>图形支撑软件：图形支撑软件是由一组公用的图形子程序所组成的，它扩展了系统中原有高级语言和操作系统的图形处理能力。</li>
+<li>图形应用软件：建立在通用图形支撑软件之上，包括了各种图形生成和处理技术，是图形技术在各种不同应用中的抽象，是与用户直接打交道的部分，用户可以通过应用软件创建、修改、编辑应用模型。</li>
+</ul>
+<h1 id="第二章：-图形系统与图形生成"><a href="#第二章：-图形系统与图形生成" class="headerlink" title="第二章： 图形系统与图形生成"></a>第二章： 图形系统与图形生成</h1><h4 id="计算机图形系统"><a href="#计算机图形系统" class="headerlink" title="计算机图形系统"></a>计算机图形系统</h4><p>进行图形处理的计算机系统，是计算机<strong>图形硬件</strong>和<strong>图形软件</strong>的集合。</p>
+<h4 id="图形系统的基本功能"><a href="#图形系统的基本功能" class="headerlink" title="图形系统的基本功能"></a>图形系统的基本功能</h4><ul>
+<li>计算功能</li>
+<li>存储功能</li>
+<li>对话功能</li>
+<li>输入功能</li>
+<li>输出功能</li>
+</ul>
+<h3 id="图形显示原理"><a href="#图形显示原理" class="headerlink" title="图形显示原理"></a>图形显示原理</h3><h4 id="显示器分类"><a href="#显示器分类" class="headerlink" title="显示器分类"></a>显示器分类</h4><ul>
+<li>CRT（阴极射线管显示器</li>
+<li>LCD（液晶显示器</li>
+<li>PDP（等离子显示器</li>
+</ul>
+<p><strong>CRT光栅扫描显示器上图形完全由显示器上像素位置的亮度指定，计算机上创造的一幅图像实质上是设置像素点的值，不同颜色属性</strong><br><strong>的像素组合在一起即构成了我们所看到的图。</strong></p>
+<h4 id="CRT工作原理"><a href="#CRT工作原理" class="headerlink" title="CRT工作原理"></a>CRT工作原理</h4><p>由电子枪发射电子束（阴极射线），通过聚焦系统（电子透镜）和偏转系统，射向涂覆荧光层的屏幕上的指定位置。在电子束冲击的每个位置，荧光层发出一个小亮点，从而产生可见图形。</p>
+<h4 id="CRT组成"><a href="#CRT组成" class="headerlink" title="CRT组成"></a>CRT组成</h4><p>CRT主要由电子枪、聚焦系统、偏转系统、荧光屏四部分组成。</p>
+<h4 id="彩色CRT（有三个电子枪）"><a href="#彩色CRT（有三个电子枪）" class="headerlink" title="彩色CRT（有三个电子枪）"></a>彩色CRT（有三个电子枪）</h4><p>CRT产生彩色显示有两种技术：电子束穿透法和荫罩法</p>
+<h4 id="光栅扫描显示原理"><a href="#光栅扫描显示原理" class="headerlink" title="光栅扫描显示原理"></a>光栅扫描显示原理</h4><p>光栅扫描方式中，电子束总是不断从左至右、从上到下反复扫描整个屏幕，在扫描过程中，只要在对应时刻在对应位置控制电子束的强度就能显示所要的图形。电子束横向从左到右扫描一次称为<strong>一条扫描线</strong>，在每条扫描线末端，电子束回到屏幕的左边，又开始显示下一条扫描线。<strong>一帧图像</strong>是光栅显示系统执行一次全屏幕循环扫描（一次屏幕刷新）所产生的图像。</p>
+<h4 id="屏幕坐标系的定义："><a href="#屏幕坐标系的定义：" class="headerlink" title="屏幕坐标系的定义："></a>屏幕坐标系的定义：</h4><p>光栅扫描显示器的屏幕可分为m行扫描线，每行扫描线有n个像素。这样整个屏幕就分为m×n个像素，m×n就是显示器的<strong>分辨率</strong>。</p>
+<h4 id="帧缓冲器"><a href="#帧缓冲器" class="headerlink" title="帧缓冲器"></a>帧缓冲器</h4><p>光栅扫描生成的图像所有像素的强度值都要存放在一块连续的存储器中，这个存储器称为帧缓冲器或刷新存储器，俗称显示存储器。</p>
+<h4 id="图形输入设备"><a href="#图形输入设备" class="headerlink" title="图形输入设备"></a>图形输入设备</h4><p>名称                        相应的典型设备                               基本功能</p>
+<p>定位                        叉丝、鼠标                               输入一个点的坐标<br>笔划                        图形输入板                               输入一系列点的坐标<br>数值                        键盘                                     输入一个整数或实数<br>选择                        功能键、光笔、鼠标                        由一个整数得到某种选择<br>拾取                        光笔、鼠标、叉丝                          通过一种拾取状态来判断一个显示的图形<br>字符串                      键盘                                     输入字符串</p>
+<h4 id="图形卡（显卡）"><a href="#图形卡（显卡）" class="headerlink" title="图形卡（显卡）"></a>图形卡（显卡）</h4><p>在个人计算机上，将用于图形显示的处理器（DPU）、视频处理控制器、显示处理存储器以及接口电路等集成在一起，单独做成一块板卡，<br>称为图形显示适配器。简称显卡。</p>
+<h4 id="计算最小缓存"><a href="#计算最小缓存" class="headerlink" title="计算最小缓存"></a>计算最小缓存</h4><ul>
+<li><p>黑白灰度帧缓冲存储器</p>
+<ul>
+<li>对于黑白单灰度显示器每一像素需要一位存储器，对一个1024×1024像素组成的黑白单灰度显示器所需要的最小缓存为<br>2^20，并在一个位面上。一个位面的缓存只能存储黑白图像。</li>
+</ul>
+</li>
+<li><p>简单彩色帧缓冲存储器</p>
+<ul>
+<li>3个位面。对于3个位面、分辨率为1024×1024个像素排列的显示器，需要3×1024×1024 bit 的存储器。</li>
+</ul>
+</li>
+</ul>
+<h4 id="计算帧缓存？？？？"><a href="#计算帧缓存？？？？" class="headerlink" title="计算帧缓存？？？？"></a>计算帧缓存？？？？</h4><h4 id="彩色查找表"><a href="#彩色查找表" class="headerlink" title="彩色查找表"></a>彩色查找表</h4><h4 id="背P146-具有显示处理器的光栅扫描系统-图"><a href="#背P146-具有显示处理器的光栅扫描系统-图" class="headerlink" title="背P146 具有显示处理器的光栅扫描系统 图"></a>背P146 <strong>具有显示处理器的光栅扫描系统</strong> 图</h4><h4 id="显示配置"><a href="#显示配置" class="headerlink" title="显示配置"></a>显示配置</h4><ul>
+<li>显示器<ul>
+<li>指标： PAL,NTSC</li>
+</ul>
+</li>
+<li>显示卡</li>
+</ul>
+<h4 id="什么是扫描转换（光栅化）？"><a href="#什么是扫描转换（光栅化）？" class="headerlink" title="什么是扫描转换（光栅化）？"></a>什么是扫描转换（光栅化）？</h4><p>将图形对象表示转换成点阵表示，即确定一个像素集合及其颜色，用于显示一个图形的过程，称为图形的扫描转换或<br>光栅化。</p>
+<h3 id="光栅系统中两种基本的区域填充方法："><a href="#光栅系统中两种基本的区域填充方法：" class="headerlink" title="光栅系统中两种基本的区域填充方法："></a>光栅系统中两种基本的区域填充方法：</h3><h4 id="扫描填充算法"><a href="#扫描填充算法" class="headerlink" title="扫描填充算法"></a>扫描填充算法</h4><ul>
+<li>多边形扫描转换填充</li>
+</ul>
+<p>1）求交点 2）按横坐标排序 3）两两配对 4）填充</p>
+<h4 id="种子填充算法"><a href="#种子填充算法" class="headerlink" title="种子填充算法"></a>种子填充算法</h4><p>基本思路：首先假设多边形的区域内部，至少有一个像素点是已知的，然后算法开始搜索与种子点相邻且位于区域内的其他像素。区域可以由其内部点或边界来定义。</p>
+<ul>
+<li><p>边界填充算法：即填充以边界定义的区域的算法：</p>
+<ul>
+<li>输入：种子点的坐标（x,y），以及填充色和边界颜色</li>
+<li>输出：给图的内部涂上所选的颜色和图案</li>
+</ul>
+</li>
+<li><p>泛填充算法：即填充以内部定义的区域的算法：</p>
+<ul>
+<li>输入：种子点坐标（x,y），以及填充色和内部点的颜色。</li>
+<li>输出：用所希望的填充颜色赋给所有当前为内部颜色的像素点</li>
+</ul>
+</li>
+</ul>
+<p>基本概念：</p>
+<ul>
+<li>内部点定义：枚举出给定区域内的所有像素。该区域内部所有像素具有同一种颜色或值，而其他的像素具有另外的颜色。</li>
+<li>边界定义：枚举出给定区域所有边界上的像素。该区域边界上的所有像素均具有特定的值，区域内部所有像素均不取这种特定的值，而边界外的像素则可具有与边界相同的值。</li>
+</ul>
+<h4 id="世界坐标系"><a href="#世界坐标系" class="headerlink" title="世界坐标系"></a>世界坐标系</h4><p>世界坐标系是一种固定的坐标系，即原点和各坐标轴的方向固定不变。</p>
+<h4 id="网格化定义"><a href="#网格化定义" class="headerlink" title="网格化定义"></a>网格化定义</h4><p>采用小面片做成的网格来近似表示曲面，该过程称为模型的网格化。</p>
+<h4 id="模型渲染"><a href="#模型渲染" class="headerlink" title="模型渲染"></a>模型渲染</h4><ul>
+<li><p>渲染是CG的最后一道工序，也是最终使图形符合你的3D场景的阶段。是将线框模型或者曲面模型加工为真实感图形的过程。</p>
+</li>
+<li><p>渲染为模型提供多种非几何的属性。比如光照、阴影、透明、颜色、材质、纹理、各种粒子系统，不如火焰、烟雾等，此外还要表现场景内对象与观察者之间的观察关系，比如遮挡。</p>
+</li>
+<li><p>渲染就是将已经建好的模型赋予材质，打好灯，然后渲染出质感以及光影效果。</p>
+</li>
+</ul>
+<h4 id="OpenGL-概述（背）"><a href="#OpenGL-概述（背）" class="headerlink" title="OpenGL 概述（背）"></a>OpenGL 概述（背）</h4><ul>
+<li><p>OpenGL是由SGI公司设计的一套底层三维图形API，它不是一种编程语言，而是提供了一些预封装的函数，c语言可以调用这些函数。</p>
+</li>
+<li><p>OpenGL是一个开放图形库，目前在Windows、Mac OS、OS/2、Unix/x-Windows等系统下均可使用，因此具有良好的可移植性，同时调用方法简洁明了，深受好评，广泛应用。</p>
+</li>
+<li><p>OpenGL是独立于操作系统和硬件环境的三维图形软件库。由于其开放性和高度的可重用性，目前已成为业界标准。</p>
+</li>
+</ul>
+<h4 id="OpenGL三个函数库"><a href="#OpenGL三个函数库" class="headerlink" title="OpenGL三个函数库"></a>OpenGL三个函数库</h4><ul>
+<li>OpenGL核心库：gl.h</li>
+<li>OpenGL实用库：glu.h</li>
+<li>OpenGL辅助库：aux.h</li>
+</ul>
+<h4 id="OpenGL应用工具包-GLUT"><a href="#OpenGL应用工具包-GLUT" class="headerlink" title="OpenGL应用工具包 GLUT"></a>OpenGL应用工具包 GLUT</h4><ul>
+<li><p>初始化和创建窗口</p>
+<ul>
+<li>void glutInit(int argc, char**argv) 初始化GLUT库，在调用其他GLUT函数前调用此函数</li>
+<li>void glutInitDisplayMode(unsigned int mode) 该函数为即将创建的窗口指定一种显示模式。参数的默认值为 GLUT_RGBA|GLUT_SINGLE，即指定一个RGBA颜色模式的单缓存窗口。</li>
+<li>void glutInitWindowPosition(int x, int y) 指定窗口左上角应该放置在屏幕上的位置</li>
+<li>void glutInitWindowSize(int width, int heigth) 指定了窗口以像素为单位的尺寸</li>
+<li>void glutCreateWindow(char* string) 创建一个允许使用的OpenGL窗口，并将其视为当前窗口</li>
+</ul>
+</li>
+<li><p>处理窗口和输入</p>
+<ul>
+<li>void glutDisplayFunc(void(*func)(void)) 该函数用于绘制当前窗口。</li>
+<li>void glutReshapeFunc(void(*func)(int width, int height)) 表示在窗口尺寸改变时，指定了所调用的函数。width,height指定了窗口新的宽度和高度。</li>
+<li>void glutKeyboardFunc(void(*func)(unsigned int key, int x, int y)) </li>
+<li>void glutMouseFunc(void(*func)(int button, int state, int y)) 该函数指定了当按下或释放一个鼠标键时，调用的函数。参数button有三个有效值：GLUT_LEFT_BUTTON,GLUT_MIDDLE_BUTTON以及GLUT_RIGHT_BUTTON分别代表鼠标左键、中键、右键</li>
+<li>void glutKeyboardFunc(void(*func)(unsigned int key, int x, int y)) </li>
+<li>void glutMotionFunc(void(*func)(int x, int y)) 参数 为鼠标移动时，GLUT调用的函数名称。参数x和y返回鼠标当前的x和y位置。</li>
+</ul>
+</li>
+<li><p>绘制三维物体</p>
+<ul>
+<li>void glutWireCube(GLdouble size)</li>
+<li>void glutSolidCube(GLdouble size)</li>
+</ul>
+</li>
+<li><p>管理后台处理</p>
+<ul>
+<li>当没有其他待处理的事件时，用户可以用函数glutIdleFunc指定另一个函数</li>
+</ul>
+</li>
+<li><p>运行程序</p>
+<ul>
+<li>void glutMainLoop(void) 这个函数开始启动主GLUT处理循环。事件循环包括所有的键盘、鼠标、绘制及窗口的事件等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="库和头文件"><a href="#库和头文件" class="headerlink" title="库和头文件"></a>库和头文件</h4><p>编译OpenGL程序需要有（头文件）gl.h和glu.h、GLAUX.h（库）opengl32.lib、glu32.lib、GLAUX.lib<br>若使用GLUT还需要glut.h和glut32.lib<br>运行OpenGL程序，需要在windows\system目录下有动态链接库opengl32.dll和glu32.dll,GLAUX.dll，若使用GLUT还需要glut32.dll</p>
+<h4 id="glBegin-与glEnd"><a href="#glBegin-与glEnd" class="headerlink" title="glBegin()与glEnd()"></a>glBegin()与glEnd()</h4><p>glBegin() 命令可告诉OpenGL开始把一组顶点解释为特定图元。然后用glEnd()命令结束该图元的顶点列表。</p>
+<h4 id="二维几何变换"><a href="#二维几何变换" class="headerlink" title="二维几何变换"></a>二维几何变换</h4><ul>
+<li>平移变换</li>
+<li>旋转变换</li>
+<li>错切变换</li>
+<li>比例变换</li>
+<li>对称变换</li>
+<li>复合变换</li>
+<li>二维观察变换</li>
+</ul>
+<h4 id="平移变换"><a href="#平移变换" class="headerlink" title="平移变换"></a>平移变换</h4><p>平移是一种不产生变形而移动物体的<strong>刚体变换（物体上的每一点移动相同量的坐标）</strong></p>
+<p>平移函数：void glTranslated/f(GLdouble x,GLdouble y,GLdouble z)</p>
+<h4 id="旋转变换"><a href="#旋转变换" class="headerlink" title="旋转变换"></a>旋转变换</h4><p>void glRotated(GLdouble angle,GLdouble x,GLdouble y,GLdouble z)<br>void glRotated(GLdouble angle,GLfloat x, GLfloat y, GLfloat z)</p>
+<h4 id="比例变换"><a href="#比例变换" class="headerlink" title="比例变换"></a>比例变换</h4><p>x’ = Sx <em> x , y’ = Sy </em> y</p>
+<p>void glScaled(GLdouble x, GLdouble y, GLdouble z)<br>void glScalef(GLfloat x, GLfloat y, GLfloat z)</p>
+<h4 id="对称变换"><a href="#对称变换" class="headerlink" title="对称变换"></a>对称变换</h4><p>自行体会^_^</p>
+<h4 id="错切变换"><a href="#错切变换" class="headerlink" title="错切变换"></a>错切变换</h4><p>x’ = x + tan(a) * y<br>y’ = y</p>
+<p><strong>错切变换</strong>也称为错位或错移变换，变换结果将使目标图形失真。</p>
+<h4 id="符合变换"><a href="#符合变换" class="headerlink" title="符合变换"></a>符合变换</h4><p>各种变换的变换矩阵相乘</p>
+<h4 id="二维几何变换-1"><a href="#二维几何变换-1" class="headerlink" title="二维几何变换"></a>二维几何变换</h4><p>平移变换、旋转变换、比例变换、对称变换、错切变换、符合变换、二维观察变换</p>
+<h4 id="OpenGL比例变换函数的原型为："><a href="#OpenGL比例变换函数的原型为：" class="headerlink" title="OpenGL比例变换函数的原型为："></a>OpenGL比例变换函数的原型为：</h4><ul>
+<li>void glScaled(GLdouble x,GLdouble y,GLdouble z)</li>
+<li>void glScalef(GLfloat x, GLfloat y,GLfloat z)</li>
+</ul>
+<h4 id="二维观察流程"><a href="#二维观察流程" class="headerlink" title="二维观察流程"></a>二维观察流程</h4><p>在世界坐标系中要显示的区域称为<strong>窗口</strong>；窗口映射到显示设备上的坐标区域称为<strong>视区</strong>。</p>
+<p>标准窗口与视区一般都采用矩形，其各边分别与坐标平行。</p>
+<h4 id="二维观察变换"><a href="#二维观察变换" class="headerlink" title="二维观察变换"></a>二维观察变换</h4><p>1）在世界坐标系中生成图形 2）裁剪，得到要显示的内容 3）窗口到视区的变换 4）显示图形</p>
+<p>从应用程序得到图形的世界坐标<br>        ↓<br>对窗口区进行裁剪<br>        ↓<br>窗口到视区规格化坐标系的变换<br>        ↓<br>视区从规格化坐标系到设备坐标系的变换<br>        ↓<br>在图形设备上输出图形</p>
+<h4 id="二维观察变换实现函数："><a href="#二维观察变换实现函数：" class="headerlink" title="二维观察变换实现函数："></a>二维观察变换实现函数：</h4><ul>
+<li>gluOrtho2D(0.0, 0.0, (GLdouble)w,(GLdouble)h) 该函数定义窗口的大小</li>
+<li>glViewport(0,0,(GLsizei)w,(GLsizei)h) 该函数定义视口的大小</li>
+</ul>
+<h4 id="窗口到视区的变换？？？？？"><a href="#窗口到视区的变换？？？？？" class="headerlink" title="窗口到视区的变换？？？？？"></a>窗口到视区的变换？？？？？</h4><p>解决了如何将窗口内的点变换到视区内的点坐标的问题。</p>
+<h4 id="二维图形裁剪"><a href="#二维图形裁剪" class="headerlink" title="二维图形裁剪"></a>二维图形裁剪</h4><p>由于观察变换中仅需要显示出窗口内的区域，而窗口外的区域就被去掉。因此在进行观察变换之前，先需要确定图形中的哪些部分位于窗口内，哪些部分位于窗口之外，以便于对窗口内的图形进行显示。</p>
+<p><strong>识别图形在指定区域内或指定区域外的过程称为裁剪</strong></p>
+<h4 id="三维图形几何变换"><a href="#三维图形几何变换" class="headerlink" title="三维图形几何变换"></a>三维图形几何变换</h4><ul>
+<li>平移变换</li>
+<li><p>旋转变换</p>
+<ul>
+<li>绕z轴旋转（x,y）</li>
+<li>绕x轴旋转（y,z）</li>
+<li>绕y轴变换（z,x）</li>
+</ul>
+</li>
+<li><p>比例变换</p>
+</li>
+<li>对称变换</li>
+<li>切错变换？？？</li>
+</ul>
+<h4 id="投影变换"><a href="#投影变换" class="headerlink" title="投影变换"></a>投影变换</h4><p><strong>投影变换</strong>分为<strong>平行投影（正平行投影、斜平行投影）</strong>与<strong>透视投影</strong> 。</p>
+<ul>
+<li><p>平行投影的特点：平行投影保持物体的大小比例不变，物体各个面的精确视图可由平行投影得到，但无法给出三维物体的真实性表示。</p>
+</li>
+<li><p>透视投影中，离投影面近的物体较远的物体生成的图像大，生成真实感图形。</p>
+</li>
+</ul>
+<h4 id="三维观察流程"><a href="#三维观察流程" class="headerlink" title="三维观察流程"></a>三维观察流程</h4><p>在世界坐标系中定义的图形<br>        ↓<br>从世界坐标系变换到观察坐标系<br>        ↓<br>  观察空间的规范化<br>        ↓<br>    三维裁剪<br>        ↓<br>      正投影<br>        ↓<br>    二维图形变换<br>        ↓<br>    在图形设备上输出</p>
+<h4 id="OpenGL中三维图形变换"><a href="#OpenGL中三维图形变换" class="headerlink" title="OpenGL中三维图形变换"></a>OpenGL中三维图形变换</h4><ul>
+<li>模型变换</li>
+<li>视点变换</li>
+<li>投影变换</li>
+<li><p>视区变换</p>
+</li>
+<li><p>裁剪变换</p>
+</li>
+</ul>
+<h3 id="OpenGL中的矩阵操作函数P343-P364"><a href="#OpenGL中的矩阵操作函数P343-P364" class="headerlink" title="OpenGL中的矩阵操作函数P343-P364"></a>OpenGL中的矩阵操作函数P343-P364</h3><ul>
+<li><p>指定特定的矩阵作为当前矩阵</p>
+<ul>
+<li>void glLoadMatrix(const TYPE *m) m 是一个浮点数指针，指向一个按列存储的4×4矩阵</li>
+</ul>
+</li>
+<li><p>指定当前矩阵为单位阵</p>
+<ul>
+<li>glLoadIndentity()</li>
+<li>modelview （模型观察矩阵）用来表示物体的位置变化和观察点的改变</li>
+<li>用单位矩阵代替当前矩阵就是使自己对坐标的变化无效，一切从头开始</li>
+</ul>
+</li>
+<li><p>当前矩阵函数 glMatrixMode(GLenum mode) </p>
+<ul>
+<li>mode 用于指定哪一种矩阵栈是其后矩阵操作的目标。</li>
+<li>mode 可取：<ul>
+<li>GL_MODEVIEW: 后矩阵操作施加于造型视图矩阵栈</li>
+<li>GL_PROJECTION: 后矩阵操作施加于投影矩阵栈</li>
+<li>GL_TEXTURE: 后矩阵操作施加于纹理矩阵栈</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>矩阵相乘函数 void glMultMatrix(const TYPE *m)</p>
+</li>
+<li><p>入栈函数 void glPushMatrix(void) 把当前矩阵拷贝到栈中</p>
+</li>
+<li><p>出栈函数 void glPopMatrix(void) 最后压入栈的矩阵恢复为当前矩阵</p>
+<ul>
+<li>作用：保护当前矩阵现场</li>
+</ul>
+</li>
+<li><p>模型变换</p>
+<ul>
+<li>三个用于模型变换的函数：glTranslate()、glRotate()、glScale()</li>
+</ul>
+</li>
+<li><p>视点变换（视图变换）</p>
+<ul>
+<li>利用一个或几个造型变换命令（glTranslate()和glRotate()）</li>
+<li>利用实用库函数gluLookAt()设置视觉坐标系。</li>
+<li>创建封装旋转和平移命令的实用函数。</li>
+</ul>
+</li>
+<li><p>投影变换</p>
+</li>
+<li><p>视区变换</p>
+<ul>
+<li>视口就是窗口中矩形绘图区。用窗口管理器在屏幕上打开一个窗口时，已经自动地把视口区设为整个窗口的大小，可以用glViewport命令设定一个较小的绘图区，利用这个命令还可以在同一窗口上同时显示多个视图，达到分屏显示的目的。</li>
+</ul>
+</li>
+<li><p>裁剪变换</p>
+</li>
+</ul>
+<p>投影变换就是要确定一个取景体积（空间），其作用有两个：</p>
+<ul>
+<li>确定物体投影到屏幕的方式，即是透视投影还是正交投影</li>
+<li>确定从图像上裁剪掉哪些物体或物体的某些部分。投影变换包括透视投影和正交投影。</li>
+</ul>
+<h1 id="五"><a href="#五" class="headerlink" title="五"></a>五</h1><h4 id="自由曲线设计："><a href="#自由曲线设计：" class="headerlink" title="自由曲线设计："></a>自由曲线设计：</h4><p>将任意形状的复杂曲线设计称为自由曲线设计</p>
+<h4 id="自由曲面设计："><a href="#自由曲面设计：" class="headerlink" title="自由曲面设计："></a>自由曲面设计：</h4><p>将任意复杂形状的曲面设计称为自由曲面设计</p>
+<h4 id="自由曲面类型："><a href="#自由曲面类型：" class="headerlink" title="自由曲面类型："></a>自由曲面类型：</h4><ul>
+<li>规则曲线和规则曲面</li>
+<li>自由曲线和曲面：曲线和曲面的形状相当自由又不规则，如飞机机翼、汽车车身、人体外形等，很难用数学式表示，这样的曲线和曲面分别称为自由曲线和自由曲面。</li>
+</ul>
+<h4 id="自由曲线和自由曲面一般通过少数分散的点生成："><a href="#自由曲线和自由曲面一般通过少数分散的点生成：" class="headerlink" title="自由曲线和自由曲面一般通过少数分散的点生成："></a>自由曲线和自由曲面一般通过少数分散的点生成：</h4><ul>
+<li>控制点：用来确定曲线和曲面的位置与形状，而相应的曲线和曲面不一定经过的点</li>
+<li>型值点：用来确定曲线和曲面的位置和形状，而相应的曲线和曲面一定经过的点</li>
+<li>差值点：位提高曲线和曲面的输出精度，在型值点之间插入的一系列点</li>
+</ul>
+<h4 id="插值曲线或曲面："><a href="#插值曲线或曲面：" class="headerlink" title="插值曲线或曲面："></a>插值曲线或曲面：</h4><p>利用数学方法构造的曲线曲面按要求通过已知的型值点，称为对这些已知型值点进行插值。所构造的曲线或曲面称为插值曲线或曲面。</p>
+<h4 id="逼近曲线或曲面："><a href="#逼近曲线或曲面：" class="headerlink" title="逼近曲线或曲面："></a>逼近曲线或曲面：</h4><p>选择一个次数较低的函数，使其在某种意义上最为接近于给定的数据点，称之为对这些数据点的逼近。所构造的曲线或曲面称为逼近曲线或曲面。</p>
+<h4 id="三次样条"><a href="#三次样条" class="headerlink" title="三次样条"></a>三次样条</h4><ul>
+<li><p>样条曲线指由多项式曲线段连接而成的曲线，在每段的边界处满足特定的连续条件，样条曲面则可用两组正交样条曲线来表示。</p>
+</li>
+<li><p>贝塞尔曲线：参数多项式曲线，由一组控制点构成的特征多边形唯一的定义。</p>
+</li>
+</ul>
+<h4 id="贝塞尔曲线的性质："><a href="#贝塞尔曲线的性质：" class="headerlink" title="贝塞尔曲线的性质："></a>贝塞尔曲线的性质：</h4><ul>
+<li><p>贝塞尔曲线的起点与终点和特征多边形的起点与终点重合，且多边形的第一条边和最后一条边表示了曲线在起点和终点的切矢方向。</p>
+</li>
+<li><p>曲线的形状趋向于控制多边形的形状，可以通过调整顶点的位置来控制曲线的形状。</p>
+</li>
+<li><p>给定n+1个控制顶点的位置，则贝塞尔曲线可表示为： C(u) = ∑<0~n>PiBi,n(u)，其中Pi构成了该曲线的特征多边形，PiBi,n是伯恩斯坦基函数，贝塞尔曲线是控制顶点Pi关于伯恩斯坦基函数的加权和。</0~n></p>
+</li>
+</ul>
+<h4 id="？？？？？三次贝塞尔曲线递推"><a href="#？？？？？三次贝塞尔曲线递推" class="headerlink" title="？？？？？三次贝塞尔曲线递推"></a>？？？？？三次贝塞尔曲线递推</h4><h1 id="六"><a href="#六" class="headerlink" title="六"></a>六</h1><h4 id="三种常见的可见面判别算法："><a href="#三种常见的可见面判别算法：" class="headerlink" title="三种常见的可见面判别算法："></a>三种常见的可见面判别算法：</h4><ul>
+<li>后向面判别</li>
+<li>画家算法</li>
+<li>区域细分算法</li>
+</ul>
+<h4 id="Phone模型特点-P457"><a href="#Phone模型特点-P457" class="headerlink" title="Phone模型特点 P457"></a>Phone模型特点 P457</h4><h4 id="马赫带效应："><a href="#马赫带效应：" class="headerlink" title="马赫带效应："></a>马赫带效应：</h4><p>一方面，当把曲面细分，就回增大计算量；<br>另一方面，如果爱用的离散精度不够高，相邻的多边形交接处会出现马赫效应。造成物体表面颜色过渡不自然。</p>
+<h4 id="光线跟踪的基本原理"><a href="#光线跟踪的基本原理" class="headerlink" title="光线跟踪的基本原理"></a>光线跟踪的基本原理</h4><p>光线跟踪算法利用光线的可逆性，从视点出发，沿着视线进行追踪，模拟光的传播路径来确定反射、折射和阴影等，更好地表现物体表面的细节。它是沿着到达视点的光线的反方向跟踪，经过屏幕上每一像素，找出与视线所交的物体表面点，并继续跟踪，找出影响该点光强的所有光源，从而算出该点上精确的光照强度。</p>
+<h4 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h4><ul>
+<li>自身阴影：物体本身的遮挡而使得光纤找不到某些面而形成的阴影。</li>
+<li>透射阴影：由于物体的遮挡而使得场景中位于它后面的物体得不得光照而形成的。</li>
+</ul>
+<h4 id="纹理分类："><a href="#纹理分类：" class="headerlink" title="纹理分类："></a>纹理分类：</h4><ul>
+<li>颜色纹理：木质的家具表面、建筑面上的拼花图案</li>
+<li>几何纹理：老人的匍匐，橘子褶皱的表皮</li>
+</ul>
+<h4 id="材质："><a href="#材质：" class="headerlink" title="材质："></a>材质：</h4><p>物体看起来是什么质地的。可以看成是材料和质感的结合。</p>
+<p><strong>与纹理的区别：</strong>纹理更偏向于图，而材质更偏向于属性。</p>
+<p><strong>颜色</strong>由其色彩、饱和度、亮度决定。（视觉）</p>
+<h4 id="RGB-CYM-HSV模型"><a href="#RGB-CYM-HSV模型" class="headerlink" title="RGB,CYM,HSV模型"></a>RGB,CYM,HSV模型</h4><ul>
+<li>RGB(红绿蓝)、CYM（青、品红、黄） 面向硬件的</li>
+<li>HSV 面向用户的 H（颜色点和红色见的夹角）、S（饱和度）、V（颜色的明暗值）</li>
+</ul>
+<h1 id="七、动画"><a href="#七、动画" class="headerlink" title="七、动画"></a>七、动画</h1><h4 id="关键帧："><a href="#关键帧：" class="headerlink" title="关键帧："></a>关键帧：</h4><p>表示动作的极限位置的画面</p>
+<h4 id="动画制作软件系统分类："><a href="#动画制作软件系统分类：" class="headerlink" title="动画制作软件系统分类："></a>动画制作软件系统分类：</h4><ul>
+<li>脚本系统</li>
+<li>程序动画</li>
+<li>表示动画</li>
+<li>随机动画</li>
+<li>行为动画</li>
+</ul>
+<h4 id="计算机动画的基本类型："><a href="#计算机动画的基本类型：" class="headerlink" title="计算机动画的基本类型："></a>计算机动画的基本类型：</h4><ul>
+<li>实时动画：用算法来实现物体的运动控制</li>
+<li>逐帧动画：一帧一帧显示动画的图像序列而实现运动的效果（按控制方式）</li>
+</ul>
+<h4 id="计算机动画技术类型："><a href="#计算机动画技术类型：" class="headerlink" title="计算机动画技术类型："></a>计算机动画技术类型：</h4><ul>
+<li>关键帧动画</li>
+<li>柔性运动动画</li>
+<li>人体动画</li>
+<li>基于物理特征的动画</li>
+<li>其他动画技术</li>
+</ul>
+<h4 id="双缓冲技术："><a href="#双缓冲技术：" class="headerlink" title="双缓冲技术："></a>双缓冲技术：</h4><p>这项技术能使你执行绘图代码时能够在一个屏幕之外的缓冲区内进行渲染，然后用交换命令把图形放到屏幕上。</p>
+<p>glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB) 指定一个双缓冲窗口，这使得所有绘图代码都在画面外缓冲区进行渲染。</p>
+<h4 id="窗口定时刷新："><a href="#窗口定时刷新：" class="headerlink" title="窗口定时刷新："></a>窗口定时刷新：</h4><p>glutPostRedisplay() 刷新当前窗口<br>glutTimerFunc(int interval, void* TimerFunction, 1) 登记一个回调函数，经过设定的时间值后由GLUT调用该函数</p>
+<h4 id="传统动画的生成过程主要包括以下几个方面："><a href="#传统动画的生成过程主要包括以下几个方面：" class="headerlink" title="传统动画的生成过程主要包括以下几个方面："></a>传统动画的生成过程主要包括以下几个方面：</h4><ul>
+<li>脚本及动画设计</li>
+<li>关键帧的设计</li>
+<li>中间帧的生成</li>
+<li>描线上色</li>
+<li>检查、拍摄</li>
+<li>后期制作</li>
+</ul>
+<h1 id="八、虚拟现实技术"><a href="#八、虚拟现实技术" class="headerlink" title="八、虚拟现实技术"></a>八、虚拟现实技术</h1><h4 id="三个I"><a href="#三个I" class="headerlink" title="三个I"></a>三个I</h4><p>任何一个虚拟现实系统都可以用三个“I”来描述其特性：沉浸（Immersion）、交互（Interaction）、想象（Imagination）</p>
+<h4 id="分布式虚拟现实系统（DVR）："><a href="#分布式虚拟现实系统（DVR）：" class="headerlink" title="分布式虚拟现实系统（DVR）："></a>分布式虚拟现实系统（DVR）：</h4><ul>
+<li>DVR允许一组分布在不同地理位置上的用户进行实时交互。</li>
+<li>DVR所构造出的虚拟环境对用户的视觉和听觉来说都应该是三维的。</li>
+<li>DVR的每个用户在计算机环境中都以替身的形式出现，这个替身或者是一个自定义的图形描述，或者是用户的视频，或者是两个的组合。</li>
+<li>用户除与其他用户交互之外，还可以与其他计算机仿真的虚拟生物交互。</li>
+<li>用户能够相互说话，也能与计算机生成的虚拟生物或对象说话，虚拟生物也能作出反映。</li>
+</ul>
 
       
 
 	  <!-- 目录内容 -->
-        
-            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                
-           </div>
-           <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-           </script>
              
         <!-- 目录内容结束 -->
 	  
@@ -216,7 +589,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">图形学</a>
         		</li>
       		
 		</ul>
@@ -272,7 +645,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/09/17/asp-net-mvc-Datatable/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/12/05/图形学复习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +659,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/18/asp-net-mvc-connect-sql-server-2012/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          asp.net mvc connect to sql server 2012
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/24/C-string-validate/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C# string validate</div>
+    <a href="/2017/11/30/String-substring-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">String substring()</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -317,19 +681,6 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
@@ -340,7 +691,7 @@
   
 
   
-  <div id="SOHUCS" sid="asp-net-mvc-Datatable" ></div> 
+  <div id="SOHUCS" sid="图形学复习" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
