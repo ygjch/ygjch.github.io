@@ -151,6 +151,340 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-豆瓣api-调用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/17/豆瓣api-调用/">豆瓣api 调用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/17/豆瓣api-调用/" class="archive-article-date">
+  	<time datetime="2017-10-17T14:07:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="项目应用"><a href="#项目应用" class="headerlink" title="项目应用"></a>项目应用</h3><p><strong>github地址：</strong> <a href="https://github.com/ariescc/LibrarySystemProject" target="_blank" rel="external">https://github.com/ariescc/LibrarySystemProject</a></p>
+<h3 id="豆瓣开发者"><a href="#豆瓣开发者" class="headerlink" title="豆瓣开发者"></a>豆瓣开发者</h3><p><a href="https://developers.douban.com/wiki/?title=book_v2" target="_blank" rel="external">https://developers.douban.com/wiki/?title=book_v2</a></p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
+<li>BooksController.cs</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">// POST: <span class="keyword">Books/Create</span></div><div class="line"><span class="keyword"> </span>       // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 </div><div class="line">        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId<span class="number">=317598</span>。</div><div class="line">        [HttpPost]</div><div class="line">        [ValidateAntiForgeryToken]</div><div class="line">        [Auth(<span class="meta">Code</span> = <span class="string">"libraryadmin"</span>)]</div><div class="line">        public ActionResult Create([<span class="keyword">Bind(Include </span>= <span class="string">"ID,Isbn,Title,Publisher,Image,Isbn10,Isbn13,Summary,Pages,Price,msg,code,Location,IsAvaliable"</span>)] <span class="keyword">Book </span><span class="keyword">book)</span></div><div class="line"><span class="keyword"> </span>       &#123;</div><div class="line">            <span class="meta">if</span> (ModelState.IsValid)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">string </span><span class="keyword">isbn </span>= <span class="keyword">book.Isbn;</span></div><div class="line"><span class="keyword"> </span>               <span class="keyword">Book </span><span class="keyword">bookInfo;</span></div><div class="line"><span class="keyword"> </span>               <span class="keyword">string </span>json<span class="comment">;</span></div><div class="line"></div><div class="line">                // 获取豆瓣api信息</div><div class="line">                GetInfo(<span class="keyword">isbn, </span>out <span class="keyword">bookInfo, </span>out json)<span class="comment">;</span></div><div class="line"></div><div class="line">                <span class="meta">if</span> (<span class="keyword">bookInfo </span>!= null)</div><div class="line">                &#123;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.msg </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        //throw new Exception(<span class="string">"获取失败"</span> + <span class="keyword">bookInfo.msg);</span></div><div class="line"><span class="keyword"> </span>                       ModelState.<span class="keyword">AddModelError("Isbn", </span><span class="string">"No data are gotten from Douban!"</span>)<span class="comment">;</span></div><div class="line">                    &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Title </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Title </span>= <span class="keyword">bookInfo.Title;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Author </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Author </span>= <span class="keyword">bookInfo.Author;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Publisher </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Publisher </span>= <span class="keyword">bookInfo.Publisher;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Isbn10!=null)&#123;</span></div><div class="line"><span class="keyword"> </span>                       <span class="keyword">book.Isbn10 </span>= <span class="keyword">bookInfo.Isbn10;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Image </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Image </span>= <span class="keyword">bookInfo.Image;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Isbn13 </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Isbn13 </span>= <span class="keyword">bookInfo.Isbn13;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Summary </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Summary </span>= <span class="keyword">bookInfo.Summary;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Pages </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Pages </span>= <span class="keyword">bookInfo.Pages;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Price </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Price </span>= <span class="keyword">bookInfo.Price;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="keyword">string </span>jsonOutput = json<span class="comment">;</span></div><div class="line">                    unitOfWork.<span class="keyword">BookRepository.Insert(book);</span></div><div class="line"><span class="keyword"> </span>                   unitOfWork.Save()<span class="comment">;</span></div><div class="line">                    return RedirectToAction(<span class="string">"BooksManage"</span>)<span class="comment">;</span></div><div class="line">                &#125;</div><div class="line">                <span class="meta">else</span></div><div class="line">                &#123;</div><div class="line">                    //throw new Exception(<span class="string">"获取失败"</span>)<span class="comment">;</span></div><div class="line">                    ModelState.<span class="keyword">AddModelError("Isbn", </span><span class="string">"No data can be gotten, please Manual input！"</span>)<span class="comment">;</span></div><div class="line">                    <span class="meta">if</span>(<span class="keyword">book.Title </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Isbn13 </span>= <span class="keyword">book.Isbn;</span></div><div class="line"><span class="keyword"> </span>                       unitOfWork.<span class="keyword">BookRepository.Insert(book);</span></div><div class="line"><span class="keyword"> </span>                       unitOfWork.Save()<span class="comment">;</span></div><div class="line">                        return RedirectToAction(<span class="string">"BooksManage"</span>)<span class="comment">;</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                </div><div class="line">            &#125;</div><div class="line"></div><div class="line">            return View(<span class="keyword">book);</span></div><div class="line"><span class="keyword"> </span>       &#125;</div></pre></td></tr></table></figure>
+<p>我是在图书管理系统<strong>添加一本新的图书</strong>时调用的这个接口，通过图书的<strong>Isbn</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 调用 豆瓣图书 api </span></div><div class="line">        <span class="comment">// 根据 ISBN 从豆瓣api获取图书的详细信息</span></div><div class="line">        <span class="comment">//根据ISBN码从豆瓣API获取书籍详细信息</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">GetInfo</span>(<span class="params"><span class="keyword">string</span> isbn, <span class="keyword">out</span> Book bookInfo, <span class="keyword">out</span> <span class="keyword">string</span> json</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">try</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//豆瓣API</span></div><div class="line">                <span class="keyword">string</span> uri = <span class="string">"https://api.douban.com/v2/book/isbn/"</span> + isbn;</div><div class="line">                <span class="comment">//获取书籍详细信息，Json格式</span></div><div class="line">                json = DoGet(uri, <span class="string">"utf-8"</span>);</div><div class="line">                <span class="comment">//将获取到的Json格式的文件转换为定义的类</span></div><div class="line">                bookInfo = ToMap(json);</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//信息获取失败</span></div><div class="line">                bookInfo = <span class="literal">null</span>;</div><div class="line">                json = <span class="string">""</span>;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Json 实例化为 book 实体</span></div><div class="line">        <span class="comment">//Json解析</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Book <span class="title">ToMap</span>(<span class="params"><span class="keyword">string</span> jsonString</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="comment">//实例化JavaScriptSerializer类的新实例</span></div><div class="line">            JavaScriptSerializer jss = <span class="keyword">new</span> JavaScriptSerializer();</div><div class="line">            <span class="keyword">try</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//将指定的 JSON 字符串转换为 Dictionary&lt;string, object&gt; 类型的对象</span></div><div class="line">                <span class="keyword">return</span> jss.Deserialize&lt;Book&gt;(jsonString);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//HTTP的GET请求，获取书籍详细信息</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">DoGet</span>(<span class="params"><span class="keyword">string</span> url, <span class="keyword">string</span> charset</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);</div><div class="line">            request.Method = <span class="string">"GET"</span>;</div><div class="line">            request.ContentType = <span class="string">"text/html;charset=UTF-8"</span>;</div><div class="line">            HttpWebResponse response = (HttpWebResponse)request.GetResponse();</div><div class="line">            <span class="keyword">if</span> (response != <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                Stream myResponseStream = response.GetResponseStream();</div><div class="line">                StreamReader myStreamReader = <span class="keyword">new</span> StreamReader(myResponseStream, System.Text.Encoding.GetEncoding(charset));</div><div class="line">                <span class="keyword">string</span> retString = myStreamReader.ReadToEnd();</div><div class="line">                myStreamReader.Close();</div><div class="line">                myResponseStream.Close();</div><div class="line">                <span class="keyword">return</span> retString;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Http 获取图书封面</span></div><div class="line">        <span class="comment">//HTTP获取图片，获取书籍封面</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Image <span class="title">DoGetImage</span>(<span class="params"><span class="keyword">string</span> url</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            WebRequest request = WebRequest.Create(url);</div><div class="line">            WebResponse response = request.GetResponse();</div><div class="line">            <span class="keyword">if</span> (response != <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                Stream stream = response.GetResponseStream();</div><div class="line">                <span class="keyword">return</span> Image.FromStream(stream);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> DrawCover();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 绘制封面</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Bitmap <span class="title">DrawCover</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Bitmap image = <span class="keyword">new</span> Bitmap(<span class="number">102</span>, <span class="number">145</span>);</div><div class="line">            Graphics g = Graphics.FromImage(image);</div><div class="line">            g.Clear(Color.Silver);</div><div class="line">            StringFormat format = <span class="keyword">new</span> StringFormat &#123; Alignment = StringAlignment.Center &#125;;</div><div class="line">            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;</div><div class="line">            <span class="comment">//封面显示内容：暂无封面</span></div><div class="line">            g.DrawString(<span class="string">"No Drawing"</span>, <span class="keyword">new</span> Font(<span class="string">"黑体"</span>, <span class="number">12</span>f, FontStyle.Regular), Brushes.Black, <span class="number">51</span>, <span class="number">50</span>, format);</div><div class="line">            <span class="keyword">return</span> image;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>以上为后端代码</p>
+<ul>
+<li>Create.cshtml</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="keyword">class</span>=<span class="string">"form-group"</span>&gt;</div><div class="line">	@Html.LabelFor(model=&gt;model.Isbn, htmlAttributes: <span class="keyword">new</span> &#123; @<span class="keyword">class</span> = <span class="string">"control-label col-md-2"</span>&#125;)</div><div class="line">	&lt;div <span class="keyword">class</span>=<span class="string">"col-md-10"</span>&gt;</div><div class="line">		@Html.EditorFor(model=&gt;model.Isbn, <span class="keyword">new</span> &#123; htmlattributes = <span class="keyword">new</span> &#123; @<span class="keyword">class</span>=<span class="string">"form-control"</span>&#125;&#125;)</div><div class="line">		@Html.ValidationMessageFor(model=&gt;model.Isbn, <span class="string">""</span>, <span class="keyword">new</span> &#123; @<span class="keyword">class</span>=<span class="string">"text-danger"</span>&#125;)</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>以上为前端代码，只需要向后端提交一个表单，传入要搜索的Isbn即可。</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/17/豆瓣api-调用/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ISBN-介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/17/ISBN-介绍/">ISBN 介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/17/ISBN-介绍/" class="archive-article-date">
+  	<time datetime="2017-10-17T12:37:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ISBN扩升至13位 </p>
+<ol>
+<li>现有ISBN的结构<br>国际标准书号ISBN是英文International Standard Book Number的缩写，1971年国际标准化组织ISO（International Organization for Standardization）批准了国际标准书号在世界范围内实施，迄今已经有30多年的历史，参加国家有159个。<br>国际标准书号由十位数字组成。由三条短横线分为四段，每一段都有不同的含义。<br>第一段号码段是地区号，又叫组号(Group Identifier)，由设在德国柏林国立普鲁士文化遗产图书馆(Staatsbibliothek zu Berlin – Preu?ischerKulturbesitz)的国际标准书号中心(International ISBN Agency，简称IIA)分配。最短的是一位数字，最长的达五位数字，大体上兼顾文种、国别和地区。把全世界自愿申请参加国际标准书号体系的国家和地区，划分成若干组，各有固定的编码，如0、1代表英语出版物，7代表中国出版物等。<br>第二段号码是出版社代码(Publisher Identifier)，由其隶属的国家或地区ISBN中心分配，允许取值范围为2-5位数字。出版社的规模越大，出书越多，其号码就越短。<br>第三段是书序号(Title Identifier)，由出版社自己给出，每个出版社的书序号是定长的。最短的一位，最长的六位。出版社的规模越大，出书越多，序号越长。<br>第四段是校验位（Check Digit），用10至2这9个数分别去乘标准书号的前9位数然后以11为模计算得到。取值范围为0-10，10由X代替。<br>10位 ISBN： 0-393-04002-?<br>位置 Total 1 2 3 4 5 6 7 8 9 10<br>ISBN 0 3 9 3 0 4 0 0 2<br>权重 10 9 8 7 6 5 4 3 2 –<br>乘积 144 0 27 72 21 0 20 0 0 4 –<br>校验位 = mod11 (11 – mod11 (Product Total)) = mod11 (11 –mod11 (144)) = 10 </li>
+<li>中国的ISBN<br>1982年，中国参加ISBN系统，并成立中国ISBN中心（设在国家新闻出版署）。中国标准书号自1987年1月1日起实施，至1988年1月1日完全取代原用的统一书号。中国标准书号共分两部分, 第一部分为ISBN，是主体部分；第二部分为《中国图书馆图书分类法》基本大类类号和种次号。类号用《中图法》大类的字母。种次号是同一出版社出版同一学科门类图书的顺序号，由出版社自行编定。类号与种次号之间用中圆点(?)隔开。第一部分和第二部分分两行排列，也可用斜线隔开，排成一行。例如：《CALIS联机合作编目手册》的ISBN号为： 7-301-04815-7/G?626。 </li>
+<li>将升成13位的ISBN<br>3.1 13位码的来源背景<br>　　目前国际公认用于商品包装的编码系统称为EAN－UCC系统，该系统由国际物品编码协会（EAN）与美国统一代码委员会（UCC）共同开发和维护，是全球统一和通用的商业标识系统，是对全球多行业供应链进行有效管理的一套开放性国际标准。EAN－UCC系统的编码有两种①UPC条形码，该条码主要在美国使用。②EAN-13条形码， EAN是European Article Number，是欧共体的“欧洲物品编码协会”吸取了UPC的经验而确立的物品表示符号。该协会于1997年更名为“国际物品编码协会”。使用EAN条形码的成员国除欧洲外，亚洲多国也使用此码，我国于1991年7月参加该协会。<br>EAN－UCC系统致力于编码的全球唯一性，并解决编码混乱、重复和错误译码的问题， EAN成员组织和UCC通过特定的前缀协议确保代码在全世界的唯一性。国际物品编码协会（EAN International）指定给国际标准书号（ISBN）系统的专用前缀码是978。<br>2004年，国际ISBN中心(IIA)出版了《13位国际标准书号指南》(Guidelines for the Implementation of 13-DigitISBNs)，描述了将于2007年启用的13位的ISBN的概况。国际标准化组织ISO将于2005年1月出版新的标准，该标准将以13位数字的Bookland EAN条形码，作为图书和图书相关产品的唯一条形码。到2007年1月1日起，全世界所有ISBN代理机构将只发布13位的ISBN。所以，出版社将有两年时间来完成10位ISBN到13位ISBN的升级。过渡期间内（2005-2007年），鼓励出版社根据国际ISBN中心(International ISBN Agency) 出版的《13位国际标准书号指南》为同一个文献提供10位和13位的ISBN号。<br>　　新的ISBN实际上就是现在的EAN（欧洲物品号）。现在出版的图书外封底（outside of back cover）的ISBN下面就有一个13位的号码，这就是EAN-13号，例如：CALIS联机合作编目手册的外封底的ISBN下面就有一个13位的号<br>ISBN： 7-301-04815-7<br>EAN-13： 978-7-301-04815-3<br>前缀978（代表图书），中间一部分与ISBN相同，最后一位是校验码，校验位的加权算法与10位ISBN的算法不同。具体算法是：用1分别乘ISBN的前9位中的奇数位，用3乘以偶数位，成绩之和以10为模即可得到校验位的值，其值范围应该为0-9。<br>Bookland EAN-13 = 978-0-393-04002-?<br>位置 Total 1 2 3 4 5 6 7 8 9 10 11 12 13<br>ISBN 9 7 8 0 3 9 3 0 4 0 0 2 ?<br>权重 1 3 1 3 1 3 1 3 1 3 1 3 –<br>乘积 81 9 21 8 0 3 27 3 0 4 0 0 6 –<br>校验位= mod10 (10 – mod10 (Product Total)) = mod10 (10 –mod10 (81)) = 9<br>2007年1月1日以前，各国ISBN机构尚没有分配完的10位的ISBN可以在前面加前缀978，一旦现有的10位的ISBN号用完了，新申请的ISBN号码全部以979开始。即979前缀目前用于两种情况，一是新建出版社首次申请ISBN和已有出版社在2007年1月1日以后申请ISBN号，二是如果以978为前缀的号码先用完，那么就只能用979。13位的号码与10位的号码可以通过算法互相转换，转换方法见ISBN中心主页（<a href="http://www.isbn.org）的详细说明。" target="_blank" rel="external">http://www.isbn.org）的详细说明。</a><br>3.2 对图书馆的影响<br>ISBN的升级可使出版获得更多的号源，以适应海量增长的出版业的发展。但世界各地的出版商也将为升级现有的软件额外支付数百万美元。由于ISBN在书目检索和识别中的重要作用，图书馆界还是相当重视，美国国会图书馆已经对系统更新，从2004年10月1日开始已能够处理13位的ISBN号。此外，LC还作出了过渡时期（2004年10月1日—2007年1月1日)的策略：从2004年10月1日起，LC对同一文献的两个ISBN号（10位和13位）都要著录。著录顺序是13位的在前，10位的在后。例如：<br>ISBN-13: 978-1-873671-00-0<br>ISBN-10: 1-873671-008<br>CALIS联合目录也在考虑更新相关的软件—查重和校验等，以能够顺利处理13位的ISBN号。各个图书馆的自动化系统也需做相应升级以适应13位的ISBN。</li>
+</ol>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ISBN</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/17/ISBN-介绍/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-class-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/16/class-python/">class python</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/16/class-python/" class="archive-article-date">
+  	<time datetime="2017-10-16T12:47:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">	<span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<p>Student 后面的 (object) 表示从哪个类继承下来的。 通常没有合适的继承类，就使用 <strong>object类</strong></p>
+<p>创建实例的话，</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/16/class-python/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PIL-生成缩略图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/16/PIL-生成缩略图/">PIL 生成缩略图</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/16/PIL-生成缩略图/" class="archive-article-date">
+  	<time datetime="2017-10-16T12:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>python 处理图片，生成图片缩略图。 使用Pillow库</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from PIL import Image</div><div class="line"><span class="keyword">im</span> = Image.<span class="keyword">open</span>(<span class="string">'touxiang.jpg'</span>)</div><div class="line"><span class="keyword">print</span>(<span class="keyword">im</span>.format, <span class="keyword">im</span>.size, <span class="keyword">im</span>.<span class="keyword">mode</span>)</div><div class="line"><span class="keyword">im</span>.thumbnail((<span class="number">200</span>, <span class="number">100</span>))</div><div class="line"><span class="keyword">im</span>.save(<span class="string">'thumb.jpg'</span>, <span class="string">'JPEG'</span>)</div></pre></td></tr></table></figure>
+<p>生成缩略图<br>thumbnail函数接受一个元组作为参数，分别对应着缩略图的宽高，在缩略时，函数会保持图片的宽高比例。如果输入的参数宽高和原图像宽高比不同，则会依据最小对应边进行原比例缩放。<br>比如:<br>一张图片为300<em>420大小的图片<br>当参数为（200,200）时，生成的缩略图大小为71</em>100，保持原图的宽高比</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/16/PIL-生成缩略图/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-yield-study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -658,332 +992,6 @@
 
 
   
-    <article id="post-Eclipse-工具栏无法加载出下载好的插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/">Eclipse 工具栏无法加载出下载好的插件</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/" class="archive-article-date">
-  	<time datetime="2017-10-06T12:34:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>软件测试中有一个可以查看覆盖率的插件<strong>Eclemma</strong>，下载完之后在Eclipse的工具栏中发现并没有显示这个插件。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p><code>Eclipse -&gt; window -&gt; Customize Perspective</code>， 勾选上 <strong>Eclemma</strong>。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-如何清理干净java环境" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/06/如何清理干净java环境/">如何清理干净java环境</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/06/如何清理干净java环境/" class="archive-article-date">
-  	<time datetime="2017-10-06T03:07:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>很多人在删除JDK时，往往会遇到大麻烦——即使将电脑中所有与JAVA有关 的文件删得一干二净（但通常情况下有些文件你是删不掉的，只有通过改名字的办法才能删掉，当然很多人也是这样做才将它们给删掉的），控制面板上仍然还显示 着JAVA的图标，这时候不论是卸载JDK还是你想安装新版的JDK，都会出现严重错误的警告。<br>   有人想试图用超级兔子 或者是优化大师之类的工具清除注册表中与JAVA有关的信息，也有人想自己手动删除它们（不得不说这样做很危险，你有可能使自己的电脑瘫痪），但结果是什 么？——还是出现错误警告，想安装新版的JDK安装不了，想删除旧版的JDK却删不干净，束手无策的人在绞尽脑汁之后，唯一能想到的办法就是重装系统。重 装系统？这个结果谁能接受？<br>   难道除了重装系统就没有别的办法了吗？<br>   办法当然有，既然问题出现在JAVA和操作系统这两个上面，那好，就在他们身上找答案？我们先找JAVA，看看SUN公司给我们的答复是什么？上SUN公司的官网，进入帮助中心，也就是这个网址：<a href="http://java.com/en/download/help/uninstall_java.xml" target="_blank" rel="external">http://java.com/en/download/help/uninstall_java.xml</a><br>   可以看到这里也有人遇到了同样的问题，看来这个问题出现的范围不小。下面是SUN公司给出的解决办法：<br>    If the normal uninstallation process (as mentioned above) fails, then please try Microsoft Windows Installer Cleanup Utility. This tool will ensure that all irrelevant Java Runtime Environment Microsoft Installer (msi) registries are removed. Detailed information and download is available at: Description of the Windows Installer CleanUp Utility<br>   可以看到，它是让我们去Windows的官网去下载一个所谓的Windows安装清理工具，说这个工具可以将注册表中的信息一起清掉，既然SUN公司都这么说了，那我们只好照办了，下载这个工具之后，就使用它卸载掉JAVA，这个时候你就会发现自己的新JDK可以安装了</p>
-<h3 id="建议几点："><a href="#建议几点：" class="headerlink" title="建议几点："></a>建议几点：</h3><p>（1）安装JDK的时候尽量将它装到C盘下，因为这里还有系统提供的一些与JAVA有关的文件<br>（2）要卸载JDK，先用控制面板里的添加/删除程序这个工具，万一删不掉，就使用上面的工具去删。<br>（3）卸载JDK前，先将环境变量中的CLASSPATH删掉，将PATH中与JAVA有关的部分也给去掉。</p>
-<p>原文地址：<a href="http://java-cd.javaeye.com/blog/537557" target="_blank" rel="external">http://java-cd.javaeye.com/blog/537557</a><br>windows 清理工具地址：<a href="http://down.tech.sina.com.cn/page/16877.html" target="_blank" rel="external">http://down.tech.sina.com.cn/page/16877.html</a></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/06/如何清理干净java环境/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-认识-CDN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/26/认识-CDN/">认识 CDN</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/26/认识-CDN/" class="archive-article-date">
-  	<time datetime="2017-09-26T04:49:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="初识-CDN"><a href="#初识-CDN" class="headerlink" title="初识 CDN"></a>初识 CDN</h3><p>CDN的全称是Content Delivery Network，即内容分发网络。其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，<br>使内容传输的更快、更稳定。通过在网络各处放置节点服务器所构成的在现有的互联网基础之上的一层智能虚拟网络，CDN系统能够实时地根据<br>网络流量和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户<br>可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度。</p>
-<h3 id="简介及原理"><a href="#简介及原理" class="headerlink" title="简介及原理"></a>简介及原理</h3><p>CDN是构建在网络之上的内容分发网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。<br>CDN的基本原理是广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中，在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求。</p>
-<h3 id="服务模式"><a href="#服务模式" class="headerlink" title="服务模式"></a>服务模式</h3><p>内容分发网络(CDN)是一种新型网络构建方式，它是为能在传统的IP网发布宽带丰富媒体而特别优化的网络覆盖层；而从广义的角度，CDN代表了一种基于质量与秩序的网络服务模式。<br>简单地说，内容分发网络(CDN)是一个经策略性部署的整体系统，包括分布式存储、负载均衡、网络请求的重定向和内容管理4个要件，而内容管理和全局的网络流量管理(Traffic Management)是CDN的核心所在。通过用户就近性和服务器负载的判断，CDN确保内容以一种极为高效的方式为用户的请求提供服务。<br>总的来说，内容服务基于缓存服务器，也称作代理缓存(Surrogate)，它位于网络的边缘，距用户仅有”一跳”(Single Hop)之遥。同时，代理缓存是内容提供商源服务器（通常位于CDN服务提供商的数据中心）的一个透明镜像。这样的架构使得CDN服务提供商能够代表他们客户，即内容供应商，向最终用户提供尽可能好的体验，而这些用户是不能容忍请求响应时间有任何延迟的。</p>
-<h3 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h3><p>（1）内容发布：它借助于建立索引、缓存、流分裂、组播（Multicast）等技术，将内容发布或投递到距离用户最近的远程服务点（POP）处；<br>（2）内容路由：它是整体性的网络负载均衡技术，通过内容路由器中的重定向（DNS）机制，在多个远程POP上均衡用户的请求，以使用户请求得到最近内容源的响应；<br>（3）内容交换：它根据内容的可用性、服务器的可用性以及用户的背景，在POP的缓存服务器上，利用应用层交换、流分裂、重定向（ICP、WCCP）等技术，智能地平衡负载流量；<br>（4）性能管理：它通过内部和外部监控系统，获取网络部件的状况信息，测量内容发布的端到端性能（如包丢失、延时、平均带宽、启动时间、帧速率等），保证网络处于最佳的运行状态。</p>
-<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><p>1、本地Cache加速 提高了企业站点(尤其含有大量图片和静态页面站点)的访问速度，并大大提高以上性质站点的稳定性<br>2、镜像服务 消除了不同运营商之间互联的瓶颈造成的影响，实现了跨运营商的网络加速，保证不同网络中的用户都能得到良好的访问质量。<br>3、远程加速 远程访问用户根据DNS负载均衡技术智能自动选择Cache服务器，选择最快的Cache服务器，加快远程访问的速度<br>4、带宽优化 自动生成服务器的远程Mirror（镜像）cache服务器，远程用户访问时从cache服务器上读取数据，减少远程访问的带宽、分担网络流量、减轻原站点WEB服务器负载等功能。<br>5、集群抗攻击 广泛分布的CDN节点加上节点之间的智能冗余机制，可以有效地预防黑客入侵以及降低各种D.D.o.S攻击对网站的影响，同时保证较好的服务质量 。</p>
-<p><strong>摘自百度百科，用于收集及之后的深入学习</strong></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Net</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/26/认识-CDN/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sql-server-connnect-error-233" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/24/sql-server-connnect-error-233/">sql server connnect error: 233</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/24/sql-server-connnect-error-233/" class="archive-article-date">
-  	<time datetime="2017-09-24T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>After openning <strong>sql server 2012</strong>, I click the connnecting buttion. However, sql server pop up the error message.</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">error: </span>233 管道另一端无任何进程</div></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><ol>
-<li>Open <strong>Microsoft SQL Server 2008–配置工具–SQL Server 配置管理器</strong></li>
-<li>“SQL Server 2008 网络配置”–”MSSQLSERVER的协议”–启用”TCP/IP”和”Named Pipes”.在启动TCP/IP协议后,还要把其属性中的TCP端口号改为1433(动态端口)或修改为自己想要的端口号.    </li>
-<li>重启”SQL Server”</li>
-</ol>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/24/sql-server-connnect-error-233/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -998,7 +1006,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 ariescc
+    		&copy; 2018 ariescc
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1106,6 +1114,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -1118,15 +1130,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">OpenGL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1134,7 +1142,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,6 +1159,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">

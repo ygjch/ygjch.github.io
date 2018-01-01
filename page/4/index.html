@@ -151,6 +151,334 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-appium-doctor-不是内部或外部命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/02/appium-doctor-不是内部或外部命令/">appium-doctor 不是内部或外部命令</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/02/appium-doctor-不是内部或外部命令/" class="archive-article-date">
+  	<time datetime="2017-11-02T15:50:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="单独配置-Android-Home-系统变量"><a href="#单独配置-Android-Home-系统变量" class="headerlink" title="单独配置 Android_Home 系统变量"></a>单独配置 Android_Home 系统变量</h3><p>开始配置安卓环境的时候，没有新建 <strong>Android_Home</strong> 系统变量，而是直接将 <strong>D:\SDK\tools</strong>和 <strong>D:\SDK\platform-tools</strong><br>配置到了 <strong>Path</strong> 里。这样就会导致 appium-doctor 运行时失败。</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在设置系统环境变量的地方新建 <strong>Android_Home</strong> ( 注意是 <strong>系统变量</strong></p>
+<ul>
+<li>变量值： <strong>D:\SDK</strong> (就是SDK的目录</li>
+<li>在 <strong>Path</strong> 中加入 <strong>%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;</strong> ，在 <strong>tools</strong> 目录下执行 <strong>android</strong> 命令，并且在 <strong>platform-tools</strong> 目录下执行 <strong>adb</strong> 命令。</li>
+</ul>
+<p>创建系统变量 <strong>Appium_Home</strong></p>
+<ul>
+<li>变量值：<strong>D:\Appium</strong> ( 也就是Appium的目录</li>
+<li>在 <strong>Path</strong> 中加入 <strong>%Appium_Home%</strong></li>
+</ul>
+<p>进入 <strong>D:\Appium\node_modules.bin</strong> ，运行 <strong>appium-doctor</strong> 即可成功。</p>
+<p>第3步如果还不行，就将 <strong>Appium</strong> 文件夹下的 <strong>Appium\node_modules.bin</strong> 加到系统环境变量 <strong>Path</strong> 中。</p>
+<p>运行结果如图所示：<br><img src="/img/success.png" width="1000px" height="300px"></p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/02/appium-doctor-不是内部或外部命令/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-如何连接外远程桌面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/01/如何连接外远程桌面/">如何连接外远程桌面</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/01/如何连接外远程桌面/" class="archive-article-date">
+  	<time datetime="2017-11-01T11:32:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="本机连接其他电脑的远程桌面"><a href="#本机连接其他电脑的远程桌面" class="headerlink" title="本机连接其他电脑的远程桌面"></a>本机连接其他电脑的远程桌面</h3><p><strong>Win + R</strong> -&gt; <strong>mstsc</strong></p>
+<p>输入 IP，点击 <strong>选项</strong>， 输入用户名和密码登录即可。</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">computer application</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/01/如何连接外远程桌面/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-opencv-灰度图转伪彩色图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/29/opencv-灰度图转伪彩色图/">opencv 灰度图转伪彩色图</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/29/opencv-灰度图转伪彩色图/" class="archive-article-date">
+  	<time datetime="2017-10-29T08:18:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/weicaisetu.png" width="1000px" height="200px"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line"></div><div class="line">	Mat img = imread(<span class="string">"1.jpg"</span>, CV_LOAD_IMAGE_GRAYSCALE);<span class="comment">//采用灰度格式读取图片</span></div><div class="line">	namedWindow(<span class="string">"bmp_img"</span>);</div><div class="line">	imshow(<span class="string">"bmp_img"</span>, img);</div><div class="line"></div><div class="line">	<span class="function">Mat <span class="title">img_pseudocolor</span><span class="params">(img.rows, img.cols, CV_8UC3)</span></span>;<span class="comment">//构造RGB图像，参数CV_8UC3教程文档里面有讲解</span></div><div class="line">	<span class="keyword">int</span> tmp = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y&lt;img.rows; y++)<span class="comment">//转为伪彩色图像的具体算法</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x&lt;img.cols; x++)</div><div class="line">		&#123;</div><div class="line">			tmp = img.at&lt;<span class="keyword">unsigned</span> <span class="keyword">char</span>&gt;(y, x);</div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">0</span>] = <span class="built_in">abs</span>(<span class="number">255</span> - tmp); <span class="comment">//blue</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">1</span>] = <span class="built_in">abs</span>(<span class="number">127</span> - tmp); <span class="comment">//green</span></div><div class="line">			img_pseudocolor.at&lt;Vec3b&gt;(y, x)[<span class="number">2</span>] = <span class="built_in">abs</span>(<span class="number">0</span> - tmp); <span class="comment">//red</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	namedWindow(<span class="string">"img_pseudocolor"</span>);</div><div class="line">	imshow(<span class="string">"img_pseudocolor"</span>, img_pseudocolor);</div><div class="line">	waitKey(<span class="number">0</span>);</div><div class="line">	destroyAllWindows();</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机视觉</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/29/opencv-灰度图转伪彩色图/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-霍夫曼编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/29/霍夫曼编码/">霍夫曼编码</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/29/霍夫曼编码/" class="archive-article-date">
+  	<time datetime="2017-10-29T07:49:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/huffman.bmp" width="1000px" height="200px"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//Huffman树的节点类</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">    <span class="keyword">char</span> value;               <span class="comment">//结点的字符值</span></div><div class="line">    <span class="keyword">int</span> weight;               <span class="comment">//结点字符出现的频度</span></div><div class="line">    Node *lchild,*rchild;     <span class="comment">//结点的左右孩子</span></div><div class="line">&#125;Node;</div><div class="line"></div><div class="line"><span class="comment">//自定义排序规则，即以vector中node结点weight值升序排序</span></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ComNode</span><span class="params">(Node *p,Node *q)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> p-&gt;weight&lt;q-&gt;weight;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//构造Huffman树，返回根结点指针</span></div><div class="line"><span class="function">Node* <span class="title">BuildHuffmanTree</span><span class="params">(<span class="built_in">vector</span>&lt;Node*&gt; vctNode)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">while</span>(vctNode.size()&gt;<span class="number">1</span>)                            <span class="comment">//vctNode森林中树个数大于1时循环进行合并</span></div><div class="line">    &#123;</div><div class="line">        sort(vctNode.begin(),vctNode.end(),ComNode);   <span class="comment">//依频度高低对森林中的树进行升序排序</span></div><div class="line"></div><div class="line">        Node *first=vctNode[<span class="number">0</span>];    <span class="comment">//取排完序后vctNode森林中频度最小的树根</span></div><div class="line">        Node *second=vctNode[<span class="number">1</span>];   <span class="comment">//取排完序后vctNode森林中频度第二小的树根</span></div><div class="line">        Node *merge=<span class="keyword">new</span> Node;      <span class="comment">//合并上面两个树</span></div><div class="line">        merge-&gt;weight=first-&gt;weight+second-&gt;weight;</div><div class="line">        merge-&gt;lchild=first;</div><div class="line">        merge-&gt;rchild=second;</div><div class="line"></div><div class="line">        <span class="built_in">vector</span>&lt;Node*&gt;::iterator iter;</div><div class="line">        iter=vctNode.erase(vctNode.begin(),vctNode.begin()+<span class="number">2</span>);    <span class="comment">//从vctNode森林中删除上诉频度最小的两个节点first和second</span></div><div class="line">        vctNode.push_back(merge);                                 <span class="comment">//向vctNode森林中添加合并后的merge树</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> vctNode[<span class="number">0</span>];            <span class="comment">//返回构造好的根节点</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//用回溯法来打印编码</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintHuffman</span><span class="params">(Node *node,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vctchar)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span>(node-&gt;lchild==<span class="literal">NULL</span> &amp;&amp; node-&gt;rchild==<span class="literal">NULL</span>)</div><div class="line">    &#123;<span class="comment">//若走到叶子节点，则迭代打印vctchar中存的编码</span></div><div class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;value&lt;&lt;<span class="string">": "</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator iter=vctchar.begin();iter!=vctchar.end();iter++)</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;*iter;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        vctchar.push_back(<span class="number">1</span>);     <span class="comment">//遇到左子树时给vctchar中加一个1</span></div><div class="line">        PrintHuffman(node-&gt;lchild,vctchar);</div><div class="line">        vctchar.pop_back();       <span class="comment">//回溯，删除刚刚加进去的1</span></div><div class="line">        vctchar.push_back(<span class="number">0</span>);     <span class="comment">//遇到左子树时给vctchar中加一个0</span></div><div class="line">        PrintHuffman(node-&gt;rchild,vctchar);</div><div class="line">        vctchar.pop_back();       <span class="comment">//回溯，删除刚刚加进去的0</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"请输入要编码的字符,并以空格隔开（个数任意）："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;Node*&gt; vctNode;        <span class="comment">//存放Node结点的vector容器vctNode</span></div><div class="line">    <span class="keyword">char</span> ch;                      <span class="comment">//临时存放控制台输入的字符</span></div><div class="line">    <span class="keyword">while</span>((ch=getchar())!=<span class="string">'\n'</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(ch==<span class="string">' '</span>)<span class="keyword">continue</span>;      <span class="comment">//遇到空格时跳过，即没输入一个字符空一格空格</span></div><div class="line">        Node *temp=<span class="keyword">new</span> Node;</div><div class="line">        temp-&gt;value=ch;</div><div class="line">        temp-&gt;lchild=temp-&gt;rchild = <span class="literal">NULL</span>;</div><div class="line">        vctNode.push_back(temp);  <span class="comment">//将新的节点插入到容器vctNode中</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"请输入每个字符对应的频度，并以空格隔开："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vctNode.size();i++)</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;vctNode[i]-&gt;weight;</div><div class="line"></div><div class="line">    Node *root = BuildHuffmanTree(vctNode);   <span class="comment">//构造Huffman树，将返回的树根赋给root</span></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vctchar;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"对应的Huffman编码如下："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    PrintHuffman(root,vctchar);</div><div class="line"></div><div class="line">    system(<span class="string">"pause"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/29/霍夫曼编码/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-opencv-环境配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -651,340 +979,6 @@
 
 
   
-    <article id="post-豆瓣api-调用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/17/豆瓣api-调用/">豆瓣api 调用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/17/豆瓣api-调用/" class="archive-article-date">
-  	<time datetime="2017-10-17T14:07:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="项目应用"><a href="#项目应用" class="headerlink" title="项目应用"></a>项目应用</h3><p><strong>github地址：</strong> <a href="https://github.com/ariescc/LibrarySystemProject" target="_blank" rel="external">https://github.com/ariescc/LibrarySystemProject</a></p>
-<h3 id="豆瓣开发者"><a href="#豆瓣开发者" class="headerlink" title="豆瓣开发者"></a>豆瓣开发者</h3><p><a href="https://developers.douban.com/wiki/?title=book_v2" target="_blank" rel="external">https://developers.douban.com/wiki/?title=book_v2</a></p>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
-<li>BooksController.cs</li>
-</ul>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">// POST: <span class="keyword">Books/Create</span></div><div class="line"><span class="keyword"> </span>       // 为了防止“过多发布”攻击，请启用要绑定到的特定属性，有关 </div><div class="line">        // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId<span class="number">=317598</span>。</div><div class="line">        [HttpPost]</div><div class="line">        [ValidateAntiForgeryToken]</div><div class="line">        [Auth(<span class="meta">Code</span> = <span class="string">"libraryadmin"</span>)]</div><div class="line">        public ActionResult Create([<span class="keyword">Bind(Include </span>= <span class="string">"ID,Isbn,Title,Publisher,Image,Isbn10,Isbn13,Summary,Pages,Price,msg,code,Location,IsAvaliable"</span>)] <span class="keyword">Book </span><span class="keyword">book)</span></div><div class="line"><span class="keyword"> </span>       &#123;</div><div class="line">            <span class="meta">if</span> (ModelState.IsValid)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">string </span><span class="keyword">isbn </span>= <span class="keyword">book.Isbn;</span></div><div class="line"><span class="keyword"> </span>               <span class="keyword">Book </span><span class="keyword">bookInfo;</span></div><div class="line"><span class="keyword"> </span>               <span class="keyword">string </span>json<span class="comment">;</span></div><div class="line"></div><div class="line">                // 获取豆瓣api信息</div><div class="line">                GetInfo(<span class="keyword">isbn, </span>out <span class="keyword">bookInfo, </span>out json)<span class="comment">;</span></div><div class="line"></div><div class="line">                <span class="meta">if</span> (<span class="keyword">bookInfo </span>!= null)</div><div class="line">                &#123;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.msg </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        //throw new Exception(<span class="string">"获取失败"</span> + <span class="keyword">bookInfo.msg);</span></div><div class="line"><span class="keyword"> </span>                       ModelState.<span class="keyword">AddModelError("Isbn", </span><span class="string">"No data are gotten from Douban!"</span>)<span class="comment">;</span></div><div class="line">                    &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Title </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Title </span>= <span class="keyword">bookInfo.Title;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Author </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Author </span>= <span class="keyword">bookInfo.Author;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Publisher </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Publisher </span>= <span class="keyword">bookInfo.Publisher;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Isbn10!=null)&#123;</span></div><div class="line"><span class="keyword"> </span>                       <span class="keyword">book.Isbn10 </span>= <span class="keyword">bookInfo.Isbn10;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Image </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Image </span>= <span class="keyword">bookInfo.Image;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Isbn13 </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Isbn13 </span>= <span class="keyword">bookInfo.Isbn13;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Summary </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Summary </span>= <span class="keyword">bookInfo.Summary;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Pages </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Pages </span>= <span class="keyword">bookInfo.Pages;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="meta">if</span> (<span class="keyword">bookInfo.Price </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Price </span>= <span class="keyword">bookInfo.Price;</span></div><div class="line"><span class="keyword"> </span>                   &#125;</div><div class="line">                    <span class="keyword">string </span>jsonOutput = json<span class="comment">;</span></div><div class="line">                    unitOfWork.<span class="keyword">BookRepository.Insert(book);</span></div><div class="line"><span class="keyword"> </span>                   unitOfWork.Save()<span class="comment">;</span></div><div class="line">                    return RedirectToAction(<span class="string">"BooksManage"</span>)<span class="comment">;</span></div><div class="line">                &#125;</div><div class="line">                <span class="meta">else</span></div><div class="line">                &#123;</div><div class="line">                    //throw new Exception(<span class="string">"获取失败"</span>)<span class="comment">;</span></div><div class="line">                    ModelState.<span class="keyword">AddModelError("Isbn", </span><span class="string">"No data can be gotten, please Manual input！"</span>)<span class="comment">;</span></div><div class="line">                    <span class="meta">if</span>(<span class="keyword">book.Title </span>!= null)</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">book.Isbn13 </span>= <span class="keyword">book.Isbn;</span></div><div class="line"><span class="keyword"> </span>                       unitOfWork.<span class="keyword">BookRepository.Insert(book);</span></div><div class="line"><span class="keyword"> </span>                       unitOfWork.Save()<span class="comment">;</span></div><div class="line">                        return RedirectToAction(<span class="string">"BooksManage"</span>)<span class="comment">;</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                </div><div class="line">            &#125;</div><div class="line"></div><div class="line">            return View(<span class="keyword">book);</span></div><div class="line"><span class="keyword"> </span>       &#125;</div></pre></td></tr></table></figure>
-<p>我是在图书管理系统<strong>添加一本新的图书</strong>时调用的这个接口，通过图书的<strong>Isbn</strong></p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 调用 豆瓣图书 api </span></div><div class="line">        <span class="comment">// 根据 ISBN 从豆瓣api获取图书的详细信息</span></div><div class="line">        <span class="comment">//根据ISBN码从豆瓣API获取书籍详细信息</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">GetInfo</span>(<span class="params"><span class="keyword">string</span> isbn, <span class="keyword">out</span> Book bookInfo, <span class="keyword">out</span> <span class="keyword">string</span> json</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="keyword">try</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//豆瓣API</span></div><div class="line">                <span class="keyword">string</span> uri = <span class="string">"https://api.douban.com/v2/book/isbn/"</span> + isbn;</div><div class="line">                <span class="comment">//获取书籍详细信息，Json格式</span></div><div class="line">                json = DoGet(uri, <span class="string">"utf-8"</span>);</div><div class="line">                <span class="comment">//将获取到的Json格式的文件转换为定义的类</span></div><div class="line">                bookInfo = ToMap(json);</div><div class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//信息获取失败</span></div><div class="line">                bookInfo = <span class="literal">null</span>;</div><div class="line">                json = <span class="string">""</span>;</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Json 实例化为 book 实体</span></div><div class="line">        <span class="comment">//Json解析</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Book <span class="title">ToMap</span>(<span class="params"><span class="keyword">string</span> jsonString</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            <span class="comment">//实例化JavaScriptSerializer类的新实例</span></div><div class="line">            JavaScriptSerializer jss = <span class="keyword">new</span> JavaScriptSerializer();</div><div class="line">            <span class="keyword">try</span></div><div class="line">            &#123;</div><div class="line">                <span class="comment">//将指定的 JSON 字符串转换为 Dictionary&lt;string, object&gt; 类型的对象</span></div><div class="line">                <span class="keyword">return</span> jss.Deserialize&lt;Book&gt;(jsonString);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//HTTP的GET请求，获取书籍详细信息</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">DoGet</span>(<span class="params"><span class="keyword">string</span> url, <span class="keyword">string</span> charset</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);</div><div class="line">            request.Method = <span class="string">"GET"</span>;</div><div class="line">            request.ContentType = <span class="string">"text/html;charset=UTF-8"</span>;</div><div class="line">            HttpWebResponse response = (HttpWebResponse)request.GetResponse();</div><div class="line">            <span class="keyword">if</span> (response != <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                Stream myResponseStream = response.GetResponseStream();</div><div class="line">                StreamReader myStreamReader = <span class="keyword">new</span> StreamReader(myResponseStream, System.Text.Encoding.GetEncoding(charset));</div><div class="line">                <span class="keyword">string</span> retString = myStreamReader.ReadToEnd();</div><div class="line">                myStreamReader.Close();</div><div class="line">                myResponseStream.Close();</div><div class="line">                <span class="keyword">return</span> retString;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// Http 获取图书封面</span></div><div class="line">        <span class="comment">//HTTP获取图片，获取书籍封面</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Image <span class="title">DoGetImage</span>(<span class="params"><span class="keyword">string</span> url</span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            WebRequest request = WebRequest.Create(url);</div><div class="line">            WebResponse response = request.GetResponse();</div><div class="line">            <span class="keyword">if</span> (response != <span class="literal">null</span>)</div><div class="line">            &#123;</div><div class="line">                Stream stream = response.GetResponseStream();</div><div class="line">                <span class="keyword">return</span> Image.FromStream(stream);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> DrawCover();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 绘制封面</span></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Bitmap <span class="title">DrawCover</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">        </span>&#123;</div><div class="line">            Bitmap image = <span class="keyword">new</span> Bitmap(<span class="number">102</span>, <span class="number">145</span>);</div><div class="line">            Graphics g = Graphics.FromImage(image);</div><div class="line">            g.Clear(Color.Silver);</div><div class="line">            StringFormat format = <span class="keyword">new</span> StringFormat &#123; Alignment = StringAlignment.Center &#125;;</div><div class="line">            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;</div><div class="line">            <span class="comment">//封面显示内容：暂无封面</span></div><div class="line">            g.DrawString(<span class="string">"No Drawing"</span>, <span class="keyword">new</span> Font(<span class="string">"黑体"</span>, <span class="number">12</span>f, FontStyle.Regular), Brushes.Black, <span class="number">51</span>, <span class="number">50</span>, format);</div><div class="line">            <span class="keyword">return</span> image;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>以上为后端代码</p>
-<ul>
-<li>Create.cshtml</li>
-</ul>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="keyword">class</span>=<span class="string">"form-group"</span>&gt;</div><div class="line">	@Html.LabelFor(model=&gt;model.Isbn, htmlAttributes: <span class="keyword">new</span> &#123; @<span class="keyword">class</span> = <span class="string">"control-label col-md-2"</span>&#125;)</div><div class="line">	&lt;div <span class="keyword">class</span>=<span class="string">"col-md-10"</span>&gt;</div><div class="line">		@Html.EditorFor(model=&gt;model.Isbn, <span class="keyword">new</span> &#123; htmlattributes = <span class="keyword">new</span> &#123; @<span class="keyword">class</span>=<span class="string">"form-control"</span>&#125;&#125;)</div><div class="line">		@Html.ValidationMessageFor(model=&gt;model.Isbn, <span class="string">""</span>, <span class="keyword">new</span> &#123; @<span class="keyword">class</span>=<span class="string">"text-danger"</span>&#125;)</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>以上为前端代码，只需要向后端提交一个表单，传入要搜索的Isbn即可。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/17/豆瓣api-调用/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ISBN-介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/17/ISBN-介绍/">ISBN 介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/17/ISBN-介绍/" class="archive-article-date">
-  	<time datetime="2017-10-17T12:37:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ISBN扩升至13位 </p>
-<ol>
-<li>现有ISBN的结构<br>国际标准书号ISBN是英文International Standard Book Number的缩写，1971年国际标准化组织ISO（International Organization for Standardization）批准了国际标准书号在世界范围内实施，迄今已经有30多年的历史，参加国家有159个。<br>国际标准书号由十位数字组成。由三条短横线分为四段，每一段都有不同的含义。<br>第一段号码段是地区号，又叫组号(Group Identifier)，由设在德国柏林国立普鲁士文化遗产图书馆(Staatsbibliothek zu Berlin – Preu?ischerKulturbesitz)的国际标准书号中心(International ISBN Agency，简称IIA)分配。最短的是一位数字，最长的达五位数字，大体上兼顾文种、国别和地区。把全世界自愿申请参加国际标准书号体系的国家和地区，划分成若干组，各有固定的编码，如0、1代表英语出版物，7代表中国出版物等。<br>第二段号码是出版社代码(Publisher Identifier)，由其隶属的国家或地区ISBN中心分配，允许取值范围为2-5位数字。出版社的规模越大，出书越多，其号码就越短。<br>第三段是书序号(Title Identifier)，由出版社自己给出，每个出版社的书序号是定长的。最短的一位，最长的六位。出版社的规模越大，出书越多，序号越长。<br>第四段是校验位（Check Digit），用10至2这9个数分别去乘标准书号的前9位数然后以11为模计算得到。取值范围为0-10，10由X代替。<br>10位 ISBN： 0-393-04002-?<br>位置 Total 1 2 3 4 5 6 7 8 9 10<br>ISBN 0 3 9 3 0 4 0 0 2<br>权重 10 9 8 7 6 5 4 3 2 –<br>乘积 144 0 27 72 21 0 20 0 0 4 –<br>校验位 = mod11 (11 – mod11 (Product Total)) = mod11 (11 –mod11 (144)) = 10 </li>
-<li>中国的ISBN<br>1982年，中国参加ISBN系统，并成立中国ISBN中心（设在国家新闻出版署）。中国标准书号自1987年1月1日起实施，至1988年1月1日完全取代原用的统一书号。中国标准书号共分两部分, 第一部分为ISBN，是主体部分；第二部分为《中国图书馆图书分类法》基本大类类号和种次号。类号用《中图法》大类的字母。种次号是同一出版社出版同一学科门类图书的顺序号，由出版社自行编定。类号与种次号之间用中圆点(?)隔开。第一部分和第二部分分两行排列，也可用斜线隔开，排成一行。例如：《CALIS联机合作编目手册》的ISBN号为： 7-301-04815-7/G?626。 </li>
-<li>将升成13位的ISBN<br>3.1 13位码的来源背景<br>　　目前国际公认用于商品包装的编码系统称为EAN－UCC系统，该系统由国际物品编码协会（EAN）与美国统一代码委员会（UCC）共同开发和维护，是全球统一和通用的商业标识系统，是对全球多行业供应链进行有效管理的一套开放性国际标准。EAN－UCC系统的编码有两种①UPC条形码，该条码主要在美国使用。②EAN-13条形码， EAN是European Article Number，是欧共体的“欧洲物品编码协会”吸取了UPC的经验而确立的物品表示符号。该协会于1997年更名为“国际物品编码协会”。使用EAN条形码的成员国除欧洲外，亚洲多国也使用此码，我国于1991年7月参加该协会。<br>EAN－UCC系统致力于编码的全球唯一性，并解决编码混乱、重复和错误译码的问题， EAN成员组织和UCC通过特定的前缀协议确保代码在全世界的唯一性。国际物品编码协会（EAN International）指定给国际标准书号（ISBN）系统的专用前缀码是978。<br>2004年，国际ISBN中心(IIA)出版了《13位国际标准书号指南》(Guidelines for the Implementation of 13-DigitISBNs)，描述了将于2007年启用的13位的ISBN的概况。国际标准化组织ISO将于2005年1月出版新的标准，该标准将以13位数字的Bookland EAN条形码，作为图书和图书相关产品的唯一条形码。到2007年1月1日起，全世界所有ISBN代理机构将只发布13位的ISBN。所以，出版社将有两年时间来完成10位ISBN到13位ISBN的升级。过渡期间内（2005-2007年），鼓励出版社根据国际ISBN中心(International ISBN Agency) 出版的《13位国际标准书号指南》为同一个文献提供10位和13位的ISBN号。<br>　　新的ISBN实际上就是现在的EAN（欧洲物品号）。现在出版的图书外封底（outside of back cover）的ISBN下面就有一个13位的号码，这就是EAN-13号，例如：CALIS联机合作编目手册的外封底的ISBN下面就有一个13位的号<br>ISBN： 7-301-04815-7<br>EAN-13： 978-7-301-04815-3<br>前缀978（代表图书），中间一部分与ISBN相同，最后一位是校验码，校验位的加权算法与10位ISBN的算法不同。具体算法是：用1分别乘ISBN的前9位中的奇数位，用3乘以偶数位，成绩之和以10为模即可得到校验位的值，其值范围应该为0-9。<br>Bookland EAN-13 = 978-0-393-04002-?<br>位置 Total 1 2 3 4 5 6 7 8 9 10 11 12 13<br>ISBN 9 7 8 0 3 9 3 0 4 0 0 2 ?<br>权重 1 3 1 3 1 3 1 3 1 3 1 3 –<br>乘积 81 9 21 8 0 3 27 3 0 4 0 0 6 –<br>校验位= mod10 (10 – mod10 (Product Total)) = mod10 (10 –mod10 (81)) = 9<br>2007年1月1日以前，各国ISBN机构尚没有分配完的10位的ISBN可以在前面加前缀978，一旦现有的10位的ISBN号用完了，新申请的ISBN号码全部以979开始。即979前缀目前用于两种情况，一是新建出版社首次申请ISBN和已有出版社在2007年1月1日以后申请ISBN号，二是如果以978为前缀的号码先用完，那么就只能用979。13位的号码与10位的号码可以通过算法互相转换，转换方法见ISBN中心主页（<a href="http://www.isbn.org）的详细说明。" target="_blank" rel="external">http://www.isbn.org）的详细说明。</a><br>3.2 对图书馆的影响<br>ISBN的升级可使出版获得更多的号源，以适应海量增长的出版业的发展。但世界各地的出版商也将为升级现有的软件额外支付数百万美元。由于ISBN在书目检索和识别中的重要作用，图书馆界还是相当重视，美国国会图书馆已经对系统更新，从2004年10月1日开始已能够处理13位的ISBN号。此外，LC还作出了过渡时期（2004年10月1日—2007年1月1日)的策略：从2004年10月1日起，LC对同一文献的两个ISBN号（10位和13位）都要著录。著录顺序是13位的在前，10位的在后。例如：<br>ISBN-13: 978-1-873671-00-0<br>ISBN-10: 1-873671-008<br>CALIS联合目录也在考虑更新相关的软件—查重和校验等，以能够顺利处理13位的ISBN号。各个图书馆的自动化系统也需做相应升级以适应13位的ISBN。</li>
-</ol>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ISBN</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/17/ISBN-介绍/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-class-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/16/class-python/">class python</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/16/class-python/" class="archive-article-date">
-  	<time datetime="2017-10-16T12:47:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line">	<span class="keyword">pass</span></div></pre></td></tr></table></figure>
-<p>Student 后面的 (object) 表示从哪个类继承下来的。 通常没有合适的继承类，就使用 <strong>object类</strong></p>
-<p>创建实例的话，</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/16/class-python/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PIL-生成缩略图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/16/PIL-生成缩略图/">PIL 生成缩略图</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/16/PIL-生成缩略图/" class="archive-article-date">
-  	<time datetime="2017-10-16T12:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python 处理图片，生成图片缩略图。 使用Pillow库</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from PIL import Image</div><div class="line"><span class="keyword">im</span> = Image.<span class="keyword">open</span>(<span class="string">'touxiang.jpg'</span>)</div><div class="line"><span class="keyword">print</span>(<span class="keyword">im</span>.format, <span class="keyword">im</span>.size, <span class="keyword">im</span>.<span class="keyword">mode</span>)</div><div class="line"><span class="keyword">im</span>.thumbnail((<span class="number">200</span>, <span class="number">100</span>))</div><div class="line"><span class="keyword">im</span>.save(<span class="string">'thumb.jpg'</span>, <span class="string">'JPEG'</span>)</div></pre></td></tr></table></figure>
-<p>生成缩略图<br>thumbnail函数接受一个元组作为参数，分别对应着缩略图的宽高，在缩略时，函数会保持图片的宽高比例。如果输入的参数宽高和原图像宽高比不同，则会依据最小对应边进行原比例缩放。<br>比如:<br>一张图片为300<em>420大小的图片<br>当参数为（200,200）时，生成的缩略图大小为71</em>100，保持原图的宽高比</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/16/PIL-生成缩略图/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -999,7 +993,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 ariescc
+    		&copy; 2018 ariescc
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1107,6 +1101,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -1119,15 +1117,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">OpenGL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1135,7 +1129,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1152,6 +1146,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
