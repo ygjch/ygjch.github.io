@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Archives | YGjch&#39;s Blog</title>
+  <title>分治法 全排列问题 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Do one thing at a time, and do well.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YGjch&#39;s Blog">
-<meta property="og:url" content="http://ygjch.github.io/archives/page/5/index.html">
+  <meta name="description" content="问题描述R由n个元素构成的序列集合，求R的全排列。 思路此题是分治法应用。依次将待排列的数组的后n-1个元素与第一个元素交换（递归操作），每次递归处理的都是后n-1个元素的全排列。不断递归，直到递归分解到不可分解的子问题，到只有一个元素，然后输出当前排列。 核心代码123456789101112131415161718void qpl(int *arr, int k, int sz)&amp;#123;">
+<meta name="keywords" content="算法设计与分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分治法 全排列问题">
+<meta property="og:url" content="http://ygjch.github.io/2018/01/04/分治法-全排列问题/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="Do one thing at a time, and do well.">
+<meta property="og:description" content="问题描述R由n个元素构成的序列集合，求R的全排列。 思路此题是分治法应用。依次将待排列的数组的后n-1个元素与第一个元素交换（递归操作），每次递归处理的都是后n-1个元素的全排列。不断递归，直到递归分解到不可分解的子问题，到只有一个元素，然后输出当前排列。 核心代码123456789101112131415161718void qpl(int *arr, int k, int sz)&amp;#123;">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-01-04T08:19:31.951Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YGjch&#39;s Blog">
-<meta name="twitter:description" content="Do one thing at a time, and do well.">
+<meta name="twitter:title" content="分治法 全排列问题">
+<meta name="twitter:description" content="问题描述R由n个元素构成的序列集合，求R的全排列。 思路此题是分治法应用。依次将待排列的数组的后n-1个元素与第一个元素交换（递归操作），每次递归处理的都是后n-1个元素的全排列。不断递归，直到递归分解到不可分解的子问题，到只有一个元素，然后输出当前排列。 核心代码123456789101112131415161718void qpl(int *arr, int k, int sz)&amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -149,405 +151,200 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-分治法-全排列问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      分治法 全排列问题
+    </h1>
+  
+
+        
+        <a href="/2018/01/04/分治法-全排列问题/" class="archive-article-date">
+  	<time datetime="2018-01-04T07:50:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>R由n个元素构成的序列集合，求R的全排列。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>此题是分治法应用。<br>依次将待排列的数组的后n-1个元素与第一个元素交换（递归操作），每次递归处理的都是后n-1个元素的全排列。不断递归，直到递归分解到不可分解的子问题，到只有一个元素，然后输出当前排列。</p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">qpl</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> k, <span class="keyword">int</span> sz)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// 不能再分解为更小的子结构时输出</span></div><div class="line">    <span class="keyword">if</span>(k == sz) &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= sz; i++) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, arr[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k; i &lt;= sz; i++) &#123;</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">            qpl(arr, k + <span class="number">1</span>, sz);</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="模拟过程"><a href="#模拟过程" class="headerlink" title="模拟过程"></a>模拟过程</h4><p>从 <strong>qpl(arr, 0, n - 1)</strong> 开始递归(如 n = 2)</p>
+<p>arr(1, 2)</p>
+<p>k = 0, sz = n - 1 = 1<br>else -&gt; i = k = 0, swap(0, 0), arr(1, 2, 3), qpl(arr, k+1 = 1, sz = 1) -&gt;</p>
+<p>qpl(arr, 1, 1), k == sz, ouput =&gt; “1, 2” -&gt; <strong>return</strong> -&gt; qpl(arr, 0, sz), i = 1, k = 0 -&gt;</p>
+<p>swap(1, 2) -&gt; arr(2, 1) -&gt; qpl(arr, k+1 = 1, 1) -&gt; k == sz -&gt; output =&gt; “2, 1” -&gt; <strong>return</strong> -&gt; <strong>递归结束</strong></p>
+
+      
+
+	  <!-- 目录内容 -->
+        
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模拟过程"><span class="toc-number">4.</span> <span class="toc-text">模拟过程</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/18/Datetime-相减返回天数/" class="archive-article-date">
-  	<time datetime="2017-10-18T03:54:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/18/Datetime-相减返回天数/">Datetime 相减返回天数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法设计与分析</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2018/01/04/分治法-全排列问题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/17/豆瓣api-调用/" class="archive-article-date">
-  	<time datetime="2017-10-17T14:07:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/01/WebService-基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebService 基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/17/豆瓣api-调用/">豆瓣api 调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模拟过程"><span class="toc-number">4.</span> <span class="toc-text">模拟过程</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/17/ISBN-介绍/" class="archive-article-date">
-  	<time datetime="2017-10-17T12:37:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/17/ISBN-介绍/">ISBN 介绍</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ISBN</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/16/class-python/" class="archive-article-date">
-  	<time datetime="2017-10-16T12:47:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/16/class-python/">class python</a>
-    </h1>
+  <div id="SOHUCS" sid="分治法-全排列问题" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cytdLJ4RN"; 
+var conf = "prod_7628dc61f01aedb63c6c6c22651746dc"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/16/PIL-生成缩略图/" class="archive-article-date">
-  	<time datetime="2017-10-16T12:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/16/PIL-生成缩略图/">PIL 生成缩略图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/16/yield-study/" class="archive-article-date">
-  	<time datetime="2017-10-16T05:12:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/16/yield-study/">yield study</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/" class="archive-article-date">
-  	<time datetime="2017-10-12T13:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/">富文本编辑器插入图片显示 html 代码问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/11/sql-server-错误18456/" class="archive-article-date">
-  	<time datetime="2017-10-11T05:37:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/11/sql-server-错误18456/">sql server 错误18456</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Palindrome-Number/" class="archive-article-date">
-  	<time datetime="2017-10-10T14:00:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Palindrome-Number/">Palindrome Number</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/Reverse-Integer/" class="archive-article-date">
-  	<time datetime="2017-10-10T14:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/Reverse-Integer/">Reverse Integer</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/6/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -571,8 +368,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

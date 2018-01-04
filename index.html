@@ -151,6 +151,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-分治法-全排列问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/分治法-全排列问题/">分治法 全排列问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/04/分治法-全排列问题/" class="archive-article-date">
+  	<time datetime="2018-01-04T07:50:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>R由n个元素构成的序列集合，求R的全排列。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>此题是分治法应用。<br>依次将待排列的数组的后n-1个元素与第一个元素交换（递归操作），每次递归处理的都是后n-1个元素的全排列。不断递归，直到递归分解到不可分解的子问题，到只有一个元素，然后输出当前排列。</p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">qpl</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> k, <span class="keyword">int</span> sz)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// 不能再分解为更小的子结构时输出</span></div><div class="line">    <span class="keyword">if</span>(k == sz) &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= sz; i++) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, arr[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k; i &lt;= sz; i++) &#123;</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">            qpl(arr, k + <span class="number">1</span>, sz);</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="模拟过程"><a href="#模拟过程" class="headerlink" title="模拟过程"></a>模拟过程</h4><p>从 <strong>qpl(arr, 0, n - 1)</strong> 开始递归(如 n = 2)</p>
+<p>arr(1, 2)</p>
+<p>k = 0, sz = n - 1 = 1<br>else -&gt; i = k = 0, swap(0, 0), arr(1, 2, 3), qpl(arr, k+1 = 1, sz = 1) -&gt;</p>
+<p>qpl(arr, 1, 1), k == sz, ouput =&gt; “1, 2” -&gt; <strong>return</strong> -&gt; qpl(arr, 0, sz), i = 1, k = 0 -&gt;</p>
+<p>swap(1, 2) -&gt; arr(2, 1) -&gt; qpl(arr, k+1 = 1, 1) -&gt; k == sz -&gt; output =&gt; “2, 1” -&gt; <strong>return</strong> -&gt; <strong>递归结束</strong></p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法设计与分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/04/分治法-全排列问题/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-WebService-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1320,87 +1405,6 @@ hell
 
 
   
-    <article id="post-jquery-form-js-实现文件上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/19/jquery-form-js-实现文件上传/">jquery.form.js 实现文件上传</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/19/jquery-form-js-实现文件上传/" class="archive-article-date">
-  	<time datetime="2017-11-19T11:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用-jquery-form-js-实现文件上传"><a href="#使用-jquery-form-js-实现文件上传" class="headerlink" title="使用 jquery.form.js 实现文件上传"></a>使用 jquery.form.js 实现文件上传</h3><h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">    ViewBag.Title = "Upload";</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">id</span>=<span class="string">"upload"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"fileupload"</span> <span class="attr">name</span>=<span class="string">"Upload"</span> /&gt;</span></div><div class="line">    @* button 而不是 submit *@</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"上传"</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">    $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">        $(<span class="string">"#upload"</span>).ajaxSubmit(&#123;</span></div><div class="line"><span class="actionscript">            url: <span class="string">"/Doc/UploadDoc"</span>,</span></div><div class="line"><span class="actionscript">            type: <span class="string">"post"</span>,</span></div><div class="line"><span class="actionscript">            success: <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(data);</span></div><div class="line"><span class="undefined">            &#125;,</span></div><div class="line"><span class="actionscript">            error: <span class="function"><span class="keyword">function</span> <span class="params">(aa)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(aa);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">        &#125;);</span></div><div class="line"><span class="undefined">    &#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong>.ajaxSubmit</strong> 是 <strong>jquery.form.js</strong> 里的方法。ajaxSubmit 中的 url 参数中使用 Controller 中的方法，上面代码在提交<br>表单调用的方法是 DocController 中 UploadDoc 方法。</p>
-<h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DocController</span> : <span class="title">Controller</span></div><div class="line">&#123;</div><div class="line">    [<span class="meta">HttpPost</span>]</div><div class="line">    <span class="function"><span class="keyword">public</span> JsonResult <span class="title">UploadFile</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        HttpPostFileBase file = Request.Files[<span class="number">0</span>];</div><div class="line">        <span class="keyword">if</span>(file != <span class="literal">null</span>) &#123;</div><div class="line">            <span class="keyword">string</span> fileName = Path.GetFileName(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileExt = Path.GetExtension(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileSaveDir = server.MapPath(<span class="string">"~/upload"</span>);</div><div class="line">            <span class="keyword">if</span>(!Directory.Exists(fileSaveDir))</div><div class="line">            &#123;</div><div class="line">                Directory.CreateDirectory(fileSaveDir);</div><div class="line">            &#125;</div><div class="line">            file.SaveAs(Path.Combine(fileSaveDir, fileName));</div><div class="line"></div><div class="line">            <span class="comment">// 如果表单有其他项，在此处写提交逻辑</span></div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">            &#123;</div><div class="line">                Data = <span class="keyword">new</span></div><div class="line">                &#123;</div><div class="line">                    _code = <span class="number">200</span>,</div><div class="line">                    _msg = <span class="string">"上传成功"</span>,</div><div class="line">                    _data = <span class="keyword">new</span></div><div class="line">                    &#123;</div><div class="line">                        _url = <span class="string">"/upload/"</span> + fileNewName,</div><div class="line">                        _oldName = fileName</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">        &#123;</div><div class="line">            Data = <span class="keyword">new</span></div><div class="line">            &#123;</div><div class="line">                _code = <span class="number">200</span>,</div><div class="line">                _msg = <span class="string">"上传失败"</span></div><div class="line">            &#125;,</div><div class="line">            JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="jquery-form-js-下载地址"><a href="#jquery-form-js-下载地址" class="headerlink" title="jquery.form.js 下载地址"></a>jquery.form.js 下载地址</h3><p><a href="https://malsup.github.io/jquery.form.js" target="_blank" rel="external">https://malsup.github.io/jquery.form.js</a></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/19/jquery-form-js-实现文件上传/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1527,7 +1531,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1535,7 +1539,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1543,15 +1551,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1567,11 +1575,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法设计与分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1587,11 +1595,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
             
             <div class="clearfix"></div>
