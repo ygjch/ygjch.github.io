@@ -151,6 +151,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-分治法-二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/分治法-二分查找/">【分治法】 二分查找</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/04/分治法-二分查找/" class="archive-article-date">
+  	<time datetime="2018-01-04T09:48:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>在给定升序序列中查找到给定元素，并返回该元素的下标。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>把有序的序列分为两部分，然后取中间元素与target进行比较，如果<strong>相等</strong>则返回当前位置下标。如果 <strong>中间元素 &lt; target</strong>，在右半部分继续进行查找，left = mid。如果<strong>中间元素 &gt; target</strong>，在左半部分继续进行查找，right = mid。直到 left == right, 缩小到一个元素位置范围，不能继续分解，停止查找，如果没有查找到返回-1。</p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码查看 github：</strong> <a href="https://github.com/ariescc/Algorithm/blob/master/FinalExam/binarySearch.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/FinalExam/binarySearch.cpp</a></p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">int</span> binarySearch(<span class="built_in">int</span> *arr, <span class="built_in">int</span> <span class="built_in">len</span>, <span class="built_in">int</span> target)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">int</span> <span class="built_in">left</span> = <span class="number">0</span>, <span class="built_in">mid</span>, <span class="built_in">right</span> = <span class="built_in">len</span> - <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">left</span> &lt;= <span class="built_in">right</span>) &#123;</div><div class="line">        <span class="built_in">mid</span> = (<span class="built_in">left</span> + <span class="built_in">right</span>) &gt;&gt; <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span>(arr[<span class="built_in">mid</span>] == target) &#123;</div><div class="line">            return <span class="built_in">mid</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(arr[<span class="built_in">mid</span>] &lt; target) &#123;</div><div class="line">            <span class="built_in">left</span> = <span class="built_in">mid</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(arr[<span class="built_in">mid</span>] &gt; target) &#123;</div><div class="line">            <span class="built_in">right</span> = <span class="built_in">mid</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return <span class="number">-1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法设计与分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/04/分治法-二分查找/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-分治法-整数划分问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -158,7 +239,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/分治法-整数划分问题/">分治法 整数划分问题</a>
+      <a class="article-title" href="/2018/01/04/分治法-整数划分问题/">【分治法】 整数划分问题</a>
     </h1>
   
 
@@ -257,7 +338,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/04/分治法-全排列问题/">分治法 全排列问题</a>
+      <a class="article-title" href="/2018/01/04/分治法-全排列问题/">【分治法】 全排列问题</a>
     </h1>
   
 
@@ -1327,94 +1408,6 @@ hell
 
 
   
-    <article id="post-InputStream-的三个read的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/InputStream-的三个read的区别/">InputStream 的三个read的区别</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/30/InputStream-的三个read的区别/" class="archive-article-date">
-  	<time datetime="2017-11-30T12:47:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>read</li>
-</ul>
-<p>这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式<br>以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">InputStream in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">15</span>];<span class="comment">//测试用的事前知道有15个字节码</span></div><div class="line"><span class="built_in">while</span>(in.<span class="built_in">available</span>()!=<span class="number">0</span>)&#123;</div><div class="line"></div><div class="line"><span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">15</span>;i++)&#123;</div><div class="line">tt[i]=(<span class="keyword">byte</span>)in.<span class="built_in">read</span>();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">String</span> ttttt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line">System.out.<span class="built_in">println</span>(ttttt);</div><div class="line">in.<span class="built_in">close</span>();</div></pre></td></tr></table></figure></p>
-<ul>
-<li>read(byte[] b)</li>
-</ul>
-<p>这个方法是先规定一个数组长度，将这个流中的字节缓冲到数组b中，返回的这个数组中的字节个数，这个缓冲区没有满的话，则返回真实的字节个数，到未尾时都返回-1<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span> [] tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line"><span class="keyword">int</span> b;</div><div class="line"><span class="built_in">while</span>((b=in.<span class="built_in">read</span>(tt))!=<span class="number">-1</span>)&#123;</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(b);</div><div class="line"><span class="keyword">String</span> tzt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(tzt);</div></pre></td></tr></table></figure></p>
-<ul>
-<li>read(byte[] b, int off, int len)<br>此方法其实就是多次调用了read()方法<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream <span class="keyword">in</span> = Test.<span class="keyword">class</span>.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="comment">//System.out.println(in.available());//此方法是返回这个流中有多少个字节数，可以把数组长度定为这个</span></div><div class="line"></div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="keyword">in</span>.available()];</div><div class="line"><span class="keyword">int</span> z;</div><div class="line"><span class="keyword">while</span>((z=<span class="keyword">in</span>.read(tt, <span class="number">0</span>, tt.length))!=-<span class="number">1</span>)&#123;</div><div class="line">System.<span class="keyword">out</span>.println(<span class="keyword">new</span> String(tt,<span class="string">"utf-8"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/30/InputStream-的三个read的区别/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1565,11 +1558,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1577,11 +1570,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
               </li>
              
               <li class="article-tag-list-item">
