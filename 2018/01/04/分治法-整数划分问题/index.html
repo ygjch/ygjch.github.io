@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>InputStream 的三个read的区别 | YGjch&#39;s Blog</title>
+  <title>分治法 整数划分问题 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的1234567891011InputStream in = Test.class.getResourceAsStream(&quot;/tt.txt">
-<meta name="keywords" content="java">
+  <meta name="description" content="问题描述将正整数n表示成一系列正整数之和，求正整数n的不同划分个数。 思路使用分治法解决。 如将n=6划分： q(n, m) 表示将正整数n进行划分，并且最大的加数不超过m。  当 n == 1：m取任意的正整数，1只能表示为 {1}，只有1种划分方法。 当 m == 1：n只有1种划分方法。(如n==2，划分为{1, 1}) 当 n == m：考虑划分中是否包含n，包含如下情况： 划分中包含 n">
+<meta name="keywords" content="算法设计与分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="InputStream 的三个read的区别">
-<meta property="og:url" content="http://ygjch.github.io/2017/11/30/InputStream-的三个read的区别/index.html">
+<meta property="og:title" content="分治法 整数划分问题">
+<meta property="og:url" content="http://ygjch.github.io/2018/01/04/分治法-整数划分问题/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的1234567891011InputStream in = Test.class.getResourceAsStream(&quot;/tt.txt">
+<meta property="og:description" content="问题描述将正整数n表示成一系列正整数之和，求正整数n的不同划分个数。 思路使用分治法解决。 如将n=6划分： q(n, m) 表示将正整数n进行划分，并且最大的加数不超过m。  当 n == 1：m取任意的正整数，1只能表示为 {1}，只有1种划分方法。 当 m == 1：n只有1种划分方法。(如n==2，划分为{1, 1}) 当 n == m：考虑划分中是否包含n，包含如下情况： 划分中包含 n">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-11-30T12:49:59.642Z">
+<meta property="og:updated_time" content="2018-01-04T09:33:32.890Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="InputStream 的三个read的区别">
-<meta name="twitter:description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的1234567891011InputStream in = Test.class.getResourceAsStream(&quot;/tt.txt">
+<meta name="twitter:title" content="分治法 整数划分问题">
+<meta name="twitter:description" content="问题描述将正整数n表示成一系列正整数之和，求正整数n的不同划分个数。 思路使用分治法解决。 如将n=6划分： q(n, m) 表示将正整数n进行划分，并且最大的加数不超过m。  当 n == 1：m取任意的正整数，1只能表示为 {1}，只有1种划分方法。 当 m == 1：n只有1种划分方法。(如n==2，划分为{1, 1}) 当 n == m：考虑划分中是否包含n，包含如下情况： 划分中包含 n">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,37 +151,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-InputStream-的三个read的区别" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-分治法-整数划分问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      InputStream 的三个read的区别
+      分治法 整数划分问题
     </h1>
   
 
         
-        <a href="/2017/11/30/InputStream-的三个read的区别/" class="archive-article-date">
-  	<time datetime="2017-11-30T12:47:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
+        <a href="/2018/01/04/分治法-整数划分问题/" class="archive-article-date">
+  	<time datetime="2018-01-04T08:36:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>read</li>
-</ul>
-<p>这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式<br>以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">InputStream in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">15</span>];<span class="comment">//测试用的事前知道有15个字节码</span></div><div class="line"><span class="built_in">while</span>(in.<span class="built_in">available</span>()!=<span class="number">0</span>)&#123;</div><div class="line"></div><div class="line"><span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">15</span>;i++)&#123;</div><div class="line">tt[i]=(<span class="keyword">byte</span>)in.<span class="built_in">read</span>();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">String</span> ttttt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line">System.out.<span class="built_in">println</span>(ttttt);</div><div class="line">in.<span class="built_in">close</span>();</div></pre></td></tr></table></figure></p>
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>将正整数n表示成一系列正整数之和，求正整数n的不同划分个数。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>使用<strong>分治法</strong>解决。</p>
+<p>如将n=6划分：</p>
+<p>q(n, m) 表示将正整数n进行划分，并且最大的加数不超过m。</p>
 <ul>
-<li>read(byte[] b)</li>
+<li>当 n == 1：m取任意的正整数，1只能表示为 {1}，只有1种划分方法。</li>
+<li>当 m == 1：n只有1种划分方法。(如n==2，划分为{1, 1})</li>
+<li>当 n == m：考虑划分中是否包含n，包含如下情况：<ul>
+<li>划分中包含 n，则只有1种划分{n}</li>
+<li>划分中不包含n，那么划分中最大的加数一定比n小，即按照最大加数为n-1继续进行划分</li>
+<li>当前划分数表示为 1 + q(n, n - 1)</li>
 </ul>
-<p>这个方法是先规定一个数组长度，将这个流中的字节缓冲到数组b中，返回的这个数组中的字节个数，这个缓冲区没有满的话，则返回真实的字节个数，到未尾时都返回-1<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span> [] tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line"><span class="keyword">int</span> b;</div><div class="line"><span class="built_in">while</span>((b=in.<span class="built_in">read</span>(tt))!=<span class="number">-1</span>)&#123;</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(b);</div><div class="line"><span class="keyword">String</span> tzt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(tzt);</div></pre></td></tr></table></figure></p>
-<ul>
-<li>read(byte[] b, int off, int len)<br>此方法其实就是多次调用了read()方法<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream <span class="keyword">in</span> = Test.<span class="keyword">class</span>.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="comment">//System.out.println(in.available());//此方法是返回这个流中有多少个字节数，可以把数组长度定为这个</span></div><div class="line"></div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="keyword">in</span>.available()];</div><div class="line"><span class="keyword">int</span> z;</div><div class="line"><span class="keyword">while</span>((z=<span class="keyword">in</span>.read(tt, <span class="number">0</span>, tt.length))!=-<span class="number">1</span>)&#123;</div><div class="line">System.<span class="keyword">out</span>.println(<span class="keyword">new</span> String(tt,<span class="string">"utf-8"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</li>
+<li>当 n &lt; m：实际不存在 n &lt; m的情况，此时等同于 q(n, n)</li>
+<li>当 n &gt; m：考虑划分中是否包含最大加数m，包含如下情况：<ul>
+<li>包含m：{m, {x1, x2, x3, …} }，并且x1+x2+x3+…. = n-m，此时划分数为 q(n-m, m)。如q(12, 4)，划分加数最大为4，q(12, 4)划分为{4, {8}}，当前划分数其实为{8}划分数为多少（以最大划分加数为4进行划分q(8, 4)）。</li>
+<li>划分中不包含m，并且所有划分加数均比m小，即将n按照最大加数为m-1进行划分，表示为q(n, m-1)。</li>
 </ul>
+</li>
+</ul>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码参照 github</strong>: <a href="https://github.com/ariescc/Algorithm/blob/master/FinalExam/zshf.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/FinalExam/zshf.cpp</a></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> zshf(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>((n == <span class="number">1</span>) || (m == <span class="number">1</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(n == m) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + zshf(n, n - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(n &lt; m)</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">return</span> <span class="title">zshf</span><span class="params">(n, n)</span></span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(n &gt; m)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> zshf(n - m, m) + zshf(n, m - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -194,7 +205,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -223,7 +234,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法设计与分析</a>
         		</li>
       		
 		</ul>
@@ -279,7 +290,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/11/30/InputStream-的三个read的区别/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2018/01/04/分治法-整数划分问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -293,18 +304,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/30/String-indexOf/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          String indexOf()
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/30/socket-和-serversocket/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">socket 和 serversocket</div>
+    <a href="/2018/01/04/分治法-全排列问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">分治法 全排列问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -331,7 +333,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -347,7 +349,7 @@
   
 
   
-  <div id="SOHUCS" sid="InputStream-的三个read的区别" ></div> 
+  <div id="SOHUCS" sid="分治法-整数划分问题" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 

@@ -151,6 +151,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-分治法-整数划分问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/04/分治法-整数划分问题/">分治法 整数划分问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/04/分治法-整数划分问题/" class="archive-article-date">
+  	<time datetime="2018-01-04T08:36:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>将正整数n表示成一系列正整数之和，求正整数n的不同划分个数。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>使用<strong>分治法</strong>解决。</p>
+<p>如将n=6划分：</p>
+<p>q(n, m) 表示将正整数n进行划分，并且最大的加数不超过m。</p>
+<ul>
+<li>当 n == 1：m取任意的正整数，1只能表示为 {1}，只有1种划分方法。</li>
+<li>当 m == 1：n只有1种划分方法。(如n==2，划分为{1, 1})</li>
+<li>当 n == m：考虑划分中是否包含n，包含如下情况：<ul>
+<li>划分中包含 n，则只有1种划分{n}</li>
+<li>划分中不包含n，那么划分中最大的加数一定比n小，即按照最大加数为n-1继续进行划分</li>
+<li>当前划分数表示为 1 + q(n, n - 1)</li>
+</ul>
+</li>
+<li>当 n &lt; m：实际不存在 n &lt; m的情况，此时等同于 q(n, n)</li>
+<li>当 n &gt; m：考虑划分中是否包含最大加数m，包含如下情况：<ul>
+<li>包含m：{m, {x1, x2, x3, …} }，并且x1+x2+x3+…. = n-m，此时划分数为 q(n-m, m)。如q(12, 4)，划分加数最大为4，q(12, 4)划分为{4, {8}}，当前划分数其实为{8}划分数为多少（以最大划分加数为4进行划分q(8, 4)）。</li>
+<li>划分中不包含m，并且所有划分加数均比m小，即将n按照最大加数为m-1进行划分，表示为q(n, m-1)。</li>
+</ul>
+</li>
+</ul>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码参照 github</strong>: <a href="https://github.com/ariescc/Algorithm/blob/master/FinalExam/zshf.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/FinalExam/zshf.cpp</a></p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> zshf(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>((n == <span class="number">1</span>) || (m == <span class="number">1</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(n == m) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + zshf(n, n - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(n &lt; m)</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">return</span> <span class="title">zshf</span><span class="params">(n, n)</span></span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(n &gt; m)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> zshf(n - m, m) + zshf(n, m - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法设计与分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/04/分治法-整数划分问题/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-分治法-全排列问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,7 +272,8 @@
       
         <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>R由n个元素构成的序列集合，求R的全排列。</p>
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>此题是分治法应用。<br>依次将待排列的数组的后n-1个元素与第一个元素交换（递归操作），每次递归处理的都是后n-1个元素的全排列。不断递归，直到递归分解到不可分解的子问题，到只有一个元素，然后输出当前排列。</p>
-<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">qpl</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> k, <span class="keyword">int</span> sz)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// 不能再分解为更小的子结构时输出</span></div><div class="line">    <span class="keyword">if</span>(k == sz) &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= sz; i++) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, arr[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k; i &lt;= sz; i++) &#123;</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">            qpl(arr, k + <span class="number">1</span>, sz);</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码参照 github</strong>: <a href="https://github.com/ariescc/Algorithm/blob/master/FinalExam/quanpailie.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/FinalExam/quanpailie.cpp</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">qpl</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> k, <span class="keyword">int</span> sz)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// 不能再分解为更小的子结构时输出</span></div><div class="line">    <span class="keyword">if</span>(k == sz) &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= sz; i++) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>, arr[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k; i &lt;= sz; i++) &#123;</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">            qpl(arr, k + <span class="number">1</span>, sz);</div><div class="line">            swap(arr[i], arr[k]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="模拟过程"><a href="#模拟过程" class="headerlink" title="模拟过程"></a>模拟过程</h4><p>从 <strong>qpl(arr, 0, n - 1)</strong> 开始递归(如 n = 2)</p>
 <p>arr(1, 2)</p>
 <p>k = 0, sz = n - 1 = 1<br>else -&gt; i = k = 0, swap(0, 0), arr(1, 2, 3), qpl(arr, k+1 = 1, sz = 1) -&gt;</p>
@@ -1315,96 +1415,6 @@ hell
 
 
   
-    <article id="post-socket-和-serversocket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/socket-和-serversocket/">socket 和 serversocket</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/30/socket-和-serversocket/" class="archive-article-date">
-  	<time datetime="2017-11-30T03:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="ServerSocket类"><a href="#ServerSocket类" class="headerlink" title="ServerSocket类"></a>ServerSocket类</h4><p>创建一个ServerSocket类，同时在运行该语句的计算机的指定端口处建立一个监听服务。如:<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">ServerSocket MyListener</span> = new ServerSocket(600);</div></pre></td></tr></table></figure></p>
-<p>这里指定提供监听服务的端口是600，一台计算机可以同时提供多个服务，这些不同的服务之间通过端口号来区别，不同的端口号上提供不同的服务。为了随时监听可能的Client请求，执行如下语句：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Socket LinkSocket</span> = MyListener.accpet();</div></pre></td></tr></table></figure></p>
-<p>该语句调用了ServerSocket对象的accept()方法，这个方法的执行将使Server端的程序处于等待状态，程序将一直阻塞直到捕捉到一个来自Client端的请求，并返回一个用于与该Client通信的Socket对象LinkSocket。之后<strong>Server程序只要向这个Socket对象读写数据，就可以实现向远端的Client读写数据。</strong></p>
-<p>结束监听时，关闭ServerSocket对象：<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MyListener.close()<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<h4 id="Socket类"><a href="#Socket类" class="headerlink" title="Socket类"></a>Socket类</h4><p>当Client程序需要从Server端获取信息及其他服务时，应创建一个Socket对象：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Socket MySocket</span> = new Socket(<span class="string">"ServerComputerName"</span>, 600);</div></pre></td></tr></table></figure></p>
-<p>Socket类的构造函数有两个参数，第一个参数是<strong>欲连接到的Server计算机的主机地址</strong>，第二个参数是<strong>该Server机上提供服务的端口号</strong>。</p>
-<p>Socket对象建立成功后，就可以在Client和Server之间建立一个连接，并通过这个连接在两个端点之间传递数据。利用Socket类的方法<strong>getOutputStream() 和 getInputStream()</strong> 分别获得向Socket读写数据的输入/输出流，最后将从Server端读取的数据重新返还到Server端。</p>
-<p>当Server端和Client端的通信结束时，可以调用Socket类的close()方法关闭Socket，拆除连接。</p>
-<p><strong>ServerSocket 一般仅用于设置端口号和监听，真正进行通信的是服务器端的Socket与客户端的Socket，在ServerSocket进行accpet后，就将主动权转让了。</strong></p>
-<h4 id="服务器端程序设计"><a href="#服务器端程序设计" class="headerlink" title="服务器端程序设计"></a>服务器端程序设计</h4><p>在服务器端，利用ServerSocket类的构造函数ServerSocket(int port)创建一个ServerSocket类的对象，port参数传递端口，这个端口就是服务器监听连接请求的端口，如果在这时出现错误将抛出IOException异常对象，否则将创建ServerSocket对象并开始准备接收连接请求。</p>
-<p>服务程序从调用ServerSocket的accept()方法开始，直到连接建立。在建立连接后，accept()返回一个创建的Socket对象，该Socket对象绑定了客户端的IP地址或端口号。</p>
-<h4 id="客户端程序设计"><a href="#客户端程序设计" class="headerlink" title="客户端程序设计"></a>客户端程序设计</h4><p>当客户端程序需要与服务器端程序通信时，需要在客户机创建一个Socket对象。Socket类有构造函数Socket(InetAddress addr, int port) 和 Socket(String host, int port)，两个构造函数都创建了一个基于Socket的连接服务器端流套接字的流套接字。对于第一个InetAddress子类对象通过addr参数获得服务器主机的IP地址，对于第二个函数host参数包被分配到InetAddress对象中，如果没有IP地址与host参数相一致，那么将抛出UnknownHostException异常对象。两个函数都通过参数port获得服务器的端口号。假设已经建立连接了，网络API将在客户端基于Socket的流套接字中捆绑客户端程序的IP地址和任意一个端口号，否则两个函数都会抛出一个IOException对象。</p>
-<p>如果创建了一个Socket对象，那么它可通过getInputStream()方法从服务端程序获得输入流读传来的消息，也可通过调用getOutputStream()方法获得输出流来发送消息。在读写活动完成之后，客户端程序调用close()方法关闭流和流套接字。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">socket编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/30/socket-和-serversocket/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1531,7 +1541,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1539,7 +1549,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1555,11 +1565,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1567,15 +1577,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法设计与分析</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1587,6 +1593,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法设计与分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">图形学</a>
               </li>
              
@@ -1595,11 +1605,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>

@@ -151,6 +151,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-socket-和-serversocket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/30/socket-和-serversocket/">socket 和 serversocket</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/30/socket-和-serversocket/" class="archive-article-date">
+  	<time datetime="2017-11-30T03:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="ServerSocket类"><a href="#ServerSocket类" class="headerlink" title="ServerSocket类"></a>ServerSocket类</h4><p>创建一个ServerSocket类，同时在运行该语句的计算机的指定端口处建立一个监听服务。如:<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">ServerSocket MyListener</span> = new ServerSocket(600);</div></pre></td></tr></table></figure></p>
+<p>这里指定提供监听服务的端口是600，一台计算机可以同时提供多个服务，这些不同的服务之间通过端口号来区别，不同的端口号上提供不同的服务。为了随时监听可能的Client请求，执行如下语句：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Socket LinkSocket</span> = MyListener.accpet();</div></pre></td></tr></table></figure></p>
+<p>该语句调用了ServerSocket对象的accept()方法，这个方法的执行将使Server端的程序处于等待状态，程序将一直阻塞直到捕捉到一个来自Client端的请求，并返回一个用于与该Client通信的Socket对象LinkSocket。之后<strong>Server程序只要向这个Socket对象读写数据，就可以实现向远端的Client读写数据。</strong></p>
+<p>结束监听时，关闭ServerSocket对象：<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MyListener.close()<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<h4 id="Socket类"><a href="#Socket类" class="headerlink" title="Socket类"></a>Socket类</h4><p>当Client程序需要从Server端获取信息及其他服务时，应创建一个Socket对象：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Socket MySocket</span> = new Socket(<span class="string">"ServerComputerName"</span>, 600);</div></pre></td></tr></table></figure></p>
+<p>Socket类的构造函数有两个参数，第一个参数是<strong>欲连接到的Server计算机的主机地址</strong>，第二个参数是<strong>该Server机上提供服务的端口号</strong>。</p>
+<p>Socket对象建立成功后，就可以在Client和Server之间建立一个连接，并通过这个连接在两个端点之间传递数据。利用Socket类的方法<strong>getOutputStream() 和 getInputStream()</strong> 分别获得向Socket读写数据的输入/输出流，最后将从Server端读取的数据重新返还到Server端。</p>
+<p>当Server端和Client端的通信结束时，可以调用Socket类的close()方法关闭Socket，拆除连接。</p>
+<p><strong>ServerSocket 一般仅用于设置端口号和监听，真正进行通信的是服务器端的Socket与客户端的Socket，在ServerSocket进行accpet后，就将主动权转让了。</strong></p>
+<h4 id="服务器端程序设计"><a href="#服务器端程序设计" class="headerlink" title="服务器端程序设计"></a>服务器端程序设计</h4><p>在服务器端，利用ServerSocket类的构造函数ServerSocket(int port)创建一个ServerSocket类的对象，port参数传递端口，这个端口就是服务器监听连接请求的端口，如果在这时出现错误将抛出IOException异常对象，否则将创建ServerSocket对象并开始准备接收连接请求。</p>
+<p>服务程序从调用ServerSocket的accept()方法开始，直到连接建立。在建立连接后，accept()返回一个创建的Socket对象，该Socket对象绑定了客户端的IP地址或端口号。</p>
+<h4 id="客户端程序设计"><a href="#客户端程序设计" class="headerlink" title="客户端程序设计"></a>客户端程序设计</h4><p>当客户端程序需要与服务器端程序通信时，需要在客户机创建一个Socket对象。Socket类有构造函数Socket(InetAddress addr, int port) 和 Socket(String host, int port)，两个构造函数都创建了一个基于Socket的连接服务器端流套接字的流套接字。对于第一个InetAddress子类对象通过addr参数获得服务器主机的IP地址，对于第二个函数host参数包被分配到InetAddress对象中，如果没有IP地址与host参数相一致，那么将抛出UnknownHostException异常对象。两个函数都通过参数port获得服务器的端口号。假设已经建立连接了，网络API将在客户端基于Socket的流套接字中捆绑客户端程序的IP地址和任意一个端口号，否则两个函数都会抛出一个IOException对象。</p>
+<p>如果创建了一个Socket对象，那么它可通过getInputStream()方法从服务端程序获得输入流读传来的消息，也可通过调用getOutputStream()方法获得输出流来发送消息。在读写活动完成之后，客户端程序调用close()方法关闭流和流套接字。</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">socket编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/30/socket-和-serversocket/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jquery-form-js-实现文件上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -887,97 +977,6 @@
 
 
   
-    <article id="post-py-2-报错：-Requested-Python-version-2-not-installed" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/09/py-2-报错：-Requested-Python-version-2-not-installed/">py -2 报错： Requested Python version (2) not installed </a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/09/py-2-报错：-Requested-Python-version-2-not-installed/" class="archive-article-date">
-  	<time datetime="2017-11-09T09:05:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Windows 上 Python2 和 3 如何兼容？</p>
-<p>目前国内网站经常会让大家把其中一个python.exe改个名字。（之前我就是这样搞的，但是这个是错误做法！！！</p>
-<p>这样区分两个可执行文件的名字，但是这样做有一个重大的隐患，就是修改了名字的 python 对应的 pip 将无法使用。</p>
-<p><strong>官方的做法：</strong></p>
-<p>在安装 python3（&gt;= 3.3）的时候，python 的安装包在系统中安装了一个启动器 py.exe，默认放置在文件夹 C:\Windows\<br>下面。 这个启动器允许我们指定使用 python2 还是 python3 来运行代码。</p>
-<p>前提是已经成功安装了 python2 和 python3。 </p>
-<p>但是， 为什么我安装了 python2 和 python3， 使用 <strong>py -2</strong> 和 <strong>py -3</strong> 两个命令还是会报错。</p>
-<p><strong>Requested Python version (2) not installed</strong>。</p>
-<p>我的错误原因是之前安装过 python，安装的位置不同，导致<strong>注册表</strong>内的信息是错误的。</p>
-<p><strong>解决方法</strong>：</p>
-<p>打开注册表<strong>regedit</strong>， HKEY_LOCAL_MACHINE|HKEY_CURRENT_USER\SOFTWARE\xxx 这两个位置下面的python， 查看下python<br>的路径，发现路径是错的。 将路径改成当前的 python 路径。</p>
-<p>改完之后尝试执行 py -2 和 py -3 两个命令， 发现 py -3 可以正常执行了， 但是 <strong>py -2</strong> 还是无法执行，仍<br>报刚刚的错误。</p>
-<p><strong>这种情况说明是先安装的 python2 后安装的 python3</strong>。 那就找到 python2 的安装包把 python2 重新安装下或者修复<br>一下。</p>
-<p>解决链接： <a href="https://stackoverflow.com/questions/27503003/py-launcher-does-not-find-my-python-2-7" target="_blank" rel="external">https://stackoverflow.com/questions/27503003/py-launcher-does-not-find-my-python-2-7</a></p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/09/py-2-报错：-Requested-Python-version-2-not-installed/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1104,7 +1103,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,7 +1111,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1128,11 +1127,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,15 +1139,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法设计与分析</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1160,6 +1155,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法设计与分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">图形学</a>
               </li>
              
@@ -1168,11 +1167,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
