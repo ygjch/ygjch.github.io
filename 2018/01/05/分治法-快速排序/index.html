@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>富文本编辑器插入图片显示 html 代码问题 | YGjch&#39;s Blog</title>
+  <title>分治法 快速排序 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。 解决方案前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是1@Html.DisplayFor(model=&amp;gt;model.Content) 这样展示的问题是所有的内容均以 html 编码输出展示">
-<meta name="keywords" content="asp.net mvc">
+  <meta name="description" content="问题描述分治法实现快速排序 思路两次扫描法确定分区：初选第一个元素为初始的分裂点，其他点与初始分裂点比较，以确定最后的分裂点。 两次扫描：  从左到右扫描一次，从第2个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到大于或等于分裂点的元素为止。 从右到做扫描一次，从最后一个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到小于或等于分裂点的元素为止。  根据两次扫描的结果，观">
+<meta name="keywords" content="算法设计与分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="富文本编辑器插入图片显示 html 代码问题">
-<meta property="og:url" content="http://ygjch.github.io/2017/10/12/富文本编辑器插入图片显示-html-代码问题/index.html">
+<meta property="og:title" content="分治法 快速排序">
+<meta property="og:url" content="http://ygjch.github.io/2018/01/05/分治法-快速排序/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。 解决方案前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是1@Html.DisplayFor(model=&amp;gt;model.Content) 这样展示的问题是所有的内容均以 html 编码输出展示">
+<meta property="og:description" content="问题描述分治法实现快速排序 思路两次扫描法确定分区：初选第一个元素为初始的分裂点，其他点与初始分裂点比较，以确定最后的分裂点。 两次扫描：  从左到右扫描一次，从第2个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到大于或等于分裂点的元素为止。 从右到做扫描一次，从最后一个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到小于或等于分裂点的元素为止。  根据两次扫描的结果，观">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-10-12T13:32:03.069Z">
+<meta property="og:image" content="http://ygjch.github.io/img/quicksort1.png">
+<meta property="og:image" content="http://ygjch.github.io/img/quicksort2.png">
+<meta property="og:updated_time" content="2018-01-05T09:15:25.762Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="富文本编辑器插入图片显示 html 代码问题">
-<meta name="twitter:description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。 解决方案前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是1@Html.DisplayFor(model=&amp;gt;model.Content) 这样展示的问题是所有的内容均以 html 编码输出展示">
+<meta name="twitter:title" content="分治法 快速排序">
+<meta name="twitter:description" content="问题描述分治法实现快速排序 思路两次扫描法确定分区：初选第一个元素为初始的分裂点，其他点与初始分裂点比较，以确定最后的分裂点。 两次扫描：  从左到右扫描一次，从第2个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到大于或等于分裂点的元素为止。 从右到做扫描一次，从最后一个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到小于或等于分裂点的元素为止。  根据两次扫描的结果，观">
+<meta name="twitter:image" content="http://ygjch.github.io/img/quicksort1.png">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,31 +154,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-富文本编辑器插入图片显示-html-代码问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-分治法-快速排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      富文本编辑器插入图片显示 html 代码问题
+      分治法 快速排序
     </h1>
   
 
         
-        <a href="/2017/10/12/富文本编辑器插入图片显示-html-代码问题/" class="archive-article-date">
-  	<time datetime="2017-10-12T13:25:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+        <a href="/2018/01/05/分治法-快速排序/" class="archive-article-date">
+  	<time datetime="2018-01-05T08:48:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在做图书管理系统的内容管理模块时，使用的是 <strong>ueditor</strong> 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。<br><img ...="">， 类似这样。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">Html</span>.<span class="keyword">DisplayFor</span>(<span class="keyword">model</span>=&gt;<span class="keyword">model</span>.<span class="keyword">Content</span>)</div></pre></td></tr></table></figure></p>
-<p>这样展示的问题是所有的内容均以 html 编码输出展示。</p>
-<p>修改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@(<span class="keyword">new</span> htmlString(<span class="function"><span class="params">model</span>=&gt;</span>model.Content))</div></pre></td></tr></table></figure></p>
-<p>成功将 图片 显示出来~</p>
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>分治法实现快速排序</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>两次扫描法确定分区：<br>初选第一个元素为初始的分裂点，其他点与初始分裂点比较，以确定最后的分裂点。</p>
+<p>两次扫描：</p>
+<ul>
+<li>从左到右扫描一次，从第2个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到大于或等于分裂点的元素为止。</li>
+<li>从右到做扫描一次，从最后一个元素开始，逐个与初始分裂点（也就是第一个元素比较），直到遇到小于或等于分裂点的元素为止。</li>
+</ul>
+<p>根据两次扫描的结果，观察扫描指针是否相交。</p>
+<ul>
+<li>未相交：<br><img src="/img/quicksort1.png" width="500px" height="500px"></li>
+<li>相交：<br><img src="/img/quicksort2.png" width="500px" height="500px"></li>
+</ul>
+<p>直到相交后，找到了分裂点，即 j扫描指针的位置。 将 arr[j]元素与初始分裂点元素交换位置。返回新分裂点的位置（j）。</p>
+<p>找到新的分裂点后，在分裂点左右继续递归进行排序，QuickSort(arr, left, j - 1), QuickSort(arr, j + 1, right)。</p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码查看 github:</strong> <a href="https://github.com/ariescc/Algorithm/blob/master/all/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/QuickSort.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/all/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/QuickSort.cpp</a></p>
+<p>寻找分裂点：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 寻找分裂点</span></div><div class="line">int <span class="built_in">partition</span>(int *arr, int <span class="keyword">left</span>, int <span class="keyword">right</span>)</div><div class="line">&#123;</div><div class="line">    int p = arr[<span class="keyword">left</span>]; <span class="comment">// 设定最初的分裂点为第一个元素</span></div><div class="line">    int i = <span class="keyword">left</span> + <span class="number">1</span>, j = <span class="keyword">right</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</div><div class="line">        <span class="comment">// i 从左向右扫描，直到找到第一个大于等于分裂点值的元素</span></div><div class="line">        <span class="keyword">while</span>(arr[i] &lt; p &amp;&amp; i &lt;= <span class="keyword">right</span>) &#123;</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// j 从右向左扫描，直到找到第一个小于等于分裂点值的元素</span></div><div class="line">        <span class="keyword">while</span>(arr[j] &gt; p &amp;&amp; j &gt;= <span class="keyword">left</span>) &#123;</div><div class="line">            j--;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 如果 i 和 j相交</span></div><div class="line">        <span class="keyword">if</span>(i &gt;= j) &#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="built_in">swap</span>(arr[i], arr[j]); <span class="comment">// 不相交的话交换两个位置的元素</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">swap</span>(arr[<span class="keyword">left</span>], arr[j]); <span class="comment">// 交换 j 和 最初位置的元素</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> j;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>分裂点左右递归进行快排：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">void QuickSort(int *arr, int <span class="attribute">left</span>, int right)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="attribute">left</span> &lt; right) &#123;</div><div class="line">        int <span class="selector-tag">q</span> = partition(arr, <span class="attribute">left</span>, right); <span class="comment">// 寻找分裂点</span></div><div class="line">        <span class="comment">// 在分裂点两遍继续递归排序</span></div><div class="line">        QuickSort(arr, <span class="attribute">left</span>, q - <span class="number">1</span>); <span class="comment">// 分裂点左面</span></div><div class="line">        QuickSort(arr, <span class="selector-tag">q</span> + <span class="number">1</span>, <span class="attribute">right</span>); <span class="comment">// 分裂点右面</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -188,7 +205,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -217,7 +234,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法设计与分析</a>
         		</li>
       		
 		</ul>
@@ -273,7 +290,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/12/富文本编辑器插入图片显示-html-代码问题/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2018/01/05/分治法-快速排序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +304,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/16/yield-study/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          yield study
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/11/sql-server-错误18456/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">sql server 错误18456</div>
+    <a href="/2018/01/05/分治法-合并排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【分治法】 合并排序</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -325,7 +333,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -341,7 +349,7 @@
   
 
   
-  <div id="SOHUCS" sid="富文本编辑器插入图片显示-html-代码问题" ></div> 
+  <div id="SOHUCS" sid="分治法-快速排序" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
