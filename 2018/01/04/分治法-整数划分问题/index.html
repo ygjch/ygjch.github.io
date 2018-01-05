@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="YGjch&#39;s Blog">
 <meta property="og:description" content="问题描述将正整数n表示成一系列正整数之和，求正整数n的不同划分个数。 思路使用分治法解决。 如将n=6划分： q(n, m) 表示将正整数n进行划分，并且最大的加数不超过m。  当 n == 1：m取任意的正整数，1只能表示为 {1}，只有1种划分方法。 当 m == 1：n只有1种划分方法。(如n==2，划分为{1, 1}) 当 n == m：考虑划分中是否包含n，包含如下情况： 划分中包含 n">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-04T09:40:33.052Z">
+<meta property="og:updated_time" content="2018-01-05T06:13:28.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【分治法】 整数划分问题">
 <meta name="twitter:description" content="问题描述将正整数n表示成一系列正整数之和，求正整数n的不同划分个数。 思路使用分治法解决。 如将n=6划分： q(n, m) 表示将正整数n进行划分，并且最大的加数不超过m。  当 n == 1：m取任意的正整数，1只能表示为 {1}，只有1种划分方法。 当 m == 1：n只有1种划分方法。(如n==2，划分为{1, 1}) 当 n == m：考虑划分中是否包含n，包含如下情况： 划分中包含 n">
@@ -191,7 +191,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码参照 github</strong>: <a href="https://github.com/ariescc/Algorithm/blob/master/FinalExam/zshf.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/FinalExam/zshf.cpp</a></p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码参照 github</strong>: <a href="https://github.com/ariescc/Algorithm/blob/master/all/%E5%88%86%E6%B2%BB%E6%B3%95/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86/zshf.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/all/%E5%88%86%E6%B2%BB%E6%B3%95/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86/zshf.cpp</a></p>
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> zshf(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>((n == <span class="number">1</span>) || (m == <span class="number">1</span>)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(n == m) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + zshf(n, n - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(n &lt; m)</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">return</span> <span class="title">zshf</span><span class="params">(n, n)</span></span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(n &gt; m)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> zshf(n - m, m) + zshf(n, m - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
@@ -486,15 +486,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +498,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenGL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,11 +506,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenGL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,15 +526,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">socket编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,7 +538,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">图形学</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">socket编程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,11 +550,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Net</a>
+                <a href="javascript:void(0)" class="js-tag color4">图形学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Net</a>
               </li>
             
             <div class="clearfix"></div>
