@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ygjch.github.io">
-  <title>Eclipse Customize Perspective 无反应 | YGjch&#39;s Blog</title>
+  <title>【分治法】 合并排序 | YGjch&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述在解决工具栏无法显示 Eclemma 插件的问题，在另一篇文章中的解决方案是在 customize perspective 中勾选上 Eclemma。但是点击 Customize Perspective 没有响应。 在网上搜索到两个方案解决了此问题。 解决方案方案一官网查了下，解释如下： 附上链接https://www.myeclipseide.com/PNphpBB2-viewtopic">
-<meta name="keywords" content="java">
+  <meta name="description" content="问题分治法实现合并排序 思路将待排序序列分解成单个元素，然后对单个元素进行合并，并且在合并的过程中将分割区间分别置入左右两个数组中Left[],Right[]。然后对两个数组模拟队列，每次取出两个队首的较小元素放入合并数组arr中。 按照分治法，最终将整个序列分解到唯一的元素（无法继续分解为止），从单个元素的基础上进行合并，能够保证每次左右两个数组是有序的。 归并代码执行过程如序号所示：  核心代">
+<meta name="keywords" content="算法设计与分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Eclipse Customize Perspective 无反应">
-<meta property="og:url" content="http://ygjch.github.io/2017/10/06/Eclipse-Customize-Perspective-无反应/index.html">
+<meta property="og:title" content="【分治法】 合并排序">
+<meta property="og:url" content="http://ygjch.github.io/2018/01/05/分治法-合并排序/index.html">
 <meta property="og:site_name" content="YGjch&#39;s Blog">
-<meta property="og:description" content="问题描述在解决工具栏无法显示 Eclemma 插件的问题，在另一篇文章中的解决方案是在 customize perspective 中勾选上 Eclemma。但是点击 Customize Perspective 没有响应。 在网上搜索到两个方案解决了此问题。 解决方案方案一官网查了下，解释如下： 附上链接https://www.myeclipseide.com/PNphpBB2-viewtopic">
+<meta property="og:description" content="问题分治法实现合并排序 思路将待排序序列分解成单个元素，然后对单个元素进行合并，并且在合并的过程中将分割区间分别置入左右两个数组中Left[],Right[]。然后对两个数组模拟队列，每次取出两个队首的较小元素放入合并数组arr中。 按照分治法，最终将整个序列分解到唯一的元素（无法继续分解为止），从单个元素的基础上进行合并，能够保证每次左右两个数组是有序的。 归并代码执行过程如序号所示：  核心代">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-10-06T12:52:08.976Z">
+<meta property="og:image" content="http://ygjch.github.io/img/mergeSort.png">
+<meta property="og:updated_time" content="2018-01-05T07:58:00.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eclipse Customize Perspective 无反应">
-<meta name="twitter:description" content="问题描述在解决工具栏无法显示 Eclemma 插件的问题，在另一篇文章中的解决方案是在 customize perspective 中勾选上 Eclemma。但是点击 Customize Perspective 没有响应。 在网上搜索到两个方案解决了此问题。 解决方案方案一官网查了下，解释如下： 附上链接https://www.myeclipseide.com/PNphpBB2-viewtopic">
+<meta name="twitter:title" content="【分治法】 合并排序">
+<meta name="twitter:description" content="问题分治法实现合并排序 思路将待排序序列分解成单个元素，然后对单个元素进行合并，并且在合并的过程中将分割区间分别置入左右两个数组中Left[],Right[]。然后对两个数组模拟队列，每次取出两个队首的较小元素放入合并数组arr中。 按照分治法，最终将整个序列分解到唯一的元素（无法继续分解为止），从单个元素的基础上进行合并，能够保证每次左右两个数组是有序的。 归并代码执行过程如序号所示：  核心代">
+<meta name="twitter:image" content="http://ygjch.github.io/img/mergeSort.png">
   
     <link rel="alternative" href="/atom.xml" title="YGjch&#39;s Blog" type="application/atom+xml">
   
@@ -151,36 +153,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Eclipse-Customize-Perspective-无反应" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-分治法-合并排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Eclipse Customize Perspective 无反应
+      【分治法】 合并排序
     </h1>
   
 
         
-        <a href="/2017/10/06/Eclipse-Customize-Perspective-无反应/" class="archive-article-date">
-  	<time datetime="2017-10-06T12:37:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
+        <a href="/2018/01/05/分治法-合并排序/" class="archive-article-date">
+  	<time datetime="2018-01-05T07:40:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在解决工具栏无法显示 Eclemma 插件的问题，在另一篇文章中的解决方案是在 customize perspective 中勾选上 Eclemma。<br>但是点击 <strong>Customize Perspective</strong> 没有响应。</p>
-<p>在网上搜索到两个方案解决了此问题。</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>官网查了下，解释如下：</p>
-<p>附上链接<a href="https://www.myeclipseide.com/PNphpBB2-viewtopic-t-30151.html，大概意思是按如下图所示步骤更新即可。读者可以试试官网给出的方法，如果可以打开Customize" target="_blank" rel="external">https://www.myeclipseide.com/PNphpBB2-viewtopic-t-30151.html，大概意思是按如下图所示步骤更新即可。读者可以试试官网给出的方法，如果可以打开Customize</a> Perspective,就没有必要看下去了。</p>
-<p>但是Lz人品不好，出现了下图情况。</p>
-<p>没有可用更新。。。。。没办法了。。。在网上查了半天一无所获，就在Lz要放弃之时，在CSDN上找到了解决办法。链接：<a href="http://download.csdn.net/detail/miragepp/711238" target="_blank" rel="external">http://download.csdn.net/detail/miragepp/711238</a> </p>
-<p>解决方法如下：<br>myeclipse 2014中customize persperctive设置无效，导致无法调整工具栏按钮，能联网的朋友可以通过自动更新解决，此工具提供给内网环境无法自动更新的朋友</p>
-<p>1、将9个jar复制到myeclipse安装目录\plugins中<br>2、删除和这9个jar同包名但是版本号较低的9个文件<br>3、重启myeclipse 2014</p>
-<p>CSDN下载需要积分，链接 <a href="http://pan.baidu.com/s/1sjN3Lwh" target="_blank" rel="external">http://pan.baidu.com/s/1sjN3Lwh</a></p>
-<h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4><p>经过了方案一发现并没有解决问题，使用方案二。<br>把 <strong>workplace</strong> 目录下的 <strong>.metadata</strong> 文件夹删掉（<code>D:\Workspace\.metadata</code>）。重启 Eclipse，重新定向此工作空间，解决~</p>
+        <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>分治法实现合并排序</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>将待排序序列分解成单个元素，然后对单个元素进行合并，并且在合并的过程中将分割区间分别置入左右两个数组中Left[],Right[]。然后对两个数组模拟队列，每次取出两个队首的较小元素放入合并数组arr中。</p>
+<p>按照分治法，最终将整个序列分解到唯一的元素（无法继续分解为止），从单个元素的基础上进行合并，能够保证每次<strong>左右两个数组</strong>是有序的。</p>
+<p><strong>归并代码执行过程如序号所示：</strong></p>
+<p><img src="/img/mergeSort.png" width="500px" height="500px"></p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><p><strong>完整代码参看 github:</strong> <a href="https://github.com/ariescc/Algorithm/blob/master/all/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8F/mergeSort.cpp" target="_blank" rel="external">https://github.com/ariescc/Algorithm/blob/master/all/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8F/mergeSort.cpp</a></p>
+<p>合并排序的主要步骤为两部，一是进行区间分割，然后分割到不可继续分割的子元素为止，然后进行元素合并。</p>
+<p>递归进行区间分割：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">将序列分解，直到分解为单元素</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">// 序列左右边界未重合，则该段序列一直分解</span></div><div class="line">    <span class="keyword">if</span>(p &lt; r) &#123;</div><div class="line">        <span class="keyword">int</span> q = (p + r) &gt;&gt; <span class="number">1</span>; <span class="comment">// 取中间，将该段区间分为两部分</span></div><div class="line">        MergeSort(arr, p, q); <span class="comment">// 分解左半段区间</span></div><div class="line">        MergeSort(arr, q+<span class="number">1</span>, r); <span class="comment">// 分解右半段区间</span></div><div class="line">        Merge(arr, p, q, r); <span class="comment">// 合并 p ~ r 区间的单元素，并排序</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>子问题合并：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// p 区间左边界，r 区间右边界， q 为 p,r 中间分割位置</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> p, <span class="keyword">int</span> q, <span class="keyword">int</span> r)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> len1 = q - p + <span class="number">1</span>; <span class="comment">// 左端区间长度</span></div><div class="line">    <span class="keyword">int</span> len2 = r - q; <span class="comment">// 右段区间长度</span></div><div class="line">    <span class="keyword">int</span> *Left = <span class="keyword">new</span> <span class="keyword">int</span>[len1 + <span class="number">1</span>];</div><div class="line">    <span class="keyword">int</span> *Right = <span class="keyword">new</span> <span class="keyword">int</span>[len2 + <span class="number">1</span>];</div><div class="line">    Left[len1] = MAX_NUM;</div><div class="line">    Right[len2] = MAX_NUM;</div><div class="line">    <span class="comment">// 将左区间的元素置入 Left数组中</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</div><div class="line">        Left[i] = arr[p + i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 将右区间的元素置入 Right数组中</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len2; j++) &#123;</div><div class="line">        Right[j] = arr[q + j + <span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</div><div class="line">    <span class="comment">// 左右区间 Left 和 Right 数组元素比较大小，置入 arr数组</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = p; k &lt;= r; k++) &#123;</div><div class="line">        <span class="keyword">if</span>(Left[i] &lt; Right[j]) &#123;</div><div class="line">            arr[k] = Left[i];</div><div class="line">            i++;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            arr[k] = Right[j];</div><div class="line">            j++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -193,7 +196,7 @@
             <div id="toc-article" class="toc-article">
                 <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
                 <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方案一"><span class="toc-number">2.1.</span> <span class="toc-text">方案一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方案二"><span class="toc-number">2.2.</span> <span class="toc-text">方案二</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li></ol>
            </div>
            <script type="text/javascript">
             function showToc(){
@@ -222,7 +225,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法设计与分析</a>
         		</li>
       		
 		</ul>
@@ -278,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2017/10/06/Eclipse-Customize-Perspective-无反应/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ygjch.github.io/2018/01/05/分治法-合并排序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +295,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/10/Reverse-Integer/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Reverse Integer
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/06/Eclipse-工具栏无法加载出下载好的插件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Eclipse 工具栏无法加载出下载好的插件</div>
+    <a href="/2018/01/04/分治法-二分查找/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【分治法】 二分查找</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -330,7 +324,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方案一"><span class="toc-number">2.1.</span> <span class="toc-text">方案一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方案二"><span class="toc-number">2.2.</span> <span class="toc-text">方案二</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心代码"><span class="toc-number">3.</span> <span class="toc-text">核心代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -346,7 +340,7 @@
   
 
   
-  <div id="SOHUCS" sid="Eclipse-Customize-Perspective-无反应" ></div> 
+  <div id="SOHUCS" sid="分治法-合并排序" ></div> 
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cytdLJ4RN"; 
