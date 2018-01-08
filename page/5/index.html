@@ -151,6 +151,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-霍夫曼编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/29/霍夫曼编码/">霍夫曼编码</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/29/霍夫曼编码/" class="archive-article-date">
+  	<time datetime="2017-10-29T07:49:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/huffman.bmp" width="1000px" height="200px"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//Huffman树的节点类</span></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">    <span class="keyword">char</span> value;               <span class="comment">//结点的字符值</span></div><div class="line">    <span class="keyword">int</span> weight;               <span class="comment">//结点字符出现的频度</span></div><div class="line">    Node *lchild,*rchild;     <span class="comment">//结点的左右孩子</span></div><div class="line">&#125;Node;</div><div class="line"></div><div class="line"><span class="comment">//自定义排序规则，即以vector中node结点weight值升序排序</span></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ComNode</span><span class="params">(Node *p,Node *q)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> p-&gt;weight&lt;q-&gt;weight;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//构造Huffman树，返回根结点指针</span></div><div class="line"><span class="function">Node* <span class="title">BuildHuffmanTree</span><span class="params">(<span class="built_in">vector</span>&lt;Node*&gt; vctNode)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">while</span>(vctNode.size()&gt;<span class="number">1</span>)                            <span class="comment">//vctNode森林中树个数大于1时循环进行合并</span></div><div class="line">    &#123;</div><div class="line">        sort(vctNode.begin(),vctNode.end(),ComNode);   <span class="comment">//依频度高低对森林中的树进行升序排序</span></div><div class="line"></div><div class="line">        Node *first=vctNode[<span class="number">0</span>];    <span class="comment">//取排完序后vctNode森林中频度最小的树根</span></div><div class="line">        Node *second=vctNode[<span class="number">1</span>];   <span class="comment">//取排完序后vctNode森林中频度第二小的树根</span></div><div class="line">        Node *merge=<span class="keyword">new</span> Node;      <span class="comment">//合并上面两个树</span></div><div class="line">        merge-&gt;weight=first-&gt;weight+second-&gt;weight;</div><div class="line">        merge-&gt;lchild=first;</div><div class="line">        merge-&gt;rchild=second;</div><div class="line"></div><div class="line">        <span class="built_in">vector</span>&lt;Node*&gt;::iterator iter;</div><div class="line">        iter=vctNode.erase(vctNode.begin(),vctNode.begin()+<span class="number">2</span>);    <span class="comment">//从vctNode森林中删除上诉频度最小的两个节点first和second</span></div><div class="line">        vctNode.push_back(merge);                                 <span class="comment">//向vctNode森林中添加合并后的merge树</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> vctNode[<span class="number">0</span>];            <span class="comment">//返回构造好的根节点</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//用回溯法来打印编码</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintHuffman</span><span class="params">(Node *node,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vctchar)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span>(node-&gt;lchild==<span class="literal">NULL</span> &amp;&amp; node-&gt;rchild==<span class="literal">NULL</span>)</div><div class="line">    &#123;<span class="comment">//若走到叶子节点，则迭代打印vctchar中存的编码</span></div><div class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;value&lt;&lt;<span class="string">": "</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator iter=vctchar.begin();iter!=vctchar.end();iter++)</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;*iter;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        vctchar.push_back(<span class="number">1</span>);     <span class="comment">//遇到左子树时给vctchar中加一个1</span></div><div class="line">        PrintHuffman(node-&gt;lchild,vctchar);</div><div class="line">        vctchar.pop_back();       <span class="comment">//回溯，删除刚刚加进去的1</span></div><div class="line">        vctchar.push_back(<span class="number">0</span>);     <span class="comment">//遇到左子树时给vctchar中加一个0</span></div><div class="line">        PrintHuffman(node-&gt;rchild,vctchar);</div><div class="line">        vctchar.pop_back();       <span class="comment">//回溯，删除刚刚加进去的0</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"请输入要编码的字符,并以空格隔开（个数任意）："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;Node*&gt; vctNode;        <span class="comment">//存放Node结点的vector容器vctNode</span></div><div class="line">    <span class="keyword">char</span> ch;                      <span class="comment">//临时存放控制台输入的字符</span></div><div class="line">    <span class="keyword">while</span>((ch=getchar())!=<span class="string">'\n'</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(ch==<span class="string">' '</span>)<span class="keyword">continue</span>;      <span class="comment">//遇到空格时跳过，即没输入一个字符空一格空格</span></div><div class="line">        Node *temp=<span class="keyword">new</span> Node;</div><div class="line">        temp-&gt;value=ch;</div><div class="line">        temp-&gt;lchild=temp-&gt;rchild = <span class="literal">NULL</span>;</div><div class="line">        vctNode.push_back(temp);  <span class="comment">//将新的节点插入到容器vctNode中</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"请输入每个字符对应的频度，并以空格隔开："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;vctNode.size();i++)</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;vctNode[i]-&gt;weight;</div><div class="line"></div><div class="line">    Node *root = BuildHuffmanTree(vctNode);   <span class="comment">//构造Huffman树，将返回的树根赋给root</span></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vctchar;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"对应的Huffman编码如下："</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    PrintHuffman(root,vctchar);</div><div class="line"></div><div class="line">    system(<span class="string">"pause"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/29/霍夫曼编码/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-opencv-环境配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -905,86 +984,6 @@
 
 
   
-    <article id="post-PIL-生成缩略图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/16/PIL-生成缩略图/">PIL 生成缩略图</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/16/PIL-生成缩略图/" class="archive-article-date">
-  	<time datetime="2017-10-16T12:40:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>python 处理图片，生成图片缩略图。 使用Pillow库</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from PIL import Image</div><div class="line"><span class="keyword">im</span> = Image.<span class="keyword">open</span>(<span class="string">'touxiang.jpg'</span>)</div><div class="line"><span class="keyword">print</span>(<span class="keyword">im</span>.format, <span class="keyword">im</span>.size, <span class="keyword">im</span>.<span class="keyword">mode</span>)</div><div class="line"><span class="keyword">im</span>.thumbnail((<span class="number">200</span>, <span class="number">100</span>))</div><div class="line"><span class="keyword">im</span>.save(<span class="string">'thumb.jpg'</span>, <span class="string">'JPEG'</span>)</div></pre></td></tr></table></figure>
-<p>生成缩略图<br>thumbnail函数接受一个元组作为参数，分别对应着缩略图的宽高，在缩略时，函数会保持图片的宽高比例。如果输入的参数宽高和原图像宽高比不同，则会依据最小对应边进行原比例缩放。<br>比如:<br>一张图片为300<em>420大小的图片<br>当参数为（200,200）时，生成的缩略图大小为71</em>100，保持原图的宽高比</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/16/PIL-生成缩略图/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1111,6 +1110,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
@@ -1119,15 +1122,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法设计与分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">OpenGL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1139,10 +1142,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -1151,19 +1150,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">socket编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法设计与分析</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">socket编程</a>
               </li>
              
               <li class="article-tag-list-item">
