@@ -151,6 +151,167 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-532-K-diff-Pairs-in-an-Array-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/12/532-K-diff-Pairs-in-an-Array-题解/">532. K-diff Pairs in an Array 题解</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/12/532-K-diff-Pairs-in-an-Array-题解/" class="archive-article-date">
+  	<time datetime="2017-11-12T05:45:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一给定数组，问数组中有多少组数对(i, j) 保证i,j两个数的绝对差值为k。每组数对只计数一次。</p>
+<p>如[1 3 4 5] , k=2</p>
+<p>数对为(1, 3) (3, 5) , cnt=2</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>两个循环暴力求数对数会TLE。</p>
+<p>使用 map O(lgn)。将数组元素存入map中，遍历一次数组，对每一个元素nums[i] + k 判断map中是否存在这个数。</p>
+<p>特判当k=0的情况，如果判断map[nums[i]+k]&gt;0，[1 3 4 5] output=4,每个元素map值均大于0。所以当k=0时，使用<br>map[nums[i]+k]&gt;1 来判断。</p>
+<p>整体复杂度为O(nlgn)</p>
+<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findPairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(k &lt; <span class="number">0</span> || nums.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp, mp1;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            mp[nums[i]]++;</div><div class="line">            mp1[nums[i]]++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            <span class="keyword">if</span>(k != <span class="number">0</span> &amp;&amp; mp[nums[i] + k] &gt; <span class="number">0</span> &amp;&amp; mp1[nums[i] + k] == mp[nums[i] + k]) &#123;</div><div class="line">                cnt++;</div><div class="line">                mp[nums[i] + k]--;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(k == <span class="number">0</span> &amp;&amp; mp[nums[i] + k] &gt; <span class="number">1</span> &amp;&amp; mp1[nums[i] + k] == mp[nums[i] + k]) &#123;</div><div class="line">                cnt++;</div><div class="line">                mp[nums[i] + k]--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cnt;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/12/532-K-diff-Pairs-in-an-Array-题解/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python-逐行读取数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/10/python-逐行读取数据/">python 逐行读取数据</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/10/python-逐行读取数据/" class="archive-article-date">
+  	<time datetime="2017-11-10T12:31:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">'r'</span>) <span class="keyword">as</span> <span class="built_in">file</span>:</div><div class="line">	<span class="keyword">while</span> True:</div><div class="line">		<span class="built_in">line</span> = <span class="built_in">file</span>.readline()</div><div class="line">		<span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">line</span>:</div><div class="line">			break</div></pre></td></tr></table></figure>
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/10/python-逐行读取数据/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-语音录制并识别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -817,170 +978,9 @@
 
 
   
-    <article id="post-695-Max-Area-of-Island-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/06/695-Max-Area-of-Island-题解/">695. Max Area of Island 题解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/06/695-Max-Area-of-Island-题解/" class="archive-article-date">
-  	<time datetime="2017-11-06T05:15:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一二维数组，1 代表陆地， 0 代表海。</p>
-<p>每一个元素上下左右四个方向连通为一个连接陆地。求这个数组中最大的陆地面积。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>对二维数组的每一位元素进行深度优先搜索，看当前元素的上下左右是否为陆地。 如果为陆地，则沿陆地方向搜索到底，知道越界或<br>当前遍历位置已经遍历过了为止。</p>
-<p>对每一个位置的四个方向分别深搜，将每个方向的连通陆地相加，即为当前位置所处的最大连通面积。</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">public:</div><div class="line"></div><div class="line">	<span class="keyword">int</span> vis[<span class="number">50</span>][<span class="number">50</span>];</div><div class="line"></div><div class="line">    <span class="keyword">int</span> maxAreaOfIsland(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; <span class="keyword">grid</span>) &#123;</div><div class="line">       	</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">grid</span>.<span class="keyword">size</span>() == <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		memset(vis, <span class="number">0</span>, sizeof(vis));</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> maxium = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="comment">// 遍历 1 </span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">grid</span>.<span class="keyword">size</span>(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="keyword">grid</span>[i].<span class="keyword">size</span>(); j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(<span class="keyword">grid</span>[i][j] == <span class="number">0</span>) <span class="keyword">continue</span>;</div><div class="line">				</div><div class="line">				<span class="keyword">int</span> area = dfs_area(<span class="keyword">grid</span>, i, j);</div><div class="line">				<span class="keyword">if</span>(area &gt; maxium)</div><div class="line">				&#123;</div><div class="line">					maxium = area;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> maxium;</div><div class="line">		</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	<span class="keyword">int</span> dfs_area(<span class="keyword">vector</span>&lt;<span class="keyword">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; <span class="keyword">grid</span>, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">grid</span>[x][y] == <span class="number">0</span> || vis[x][y] == <span class="number">1</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> area = <span class="number">1</span>;</div><div class="line">		vis[x][y] = <span class="number">1</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(x + <span class="number">1</span> &lt; <span class="keyword">grid</span>.<span class="keyword">size</span>())</div><div class="line">		&#123;</div><div class="line">			area += dfs_area(<span class="keyword">grid</span>, x + <span class="number">1</span>, y);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(x - <span class="number">1</span> &lt; <span class="keyword">grid</span>.<span class="keyword">size</span>())</div><div class="line">		&#123;</div><div class="line">			area += dfs_area(<span class="keyword">grid</span>, x - <span class="number">1</span>, y);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(y + <span class="number">1</span> &lt; <span class="keyword">grid</span>[<span class="number">0</span>].<span class="keyword">size</span>())</div><div class="line">		&#123;</div><div class="line">			area += dfs_area(<span class="keyword">grid</span>, x, y + <span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(y - <span class="number">1</span> &lt; <span class="keyword">grid</span>[<span class="number">0</span>].<span class="keyword">size</span>())</div><div class="line">		&#123;</div><div class="line">			area += dfs_area(<span class="keyword">grid</span>, x, y - <span class="number">1</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> area;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/06/695-Max-Area-of-Island-题解/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-697-Degree-of-an-Array-题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/05/697-Degree-of-an-Array-题解/">697. Degree of an Array 题解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/05/697-Degree-of-an-Array-题解/" class="archive-article-date">
-  	<time datetime="2017-11-05T12:48:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一个给定数组，求包含出现次数最多元素的最短子序列长度。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>要求这个最短子序列要包含出现次数最多的元素。就要找到这个出现次数最多的元素，然后在给定数组中找到第一次和最后一次出现的位置，<br>然后两个位置下标做差加一即为最短子序列长度。</p>
-<h3 id="代码-C"><a href="#代码-C" class="headerlink" title="代码(C++)"></a>代码(C++)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findShortestSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mmp;</div><div class="line">		</div><div class="line">		<span class="comment">// 统计每个element出现的次数</span></div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)</div><div class="line">		&#123;</div><div class="line">			mmp[nums[i]]++;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator p;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> maxium = <span class="number">-1</span>;</div><div class="line">		</div><div class="line">		<span class="comment">// 找到出现次数最多element的次数</span></div><div class="line">		<span class="keyword">for</span>(p = mmp.begin(); p != mmp.end(); p++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(p-&gt;second &gt; maxium) maxium = p-&gt;second;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; arr;</div><div class="line">		</div><div class="line">		<span class="comment">// 寻找到出现次数最多的所有element</span></div><div class="line">		<span class="keyword">for</span>(p = mmp.begin(); p != mmp.end(); p++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(p-&gt;second == maxium) arr.push_back(p-&gt;first);</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> result[<span class="number">50000</span>], k = <span class="number">0</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">int</span> front, back;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.size(); j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(nums[j] == arr[i]) </div><div class="line">				&#123;</div><div class="line">					front = j;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = nums.size()<span class="number">-1</span>; j &gt;= <span class="number">0</span>; j--)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(nums[j] == arr[i])</div><div class="line">				&#123;</div><div class="line">					back = j;</div><div class="line">					<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			result[k++] = back - front; <span class="comment">// 求出每个element的子串长度</span></div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		sort(result, result + k);</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> result[<span class="number">0</span>] + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/05/697-Degree-of-an-Array-题解/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -1104,7 +1104,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,7 +1112,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1124,11 +1128,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">VBA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,15 +1144,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">

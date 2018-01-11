@@ -151,6 +151,175 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-VBA学习笔记（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/VBA学习笔记（二）/">VBA学习笔记（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/11/VBA学习笔记（二）/" class="archive-article-date">
+  	<time datetime="2018-01-11T04:49:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1. 数据类型"></a>1. 数据类型</h3><h4 id="1-1-数据类型定义模式"><a href="#1-1-数据类型定义模式" class="headerlink" title="1.1 数据类型定义模式"></a>1.1 数据类型定义模式</h4><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">' 变量类型定义</span></div><div class="line"><span class="keyword">Dim</span> productionName <span class="keyword">As</span> <span class="built_in">String</span></div><div class="line"><span class="keyword">Dim</span> length <span class="keyword">As</span> Interger</div><div class="line"><span class="keyword">Dim</span> reg <span class="keyword">As</span> RegExp</div><div class="line"></div><div class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> MsgBox(msg <span class="keyword">As</span> <span class="built_in">String</span>)</div><div class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> len(s <span class="keyword">As</span> <span class="built_in">String</span>) <span class="keyword">As</span> <span class="built_in">Long</span></div></pre></td></tr></table></figure>
+<h4 id="1-2-实例"><a href="#1-2-实例" class="headerlink" title="1.2 实例"></a>1.2 实例</h4><ul>
+<li>定义一个函数，要求接收两个字符串，并返回较长的那一个长度</li>
+</ul>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VBA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/11/VBA学习笔记（二）/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-VBA学习笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/VBA学习笔记（一）/">VBA学习笔记（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/11/VBA学习笔记（一）/" class="archive-article-date">
+  	<time datetime="2018-01-11T04:33:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-1-初识-VBA"><a href="#1-1-初识-VBA" class="headerlink" title="1.1 初识 VBA"></a>1.1 初识 VBA</h4><p><strong>打开VBA,启动快捷键Alt+F11</strong></p>
+<h4 id="1-2-立即窗口"><a href="#1-2-立即窗口" class="headerlink" title="1.2 立即窗口"></a>1.2 立即窗口</h4><p>VBA编辑器（VBE）启动后，请设置立即窗口为开启状态。</p>
+<p>视图 =&gt; 立即窗口 <strong>快捷键：Ctrl+G</strong></p>
+<ul>
+<li>尝试如下命令：<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">? <span class="number">1</span> + <span class="number">1</span></div><div class="line">? len(<span class="string">"qiou.eu"</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="1-3-建立第一个项目"><a href="#1-3-建立第一个项目" class="headerlink" title="1.3 建立第一个项目"></a>1.3 建立第一个项目</h4><p>在工程窗口中右击，选择<strong>插入 =&gt; 模块</strong>，此时默认名称为“模块1”，在<strong>名称栏</strong>将“模块1”更名为“Main”（注意将M大写）</p>
+<p><strong>在右方主窗口输入如下代码：</strong><br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Option</span> Explict</div><div class="line"><span class="keyword">Public</span> <span class="keyword">Sub</span> Main()</div><div class="line">    helloworld</div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div><div class="line"></div><div class="line"><span class="keyword">Private</span> <span class="keyword">Function</span> helloworld()</div><div class="line">    <span class="built_in">MsgBox</span> <span class="string">"hello, world!"</span></div><div class="line"><span class="keyword">End</span> <span class="keyword">Function</span></div></pre></td></tr></table></figure></p>
+<p><strong>输入完毕后，将光标放到Main函数括号后面，然后运行</strong></p>
+<p><strong>MsgBox函数介绍:</strong> 在对话框中显示消息，等待用户单击按钮，并返回指示用户单击的按钮的整数。</p>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VBA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/11/VBA学习笔记（一）/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-NPC-NP-P问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -836,170 +1005,9 @@
 
 
   
-    <article id="post-Date-比较大小" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/01/Date-比较大小/">Date 比较大小</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/01/Date-比较大小/" class="archive-article-date">
-  	<time datetime="2018-01-01T09:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>java 两个日期比较大小：</strong></p>
-<p>日期的格式 yyyy-MM-dd</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">String</span> startTime = <span class="string">"2018-01-01"</span>;</div><div class="line"><span class="keyword">String</span> endTime = <span class="string">"2018-01-02"</span>;</div><div class="line"></div><div class="line">DateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</div><div class="line"></div><div class="line"><span class="built_in">Date</span> dt1 = df.<span class="built_in">parse</span>(startTime);</div><div class="line"><span class="built_in">Date</span> dt2 = df.<span class="built_in">parse</span>(endTime);</div><div class="line"></div><div class="line"><span class="keyword">if</span>(dt1.before(dt2)) &#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/01/Date-比较大小/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ArrayList-删除指定元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/01/ArrayList-删除指定元素/">ArrayList 删除指定元素</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/01/ArrayList-删除指定元素/" class="archive-article-date">
-  	<time datetime="2018-01-01T09:34:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>遍历ArrayList，删除指定元素：</strong></p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">MatterTable.removeIf(matter -&gt; Integer.parseInt(matter.<span class="keyword">user</span>Id) == <span class="keyword">user</span>Id);</div></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">Iterator&lt;Matter&gt; </span><span class="keyword">iterator </span> = MatterTable.<span class="keyword">iterator();</span></div><div class="line"><span class="keyword">while(iterator.hasNext()) </span>&#123;</div><div class="line">    Matter matter = <span class="keyword">iterator.next();</span></div><div class="line"><span class="keyword"> </span>   <span class="meta">if</span>(matter == xxx) &#123;</div><div class="line">        matter.remove()<span class="comment">;</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/01/ArrayList-删除指定元素/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1123,7 +1131,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1131,7 +1139,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,11 +1155,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">VBA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1155,15 +1171,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
