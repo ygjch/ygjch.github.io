@@ -757,90 +757,6 @@
 
 
   
-    <article id="post-WebService-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/01/WebService-基础/">WebService 基础</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/01/WebService-基础/" class="archive-article-date">
-  	<time datetime="2018-01-01T09:48:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.cnblogs.com/yolanda-lee/p/4907380.html" target="_blank" rel="external">http://www.cnblogs.com/yolanda-lee/p/4907380.html</a><br><a href="http://blog.csdn.net/qq_18808965/article/details/72842184" target="_blank" rel="external">http://blog.csdn.net/qq_18808965/article/details/72842184</a></p>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><ul>
-<li>WebService 是两个系统的远程调用，使两个系统进行数据交互，如应用：天气预报服务、银行ATM服务、使用邮箱账号登录各网站等。</li>
-<li>WebService 之间的调用是跨语言的调用。Java、.Net、PHP，发送HTTP请求，使用的数据格式是XML。</li>
-<li>webxml.com.cn 上面有些免费的WebService服务，可以看看。</li>
-</ul>
-<h4 id="应用基础"><a href="#应用基础" class="headerlink" title="应用基础"></a>应用基础</h4><p>未完。。。。</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">网络与分布式计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/01/WebService-基础/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-判断日期-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1000,9 +916,90 @@
 
 
   
+    <article id="post-ArrayList-删除指定元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/01/ArrayList-删除指定元素/">ArrayList 删除指定元素</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/01/ArrayList-删除指定元素/" class="archive-article-date">
+  	<time datetime="2018-01-01T09:34:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>遍历ArrayList，删除指定元素：</strong></p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">MatterTable.removeIf(matter -&gt; Integer.parseInt(matter.<span class="keyword">user</span>Id) == <span class="keyword">user</span>Id);</div></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">Iterator&lt;Matter&gt; </span><span class="keyword">iterator </span> = MatterTable.<span class="keyword">iterator();</span></div><div class="line"><span class="keyword">while(iterator.hasNext()) </span>&#123;</div><div class="line">    Matter matter = <span class="keyword">iterator.next();</span></div><div class="line"><span class="keyword"> </span>   <span class="meta">if</span>(matter == xxx) &#123;</div><div class="line">        matter.remove()<span class="comment">;</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/01/ArrayList-删除指定元素/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1130,11 +1127,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1146,7 +1143,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1154,23 +1151,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1179,10 +1168,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">socket编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">图形学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1254,27 +1239,7 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="http://www.jianshu.com/u/391ae95987cc" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>简书</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://www.csdn.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://www.github.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github</a>
-            </li>
-          
-            <li class="search-li">
               <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>廖雪峰Python</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://wszf.nwpu.edu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西工大统一支付平台</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://uis.nwpu.edu.cn/cas/login?service=https%3A%2F%2Fecampus.nwpu.edu.cn%2Fc%2Fportal%2Flogin" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>翱翔门户</a>
             </li>
           
             <li class="search-li">
@@ -1294,10 +1259,6 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="https://www.aliyun.com/?utm_medium=text&utm_source=bdbrand&utm_campaign=bdbrand&utm_content=se_32492" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阿里云</a>
-            </li>
-          
-            <li class="search-li">
               <a href="http://www.waditu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>tushare</a>
             </li>
           
@@ -1309,7 +1270,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">问：“博主去哪儿了？” 答曰：“考研去了！”</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">No pain, no gain!</div>
   	  	
     	</section>
     

@@ -151,174 +151,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-sql-server-connnect-error-233" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/24/sql-server-connnect-error-233/">sql server connnect error: 233</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/24/sql-server-connnect-error-233/" class="archive-article-date">
-  	<time datetime="2017-09-24T08:01:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>After openning <strong>sql server 2012</strong>, I click the connnecting buttion. However, sql server pop up the error message.</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">error: </span>233 管道另一端无任何进程</div></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><ol>
-<li>Open <strong>Microsoft SQL Server 2008–配置工具–SQL Server 配置管理器</strong></li>
-<li>“SQL Server 2008 网络配置”–”MSSQLSERVER的协议”–启用”TCP/IP”和”Named Pipes”.在启动TCP/IP协议后,还要把其属性中的TCP端口号改为1433(动态端口)或修改为自己想要的端口号.    </li>
-<li>重启”SQL Server”</li>
-</ol>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/24/sql-server-connnect-error-233/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Layout-get-current-user-in-the-frontend" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Layout gets current user in the frontend</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Layout-get-current-user-in-the-frontend/" class="archive-article-date">
-  	<time datetime="2017-09-23T10:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h3><p>I need to change displayName according to current Account. </p>
-<p>Firstly, I try to create partial view. Partial view can get data individually but _layout can’t get data.<br>Find solution in stackflow: <strong>Partial View shares data with _layout. In other words, Model is same in Partial View and _layout.</strong></p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>We can get model in _layout directly in this method.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@using LibraryProject.Models</div><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/favicon.ico?v=2"</span> <span class="attr">rel</span>=<span class="string">"shortcut icon"</span> <span class="attr">type</span>=<span class="string">"image/x-icon"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>NWPU Library System<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'</span> <span class="attr">name</span>=<span class="string">'viewport'</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- bootstrap 3.0.2 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- font Awesome --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"~/Content/css/font-awesome.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<p>At the beginning, you should add <code>@using LibraryProject.Models</code>. And you can get context after that.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    <span class="comment">&lt;!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span></div><div class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">      &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">    &lt;![endif]--&gt;</span></div><div class="line">    @Scripts.Render("http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js")</div><div class="line">    @Styles.Render("http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css")</div><div class="line"></div><div class="line">    @&#123; </div><div class="line">        User user = (User)CheckLogin.Instance.GetUser();</div><div class="line">    &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Method:<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">	<span class="keyword">User</span> <span class="title">user</span> = (User)CheckLogin.Instance.GetUser();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>can get user Entity. And you can judge Authority and Role, etc… It’s excellent!!</p>
-
-      
-
-	  <!-- 目录内容 -->
-             
-        <!-- 目录内容结束 -->
-	  
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">asp.net mvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/23/Layout-get-current-user-in-the-frontend/">Expand the Article >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-asp-net-mvc-Seed-init" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -817,7 +649,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/24/C-string-validate/">C# string validate</a>
+      <a class="article-title" href="/2017/08/24/C-string-validate/">字符串正则表达式 C#工程使用</a>
     </h1>
   
 
@@ -888,27 +720,27 @@
 
 
   
-    <article id="post-router-link-bind-the-id" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/17/router-link-bind-the-id/">router-link bind the id</a>
+      <a class="article-title" href="/2017/08/14/hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a/"> hexo YAMLException: cannot read a block mapping entry; a multi line key may not be an implicit key a</a>
     </h1>
   
 
         
-        <a href="/2017/08/17/router-link-bind-the-id/" class="archive-article-date">
-  	<time datetime="2017-08-17T06:14:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-17</time>
+        <a href="/2017/08/14/hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a/" class="archive-article-date">
+  	<time datetime="2017-08-14T02:35:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Link"><a href="#Link" class="headerlink" title="Link:"></a>Link:</h3><p><a href="https://segmentfault.com/q/1010000009749320" target="_blank" rel="external">https://segmentfault.com/q/1010000009749320</a><br><a href="https://segmentfault.com/q/1010000007621328?_ea=1402047" target="_blank" rel="external">https://segmentfault.com/q/1010000007621328?_ea=1402047</a><br><a href="http://blog.csdn.net/sangjinchao/article/details/70888259" target="_blank" rel="external">http://blog.csdn.net/sangjinchao/article/details/70888259</a></p>
+        <h3 id="Solution："><a href="#Solution：" class="headerlink" title="Solution："></a>Solution：</h3><p>When you edit _config.yml, you should add a space before editing the contents of each attribute.</p>
 
       
 
@@ -926,7 +758,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
         		</li>
       		
 		</ul>
@@ -936,7 +768,170 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/17/router-link-bind-the-id/">Expand the Article >></a>
+          <a class="article-more-a" href="/2017/08/14/hexo-YAMLException-cannot-read-a-block-mapping-entry-a-multi-line-key-may-not-be-an-implicit-key-a/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-git-pull new changes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/11/git-pull new changes/">GIT Commands --- pull new changes</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/11/git-pull new changes/" class="archive-article-date">
+  	<time datetime="2017-08-11T14:50:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git remote <span class="built_in">add</span> liuw http<span class="variable">s:</span>//github.<span class="keyword">com</span>/liuw/xxx.git  </div><div class="line">git branch --<span class="keyword">list</span> --<span class="keyword">all</span>  </div><div class="line">git fetch liuw  </div><div class="line">git stash  </div><div class="line">git rebase liuw/master  </div><div class="line">Open VS CODE, <span class="built_in">and</span> solve the conflicts. </div><div class="line">git <span class="built_in">add</span> .  </div><div class="line">git rebase --<span class="keyword">continue</span>  </div><div class="line">git stash <span class="keyword">pop</span></div></pre></td></tr></table></figure>
+<p>When you want to get the new changes, you can use this command.</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset liuw/<span class="keyword">master</span> <span class="title">--hard</span></div></pre></td></tr></table></figure>
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/11/git-pull new changes/">Expand the Article >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo commands" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/11/hexo commands/">Common commands of Hexo</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/11/hexo commands/" class="archive-article-date">
+  	<time datetime="2017-08-11T13:20:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="hexo-commands："><a href="#hexo-commands：" class="headerlink" title="hexo commands："></a>hexo commands：</h3><pre><code>hexo new &quot;postName&quot;      # Create a new article
+hexo new page &quot;pageName&quot; # Create a new page
+hexo generate            # Generate static pages in &quot;public&quot;
+hexo server              # Open the Preview and access the port of 4000
+hexo deploy              # Deploy to github
+hexo help                # View help
+hexo version             # View the version of Hexo
+</code></pre>
+      
+
+	  <!-- 目录内容 -->
+             
+        <!-- 目录内容结束 -->
+	  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/11/hexo commands/">Expand the Article >></a>
         </p>
       
 
@@ -968,7 +963,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
     </nav>
   
 
@@ -1096,11 +1091,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
+                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">asp.net mvc</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1112,7 +1107,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,23 +1115,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网络与分布式计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ISBN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机视觉</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">软件测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1145,10 +1132,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">socket编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">图形学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1220,27 +1203,7 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="http://www.jianshu.com/u/391ae95987cc" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>简书</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://www.csdn.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://www.github.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github</a>
-            </li>
-          
-            <li class="search-li">
               <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>廖雪峰Python</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://wszf.nwpu.edu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>西工大统一支付平台</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://uis.nwpu.edu.cn/cas/login?service=https%3A%2F%2Fecampus.nwpu.edu.cn%2Fc%2Fportal%2Flogin" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>翱翔门户</a>
             </li>
           
             <li class="search-li">
@@ -1260,10 +1223,6 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="https://www.aliyun.com/?utm_medium=text&utm_source=bdbrand&utm_campaign=bdbrand&utm_content=se_32492" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阿里云</a>
-            </li>
-          
-            <li class="search-li">
               <a href="http://www.waditu.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>tushare</a>
             </li>
           
@@ -1275,7 +1234,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">问：“博主去哪儿了？” 答曰：“考研去了！”</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">No pain, no gain!</div>
   	  	
     	</section>
     
