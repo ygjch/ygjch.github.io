@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="English">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,9 +91,9 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="【分治法】 合并排序">
 <meta property="og:url" content="http://ygjch.github.io/2018/01/05/分治法-合并排序/index.html">
-<meta property="og:site_name" content="YGjch&#39;s Blog">
+<meta property="og:site_name" content="一缕微光">
 <meta property="og:description" content="问题分治法实现合并排序 思路将待排序序列分解成单个元素，然后对单个元素进行合并，并且在合并的过程中将分割区间分别置入左右两个数组中Left[],Right[]。然后对两个数组模拟队列，每次取出两个队首的较小元素放入合并数组arr中。 按照分治法，最终将整个序列分解到唯一的元素（无法继续分解为止），从单个元素的基础上进行合并，能够保证每次左右两个数组是有序的。 归并代码执行过程如序号所示：  核心代">
-<meta property="og:locale" content="English">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ygjch.github.io/img/mergeSort.png">
 <meta property="og:updated_time" content="2018-01-05T07:58:00.502Z">
 <meta name="twitter:card" content="summary">
@@ -115,7 +115,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -135,7 +135,7 @@
 
 
 
-  <title>【分治法】 合并排序 | YGjch's Blog</title>
+  <title>【分治法】 合并排序 | 一缕微光</title>
   
 
 
@@ -147,7 +147,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="English">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -165,12 +165,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">YGjch's Blog</span>
+        <span class="site-title">一缕微光</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">刺破黑暗，闪耀光芒</p>
       
   </div>
 
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Categories
+            分类
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            About
+            关于
           </a>
         </li>
       
@@ -225,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -235,7 +235,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -281,7 +281,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YGjch's Blog">
+      <meta itemprop="name" content="一缕微光">
     </span>
 
     
@@ -299,9 +299,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T15:40:36+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T15:40:36+08:00">
                 2018-01-05
               </time>
             
@@ -325,7 +325,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">Visitors&#58;</span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -343,9 +343,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
+                <span title="字数统计">
                   
                 </span>
               
@@ -359,9 +359,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   
                 </span>
               
@@ -490,10 +490,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -518,7 +518,7 @@
                 <a href="/archives">
               
                   <span class="site-state-item-count">72</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -531,7 +531,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 
               </div>
             
@@ -631,7 +631,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
