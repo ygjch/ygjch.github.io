@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。 题解从 0 位置开始遍历， 直到最后一位。 在当前位置满足 前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1，并且栽花数 cnt++。 要对 首位和最后一位进行特判： 首位为0， 第二位为0， 首位种花 flower[">
+<meta name="description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="605. Can Place Flowers 题解">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/09/605-Can-Place-Flowers-题解/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。 题解从 0 位置开始遍历， 直到最后一位。 在当前位置满足 前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1，并且栽花数 cnt++。 要对 首位和最后一位进行特判： 首位为0， 第二位为0， 首位种花 flower[">
+<meta property="og:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-09T14:15:37.277Z">
+<meta property="og:updated_time" content="2018-01-14T20:42:18.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="605. Can Place Flowers 题解">
-<meta name="twitter:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。 题解从 0 位置开始遍历， 直到最后一位。 在当前位置满足 前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1，并且栽花数 cnt++。 要对 首位和最后一位进行特判： 首位为0， 第二位为0， 首位种花 flower[">
+<meta name="twitter:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -384,11 +395,13 @@
         <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。 </p>
 <p>给定一数字 n， 问能否在该花坛中栽 n 株花。</p>
 <p>栽花需要符合 <strong>相邻位置不栽花</strong> 的原则。</p>
+<a id="more"></a>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>从 0 位置开始遍历， 直到最后一位。 在当前位置满足 <strong>前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1</strong>，并且栽花数 cnt++。</p>
 <p>要对 首位和最后一位进行特判：</p>
 <p>首位为0， 第二位为0， 首位种花 flower[0] = 1, cnt++</p>
 <p>末位为0， 倒数第二位为0， 最后一位种花 flower[flower.size()-2] = 1, cnt++</p>
 <h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; flowerbed, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; flowerbed.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; i != flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span></div><div class="line">				&amp;&amp; flowerbed[i] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i == flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(cnt &gt;= n) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -405,7 +418,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
         </div>
       
@@ -511,7 +524,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -617,7 +630,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

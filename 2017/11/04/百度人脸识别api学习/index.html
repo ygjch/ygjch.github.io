@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="百度AI平台人脸识别api学习 实践了人脸识别api，python实现。 api文档参看 百度AI平台官网 123456789101112131415161718192021222324252627282930313233343536373839404142from aip import AipFaceAPP_ID = &apos;your app_id&apos;API_KEY = &apos;your api_key&apos;SE">
+<meta name="description" content="百度AI平台人脸识别api学习 实践了人脸识别api，python实现。 api文档参看 百度AI平台官网">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="百度人脸识别api学习">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/04/百度人脸识别api学习/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="百度AI平台人脸识别api学习 实践了人脸识别api，python实现。 api文档参看 百度AI平台官网 123456789101112131415161718192021222324252627282930313233343536373839404142from aip import AipFaceAPP_ID = &apos;your app_id&apos;API_KEY = &apos;your api_key&apos;SE">
+<meta property="og:description" content="百度AI平台人脸识别api学习 实践了人脸识别api，python实现。 api文档参看 百度AI平台官网">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-04T13:00:46.038Z">
+<meta property="og:updated_time" content="2018-01-14T21:01:21.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百度人脸识别api学习">
-<meta name="twitter:description" content="百度AI平台人脸识别api学习 实践了人脸识别api，python实现。 api文档参看 百度AI平台官网 123456789101112131415161718192021222324252627282930313233343536373839404142from aip import AipFaceAPP_ID = &apos;your app_id&apos;API_KEY = &apos;your api_key&apos;SE">
+<meta name="twitter:description" content="百度AI平台人脸识别api学习 实践了人脸识别api，python实现。 api文档参看 百度AI平台官网">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -384,6 +395,7 @@
         <p>百度AI平台人脸识别api学习</p>
 <p>实践了人脸识别api，python实现。</p>
 <p>api文档参看 百度AI平台官网</p>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipFace</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipFace = AipFace(APP_ID, API_KEY, SECRET_KEY)</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(path)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(path, <span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">face_detect</span><span class="params">(path)</span>:</span></div><div class="line">    options = &#123;</div><div class="line">        <span class="string">'max_face_num'</span>: <span class="number">10</span>,</div><div class="line">        <span class="string">'face_fields'</span>: <span class="string">"age, beauty, expression, faceshape"</span>,</div><div class="line">    &#125;</div><div class="line">    result = aipFace.detect(path, options)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">face_match</span><span class="params">(images)</span>:</span></div><div class="line">    options = &#123;</div><div class="line">        <span class="string">'result'</span>: <span class="string">"score"</span>,</div><div class="line">    &#125;</div><div class="line">    result = aipFace.match(images, options)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    image1 = get_file_content(<span class="string">'erren.jpg'</span>)</div><div class="line">    <span class="comment"># image2 = get_file_content('b.jpg')</span></div><div class="line">    <span class="comment"># images = [image1, image2]</span></div><div class="line"></div><div class="line">    c1 = get_file_content(<span class="string">'fa.jpg'</span>)</div><div class="line">    c2 = get_file_content(<span class="string">'c.jpg'</span>)</div><div class="line">    lan = get_file_content(<span class="string">'lanni.jpg'</span>)</div><div class="line">    images = [c1, c2]</div><div class="line"></div><div class="line">    <span class="comment"># print face_match(images)</span></div><div class="line">    <span class="keyword">print</span> face_detect(lan)</div></pre></td></tr></table></figure>
 
       
@@ -402,7 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
         </div>
       
@@ -499,7 +511,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +601,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

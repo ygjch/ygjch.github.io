@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。 解决方案前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是1@Html.DisplayFor(model=&amp;gt;model.Content) 这样展示的问题是所有的内容均以 html 编码输出展示">
+<meta name="description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。">
 <meta name="keywords" content="asp.net mvc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="富文本编辑器插入图片显示 html 代码问题">
 <meta property="og:url" content="http://ygjch.github.io/2017/10/12/富文本编辑器插入图片显示-html-代码问题/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。 解决方案前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是1@Html.DisplayFor(model=&amp;gt;model.Content) 这样展示的问题是所有的内容均以 html 编码输出展示">
+<meta property="og:description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T13:32:03.069Z">
+<meta property="og:updated_time" content="2018-01-14T21:00:51.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="富文本编辑器插入图片显示 html 代码问题">
-<meta name="twitter:description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。 解决方案前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是1@Html.DisplayFor(model=&amp;gt;model.Content) 这样展示的问题是所有的内容均以 html 编码输出展示">
+<meta name="twitter:description" content="问题描述在做图书管理系统的内容管理模块时，使用的是 ueditor 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。， 类似这样。">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -382,6 +393,7 @@
 
       
         <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在做图书管理系统的内容管理模块时，使用的是 <strong>ueditor</strong> 编辑器， 使用编辑器上传图片后，发现编辑发布好的文章里面的图片显示的是 html 代码。<br><img ...="">， 类似这样。</p>
+<a id="more"></a>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>前端代码展示的问题。 富文本编辑器会把图片转码保存， 开始在前端展示文章的办法是<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">Html</span>.<span class="keyword">DisplayFor</span>(<span class="keyword">model</span>=&gt;<span class="keyword">model</span>.<span class="keyword">Content</span>)</div></pre></td></tr></table></figure></p>
 <p>这样展示的问题是所有的内容均以 html 编码输出展示。</p>
 <p>修改为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@(<span class="keyword">new</span> htmlString(<span class="function"><span class="params">model</span>=&gt;</span>model.Content))</div></pre></td></tr></table></figure></p>
@@ -403,7 +415,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/asp-net-mvc/" rel="tag"># asp.net mvc</a>
+            <a href="/tags/asp-net-mvc/" rel="tag"><i class="fa fa-tag"></i> asp.net mvc</a>
           
         </div>
       
@@ -509,7 +521,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -615,7 +627,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

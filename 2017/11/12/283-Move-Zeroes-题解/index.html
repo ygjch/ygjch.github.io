@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="题解给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。 非0元素移动到前面。 约束：  要求在一个vector内操作，不能新建数组。并要求尽可能少的操作步骤。 题解开始想的是从数组最后开始遍历，把0通过冒泡的方式逐一冒泡到数组的最后。这种方法很暴力。 一种比较高效的方法是模拟队列。 依次遍历数组，把元素0计数。如果当前队列nu">
+<meta name="description" content="题解给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。 非0元素移动到前面。">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="283. Move Zeroes 题解">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/12/283-Move-Zeroes-题解/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="题解给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。 非0元素移动到前面。 约束：  要求在一个vector内操作，不能新建数组。并要求尽可能少的操作步骤。 题解开始想的是从数组最后开始遍历，把0通过冒泡的方式逐一冒泡到数组的最后。这种方法很暴力。 一种比较高效的方法是模拟队列。 依次遍历数组，把元素0计数。如果当前队列nu">
+<meta property="og:description" content="题解给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。 非0元素移动到前面。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-12T12:29:06.713Z">
+<meta property="og:updated_time" content="2018-01-14T20:40:41.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="283. Move Zeroes 题解">
-<meta name="twitter:description" content="题解给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。 非0元素移动到前面。 约束：  要求在一个vector内操作，不能新建数组。并要求尽可能少的操作步骤。 题解开始想的是从数组最后开始遍历，把0通过冒泡的方式逐一冒泡到数组的最后。这种方法很暴力。 一种比较高效的方法是模拟队列。 依次遍历数组，把元素0计数。如果当前队列nu">
+<meta name="twitter:description" content="题解给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。 非0元素移动到前面。">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -383,6 +394,7 @@
       
         <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。</p>
 <p>非0元素移动到前面。</p>
+<a id="more"></a>
 <p><strong>约束：</strong> </p>
 <p>要求在一个vector内操作，不能新建数组。并要求尽可能少的操作步骤。</p>
 <h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>开始想的是从数组最后开始遍历，把0通过冒泡的方式逐一冒泡到数组的最后。这种方法很暴力。</p>
@@ -390,6 +402,7 @@
 <p>依次遍历数组，把元素0计数。如果当前队列nums.front()为0，则cnt++。 如果不为0，就把当前元素nums.front() push_back队列尾。</p>
 <p>执行完把首元素从队列删掉 nums.erase(nums.begin()) <strong>注意： erase()方法内的参数为当前元素的地址而不是值！</strong></p>
 <h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> len = nums.size();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(!nums.front()) &#123;</div><div class="line">                cnt++;</div><div class="line">                nums.erase(nums.begin());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                nums.push_back(nums.front());</div><div class="line">                nums.erase(nums.begin());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</div><div class="line">            nums.push_back(<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -406,7 +419,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
         </div>
       
@@ -512,7 +525,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -618,7 +631,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

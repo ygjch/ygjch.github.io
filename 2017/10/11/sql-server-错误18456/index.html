@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="问题描述当以sa登录sql server 2012 报错 18456 解决方案 确定 登录的用户名和密码 是否正确。 确定 sa用户登录状态启用。 确定 服务器 允许sql server 和 Window 身份验证。 均成功后 在 sql server 配置服务器中确保动态端口号正确。 以上均不行，将所有的sql server 相关服务重启一遍。  相关链接https://jingyan.baid">
+<meta name="description" content="问题描述当以sa登录sql server 2012 报错 18456 解决方案 确定 登录的用户名和密码 是否正确。 确定 sa用户登录状态启用。 确定 服务器 允许sql server 和 Window 身份验证。 均成功后 在 sql server 配置服务器中确保动态端口号正确。 以上均不行，将所有的sql server 相关服务重启一遍。">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql server 错误18456">
 <meta property="og:url" content="http://ygjch.github.io/2017/10/11/sql-server-错误18456/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="问题描述当以sa登录sql server 2012 报错 18456 解决方案 确定 登录的用户名和密码 是否正确。 确定 sa用户登录状态启用。 确定 服务器 允许sql server 和 Window 身份验证。 均成功后 在 sql server 配置服务器中确保动态端口号正确。 以上均不行，将所有的sql server 相关服务重启一遍。  相关链接https://jingyan.baid">
+<meta property="og:description" content="问题描述当以sa登录sql server 2012 报错 18456 解决方案 确定 登录的用户名和密码 是否正确。 确定 sa用户登录状态启用。 确定 服务器 允许sql server 和 Window 身份验证。 均成功后 在 sql server 配置服务器中确保动态端口号正确。 以上均不行，将所有的sql server 相关服务重启一遍。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-11T05:44:10.439Z">
+<meta property="og:updated_time" content="2018-01-14T20:56:13.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql server 错误18456">
-<meta name="twitter:description" content="问题描述当以sa登录sql server 2012 报错 18456 解决方案 确定 登录的用户名和密码 是否正确。 确定 sa用户登录状态启用。 确定 服务器 允许sql server 和 Window 身份验证。 均成功后 在 sql server 配置服务器中确保动态端口号正确。 以上均不行，将所有的sql server 相关服务重启一遍。  相关链接https://jingyan.baid">
+<meta name="twitter:description" content="问题描述当以sa登录sql server 2012 报错 18456 解决方案 确定 登录的用户名和密码 是否正确。 确定 sa用户登录状态启用。 确定 服务器 允许sql server 和 Window 身份验证。 均成功后 在 sql server 配置服务器中确保动态端口号正确。 以上均不行，将所有的sql server 相关服务重启一遍。">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -389,6 +400,7 @@
 <li>均成功后 在 <strong>sql server 配置服务器</strong>中确保动态端口号正确。</li>
 <li>以上均不行，将所有的sql server 相关服务重启一遍。</li>
 </ul>
+<a id="more"></a>
 <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><p><a href="https://jingyan.baidu.com/article/656db918faf80fe381249c1e.html" target="_blank" rel="external">https://jingyan.baidu.com/article/656db918faf80fe381249c1e.html</a></p>
 <p><strong>再不行，就继续搜索解决方案吧！&gt;_&lt;</strong></p>
 
@@ -408,7 +420,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SQL/" rel="tag"># SQL</a>
+            <a href="/tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
           
         </div>
       
@@ -514,7 +526,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +632,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

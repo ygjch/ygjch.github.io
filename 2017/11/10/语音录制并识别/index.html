@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667import wavefrom pyaudio import PyAudio,paInt16from aip import AipSpeech">
+<meta name="description" content="代码实现">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="语音录制并识别">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/10/语音录制并识别/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667import wavefrom pyaudio import PyAudio,paInt16from aip import AipSpeech">
+<meta property="og:description" content="代码实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-10T10:49:38.131Z">
+<meta property="og:updated_time" content="2018-01-14T21:01:49.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="语音录制并识别">
-<meta name="twitter:description" content="代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667import wavefrom pyaudio import PyAudio,paInt16from aip import AipSpeech">
+<meta name="twitter:description" content="代码实现">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -381,7 +392,8 @@
       
 
       
-        <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> wave</div><div class="line"><span class="keyword">from</span> pyaudio <span class="keyword">import</span> PyAudio,paInt16</div><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipSpeech</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipSpeech = AipSpeech(APP_ID,API_KEY,SECRET_KEY)</div><div class="line"></div><div class="line">framerate = <span class="number">8000</span></div><div class="line">NUM_SAMPLES = <span class="number">2000</span></div><div class="line">channels = <span class="number">1</span></div><div class="line">sampwidth = <span class="number">2</span></div><div class="line">TIME = <span class="number">2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_wave_file</span><span class="params">(filename,data)</span>:</span></div><div class="line">    wf = wave.open(filename,<span class="string">'wb'</span>)</div><div class="line">    wf.setnchannels(channels)</div><div class="line">    wf.setsampwidth(sampwidth)</div><div class="line">    wf.setframerate(framerate)</div><div class="line">    wf.writeframes(<span class="string">b""</span>.join(data))</div><div class="line">    wf.close()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_wave</span><span class="params">()</span>:</span></div><div class="line">    pa = PyAudio()</div><div class="line">    stream = pa.open(format = paInt16,channels = <span class="number">1</span>,</div><div class="line">                     rate = framerate, input = <span class="keyword">True</span>,</div><div class="line">                     frames_per_buffer = NUM_SAMPLES)</div><div class="line">    my_buff = []</div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> count &lt; TIME*<span class="number">10</span>:</div><div class="line">        string_audio_data = stream.read(NUM_SAMPLES)</div><div class="line">        my_buff.append(string_audio_data)</div><div class="line">        count+=<span class="number">1</span></div><div class="line">        print(<span class="string">'.'</span>)</div><div class="line">    save_wave_file(<span class="string">'01.wav'</span>,my_buff)</div><div class="line">    stream.close()</div><div class="line"></div><div class="line">chunk = <span class="number">2014</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">()</span>:</span></div><div class="line">    wf = wave.open(<span class="string">r"01.wav"</span>,<span class="string">'rb'</span>)</div><div class="line">    p = PyAudio()</div><div class="line">    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),channels=</div><div class="line">    wf.getnchannels(),rate=wf.getframerate(),output=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        data = wf.readframes(chunk)</div><div class="line">        <span class="keyword">if</span> data == <span class="string">""</span>: <span class="keyword">break</span></div><div class="line">        stream.write(data)</div><div class="line">    stream.close()</div><div class="line">    p.terminate()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(filepath)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(filepath,<span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">regorinize_voice</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> aipSpeech.asr(get_file_content(<span class="string">'2.wav'</span>),<span class="string">'pcm'</span>,<span class="number">16000</span>, &#123;</div><div class="line">        <span class="string">'lan'</span>: <span class="string">'zh'</span>,</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    record_wave()</div><div class="line">    print(<span class="string">'over!!!'</span>)</div><div class="line">    play()</div><div class="line">    print(regorinize_voice())</div></pre></td></tr></table></figure>
+        <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> wave</div><div class="line"><span class="keyword">from</span> pyaudio <span class="keyword">import</span> PyAudio,paInt16</div><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipSpeech</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipSpeech = AipSpeech(APP_ID,API_KEY,SECRET_KEY)</div><div class="line"></div><div class="line">framerate = <span class="number">8000</span></div><div class="line">NUM_SAMPLES = <span class="number">2000</span></div><div class="line">channels = <span class="number">1</span></div><div class="line">sampwidth = <span class="number">2</span></div><div class="line">TIME = <span class="number">2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_wave_file</span><span class="params">(filename,data)</span>:</span></div><div class="line">    wf = wave.open(filename,<span class="string">'wb'</span>)</div><div class="line">    wf.setnchannels(channels)</div><div class="line">    wf.setsampwidth(sampwidth)</div><div class="line">    wf.setframerate(framerate)</div><div class="line">    wf.writeframes(<span class="string">b""</span>.join(data))</div><div class="line">    wf.close()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_wave</span><span class="params">()</span>:</span></div><div class="line">    pa = PyAudio()</div><div class="line">    stream = pa.open(format = paInt16,channels = <span class="number">1</span>,</div><div class="line">                     rate = framerate, input = <span class="keyword">True</span>,</div><div class="line">                     frames_per_buffer = NUM_SAMPLES)</div><div class="line">    my_buff = []</div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> count &lt; TIME*<span class="number">10</span>:</div><div class="line">        string_audio_data = stream.read(NUM_SAMPLES)</div><div class="line">        my_buff.append(string_audio_data)</div><div class="line">        count+=<span class="number">1</span></div><div class="line">        print(<span class="string">'.'</span>)</div><div class="line">    save_wave_file(<span class="string">'01.wav'</span>,my_buff)</div><div class="line">    stream.close()</div><div class="line"></div><div class="line">chunk = <span class="number">2014</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">()</span>:</span></div><div class="line">    wf = wave.open(<span class="string">r"01.wav"</span>,<span class="string">'rb'</span>)</div><div class="line">    p = PyAudio()</div><div class="line">    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),channels=</div><div class="line">    wf.getnchannels(),rate=wf.getframerate(),output=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        data = wf.readframes(chunk)</div><div class="line">        <span class="keyword">if</span> data == <span class="string">""</span>: <span class="keyword">break</span></div><div class="line">        stream.write(data)</div><div class="line">    stream.close()</div><div class="line">    p.terminate()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(filepath)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(filepath,<span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">regorinize_voice</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> aipSpeech.asr(get_file_content(<span class="string">'2.wav'</span>),<span class="string">'pcm'</span>,<span class="number">16000</span>, &#123;</div><div class="line">        <span class="string">'lan'</span>: <span class="string">'zh'</span>,</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    record_wave()</div><div class="line">    print(<span class="string">'over!!!'</span>)</div><div class="line">    play()</div><div class="line">    print(regorinize_voice())</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -399,7 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
         </div>
       
@@ -505,7 +517,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -611,7 +623,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

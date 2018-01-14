@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,19 +96,19 @@
 
 
 
-<meta name="description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法在设置系统环境变量的地方新建 Android_Home ( 注意是 系统变量  变量值： D:\SDK (就是SDK">
+<meta name="description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。">
 <meta name="keywords" content="软件测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="appium-doctor 不是内部或外部命令">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/02/appium-doctor-不是内部或外部命令/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法在设置系统环境变量的地方新建 Android_Home ( 注意是 系统变量  变量值： D:\SDK (就是SDK">
+<meta property="og:description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ygjch.github.io/img/success.png">
-<meta property="og:updated_time" content="2017-11-02T16:12:38.457Z">
+<meta property="og:updated_time" content="2018-01-14T20:44:16.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="appium-doctor 不是内部或外部命令">
-<meta name="twitter:description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。 解决方法在设置系统环境变量的地方新建 Android_Home ( 注意是 系统变量  变量值： D:\SDK (就是SDK">
+<meta name="twitter:description" content="单独配置 Android_Home 系统变量开始配置安卓环境的时候，没有新建 Android_Home 系统变量，而是直接将 D:\SDK\tools和 D:\SDK\platform-tools配置到了 Path 里。这样就会导致 appium-doctor 运行时失败。">
 <meta name="twitter:image" content="http://ygjch.github.io/img/success.png">
 
 
@@ -215,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -225,7 +235,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -325,10 +335,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -343,9 +354,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -359,9 +370,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -384,6 +395,7 @@
 
       
         <h3 id="单独配置-Android-Home-系统变量"><a href="#单独配置-Android-Home-系统变量" class="headerlink" title="单独配置 Android_Home 系统变量"></a>单独配置 Android_Home 系统变量</h3><p>开始配置安卓环境的时候，没有新建 <strong>Android_Home</strong> 系统变量，而是直接将 <strong>D:\SDK\tools</strong>和 <strong>D:\SDK\platform-tools</strong><br>配置到了 <strong>Path</strong> 里。这样就会导致 appium-doctor 运行时失败。</p>
+<a id="more"></a>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在设置系统环境变量的地方新建 <strong>Android_Home</strong> ( 注意是 <strong>系统变量</strong></p>
 <ul>
 <li>变量值： <strong>D:\SDK</strong> (就是SDK的目录</li>
@@ -414,7 +426,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+            <a href="/tags/软件测试/" rel="tag"><i class="fa fa-tag"></i> 软件测试</a>
           
         </div>
       
@@ -520,7 +532,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -626,7 +638,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

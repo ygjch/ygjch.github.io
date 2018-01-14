@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="题目地址https://leetcode.com/problems/palindrome-number/ 题解判断 整数 是否为 回文数首先明确1.负数不是回文数2.0~9 均为回文数3.能整除10且不为0的数均不是回文数4.通过 Reverse Integer 将整数反转，和原数进行比较，如果相等则为回文数，否则不是。 1234567891011121314151617class Solutio">
+<meta name="description" content="题目地址https://leetcode.com/problems/palindrome-number/ 题解判断 整数 是否为 回文数首先明确1.负数不是回文数">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Palindrome Number">
 <meta property="og:url" content="http://ygjch.github.io/2017/10/10/Palindrome-Number/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="题目地址https://leetcode.com/problems/palindrome-number/ 题解判断 整数 是否为 回文数首先明确1.负数不是回文数2.0~9 均为回文数3.能整除10且不为0的数均不是回文数4.通过 Reverse Integer 将整数反转，和原数进行比较，如果相等则为回文数，否则不是。 1234567891011121314151617class Solutio">
+<meta property="og:description" content="题目地址https://leetcode.com/problems/palindrome-number/ 题解判断 整数 是否为 回文数首先明确1.负数不是回文数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-06T05:16:06.994Z">
+<meta property="og:updated_time" content="2018-01-14T20:54:19.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Palindrome Number">
-<meta name="twitter:description" content="题目地址https://leetcode.com/problems/palindrome-number/ 题解判断 整数 是否为 回文数首先明确1.负数不是回文数2.0~9 均为回文数3.能整除10且不为0的数均不是回文数4.通过 Reverse Integer 将整数反转，和原数进行比较，如果相等则为回文数，否则不是。 1234567891011121314151617class Solutio">
+<meta name="twitter:description" content="题目地址https://leetcode.com/problems/palindrome-number/ 题解判断 整数 是否为 回文数首先明确1.负数不是回文数">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -382,7 +393,9 @@
 
       
         <h3 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="https://leetcode.com/problems/palindrome-number/" target="_blank" rel="external">https://leetcode.com/problems/palindrome-number/</a></p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>判断 整数 是否为 回文数<br>首先明确<br>1.负数不是回文数<br>2.0~9 均为回文数<br>3.能整除10且不为0的数均不是回文数<br>4.通过 Reverse Integer 将整数反转，和原数进行比较，如果相等则为回文数，否则不是。</p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>判断 整数 是否为 回文数<br>首先明确<br>1.负数不是回文数</p>
+<a id="more"></a>
+<p>2.0~9 均为回文数<br>3.能整除10且不为0的数均不是回文数<br>4.通过 Reverse Integer 将整数反转，和原数进行比较，如果相等则为回文数，否则不是。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;x&lt;<span class="number">10</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x%<span class="number">10</span>==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> p=x;</div><div class="line">            <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span>(x)&#123;</div><div class="line">                res=res*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">                x/=<span class="number">10</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(p==res)<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
       
@@ -401,7 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
         </div>
       
@@ -507,7 +520,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -613,7 +626,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

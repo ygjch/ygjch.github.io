@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
+<meta name="description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs">
 <meta name="keywords" content="asp.net mvc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="asp.net mvc authority">
 <meta property="og:url" content="http://ygjch.github.io/2017/09/20/asp-net-mvc-authority/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
+<meta property="og:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-20T15:21:39.420Z">
+<meta property="og:updated_time" content="2018-01-14T20:44:56.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="asp.net mvc authority">
-<meta name="twitter:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs 1234567891011121314151617181920public class CheckLogin&amp;#123;	public readonly">
+<meta name="twitter:description" content="asp.net mvc Library project needs authority—————————  1.Create folder named Authority.  2.Create class named CheckLogin.cs">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -384,6 +395,7 @@
         <p>asp.net mvc Library project needs authority—————————</p>
 <p> 1.Create folder named <strong>Authority</strong>.</p>
 <p> 2.Create class named <strong>CheckLogin.cs</strong></p>
+<a id="more"></a>
 <pre><code><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class CheckLogin</div><div class="line">&#123;</div><div class="line">	public readonly static CheckLogin<span class="built_in"> Instance </span>= new CheckLogin();</div><div class="line"></div><div class="line">	public bool IsLogin;</div><div class="line"></div><div class="line">	public<span class="built_in"> User </span>GetUser()</div><div class="line">	&#123;</div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			return <span class="literal">null</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			FormsAuthenticationTicket Ticket = FormsAuthentication.Decrypt(authCookie.Value);</div><div class="line">			return JsonConvert.DeserializeObject&lt;User&gt;(Ticket.UserData);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </code></pre><p> 3.Create class named <strong>AuthAttribute.cs</strong>. In this class, we will override the method named <strong>OnActionExecuting()</strong>.</p>
 <pre><code><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthAttribute</span> : <span class="title">ActionFilterAttribute</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">public</span> <span class="keyword">string</span> Code &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnActionExecuting</span>(<span class="params">ActionExecutingContext filterContext</span>)</span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="comment">//如果不存在身份信息</span></div><div class="line">		HttpCookie authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];</div><div class="line">		<span class="keyword">if</span>(authCookie == <span class="literal">null</span>)</div><div class="line">		&#123;</div><div class="line">			ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">			Content.Content = <span class="keyword">string</span>.Format(<span class="string">"&lt;script type='text/javascript'&gt;alert('请先登录！');window.location.href='&#123;0&#125;';&lt;/script&gt;"</span>, FormsAuthentication.LoginUrl);</div><div class="line">			filterContext.Result = Content;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="comment">/* var Instance = CheckLogin.Instance;</span></div><div class="line"><span class="comment">			var user = Instance.GetUser();</span></div><div class="line"><span class="comment">			var Roles = user.Role;</span></div><div class="line"><span class="comment">			string[] Role = Roles.Split(','); */</span></div><div class="line">			<span class="keyword">string</span>[] Role = CheckLogin.Instance.GetUser().Role.Split(<span class="string">','</span>);<span class="comment">//获取所有角色</span></div><div class="line">			<span class="keyword">if</span> (!Role.Contains(Code))<span class="comment">//验证权限</span></div><div class="line">			&#123;</div><div class="line">				<span class="comment">//验证不通过</span></div><div class="line">				ContentResult Content = <span class="keyword">new</span> ContentResult();</div><div class="line">				Content.Content = <span class="string">"&lt;script type='text/javascript'&gt;alert('权限验证不通过！');history.go(-1);&lt;/script&gt;"</span>;</div><div class="line">				filterContext.Result = Content;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -408,7 +420,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/asp-net-mvc/" rel="tag"># asp.net mvc</a>
+            <a href="/tags/asp-net-mvc/" rel="tag"><i class="fa fa-tag"></i> asp.net mvc</a>
           
         </div>
       
@@ -505,7 +517,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -595,7 +607,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

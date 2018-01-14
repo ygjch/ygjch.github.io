@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的1234567891011InputStream in = Test.class.getResourceAsStream(&quot;/tt.txt">
+<meta name="description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="InputStream 的三个read的区别">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/30/InputStream-的三个read的区别/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的1234567891011InputStream in = Test.class.getResourceAsStream(&quot;/tt.txt">
+<meta property="og:description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-30T12:49:59.642Z">
+<meta property="og:updated_time" content="2018-01-14T20:50:47.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InputStream 的三个read的区别">
-<meta name="twitter:description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的1234567891011InputStream in = Test.class.getResourceAsStream(&quot;/tt.txt">
+<meta name="twitter:description" content="read  这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -384,13 +395,16 @@
         <ul>
 <li>read</li>
 </ul>
-<p>这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式<br>以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">InputStream in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">15</span>];<span class="comment">//测试用的事前知道有15个字节码</span></div><div class="line"><span class="built_in">while</span>(in.<span class="built_in">available</span>()!=<span class="number">0</span>)&#123;</div><div class="line"></div><div class="line"><span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">15</span>;i++)&#123;</div><div class="line">tt[i]=(<span class="keyword">byte</span>)in.<span class="built_in">read</span>();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">String</span> ttttt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line">System.out.<span class="built_in">println</span>(ttttt);</div><div class="line">in.<span class="built_in">close</span>();</div></pre></td></tr></table></figure></p>
+<p>这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式<br>以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的</p>
+<a id="more"></a>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">InputStream in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">15</span>];<span class="comment">//测试用的事前知道有15个字节码</span></div><div class="line"><span class="built_in">while</span>(in.<span class="built_in">available</span>()!=<span class="number">0</span>)&#123;</div><div class="line"></div><div class="line"><span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">15</span>;i++)&#123;</div><div class="line">tt[i]=(<span class="keyword">byte</span>)in.<span class="built_in">read</span>();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">String</span> ttttt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line">System.out.<span class="built_in">println</span>(ttttt);</div><div class="line">in.<span class="built_in">close</span>();</div></pre></td></tr></table></figure>
 <ul>
 <li>read(byte[] b)</li>
 </ul>
 <p>这个方法是先规定一个数组长度，将这个流中的字节缓冲到数组b中，返回的这个数组中的字节个数，这个缓冲区没有满的话，则返回真实的字节个数，到未尾时都返回-1<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span> [] tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line"><span class="keyword">int</span> b;</div><div class="line"><span class="built_in">while</span>((b=in.<span class="built_in">read</span>(tt))!=<span class="number">-1</span>)&#123;</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(b);</div><div class="line"><span class="keyword">String</span> tzt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(tzt);</div></pre></td></tr></table></figure></p>
 <ul>
-<li>read(byte[] b, int off, int len)<br>此方法其实就是多次调用了read()方法<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream <span class="keyword">in</span> = Test.<span class="keyword">class</span>.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="comment">//System.out.println(in.available());//此方法是返回这个流中有多少个字节数，可以把数组长度定为这个</span></div><div class="line"></div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="keyword">in</span>.available()];</div><div class="line"><span class="keyword">int</span> z;</div><div class="line"><span class="keyword">while</span>((z=<span class="keyword">in</span>.read(tt, <span class="number">0</span>, tt.length))!=-<span class="number">1</span>)&#123;</div><div class="line">System.<span class="keyword">out</span>.println(<span class="keyword">new</span> String(tt,<span class="string">"utf-8"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<li>read(byte[] b, int off, int len)<br>此方法其实就是多次调用了read()方法<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream <span class="keyword">in</span> = Test.<span class="keyword">class</span>.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="comment">//System.out.println(in.available());//此方法是返回这个流中有多少个字节数，可以把数组长度定为这个</span></div><div class="line"></div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="keyword">in</span>.available()];</div><div class="line"><span class="keyword">int</span> z;</div><div class="line"><span class="keyword">while</span>((z=<span class="keyword">in</span>.read(tt, <span class="number">0</span>, tt.length))!=-<span class="number">1</span>)&#123;</div><div class="line">System.<span class="keyword">out</span>.println(<span class="keyword">new</span> String(tt,<span class="string">"utf-8"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 
       
@@ -409,7 +423,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
         </div>
       
@@ -506,7 +520,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -596,7 +610,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

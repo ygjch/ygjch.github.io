@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -212,7 +222,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -222,7 +232,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -324,10 +334,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -342,9 +353,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -358,9 +369,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -490,10 +501,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -508,9 +520,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -524,9 +536,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -549,13 +561,15 @@
 
       
         
-          
-            <p><strong>遍历ArrayList，删除指定元素：</strong></p>
+          <p><strong>遍历ArrayList，删除指定元素：</strong></p>
 <figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">MatterTable.removeIf(matter -&gt; Integer.parseInt(matter.<span class="keyword">user</span>Id) == <span class="keyword">user</span>Id);</div></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">Iterator&lt;Matter&gt; </span><span class="keyword">iterator </span> = MatterTable.<span class="keyword">iterator();</span></div><div class="line"><span class="keyword">while(iterator.hasNext()) </span>&#123;</div><div class="line">    Matter matter = <span class="keyword">iterator.next();</span></div><div class="line"><span class="keyword"> </span>   <span class="meta">if</span>(matter == xxx) &#123;</div><div class="line">        matter.remove()<span class="comment">;</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/01/ArrayList-删除指定元素/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -657,10 +671,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -675,9 +690,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -691,9 +706,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -716,42 +731,18 @@
 
       
         
-          
-            <p>一：String.substring(int start)</p>
+          <p>一：String.substring(int start)</p>
 <p>参数：</p>
 <pre><code>start：要截取位置的索引
 </code></pre><p>返回：</p>
 <p>   从start开始到结束的字符串</p>
-<p>例如：String str = “hello word!”;<br>         System.out.println(str.substring(1));</p>
-<pre><code>System.out.println(str.substring(3));
-</code></pre><p>　　　System.out.println(str.substring(6));</p>
-<p>将得到结果为：</p>
-<pre><code>ello word!
-
-lo word!
-
-ord!
-</code></pre><p>如果start大于字符串的长度将会抛出越界异常；</p>
-<p>二：String.substring(int beginIndex, int endIndex)</p>
-<p>参数：</p>
-<p>　　beginIndex 开始位置索引</p>
-<pre><code>endIndex    结束位置索引
-</code></pre><p>返回：</p>
-<pre><code>从beginIndex位置到endIndex位置内的字符串
-</code></pre><p>例如：String str = “hello word!”;</p>
-<pre><code>System.out.println(str.substring(1,4));
-
-System.out.println(str.substring(3,5));
-</code></pre><p>　　　System.out.println(str.substring(0,4));</p>
-<p>将得到结果为：</p>
-<pre><code>ell
-
-lo
-
-hell
-</code></pre><p>如果startIndex和endIndex其中有越界的将会抛出越界异常。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/String-substring-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -853,10 +844,11 @@ hell
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -871,9 +863,9 @@ hell
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -887,9 +879,9 @@ hell
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -912,10 +904,14 @@ hell
 
       
         
-          
-            <p>int indexOf(int ch,int fromIndex)函数：就是字符ch在字串fromindex位后出现的第一个位置.没有找到返加-1</p>
-
-          
+          <p>int indexOf(int ch,int fromIndex)函数：就是字符ch在字串fromindex位后出现的第一个位置.没有找到返加-1</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/String-indexOf/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1017,10 +1013,11 @@ hell
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1035,9 +1032,9 @@ hell
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1051,9 +1048,9 @@ hell
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1076,20 +1073,17 @@ hell
 
       
         
-          
-            <ul>
+          <ul>
 <li>read</li>
 </ul>
-<p>这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式<br>以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">InputStream in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">15</span>];<span class="comment">//测试用的事前知道有15个字节码</span></div><div class="line"><span class="built_in">while</span>(in.<span class="built_in">available</span>()!=<span class="number">0</span>)&#123;</div><div class="line"></div><div class="line"><span class="built_in">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">15</span>;i++)&#123;</div><div class="line">tt[i]=(<span class="keyword">byte</span>)in.<span class="built_in">read</span>();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">String</span> ttttt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line">System.out.<span class="built_in">println</span>(ttttt);</div><div class="line">in.<span class="built_in">close</span>();</div></pre></td></tr></table></figure></p>
-<ul>
-<li>read(byte[] b)</li>
-</ul>
-<p>这个方法是先规定一个数组长度，将这个流中的字节缓冲到数组b中，返回的这个数组中的字节个数，这个缓冲区没有满的话，则返回真实的字节个数，到未尾时都返回-1<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">in = Test.class.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="keyword">byte</span> [] tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line"><span class="keyword">int</span> b;</div><div class="line"><span class="built_in">while</span>((b=in.<span class="built_in">read</span>(tt))!=<span class="number">-1</span>)&#123;</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(b);</div><div class="line"><span class="keyword">String</span> tzt=<span class="keyword">new</span> <span class="keyword">String</span>(tt,<span class="string">"utf-8"</span>);</div><div class="line"></div><div class="line">System.out.<span class="built_in">println</span>(tzt);</div></pre></td></tr></table></figure></p>
-<ul>
-<li>read(byte[] b, int off, int len)<br>此方法其实就是多次调用了read()方法<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">InputStream <span class="keyword">in</span> = Test.<span class="keyword">class</span>.getResourceAsStream(<span class="string">"/tt.txt"</span>);</div><div class="line"><span class="comment">//System.out.println(in.available());//此方法是返回这个流中有多少个字节数，可以把数组长度定为这个</span></div><div class="line"></div><div class="line"><span class="keyword">byte</span>[]tt=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="keyword">in</span>.available()];</div><div class="line"><span class="keyword">int</span> z;</div><div class="line"><span class="keyword">while</span>((z=<span class="keyword">in</span>.read(tt, <span class="number">0</span>, tt.length))!=-<span class="number">1</span>)&#123;</div><div class="line">System.<span class="keyword">out</span>.println(<span class="keyword">new</span> String(tt,<span class="string">"utf-8"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-
-          
+<p>这个方法是对这个流一个一个字节的读，返回的int就是这个字节的int表示方式<br>以下是代码片段，经过测试当eclipse的编码为gbk时，转化出的字符串不需经过重新编码，如果eclipse的编码为utf-8时则由byte转成字符串需重新编成utf-8的</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/InputStream-的三个read的区别/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1191,10 +1185,11 @@ hell
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1209,9 +1204,9 @@ hell
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1225,9 +1220,9 @@ hell
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1250,22 +1245,14 @@ hell
 
       
         
-          
-            <h4 id="ServerSocket类"><a href="#ServerSocket类" class="headerlink" title="ServerSocket类"></a>ServerSocket类</h4><p>创建一个ServerSocket类，同时在运行该语句的计算机的指定端口处建立一个监听服务。如:<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">ServerSocket MyListener</span> = new ServerSocket(600);</div></pre></td></tr></table></figure></p>
-<p>这里指定提供监听服务的端口是600，一台计算机可以同时提供多个服务，这些不同的服务之间通过端口号来区别，不同的端口号上提供不同的服务。为了随时监听可能的Client请求，执行如下语句：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Socket LinkSocket</span> = MyListener.accpet();</div></pre></td></tr></table></figure></p>
-<p>该语句调用了ServerSocket对象的accept()方法，这个方法的执行将使Server端的程序处于等待状态，程序将一直阻塞直到捕捉到一个来自Client端的请求，并返回一个用于与该Client通信的Socket对象LinkSocket。之后<strong>Server程序只要向这个Socket对象读写数据，就可以实现向远端的Client读写数据。</strong></p>
-<p>结束监听时，关闭ServerSocket对象：<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MyListener.close()<span class="comment">;</span></div></pre></td></tr></table></figure></p>
-<h4 id="Socket类"><a href="#Socket类" class="headerlink" title="Socket类"></a>Socket类</h4><p>当Client程序需要从Server端获取信息及其他服务时，应创建一个Socket对象：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Socket MySocket</span> = new Socket(<span class="string">"ServerComputerName"</span>, 600);</div></pre></td></tr></table></figure></p>
-<p>Socket类的构造函数有两个参数，第一个参数是<strong>欲连接到的Server计算机的主机地址</strong>，第二个参数是<strong>该Server机上提供服务的端口号</strong>。</p>
-<p>Socket对象建立成功后，就可以在Client和Server之间建立一个连接，并通过这个连接在两个端点之间传递数据。利用Socket类的方法<strong>getOutputStream() 和 getInputStream()</strong> 分别获得向Socket读写数据的输入/输出流，最后将从Server端读取的数据重新返还到Server端。</p>
-<p>当Server端和Client端的通信结束时，可以调用Socket类的close()方法关闭Socket，拆除连接。</p>
-<p><strong>ServerSocket 一般仅用于设置端口号和监听，真正进行通信的是服务器端的Socket与客户端的Socket，在ServerSocket进行accpet后，就将主动权转让了。</strong></p>
-<h4 id="服务器端程序设计"><a href="#服务器端程序设计" class="headerlink" title="服务器端程序设计"></a>服务器端程序设计</h4><p>在服务器端，利用ServerSocket类的构造函数ServerSocket(int port)创建一个ServerSocket类的对象，port参数传递端口，这个端口就是服务器监听连接请求的端口，如果在这时出现错误将抛出IOException异常对象，否则将创建ServerSocket对象并开始准备接收连接请求。</p>
-<p>服务程序从调用ServerSocket的accept()方法开始，直到连接建立。在建立连接后，accept()返回一个创建的Socket对象，该Socket对象绑定了客户端的IP地址或端口号。</p>
-<h4 id="客户端程序设计"><a href="#客户端程序设计" class="headerlink" title="客户端程序设计"></a>客户端程序设计</h4><p>当客户端程序需要与服务器端程序通信时，需要在客户机创建一个Socket对象。Socket类有构造函数Socket(InetAddress addr, int port) 和 Socket(String host, int port)，两个构造函数都创建了一个基于Socket的连接服务器端流套接字的流套接字。对于第一个InetAddress子类对象通过addr参数获得服务器主机的IP地址，对于第二个函数host参数包被分配到InetAddress对象中，如果没有IP地址与host参数相一致，那么将抛出UnknownHostException异常对象。两个函数都通过参数port获得服务器的端口号。假设已经建立连接了，网络API将在客户端基于Socket的流套接字中捆绑客户端程序的IP地址和任意一个端口号，否则两个函数都会抛出一个IOException对象。</p>
-<p>如果创建了一个Socket对象，那么它可通过getInputStream()方法从服务端程序获得输入流读传来的消息，也可通过调用getOutputStream()方法获得输出流来发送消息。在读写活动完成之后，客户端程序调用close()方法关闭流和流套接字。</p>
-
-          
+          <h4 id="ServerSocket类"><a href="#ServerSocket类" class="headerlink" title="ServerSocket类"></a>ServerSocket类</h4><p>创建一个ServerSocket类，同时在运行该语句的计算机的指定端口处建立一个监听服务。如:<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">ServerSocket MyListener</span> = new ServerSocket(600);</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/30/socket-和-serversocket/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1367,10 +1354,11 @@ hell
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1385,9 +1373,9 @@ hell
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1401,9 +1389,9 @@ hell
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1426,13 +1414,14 @@ hell
 
       
         
-          
-            <h3 id="使用-jquery-form-js-实现文件上传"><a href="#使用-jquery-form-js-实现文件上传" class="headerlink" title="使用 jquery.form.js 实现文件上传"></a>使用 jquery.form.js 实现文件上传</h3><h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">    ViewBag.Title = "Upload";</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">id</span>=<span class="string">"upload"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"fileupload"</span> <span class="attr">name</span>=<span class="string">"Upload"</span> /&gt;</span></div><div class="line">    @* button 而不是 submit *@</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"上传"</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">    $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">        $(<span class="string">"#upload"</span>).ajaxSubmit(&#123;</span></div><div class="line"><span class="actionscript">            url: <span class="string">"/Doc/UploadDoc"</span>,</span></div><div class="line"><span class="actionscript">            type: <span class="string">"post"</span>,</span></div><div class="line"><span class="actionscript">            success: <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(data);</span></div><div class="line"><span class="undefined">            &#125;,</span></div><div class="line"><span class="actionscript">            error: <span class="function"><span class="keyword">function</span> <span class="params">(aa)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(aa);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">        &#125;);</span></div><div class="line"><span class="undefined">    &#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong>.ajaxSubmit</strong> 是 <strong>jquery.form.js</strong> 里的方法。ajaxSubmit 中的 url 参数中使用 Controller 中的方法，上面代码在提交<br>表单调用的方法是 DocController 中 UploadDoc 方法。</p>
-<h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DocController</span> : <span class="title">Controller</span></div><div class="line">&#123;</div><div class="line">    [<span class="meta">HttpPost</span>]</div><div class="line">    <span class="function"><span class="keyword">public</span> JsonResult <span class="title">UploadFile</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        HttpPostFileBase file = Request.Files[<span class="number">0</span>];</div><div class="line">        <span class="keyword">if</span>(file != <span class="literal">null</span>) &#123;</div><div class="line">            <span class="keyword">string</span> fileName = Path.GetFileName(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileExt = Path.GetExtension(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileSaveDir = server.MapPath(<span class="string">"~/upload"</span>);</div><div class="line">            <span class="keyword">if</span>(!Directory.Exists(fileSaveDir))</div><div class="line">            &#123;</div><div class="line">                Directory.CreateDirectory(fileSaveDir);</div><div class="line">            &#125;</div><div class="line">            file.SaveAs(Path.Combine(fileSaveDir, fileName));</div><div class="line"></div><div class="line">            <span class="comment">// 如果表单有其他项，在此处写提交逻辑</span></div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">            &#123;</div><div class="line">                Data = <span class="keyword">new</span></div><div class="line">                &#123;</div><div class="line">                    _code = <span class="number">200</span>,</div><div class="line">                    _msg = <span class="string">"上传成功"</span>,</div><div class="line">                    _data = <span class="keyword">new</span></div><div class="line">                    &#123;</div><div class="line">                        _url = <span class="string">"/upload/"</span> + fileNewName,</div><div class="line">                        _oldName = fileName</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">        &#123;</div><div class="line">            Data = <span class="keyword">new</span></div><div class="line">            &#123;</div><div class="line">                _code = <span class="number">200</span>,</div><div class="line">                _msg = <span class="string">"上传失败"</span></div><div class="line">            &#125;,</div><div class="line">            JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="jquery-form-js-下载地址"><a href="#jquery-form-js-下载地址" class="headerlink" title="jquery.form.js 下载地址"></a>jquery.form.js 下载地址</h3><p><a href="https://malsup.github.io/jquery.form.js" target="_blank" rel="external">https://malsup.github.io/jquery.form.js</a></p>
-
-          
+          <h3 id="使用-jquery-form-js-实现文件上传"><a href="#使用-jquery-form-js-实现文件上传" class="headerlink" title="使用 jquery.form.js 实现文件上传"></a>使用 jquery.form.js 实现文件上传</h3><h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/19/jquery-form-js-实现文件上传/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1534,10 +1523,11 @@ hell
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1552,9 +1542,9 @@ hell
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1568,9 +1558,9 @@ hell
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1593,16 +1583,16 @@ hell
 
       
         
-          
-            <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一数组，求连续元素之和的最大值。</p>
+          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一数组，求连续元素之和的最大值。</p>
 <p><strong>input:</strong><br>[-2 1 3 4 -1 2 1 -5 4]</p>
 <p><strong>output:</strong><br>6</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>动态规划</p>
-<p>上面样例当 [4 -1 2 1] 连续元素和的值最大。</p>
-<p>dp[i] = max(nums[i], dp[i-1] + nums[i])</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; dp;</div><div class="line">        dp.push_back(nums[<span class="number">0</span>]);</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(!nums.size()) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            dp[i] = max(nums[i], dp[i<span class="number">-1</span>] + nums[i]);</div><div class="line">            dp.push_back(dp[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> maxium = dp[<span class="number">0</span>];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dp.size(); i++) &#123;</div><div class="line">            <span class="keyword">if</span>(dp[i] &gt; maxium) &#123;</div><div class="line">                maxium = dp[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> maxium;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/19/53-Maximum-Subarray-ac-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1704,10 +1694,11 @@ hell
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1722,9 +1713,9 @@ hell
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1738,9 +1729,9 @@ hell
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1763,17 +1754,15 @@ hell
 
       
         
-          
-            <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。</p>
+          <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>给定一个数组，数组中包含着若干个0，要求在保证非0元素在vector中先后顺序不变的情况下，将数组里面所有的0移动到最后。</p>
 <p>非0元素移动到前面。</p>
-<p><strong>约束：</strong> </p>
-<p>要求在一个vector内操作，不能新建数组。并要求尽可能少的操作步骤。</p>
-<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><p>开始想的是从数组最后开始遍历，把0通过冒泡的方式逐一冒泡到数组的最后。这种方法很暴力。</p>
-<p>一种比较高效的方法是<strong>模拟队列</strong>。</p>
-<p>依次遍历数组，把元素0计数。如果当前队列nums.front()为0，则cnt++。 如果不为0，就把当前元素nums.front() push_back队列尾。</p>
-<p>执行完把首元素从队列删掉 nums.erase(nums.begin()) <strong>注意： erase()方法内的参数为当前元素的地址而不是值！</strong></p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> len = nums.size();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">            <span class="keyword">if</span>(!nums.front()) &#123;</div><div class="line">                cnt++;</div><div class="line">                nums.erase(nums.begin());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                nums.push_back(nums.front());</div><div class="line">                nums.erase(nums.begin());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cnt; i++) &#123;</div><div class="line">            nums.push_back(<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/12/283-Move-Zeroes-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1875,10 +1864,11 @@ hell
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1893,9 +1883,9 @@ hell
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1909,9 +1899,9 @@ hell
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1934,14 +1924,15 @@ hell
 
       
         
-          
-            <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。</p>
+          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。</p>
 <p>要求在O(n)复杂度内解决此题</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>使用最小堆Heap找到第三大的元素。</p>
-<p>先将数组放入map中，用来统计每一个元素在数组中出现的次数，只需要把数组中不同的元素压入堆中。</p>
-<p>pop() 两次，如果当前堆为空，说明不存在第三大的元素。如果不为空，当前堆顶元素即为第三大元素。</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">thirdMax</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</div><div class="line">        priority_queue&lt;<span class="keyword">int</span>&gt; heap;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            mp[nums[i]]++;</div><div class="line">            <span class="keyword">if</span>(mp[nums[i]] == <span class="number">1</span>) heap.push(nums[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> maxium = heap.top();</div><div class="line">        heap.pop();</div><div class="line">        heap.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(heap.empty()) <span class="keyword">return</span> maxium;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> heap.top();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/12/414-Third-Maximum-Number-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2029,7 +2020,7 @@ hell
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2119,7 +2110,7 @@ hell
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

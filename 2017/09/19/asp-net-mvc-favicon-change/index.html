@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.Because browser doesn’t cache favicon. Solution:  In _layout.cshtml, you can chan">
+<meta name="description" content="When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.Because browser doesn’t cache favicon.">
 <meta name="keywords" content="asp.net mvc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="asp.net mvc favicon change">
 <meta property="og:url" content="http://ygjch.github.io/2017/09/19/asp-net-mvc-favicon-change/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.Because browser doesn’t cache favicon. Solution:  In _layout.cshtml, you can chan">
+<meta property="og:description" content="When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.Because browser doesn’t cache favicon.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-19T06:47:11.746Z">
+<meta property="og:updated_time" content="2018-01-14T20:45:48.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="asp.net mvc favicon change">
-<meta name="twitter:description" content="When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.Because browser doesn’t cache favicon. Solution:  In _layout.cshtml, you can chan">
+<meta name="twitter:description" content="When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.Because browser doesn’t cache favicon.">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -382,6 +393,7 @@
 
       
         <p>When I change website’s favicon, I find that it doesn’t work. After cleaning the browser’s cache, it also doesn’t work.<br>Because browser doesn’t cache favicon.</p>
+<a id="more"></a>
 <p>Solution: </p>
 <p>In _layout.cshtml, you can change the url of favicon. Like this:</p>
 <pre><code>&lt;link href=&quot;~/favicon.ico?v=2&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;
@@ -403,7 +415,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/asp-net-mvc/" rel="tag"># asp.net mvc</a>
+            <a href="/tags/asp-net-mvc/" rel="tag"><i class="fa fa-tag"></i> asp.net mvc</a>
           
         </div>
       
@@ -500,7 +512,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +602,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索（通过 int dx[], int dy[]） 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索目标元素的索引进行判断：（索引）nx = i + dx">
+<meta name="description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 |">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="661. Image Smoother 题解">
 <meta property="og:url" content="http://ygjch.github.io/2017/11/08/661-Image-Smoother-题解/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索（通过 int dx[], int dy[]） 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索目标元素的索引进行判断：（索引）nx = i + dx">
+<meta property="og:description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 |">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-08T10:24:17.251Z">
+<meta property="og:updated_time" content="2018-01-14T20:42:36.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="661. Image Smoother 题解">
-<meta name="twitter:description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 | 题解每个元素周围都有8个方向，算上自身为9个方向。 向9个方向搜索（通过 int dx[], int dy[]） 对每个元素都要在9个方向遍历下 dx,dy 。 对搜索目标元素的索引进行判断：（索引）nx = i + dx">
+<meta name="twitter:description" content="题意二维数组每一个值为周围元素求和的平均值。 | 1 1 1 || 1 0 1 || 1 1 1 | output :  | 0 0 0 || 0 0 0 || 0 0 0 |">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -385,6 +396,7 @@
 <p>| 1 1 1 |<br>| 1 0 1 |<br>| 1 1 1 |</p>
 <p>output : </p>
 <p>| 0 0 0 |<br>| 0 0 0 |<br>| 0 0 0 |</p>
+<a id="more"></a>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>每个元素周围都有8个方向，算上自身为9个方向。</p>
 <p>向9个方向搜索（通过 int dx[], int dy[]）</p>
 <p>对每个元素都要在9个方向遍历下 <strong>dx,dy </strong>。</p>
@@ -410,7 +422,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
           
         </div>
       
@@ -516,7 +528,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +634,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

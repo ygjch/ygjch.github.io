@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -212,7 +222,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -222,7 +232,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -324,10 +334,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -342,9 +353,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -358,9 +369,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -383,16 +394,16 @@
 
       
         
-          
-            <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一给定数组，问数组中有多少组数对(i, j) 保证i,j两个数的绝对差值为k。每组数对只计数一次。</p>
+          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一给定数组，问数组中有多少组数对(i, j) 保证i,j两个数的绝对差值为k。每组数对只计数一次。</p>
 <p>如[1 3 4 5] , k=2</p>
 <p>数对为(1, 3) (3, 5) , cnt=2</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>两个循环暴力求数对数会TLE。</p>
-<p>使用 map O(lgn)。将数组元素存入map中，遍历一次数组，对每一个元素nums[i] + k 判断map中是否存在这个数。</p>
-<p>特判当k=0的情况，如果判断map[nums[i]+k]&gt;0，[1 3 4 5] output=4,每个元素map值均大于0。所以当k=0时，使用<br>map[nums[i]+k]&gt;1 来判断。</p>
-<p>整体复杂度为O(nlgn)</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findPairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span>(k &lt; <span class="number">0</span> || nums.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp, mp1;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            mp[nums[i]]++;</div><div class="line">            mp1[nums[i]]++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">            <span class="keyword">if</span>(k != <span class="number">0</span> &amp;&amp; mp[nums[i] + k] &gt; <span class="number">0</span> &amp;&amp; mp1[nums[i] + k] == mp[nums[i] + k]) &#123;</div><div class="line">                cnt++;</div><div class="line">                mp[nums[i] + k]--;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(k == <span class="number">0</span> &amp;&amp; mp[nums[i] + k] &gt; <span class="number">1</span> &amp;&amp; mp1[nums[i] + k] == mp[nums[i] + k]) &#123;</div><div class="line">                cnt++;</div><div class="line">                mp[nums[i] + k]--;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> cnt;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/12/532-K-diff-Pairs-in-an-Array-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -494,10 +505,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -512,9 +524,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -528,9 +540,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -553,9 +565,14 @@
 
       
         
-          
-            <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">'r'</span>) <span class="keyword">as</span> <span class="built_in">file</span>:</div><div class="line">	<span class="keyword">while</span> True:</div><div class="line">		<span class="built_in">line</span> = <span class="built_in">file</span>.readline()</div><div class="line">		<span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">line</span>:</div><div class="line">			break</div></pre></td></tr></table></figure>
-          
+          <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filename,<span class="string">'r'</span>) <span class="keyword">as</span> <span class="built_in">file</span>:</div><div class="line">	<span class="keyword">while</span> True:</div><div class="line">		<span class="built_in">line</span> = <span class="built_in">file</span>.readline()</div><div class="line">		<span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">line</span>:</div><div class="line">			break</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/10/python-逐行读取数据/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -657,10 +674,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -675,9 +693,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -691,9 +709,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -716,10 +734,14 @@
 
       
         
-          
-            <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> wave</div><div class="line"><span class="keyword">from</span> pyaudio <span class="keyword">import</span> PyAudio,paInt16</div><div class="line"><span class="keyword">from</span> aip <span class="keyword">import</span> AipSpeech</div><div class="line"></div><div class="line">APP_ID = <span class="string">'your app_id'</span></div><div class="line">API_KEY = <span class="string">'your api_key'</span></div><div class="line">SECRET_KEY = <span class="string">'your secret_key'</span></div><div class="line"></div><div class="line">aipSpeech = AipSpeech(APP_ID,API_KEY,SECRET_KEY)</div><div class="line"></div><div class="line">framerate = <span class="number">8000</span></div><div class="line">NUM_SAMPLES = <span class="number">2000</span></div><div class="line">channels = <span class="number">1</span></div><div class="line">sampwidth = <span class="number">2</span></div><div class="line">TIME = <span class="number">2</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_wave_file</span><span class="params">(filename,data)</span>:</span></div><div class="line">    wf = wave.open(filename,<span class="string">'wb'</span>)</div><div class="line">    wf.setnchannels(channels)</div><div class="line">    wf.setsampwidth(sampwidth)</div><div class="line">    wf.setframerate(framerate)</div><div class="line">    wf.writeframes(<span class="string">b""</span>.join(data))</div><div class="line">    wf.close()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_wave</span><span class="params">()</span>:</span></div><div class="line">    pa = PyAudio()</div><div class="line">    stream = pa.open(format = paInt16,channels = <span class="number">1</span>,</div><div class="line">                     rate = framerate, input = <span class="keyword">True</span>,</div><div class="line">                     frames_per_buffer = NUM_SAMPLES)</div><div class="line">    my_buff = []</div><div class="line">    count = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> count &lt; TIME*<span class="number">10</span>:</div><div class="line">        string_audio_data = stream.read(NUM_SAMPLES)</div><div class="line">        my_buff.append(string_audio_data)</div><div class="line">        count+=<span class="number">1</span></div><div class="line">        print(<span class="string">'.'</span>)</div><div class="line">    save_wave_file(<span class="string">'01.wav'</span>,my_buff)</div><div class="line">    stream.close()</div><div class="line"></div><div class="line">chunk = <span class="number">2014</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">()</span>:</span></div><div class="line">    wf = wave.open(<span class="string">r"01.wav"</span>,<span class="string">'rb'</span>)</div><div class="line">    p = PyAudio()</div><div class="line">    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),channels=</div><div class="line">    wf.getnchannels(),rate=wf.getframerate(),output=<span class="keyword">True</span>)</div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        data = wf.readframes(chunk)</div><div class="line">        <span class="keyword">if</span> data == <span class="string">""</span>: <span class="keyword">break</span></div><div class="line">        stream.write(data)</div><div class="line">    stream.close()</div><div class="line">    p.terminate()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_content</span><span class="params">(filepath)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(filepath,<span class="string">'rb'</span>) <span class="keyword">as</span> fp:</div><div class="line">        <span class="keyword">return</span> fp.read()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">regorinize_voice</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> aipSpeech.asr(get_file_content(<span class="string">'2.wav'</span>),<span class="string">'pcm'</span>,<span class="number">16000</span>, &#123;</div><div class="line">        <span class="string">'lan'</span>: <span class="string">'zh'</span>,</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    record_wave()</div><div class="line">    print(<span class="string">'over!!!'</span>)</div><div class="line">    play()</div><div class="line">    print(regorinize_voice())</div></pre></td></tr></table></figure>
-
-          
+          <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/10/语音录制并识别/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -821,10 +843,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -839,9 +862,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -855,9 +878,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -880,13 +903,14 @@
 
       
         
-          
-            <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一二维数组，问能否用r*c维数组装下此数组。 保证此数组的数据遍历顺序不改变。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>r * c 为目标数组数据的个数， 当目标数组需要的数据个数和给定数组提供数据的个数相等时，对给定数组进行遍历，获得结果。</p>
-<p>当两个数组的数据个数不相等时， 就返回原给定数组 vector<int> nums</int></p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; matrixReshape(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; nums, <span class="keyword">int</span> r, <span class="keyword">int</span> c) &#123;</div><div class="line">        <span class="keyword">int</span> need = r * c;</div><div class="line">        <span class="keyword">int</span> have = nums.size() * nums[<span class="number">0</span>].size();</div><div class="line">        <span class="keyword">int</span> k = <span class="number">0</span>, p = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;</div><div class="line">        <span class="keyword">if</span>(have != need) <span class="keyword">return</span> nums;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums[<span class="number">0</span>].size(); j++) &#123;</div><div class="line">                    temp.push_back(nums[i][j]);</div><div class="line">                    cnt++;</div><div class="line">                    <span class="keyword">if</span>(cnt == c) &#123;</div><div class="line">                        ans.push_back(temp);</div><div class="line">                        temp.clear();</div><div class="line">                        cnt = <span class="number">0</span>;</div><div class="line">                    &#125; </div><div class="line">                    p++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> ans;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
+          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一二维数组，问能否用r*c维数组装下此数组。 保证此数组的数据遍历顺序不改变。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/10/566-Reshape-the-Matrix-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -988,10 +1012,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1006,9 +1031,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1022,9 +1047,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1047,16 +1072,16 @@
 
       
         
-          
-            <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。 </p>
+          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。 </p>
 <p>给定一数字 n， 问能否在该花坛中栽 n 株花。</p>
 <p>栽花需要符合 <strong>相邻位置不栽花</strong> 的原则。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>从 0 位置开始遍历， 直到最后一位。 在当前位置满足 <strong>前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1</strong>，并且栽花数 cnt++。</p>
-<p>要对 首位和最后一位进行特判：</p>
-<p>首位为0， 第二位为0， 首位种花 flower[0] = 1, cnt++</p>
-<p>末位为0， 倒数第二位为0， 最后一位种花 flower[flower.size()-2] = 1, cnt++</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; flowerbed, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; flowerbed.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; i != flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span></div><div class="line">				&amp;&amp; flowerbed[i] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i == flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(cnt &gt;= n) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/09/605-Can-Place-Flowers-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1158,10 +1183,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1176,9 +1202,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1192,9 +1218,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1217,23 +1243,16 @@
 
       
         
-          
-            <p>Windows 上 Python2 和 3 如何兼容？</p>
+          <p>Windows 上 Python2 和 3 如何兼容？</p>
 <p>目前国内网站经常会让大家把其中一个python.exe改个名字。（之前我就是这样搞的，但是这个是错误做法！！！</p>
 <p>这样区分两个可执行文件的名字，但是这样做有一个重大的隐患，就是修改了名字的 python 对应的 pip 将无法使用。</p>
-<p><strong>官方的做法：</strong></p>
-<p>在安装 python3（&gt;= 3.3）的时候，python 的安装包在系统中安装了一个启动器 py.exe，默认放置在文件夹 C:\Windows\<br>下面。 这个启动器允许我们指定使用 python2 还是 python3 来运行代码。</p>
-<p>前提是已经成功安装了 python2 和 python3。 </p>
-<p>但是， 为什么我安装了 python2 和 python3， 使用 <strong>py -2</strong> 和 <strong>py -3</strong> 两个命令还是会报错。</p>
-<p><strong>Requested Python version (2) not installed</strong>。</p>
-<p>我的错误原因是之前安装过 python，安装的位置不同，导致<strong>注册表</strong>内的信息是错误的。</p>
-<p><strong>解决方法</strong>：</p>
-<p>打开注册表<strong>regedit</strong>， HKEY_LOCAL_MACHINE|HKEY_CURRENT_USER\SOFTWARE\xxx 这两个位置下面的python， 查看下python<br>的路径，发现路径是错的。 将路径改成当前的 python 路径。</p>
-<p>改完之后尝试执行 py -2 和 py -3 两个命令， 发现 py -3 可以正常执行了， 但是 <strong>py -2</strong> 还是无法执行，仍<br>报刚刚的错误。</p>
-<p><strong>这种情况说明是先安装的 python2 后安装的 python3</strong>。 那就找到 python2 的安装包把 python2 重新安装下或者修复<br>一下。</p>
-<p>解决链接： <a href="https://stackoverflow.com/questions/27503003/py-launcher-does-not-find-my-python-2-7" target="_blank" rel="external">https://stackoverflow.com/questions/27503003/py-launcher-does-not-find-my-python-2-7</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/09/py-2-报错：-Requested-Python-version-2-not-installed/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1335,10 +1354,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1353,9 +1373,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1369,9 +1389,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1394,21 +1414,17 @@
 
       
         
-          
-            <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>二维数组每一个值为周围元素求和的平均值。</p>
+          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>二维数组每一个值为周围元素求和的平均值。</p>
 <p>| 1 1 1 |<br>| 1 0 1 |<br>| 1 1 1 |</p>
 <p>output : </p>
 <p>| 0 0 0 |<br>| 0 0 0 |<br>| 0 0 0 |</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>每个元素周围都有8个方向，算上自身为9个方向。</p>
-<p>向9个方向搜索（通过 int dx[], int dy[]）</p>
-<p>对每个元素都要在9个方向遍历下 <strong>dx,dy </strong>。</p>
-<p>对搜索目标元素的索引进行判断：<br><strong>（索引）</strong><br>nx = i + dx[k]<br>ny = j + dy[k]</p>
-<p>bool judge()  函数 judge(nx,ny) 判断元素是否合法（在边界之内）。如果合法 <strong>cnt++</strong> （累加出该元素是由<br>周围几个元素所求</p>
-<p>num+=M[nx][ny]</p>
-<p>res = num/cnt 即为该元素最后的值 </p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> n, <span class="keyword">int</span> m)</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">if</span>(x &lt; <span class="number">0</span> || y &lt; <span class="number">0</span> || x &gt;= n || y &gt;= m) </div><div class="line">			<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; imageSmoother(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; M) &#123;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> dx[] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</div><div class="line">		<span class="keyword">int</span> dy[] = &#123;<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>&#125;;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> n = M.size();</div><div class="line">		<span class="keyword">int</span> m = M[<span class="number">0</span>].size();</div><div class="line">		</div><div class="line">		<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;	</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</div><div class="line">		&#123;</div><div class="line">			<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">				<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">9</span>; k++)</div><div class="line">				&#123;</div><div class="line">					<span class="keyword">int</span> nx = i + dx[k];</div><div class="line">					<span class="keyword">int</span> ny = j + dy[k];</div><div class="line">					</div><div class="line">					<span class="keyword">if</span>(judge(nx, ny, n, m))</div><div class="line">					&#123;</div><div class="line">						num += M[nx][ny];</div><div class="line">						cnt++;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				temp.push_back(num/cnt);</div><div class="line">			&#125;</div><div class="line">			ans.push_back(temp);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/08/661-Image-Smoother-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1510,10 +1526,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1528,9 +1545,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1544,9 +1561,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1674,10 +1691,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1692,9 +1710,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1708,9 +1726,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1733,15 +1751,15 @@
 
       
         
-          
-            <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>求一给定数组的最大自增子序列的长度。</p>
+          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>求一给定数组的最大自增子序列的长度。</p>
 <p>[1 3 5 4 7] 长度： 3</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>用一数组<strong>leng[]</strong>标记给定数组<strong>nums[]</strong>的每一位置为子序列自增结束点的序列长度。</p>
-<p>初始化 <strong>leng[]</strong> 的每一位置的值为 1， 如果当前位置大于前一位置的值， 下一位置的 <strong>leng[i] = leng[i-1] + 1</strong></p>
-<p>并且在循环过程中 用一变量 <strong>maxium</strong> 来记录当前最大的子序列长度。</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findLengthOfLCIS</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</div><div class="line">		</div><div class="line">		<span class="keyword">if</span>(nums.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="comment">// 存储当前位置结束的最大子序列长度</span></div><div class="line">		<span class="keyword">int</span> leng[<span class="number">10001</span>];</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) leng[i] = <span class="number">1</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> maxium = <span class="number">1</span>;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(nums[i] &gt; nums[i<span class="number">-1</span>]) leng[i] = leng[i<span class="number">-1</span>] + <span class="number">1</span>;</div><div class="line">			<span class="keyword">if</span>(leng[i] &gt; maxium) maxium = leng[i];</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> maxium;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/07/674-Longest-Continuous-Increasing-Subsequence-题解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1843,10 +1861,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -1861,9 +1880,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -1877,9 +1896,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -1902,14 +1921,17 @@
 
       
         
-          
-            <p>在图像右上角添加文字内容。</p>
+          <p>在图像右上角添加文字内容。</p>
 <p>示例图如下：</p>
 <p><img src="/img/touxiang.jpg" width="500px" height="500px"></p>
 <p><img src="/img/result.jpg" width="500px" height="500px"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">from PIL <span class="keyword">import</span> ImageDraw, ImageFont, ImageColor, Image</div><div class="line"></div><div class="line"></div><div class="line">def add_num(img):</div><div class="line">    # 创建 <span class="title">draw</span> 对象</div><div class="line">    <span class="title">draw</span> = ImageDraw.Draw(img)</div><div class="line"></div><div class="line">    # 创建字体</div><div class="line">    myfont = ImageFont.truetype(<span class="string">'C:/windows/fonts/Arial.ttf'</span>, <span class="built_in">size</span>=<span class="number">60</span>)</div><div class="line">    fillcolor = ImageColor.colormap.<span class="built_in">get</span>(<span class="string">'red'</span>)</div><div class="line">    <span class="built_in">width</span>, <span class="built_in">height</span> = img.<span class="built_in">size</span></div><div class="line">    <span class="title">draw</span>.<span class="built_in">text</span>((<span class="built_in">width</span><span class="number">-120</span>,<span class="number">0</span>), <span class="string">'99+'</span>, <span class="built_in">fill</span>=fillcolor, font=myfont)</div><div class="line">    img.<span class="built_in">save</span>(<span class="string">'result.jpg'</span>, <span class="string">'jpeg'</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="built_in">image</span> = Image.<span class="built_in">open</span>(<span class="string">'touxiang.jpg'</span>)</div><div class="line">    add_num(<span class="built_in">image</span>)eight=<span class="string">"1500px"</span>&gt;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/07/在图像右上角添加文字内容-pillow应用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1997,7 +2019,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2087,7 +2109,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 

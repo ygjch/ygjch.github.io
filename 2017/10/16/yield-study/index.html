@@ -12,6 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
   
@@ -86,18 +96,18 @@
 
 
 
-<meta name="description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。 如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必创建完整的list，从而节省">
+<meta name="description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yield study">
 <meta property="og:url" content="http://ygjch.github.io/2017/10/16/yield-study/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。 如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必创建完整的list，从而节省">
+<meta property="og:description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-16T09:17:15.186Z">
+<meta property="og:updated_time" content="2018-01-14T20:57:36.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yield study">
-<meta name="twitter:description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。 如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必创建完整的list，从而节省">
+<meta name="twitter:description" content="廖雪峰网站python学习笔记generator 介绍 （通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。">
 
 
 
@@ -213,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            关于
+            关于我
           </a>
         </li>
       
@@ -223,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            文章
           </a>
         </li>
       
@@ -323,10 +333,11 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
+             <span>℃</span>
           
 
           
@@ -341,9 +352,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
+                <span title="Words count in article">
                   
                 </span>
               
@@ -357,9 +368,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
+                <span title="Reading time">
                   
                 </span>
               
@@ -382,6 +393,7 @@
 
       
         <h2 id="廖雪峰网站python学习笔记"><a href="#廖雪峰网站python学习笔记" class="headerlink" title="廖雪峰网站python学习笔记"></a>廖雪峰网站python学习笔记</h2><h3 id="generator-介绍-（"><a href="#generator-介绍-（" class="headerlink" title="generator 介绍 （"></a>generator 介绍 （</h3><p>通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。<br>而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面<br>几个元素，那后面绝大多数元素占用的空间都白白浪费了。</p>
+<a id="more"></a>
 <p>如果列表元素可以按照某种算法推算出来，可以在循环过程中不断推算出后续的元素。 这样就不必<br>创建完整的list，从而节省大量的空间。</p>
 <p><strong>在 python 中一边循环一边计算的机制称为 生成器 generator</strong></p>
 <h4 id="创建-generator-的方法"><a href="#创建-generator-的方法" class="headerlink" title="创建 generator 的方法"></a>创建 generator 的方法</h4><ol>
@@ -412,7 +424,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
         </div>
       
@@ -518,7 +530,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -624,7 +636,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-star"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ariescc</span>
 
