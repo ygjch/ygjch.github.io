@@ -208,7 +208,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -218,7 +218,7 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -228,7 +228,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -238,7 +238,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
@@ -265,6 +265,176 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ygjch.github.io/2018/01/01/判断日期-正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ariescc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一缕微光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/01/判断日期-正则表达式/" itemprop="url">判断日期 正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T17:45:42+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/01/判断日期-正则表达式/" class="leancloud_visitors" data-flag-title="判断日期 正则表达式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+             <span>℃</span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>java 判断日期的正则表达式：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public boolean isDate(String date)</div><div class="line">        &#123;</div><div class="line">            /**</div><div class="line">             * 判断日期格式和范围</div><div class="line">             */</div><div class="line">            String rexp = <span class="string">"^((\\d&#123;2&#125;((<span class="subst">[02468]</span><span class="subst">[048]</span>)|(<span class="subst">[13579]</span><span class="subst">[26]</span>))<span class="subst">[\\-\\/\\s]</span>?((((0?<span class="subst">[13578]</span>)|(1<span class="subst">[02]</span>))<span class="subst">[\\-\\/\\s]</span>?((0?<span class="subst">[1-9]</span>)|(<span class="subst">[1-2]</span><span class="subst">[0-9]</span>)|(3<span class="subst">[01]</span>)))|(((0?<span class="subst">[469]</span>)|(11))<span class="subst">[\\-\\/\\s]</span>?((0?<span class="subst">[1-9]</span>)|(<span class="subst">[1-2]</span><span class="subst">[0-9]</span>)|(30)))|(0?2<span class="subst">[\\-\\/\\s]</span>?((0?<span class="subst">[1-9]</span>)|(<span class="subst">[1-2]</span><span class="subst">[0-9]</span>)))))|(\\d&#123;2&#125;((<span class="subst">[02468]</span><span class="subst">[1235679]</span>)|(<span class="subst">[13579]</span><span class="subst">[01345789]</span>))<span class="subst">[\\-\\/\\s]</span>?((((0?<span class="subst">[13578]</span>)|(1<span class="subst">[02]</span>))<span class="subst">[\\-\\/\\s]</span>?((0?<span class="subst">[1-9]</span>)|(<span class="subst">[1-2]</span><span class="subst">[0-9]</span>)|(3<span class="subst">[01]</span>)))|(((0?<span class="subst">[469]</span>)|(11))<span class="subst">[\\-\\/\\s]</span>?((0?<span class="subst">[1-9]</span>)|(<span class="subst">[1-2]</span><span class="subst">[0-9]</span>)|(30)))|(0?2<span class="subst">[\\-\\/\\s]</span>?((0?<span class="subst">[1-9]</span>)|(1<span class="subst">[0-9]</span>)|(2<span class="subst">[0-8]</span>))))))"</span>;</div><div class="line"></div><div class="line">            Pattern pat = Pattern.compile(rexp);</div><div class="line"></div><div class="line">            Matcher mat = pat.matcher(date);</div><div class="line"></div><div class="line">            boolean dateType = mat.matches();</div><div class="line"></div><div class="line">            return dateType;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/01/判断日期-正则表达式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1796,176 +1966,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ygjch.github.io/2017/11/12/414-Third-Maximum-Number-题解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ariescc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一缕微光">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/12/414-Third-Maximum-Number-题解/" itemprop="url">414. Third Maximum Number 题解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T14:37:31+08:00">
-                2017-11-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/12/414-Third-Maximum-Number-题解/" class="leancloud_visitors" data-flag-title="414. Third Maximum Number 题解">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-             <span>℃</span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>找到给定数组的第三个大的数， 如果不存在第三大的数则返回该数组最大的数。</p>
-<p>要求在O(n)复杂度内解决此题</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/12/414-Third-Maximum-Number-题解/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2018,9 +2018,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives">
+                <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
