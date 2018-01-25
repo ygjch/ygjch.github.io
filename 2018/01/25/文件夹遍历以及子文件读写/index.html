@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="asp.net mvc," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -106,18 +106,18 @@
 
 
 
-<meta name="description" content="使用 jquery.form.js 实现文件上传前端">
-<meta name="keywords" content="asp.net mvc">
+<meta name="description" content="需求分析再给个人博客添加文章分类功能的时候，需要每篇文章添加一个categories: xxx的标签。由于文章数量太多，手动逐一给每篇文章添加标签很费时间，于是用python写了一个小脚本。需求如下：  读取指定文件夹下所有子文件名称 读取指定子文件，并获取子文件内容 向子文件内容的指定位置添加新内容，如题添加categories: xxx">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jquery.form.js 实现文件上传">
-<meta property="og:url" content="http://www.ariesjch.top/2017/11/19/jquery-form-js-实现文件上传/index.html">
+<meta property="og:title" content="文件夹遍历以及子文件读写">
+<meta property="og:url" content="http://www.ariesjch.top/2018/01/25/文件夹遍历以及子文件读写/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="使用 jquery.form.js 实现文件上传前端">
+<meta property="og:description" content="需求分析再给个人博客添加文章分类功能的时候，需要每篇文章添加一个categories: xxx的标签。由于文章数量太多，手动逐一给每篇文章添加标签很费时间，于是用python写了一个小脚本。需求如下：  读取指定文件夹下所有子文件名称 读取指定子文件，并获取子文件内容 向子文件内容的指定位置添加新内容，如题添加categories: xxx">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-25T12:31:25.856Z">
+<meta property="og:updated_time" content="2018-01-25T13:11:27.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jquery.form.js 实现文件上传">
-<meta name="twitter:description" content="使用 jquery.form.js 实现文件上传前端">
+<meta name="twitter:title" content="文件夹遍历以及子文件读写">
+<meta name="twitter:description" content="需求分析再给个人博客添加文章分类功能的时候，需要每篇文章添加一个categories: xxx的标签。由于文章数量太多，手动逐一给每篇文章添加标签很费时间，于是用python写了一个小脚本。需求如下：  读取指定文件夹下所有子文件名称 读取指定子文件，并获取子文件内容 向子文件内容的指定位置添加新内容，如题添加categories: xxx">
 
 
 
@@ -147,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ariesjch.top/2017/11/19/jquery-form-js-实现文件上传/"/>
+  <link rel="canonical" href="http://www.ariesjch.top/2018/01/25/文件夹遍历以及子文件读写/"/>
 
 
 
 
 
-  <title>jquery.form.js 实现文件上传 | 一缕微光</title>
+  <title>文件夹遍历以及子文件读写 | 一缕微光</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ariesjch.top/2017/11/19/jquery-form-js-实现文件上传/">
+    <link itemprop="mainEntityOfPage" href="http://www.ariesjch.top/2018/01/25/文件夹遍历以及子文件读写/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ariescc">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jquery.form.js 实现文件上传</h1>
+          <h1 class="post-title" itemprop="name headline">文件夹遍历以及子文件读写</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T19:28:45+08:00">
-                2017-11-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T20:41:41+08:00">
+                2018-01-25
               </time>
             
 
@@ -361,7 +361,7 @@
 
           
           
-             <span id="/2017/11/19/jquery-form-js-实现文件上传/" class="leancloud_visitors" data-flag-title="jquery.form.js 实现文件上传">
+             <span id="/2018/01/25/文件夹遍历以及子文件读写/" class="leancloud_visitors" data-flag-title="文件夹遍历以及子文件读写">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  230 字
+                  630 字
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -427,11 +427,19 @@
       
 
       
-        <h3 id="使用-jquery-form-js-实现文件上传"><a href="#使用-jquery-form-js-实现文件上传" class="headerlink" title="使用 jquery.form.js 实现文件上传"></a>使用 jquery.form.js 实现文件上传</h3><h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><a id="more"></a>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@&#123;</div><div class="line">    ViewBag.Title = "Upload";</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">id</span>=<span class="string">"upload"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"fileupload"</span> <span class="attr">name</span>=<span class="string">"Upload"</span> /&gt;</span></div><div class="line">    @* button 而不是 submit *@</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"上传"</span> <span class="attr">id</span>=<span class="string">"btn"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="javascript">    $(<span class="string">"#btn"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></div><div class="line"><span class="javascript">        $(<span class="string">"#upload"</span>).ajaxSubmit(&#123;</span></div><div class="line"><span class="actionscript">            url: <span class="string">"/Doc/UploadDoc"</span>,</span></div><div class="line"><span class="actionscript">            type: <span class="string">"post"</span>,</span></div><div class="line"><span class="actionscript">            success: <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(data);</span></div><div class="line"><span class="undefined">            &#125;,</span></div><div class="line"><span class="actionscript">            error: <span class="function"><span class="keyword">function</span> <span class="params">(aa)</span> </span>&#123;</span></div><div class="line"><span class="javascript">                <span class="built_in">console</span>.log(aa);</span></div><div class="line"><span class="undefined">            &#125;</span></div><div class="line"><span class="undefined">        &#125;);</span></div><div class="line"><span class="undefined">    &#125;);</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong>.ajaxSubmit</strong> 是 <strong>jquery.form.js</strong> 里的方法。ajaxSubmit 中的 url 参数中使用 Controller 中的方法，上面代码在提交<br>表单调用的方法是 DocController 中 UploadDoc 方法。</p>
-<h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DocController</span> : <span class="title">Controller</span></div><div class="line">&#123;</div><div class="line">    [<span class="meta">HttpPost</span>]</div><div class="line">    <span class="function"><span class="keyword">public</span> JsonResult <span class="title">UploadFile</span>(<span class="params"></span>)</span></div><div class="line"><span class="function">    </span>&#123;</div><div class="line">        HttpPostFileBase file = Request.Files[<span class="number">0</span>];</div><div class="line">        <span class="keyword">if</span>(file != <span class="literal">null</span>) &#123;</div><div class="line">            <span class="keyword">string</span> fileName = Path.GetFileName(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileExt = Path.GetExtension(file.FileName);</div><div class="line">            <span class="keyword">string</span> fileSaveDir = server.MapPath(<span class="string">"~/upload"</span>);</div><div class="line">            <span class="keyword">if</span>(!Directory.Exists(fileSaveDir))</div><div class="line">            &#123;</div><div class="line">                Directory.CreateDirectory(fileSaveDir);</div><div class="line">            &#125;</div><div class="line">            file.SaveAs(Path.Combine(fileSaveDir, fileName));</div><div class="line"></div><div class="line">            <span class="comment">// 如果表单有其他项，在此处写提交逻辑</span></div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">            &#123;</div><div class="line">                Data = <span class="keyword">new</span></div><div class="line">                &#123;</div><div class="line">                    _code = <span class="number">200</span>,</div><div class="line">                    _msg = <span class="string">"上传成功"</span>,</div><div class="line">                    _data = <span class="keyword">new</span></div><div class="line">                    &#123;</div><div class="line">                        _url = <span class="string">"/upload/"</span> + fileNewName,</div><div class="line">                        _oldName = fileName</div><div class="line">                    &#125;</div><div class="line">                &#125;,</div><div class="line">                JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonResult</div><div class="line">        &#123;</div><div class="line">            Data = <span class="keyword">new</span></div><div class="line">            &#123;</div><div class="line">                _code = <span class="number">200</span>,</div><div class="line">                _msg = <span class="string">"上传失败"</span></div><div class="line">            &#125;,</div><div class="line">            JsonRequestBehavior = JsonRequestBehavior.DenyGet</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="jquery-form-js-下载地址"><a href="#jquery-form-js-下载地址" class="headerlink" title="jquery.form.js 下载地址"></a>jquery.form.js 下载地址</h3><p><a href="https://malsup.github.io/jquery.form.js" target="_blank" rel="external">https://malsup.github.io/jquery.form.js</a></p>
+        <h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><p>再给个人博客添加文章分类功能的时候，需要每篇文章添加一个<code>categories: xxx</code>的标签。由于文章数量太多，手动逐一给每篇文章添加标签很费时间，于是用python写了一个小脚本。需求如下：</p>
+<ul>
+<li>读取指定文件夹下所有子文件名称</li>
+<li>读取指定子文件，并获取子文件内容</li>
+<li>向子文件内容的指定位置添加新内容，如题添加<code>categories: xxx</code></li>
+</ul>
+<a id="more"></a>
+<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><h4 id="遍历指定文件夹，获取其目录下的所有子文件名称"><a href="#遍历指定文件夹，获取其目录下的所有子文件名称" class="headerlink" title="遍历指定文件夹，获取其目录下的所有子文件名称"></a>遍历指定文件夹，获取其目录下的所有子文件名称</h4><p>代码如下:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 遍历指定目录,获取所有文件名</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_each_filename</span><span class="params">(folder_path)</span></span><span class="symbol">:</span></div><div class="line">    path_dir = os.listdir(folder_path)</div><div class="line">    child_dirs = []</div><div class="line">    <span class="keyword">for</span> all_dir <span class="keyword">in</span> <span class="symbol">path_dir:</span></div><div class="line">        child = os.path.join(<span class="string">'%s\%s'</span> % (folder_path, all_dir))</div><div class="line">        child_dirs.append(child)</div><div class="line"></div><div class="line">    <span class="comment">#print(child_dirs)</span></div><div class="line">    <span class="keyword">return</span> child_dirs</div></pre></td></tr></table></figure></p>
+<p>后面需要根据文件名来读写文件，需要给定绝对路径（相对路径不能访问文件），所以在获取子文件名时进行字符串拼接，得到子文件的绝对路径，并存储到一个列表中。</p>
+<h4 id="读写子文件"><a href="#读写子文件" class="headerlink" title="读写子文件"></a>读写子文件</h4><p>代码如下：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 每个文件中追加内容</span></div><div class="line">def insert_content(filename):</div><div class="line">    </div><div class="line">    <span class="keyword">lines</span> = []</div><div class="line"></div><div class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">'r'</span>, encoding = <span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> <span class="built_in">line</span> <span class="keyword">in</span> f:</div><div class="line">            <span class="keyword">lines</span>.append(<span class="built_in">line</span>)</div><div class="line">        f.<span class="built_in">close</span>()</div><div class="line"></div><div class="line">    print(<span class="keyword">lines</span>)</div><div class="line"></div><div class="line">    <span class="keyword">lines</span>.insert(<span class="number">4</span>, <span class="string">'categories: 技术篇\n'</span>)</div><div class="line">    s = <span class="string">''</span>.join(<span class="keyword">lines</span>)</div><div class="line">    </div><div class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">'w+'</span>, encoding = <span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">        f.<span class="built_in">write</span>(s)</div><div class="line">        f.<span class="built_in">close</span>()</div><div class="line"></div><div class="line">    del <span class="keyword">lines</span>[:]</div><div class="line">    print(<span class="keyword">lines</span>)</div></pre></td></tr></table></figure></p>
+<p>这里我是需要将新加内容追加到文本的第4行。<code>f.read()</code>是将文件所有内容一次性读取（读取所有字节），<code>f.readline([size])</code>可以按照指定字节按行读取，但是每行字节很难控制。于是最后做法是<strong>先将子文件所有内容一次性读取出来，然后逐行存入一个列表中，通过下标索引指定插入到第4个位置。再将列表内容拼接起来重新写入子文件中。</strong></p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p>完整代码参看我的github: github.com/ariescc</p>
+<h3 id="文件-with-open-参数说明"><a href="#文件-with-open-参数说明" class="headerlink" title="文件 with open 参数说明"></a>文件 with open 参数说明</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">w</span>: 以写方式打开</div><div class="line"><span class="attribute">a</span>: 以追加模式打开(从EOF开始，必要时创建新文件)</div><div class="line"><span class="attribute">r+</span>: 以读写模式打开</div><div class="line"><span class="attribute">w+</span>: 以读写模式打开(参见 w)</div><div class="line"><span class="attribute">a+</span>: 以读写模式打开(参见 a)</div><div class="line"><span class="attribute">rb</span>: 以二进制读模式打开</div><div class="line"><span class="attribute">wb</span>: 以二进制写模式打开</div><div class="line"><span class="attribute">ab</span>: 以二进制追加模式打开(参见 a)</div><div class="line"><span class="attribute">rb+</span>: 以二进制读写模式打开(参见 r+)</div><div class="line"><span class="attribute">wb+</span>: 以二进制读写模式打开(参见 w+)</div><div class="line"><span class="attribute">ab+</span>: 以二进制读写模式打开(参见 a+)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -449,7 +457,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/asp-net-mvc/" rel="tag"><i class="fa fa-tag"></i> asp.net mvc</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
         </div>
       
@@ -462,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/19/53-Maximum-Subarray-ac-题解/" rel="next" title="53. Maximum Subarray ac 题解">
-                <i class="fa fa-chevron-left"></i> 53. Maximum Subarray ac 题解
+              <a href="/2018/01/25/HEXO添加字数统计、阅读时长/" rel="next" title="HEXO添加字数统计、阅读时长">
+                <i class="fa fa-chevron-left"></i> HEXO添加字数统计、阅读时长
               </a>
             
           </div>
@@ -471,10 +479,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/30/socket-和-serversocket/" rel="prev" title="socket 和 serversocket">
-                socket 和 serversocket <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -704,7 +708,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-jquery-form-js-实现文件上传"><span class="nav-number">1.</span> <span class="nav-text">使用 jquery.form.js 实现文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前端"><span class="nav-number">1.1.</span> <span class="nav-text">前端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后端"><span class="nav-number">1.2.</span> <span class="nav-text">后端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jquery-form-js-下载地址"><span class="nav-number">2.</span> <span class="nav-text">jquery.form.js 下载地址</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求分析"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">2.</span> <span class="nav-text">实现过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历指定文件夹，获取其目录下的所有子文件名称"><span class="nav-number">2.1.</span> <span class="nav-text">遍历指定文件夹，获取其目录下的所有子文件名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读写子文件"><span class="nav-number">2.2.</span> <span class="nav-text">读写子文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码"><span class="nav-number">3.</span> <span class="nav-text">完整代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件-with-open-参数说明"><span class="nav-number">4.</span> <span class="nav-text">文件 with open 参数说明</span></a></li></ol></div>
             
 
           </div>
