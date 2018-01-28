@@ -116,7 +116,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.ariesjch.top/img/VBA_作用域.jpg">
 <meta property="og:image" content="http://www.ariesjch.top/img/VBA3等差数列.jpg">
-<meta property="og:updated_time" content="2018-01-28T06:19:14.925Z">
+<meta property="og:updated_time" content="2018-01-28T06:35:57.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VBA学习笔记（三）">
 <meta name="twitter:description" content="作用域 &amp;amp; ByRef1234567891011121314151617181920212223242526272829303132333435Option Explicit&apos; accessible in the scope of ModuleDim val1 As LongPublic Sub main()        plusOne val1        Debug.Print &quot;">
@@ -431,6 +431,7 @@
 
       
         <h3 id="作用域-amp-ByRef"><a href="#作用域-amp-ByRef" class="headerlink" title="作用域 &amp; ByRef"></a>作用域 &amp; ByRef</h3><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Option</span> <span class="keyword">Explicit</span></div><div class="line"></div><div class="line"><span class="comment">' accessible in the scope of Module</span></div><div class="line"><span class="keyword">Dim</span> val1 <span class="keyword">As</span> <span class="built_in">Long</span></div><div class="line"></div><div class="line"><span class="keyword">Public</span> <span class="keyword">Sub</span> main()</div><div class="line">    </div><div class="line">    plusOne val1</div><div class="line">    </div><div class="line">    Debug.Print <span class="string">"The Value Of val1 is "</span> &amp; val1</div><div class="line">    </div><div class="line">    <span class="comment">'accessible in the scope of Sub</span></div><div class="line">    <span class="keyword">Dim</span> val2 <span class="keyword">As</span> <span class="built_in">Long</span></div><div class="line">    </div><div class="line">    plusOne val2</div><div class="line">    </div><div class="line">    Debug.Print <span class="string">"The Value Of val2 is "</span> &amp; val2</div><div class="line">    </div><div class="line">    Debug.Print <span class="built_in">String</span>(<span class="number">10</span>, <span class="string">"*"</span>)</div><div class="line">    </div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div><div class="line"></div><div class="line"><span class="comment">' plus one to the value</span></div><div class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> plusOne(<span class="keyword">ByRef</span> v <span class="keyword">As</span> <span class="built_in">Long</span>)</div><div class="line"></div><div class="line">    v = v + <span class="number">1</span></div><div class="line">    </div><div class="line"><span class="keyword">End</span> <span class="keyword">Function</span></div><div class="line"></div><div class="line"><span class="comment">' plus one to the value</span></div><div class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> plusOne2(v <span class="keyword">As</span> <span class="built_in">Long</span>) <span class="keyword">As</span> <span class="built_in">Long</span></div><div class="line"></div><div class="line">    plusOne2 = v + <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">End</span> <span class="keyword">Function</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>将上面代码连续运行三次，结果如下：<br><img src="/img/VBA_作用域.jpg" width="400px" height="400px"></p>
 <p><strong>作用域的基本原理：</strong>Module上定义的变量(val1)对本module的全部函数以及Sub可见(类比全局变量)，在某个函数内部定义的变量(val2)只局限于此函数(类比局部变量)。</p>
 <hr>
@@ -484,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/28/VBA学习笔记（四）/" rel="prev" title="VBA学习笔记（四）">
-                VBA学习笔记（四） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +596,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
