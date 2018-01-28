@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="一缕微光">
 <meta property="og:description" content="1. 数据类型1.1 数据类型定义模式1234567&apos; 变量类型定义Dim productionName As StringDim length As IntergerDim reg As RegExpPublic Function MsgBox(msg As String)Public Function len(s As String) As Long 1.2 实例 定义一个函数，要求接收两个字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T02:23:30.407Z">
+<meta property="og:updated_time" content="2018-01-28T04:56:31.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VBA学习笔记（二）">
 <meta name="twitter:description" content="1. 数据类型1.1 数据类型定义模式1234567&apos; 变量类型定义Dim productionName As StringDim length As IntergerDim reg As RegExpPublic Function MsgBox(msg As String)Public Function len(s As String) As Long 1.2 实例 定义一个函数，要求接收两个字">
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  75 字
+                  361 字
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -432,6 +432,14 @@
 <li>定义一个函数，要求接收两个字符串，并返回较长的那一个长度</li>
 </ul>
 <a id="more"></a>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Option</span> Explict</div><div class="line"></div><div class="line"><span class="keyword">Public</span> <span class="keyword">Sub</span> main()</div><div class="line"></div><div class="line">    Debug.Print getLongerStringLen(<span class="string">"qiou.eu"</span>, <span class="string">"sgfxq"</span>)</div><div class="line"></div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div><div class="line"></div><div class="line"><span class="keyword">Private</span> <span class="keyword">Function</span> getLongerStringLen(str1 <span class="keyword">As</span> <span class="built_in">String</span>, str2 <span class="keyword">As</span> <span class="built_in">String</span>) <span class="keyword">As</span> <span class="built_in">String</span></div><div class="line"></div><div class="line">    <span class="keyword">Dim</span> l1 <span class="keyword">As</span> Interger</div><div class="line">    <span class="keyword">Dim</span> l2 <span class="keyword">As</span> Interger</div><div class="line"></div><div class="line">    l1 = Len(str1)</div><div class="line">    l2 = Len(str2)</div><div class="line"></div><div class="line">    getLongerStringLen = <span class="built_in">IIF</span>(l1 &gt; l2, l1, l2)</div><div class="line"></div><div class="line"><span class="keyword">End</span> Funtion</div></pre></td></tr></table></figure>
+<p><code>IIF</code>表示：如果<code>l1&gt;l2</code>，则返回<code>l1</code>，否则返回<code>l2</code>。即<strong>始终返回两者中的最大值</strong>。</p>
+<p>使用<code>Application.WorksheetFunction.Max()</code>会更加简便。</p>
+<p>习惯决定你能走多远。之前一直听人说Python的动态语言模式根本不适用于大型项目开发，直到我拜读过SQLalchemy的源码，才明白制约开发者的并不是语言本身(因为任何图灵完备的语言在理论上都能实现相同的功能)，而是习惯与能力。</p>
+<ul>
+<li>尝试求解三个字符串中长度最长的长度</li>
+</ul>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Option</span> <span class="keyword">Explicit</span></div><div class="line"></div><div class="line"><span class="keyword">Public</span> <span class="keyword">Sub</span> main()</div><div class="line"></div><div class="line">    Debug.Print getLongerStringLen(<span class="string">"jiachang"</span>, <span class="string">"zhangdie"</span>, <span class="string">"zhanglu"</span>)</div><div class="line"></div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div><div class="line"></div><div class="line"><span class="keyword">Private</span> <span class="keyword">Function</span> getLongerStringLen(str1 <span class="keyword">As</span> <span class="built_in">String</span>, str2 <span class="keyword">As</span> <span class="built_in">String</span>, str3 <span class="keyword">As</span> <span class="built_in">String</span>) <span class="keyword">As</span> <span class="built_in">Integer</span></div><div class="line"></div><div class="line">    <span class="comment">' 第一个字符串长度</span></div><div class="line">    <span class="keyword">Dim</span> len1 <span class="keyword">As</span> <span class="built_in">Integer</span></div><div class="line">    </div><div class="line">    <span class="comment">' 第二个字符串长度</span></div><div class="line">    <span class="keyword">Dim</span> len2 <span class="keyword">As</span> <span class="built_in">Integer</span></div><div class="line">    </div><div class="line">    <span class="comment">' 第三个字符串长度</span></div><div class="line">    <span class="keyword">Dim</span> len3 <span class="keyword">As</span> <span class="built_in">Integer</span></div><div class="line">    </div><div class="line">    len1 = Len(str1)</div><div class="line">    len2 = Len(str2)</div><div class="line">    len3 = Len(str3)</div><div class="line">     </div><div class="line">    <span class="comment">' 返回三个字符串长度中最长的</span></div><div class="line">    getLongerStringLen = Application.WorksheetFunction.Max(len1, len2, len3)</div><div class="line"></div><div class="line"><span class="keyword">End</span> <span class="keyword">Function</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -586,7 +594,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -744,7 +752,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.8k</span>
+    <span title="Site words total count">24.7k</span>
   
 </div>
 
@@ -768,7 +776,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共23.8k字</span>
+  <span class="post-count">博客全站共24.7k字</span>
 </div>
 
         
