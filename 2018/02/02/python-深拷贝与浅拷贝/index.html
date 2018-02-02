@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="leetcode," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -106,18 +106,18 @@
 
 
 
-<meta name="description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。">
-<meta name="keywords" content="leetcode">
+<meta name="description" content="一、赋值在python中，对象的赋值就是简单对象的引用，和C++不同。如：12list_a = [1, 2, 3]list_b = list_a 在这种情况下，list_b和list_a是相同的，它们指向同一片内存。list_b就是list_a的别名，即引用。我们可以使用list_b is list_a来判断，如果返回True，表明二者地址相同，内容相同。可用id(x) for x in list">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="605. Can Place Flowers 题解">
-<meta property="og:url" content="http://www.ariesjch.top/2017/11/09/605-Can-Place-Flowers-题解/index.html">
+<meta property="og:title" content="python 深拷贝与浅拷贝">
+<meta property="og:url" content="http://www.ariesjch.top/2018/02/02/python-深拷贝与浅拷贝/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。">
+<meta property="og:description" content="一、赋值在python中，对象的赋值就是简单对象的引用，和C++不同。如：12list_a = [1, 2, 3]list_b = list_a 在这种情况下，list_b和list_a是相同的，它们指向同一片内存。list_b就是list_a的别名，即引用。我们可以使用list_b is list_a来判断，如果返回True，表明二者地址相同，内容相同。可用id(x) for x in list">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T02:23:27.406Z">
+<meta property="og:updated_time" content="2018-02-02T13:55:08.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="605. Can Place Flowers 题解">
-<meta name="twitter:description" content="题意一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。  给定一数字 n， 问能否在该花坛中栽 n 株花。 栽花需要符合 相邻位置不栽花 的原则。">
+<meta name="twitter:title" content="python 深拷贝与浅拷贝">
+<meta name="twitter:description" content="一、赋值在python中，对象的赋值就是简单对象的引用，和C++不同。如：12list_a = [1, 2, 3]list_b = list_a 在这种情况下，list_b和list_a是相同的，它们指向同一片内存。list_b就是list_a的别名，即引用。我们可以使用list_b is list_a来判断，如果返回True，表明二者地址相同，内容相同。可用id(x) for x in list">
 
 
 
@@ -147,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ariesjch.top/2017/11/09/605-Can-Place-Flowers-题解/"/>
+  <link rel="canonical" href="http://www.ariesjch.top/2018/02/02/python-深拷贝与浅拷贝/"/>
 
 
 
 
 
-  <title>605. Can Place Flowers 题解 | 一缕微光</title>
+  <title>python 深拷贝与浅拷贝 | 一缕微光</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ariesjch.top/2017/11/09/605-Can-Place-Flowers-题解/">
+    <link itemprop="mainEntityOfPage" href="http://www.ariesjch.top/2018/02/02/python-深拷贝与浅拷贝/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ariescc">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">605. Can Place Flowers 题解</h1>
+          <h1 class="post-title" itemprop="name headline">python 深拷贝与浅拷贝</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T22:07:38+08:00">
-                2017-11-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T21:30:33+08:00">
+                2018-02-02
               </time>
             
 
@@ -361,7 +361,7 @@
 
           
           
-             <span id="/2017/11/09/605-Can-Place-Flowers-题解/" class="leancloud_visitors" data-flag-title="605. Can Place Flowers 题解">
+             <span id="/2018/02/02/python-深拷贝与浅拷贝/" class="leancloud_visitors" data-flag-title="python 深拷贝与浅拷贝">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  258 字
+                  652 字
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -427,15 +427,21 @@
       
 
       
-        <h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一花坛，1 代表已经栽好花， 0 代表该位置还没有栽花。 </p>
-<p>给定一数字 n， 问能否在该花坛中栽 n 株花。</p>
-<p>栽花需要符合 <strong>相邻位置不栽花</strong> 的原则。</p>
+        <h4 id="一、赋值"><a href="#一、赋值" class="headerlink" title="一、赋值"></a>一、赋值</h4><p>在python中，对象的赋值就是简单对象的引用，和C++不同。如：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">list_a</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="attr">list_b</span> = list_a</div></pre></td></tr></table></figure></p>
+<p>在这种情况下，list_b和list_a是相同的，它们指向同一片内存。list_b就是list_a的别名，即引用。<br>我们可以使用<code>list_b is list_a</code>来判断，如果返回<code>True</code>，表明二者地址相同，内容相同。可用<code>id(x) for x in list_a, list_b</code>来查看两个list的地址。<br><strong>赋值操作（包括对象作为参数、返回值）不会开辟新的内存空间，它只是复制了新对象的引用。</strong>也就是说，除了list_b这个名字，没有其他内存的开销。<br>修改了list_a，就影响list_b，反之亦然。</p>
 <a id="more"></a>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>从 0 位置开始遍历， 直到最后一位。 在当前位置满足 <strong>前后两个位置和当前位置均为0的时候，该位置可栽花 flower[i] = 1</strong>，并且栽花数 cnt++。</p>
-<p>要对 首位和最后一位进行特判：</p>
-<p>首位为0， 第二位为0， 首位种花 flower[0] = 1, cnt++</p>
-<p>末位为0， 倒数第二位为0， 最后一位种花 flower[flower.size()-2] = 1, cnt++</p>
-<h3 id="代码（C-）"><a href="#代码（C-）" class="headerlink" title="代码（C++）"></a>代码（C++）</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; flowerbed, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        </div><div class="line">		<span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; flowerbed.size(); i++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; i != flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i+<span class="number">1</span>] == <span class="number">0</span></div><div class="line">				&amp;&amp; flowerbed[i] == <span class="number">0</span>) </div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(i == flowerbed.size()<span class="number">-1</span> &amp;&amp; flowerbed[i<span class="number">-1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				flowerbed[i] = <span class="number">1</span>;</div><div class="line">				cnt++;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(cnt &gt;= n) <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="二、浅拷贝"><a href="#二、浅拷贝" class="headerlink" title="二、浅拷贝"></a>二、浅拷贝</h4><p>浅拷贝有三种形式：</p>
+<ul>
+<li>切片操作 <code>list_b = list_a[:]</code> 或 <code>list_b = [each for each in list_a]</code></li>
+<li>工厂函数 <code>list_b = list(list_a)</code></li>
+<li>copy模块中的copy函数 <code>list_b = copy(list_a)</code></li>
+</ul>
+<p>浅拷贝产生的list_b不再是list_a，使用<code>is</code>可以发现二者不是同一个对象，亦可使用<code>id</code>查看。但是使用<code>id(x) for x in list_a</code>和<code>id(x) for x in list_b</code>时，<br>我们可以看到二者包含的元素的地址是相同的。<br>在这种情况下，list_a和list_b是不同的对象，修改list_b不会影响list_a。<br><strong>注：浅拷贝之所以称为浅拷贝，因为它只拷贝了一层。</strong>在list__a中嵌套一个list，如果我们修改它，情况就不一样了。<br>如：<code>list_a[4].append(&#39;C&#39;)</code>之后，查看list_b可以发现list_b也发生了变化。因为我们修改了嵌套的list。修改外层元素，会修改它的引用，让它们指向别的位置，修改嵌套<br>列表中的元素，列表的地址发生变化，指向的都是同一个位置。</p>
+<h4 id="三、深拷贝"><a href="#三、深拷贝" class="headerlink" title="三、深拷贝"></a>三、深拷贝</h4><p>深拷贝只有一种形式，copy模块中的deepcopy函数。<br><strong>和浅拷贝对应，深拷贝拷贝了对象的所有元素，包括多层嵌套的元素。</strong>所以，它的时间和空间的开销更高。<br>同样对list_a，若使用<code>list_b = copy.deepcopy(list_a)</code>，在修改list_b将不会影响到list_a。即使嵌套的列表具有更深的层次，也不会产生任何影响，因为深拷贝出来的对象<br>根本就是一个全新的对象，不再与原来的对象有任何关联。</p>
+<h4 id="四、关于拷贝操作的警告"><a href="#四、关于拷贝操作的警告" class="headerlink" title="四、关于拷贝操作的警告"></a>四、关于拷贝操作的警告</h4><ul>
+<li>对于非容器类型，如数字，字符，以及其它“原子”类型，没有拷贝一说。产生的都是原对象的引用。</li>
+<li>如果元组变量值包含原子类型对象，即使采用了深拷贝，也只能得到浅拷贝。</li>
+</ul>
 
       
     </div>
@@ -453,7 +459,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           
         </div>
       
@@ -466,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/09/py-2-报错：-Requested-Python-version-2-not-installed/" rel="next" title="py -2 报错： Requested Python version (2) not installed ">
-                <i class="fa fa-chevron-left"></i> py -2 报错： Requested Python version (2) not installed 
+              <a href="/2018/01/28/VBA学习笔记（三）/" rel="next" title="VBA学习笔记（三）">
+                <i class="fa fa-chevron-left"></i> VBA学习笔记（三）
               </a>
             
           </div>
@@ -475,10 +481,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/10/566-Reshape-the-Matrix-题解/" rel="prev" title="566. Reshape the Matrix 题解">
-                566. Reshape the Matrix 题解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -713,7 +715,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解"><span class="nav-number">2.</span> <span class="nav-text">题解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码（C-）"><span class="nav-number">3.</span> <span class="nav-text">代码（C++）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、赋值"><span class="nav-number">1.</span> <span class="nav-text">一、赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、浅拷贝"><span class="nav-number">2.</span> <span class="nav-text">二、浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、深拷贝"><span class="nav-number">3.</span> <span class="nav-text">三、深拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、关于拷贝操作的警告"><span class="nav-number">4.</span> <span class="nav-text">四、关于拷贝操作的警告</span></a></li></ol></div>
             
 
           </div>
