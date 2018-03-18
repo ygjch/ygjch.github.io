@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="一缕微光">
 <meta property="og:description" content="【转】http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html 一、SSL握手过程假设爱丽丝为客户端，鲍勃为服务器端 第一步，爱丽丝给出协议版本号、一个客户端生成的随机数（Client random），以及客户端支持的加密方法。 第二步，鲍勃确认双方使用的加密方法，并给出数字证书、以及一个服务器生成的随机数（Server random">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-08T10:51:22.396Z">
+<meta property="og:updated_time" content="2018-03-18T11:57:30.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSL&#x2F;TLS协议握手过程">
 <meta name="twitter:description" content="【转】http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html 一、SSL握手过程假设爱丽丝为客户端，鲍勃为服务器端 第一步，爱丽丝给出协议版本号、一个客户端生成的随机数（Client random），以及客户端支持的加密方法。 第二步，鲍勃确认双方使用的加密方法，并给出数字证书、以及一个服务器生成的随机数（Server random">
@@ -412,6 +412,7 @@
 <p>第三步，爱丽丝确认数字证书有效，然后生成一个新的随机数（Premaster secret），并使用数字证书中的公钥，加密这个随机数，发给鲍勃。</p>
 <p>第四步，鲍勃使用自己的私钥，获取爱丽丝发来的随机数（即Premaster secret）。</p>
 <p>第五步，爱丽丝和鲍勃根据约定的加密方法，使用前面的三个随机数，生成”对话密钥”（session key），用来加密接下来的整个对话过程。</p>
+<a id="more"></a>
 <h4 id="二、私钥的作用"><a href="#二、私钥的作用" class="headerlink" title="二、私钥的作用"></a>二、私钥的作用</h4><p>握手阶段有三点需要注意。</p>
 <p>（1）生成对话密钥一共需要三个随机数。</p>
 <p>（2）握手之后的对话使用”对话密钥”加密（对称加密），服务器的公钥和私钥只用于加密和解密”对话密钥”（非对称加密），无其他作用。</p>
@@ -462,8 +463,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/08/同步-异步/" rel="prev" title="同步/异步">
-                同步/异步 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/18/CSS学习（一）/" rel="prev" title="CSS学习（一）">
+                CSS学习（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -576,7 +577,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -734,7 +735,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">26.4k</span>
+    <span title="Site words total count">27.4k</span>
   
 </div>
 
@@ -758,7 +759,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共26.4k字</span>
+  <span class="post-count">博客全站共27.4k字</span>
 </div>
 
         

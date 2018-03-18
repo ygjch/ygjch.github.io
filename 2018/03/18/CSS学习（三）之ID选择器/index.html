@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -106,17 +106,18 @@
 
 
 
-<meta name="description" content="Victory won&apos;t come to me unless I go to it.">
+<meta name="description" content="ID选择器前面有一个#号。  示例： #intro {font-weight: bold;} &amp;lt;p id=&amp;quot;intro&amp;quot;&amp;gt;This is a paragraph of introduction.&amp;lt;/p&amp;gt;">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同步&#x2F;异步">
-<meta property="og:url" content="http://www.ariesjch.top/2018/03/08/同步-异步/index.html">
+<meta property="og:title" content="CSS学习（三）之ID选择器">
+<meta property="og:url" content="http://www.ariesjch.top/2018/03/18/CSS学习（三）之ID选择器/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="Victory won&apos;t come to me unless I go to it.">
+<meta property="og:description" content="ID选择器前面有一个#号。  示例： #intro {font-weight: bold;} &amp;lt;p id=&amp;quot;intro&amp;quot;&amp;gt;This is a paragraph of introduction.&amp;lt;/p&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-08T09:08:43.440Z">
+<meta property="og:updated_time" content="2018-03-18T11:48:13.609Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同步&#x2F;异步">
-<meta name="twitter:description" content="Victory won&apos;t come to me unless I go to it.">
+<meta name="twitter:title" content="CSS学习（三）之ID选择器">
+<meta name="twitter:description" content="ID选择器前面有一个#号。  示例： #intro {font-weight: bold;} &amp;lt;p id=&amp;quot;intro&amp;quot;&amp;gt;This is a paragraph of introduction.&amp;lt;/p&amp;gt;">
 
 
 
@@ -146,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ariesjch.top/2018/03/08/同步-异步/"/>
+  <link rel="canonical" href="http://www.ariesjch.top/2018/03/18/CSS学习（三）之ID选择器/"/>
 
 
 
 
 
-  <title>同步/异步 | 一缕微光</title>
+  <title>CSS学习（三）之ID选择器 | 一缕微光</title>
   
 
 
@@ -291,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ariesjch.top/2018/03/08/同步-异步/">
+    <link itemprop="mainEntityOfPage" href="http://www.ariesjch.top/2018/03/18/CSS学习（三）之ID选择器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ariescc">
@@ -308,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">同步/异步</h1>
+          <h1 class="post-title" itemprop="name headline">CSS学习（三）之ID选择器</h1>
         
 
         <div class="post-meta">
@@ -320,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T17:08:43+08:00">
-                2018-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T18:10:07+08:00">
+                2018-03-18
               </time>
             
 
@@ -338,7 +339,7 @@
 
           
           
-             <span id="/2018/03/08/同步-异步/" class="leancloud_visitors" data-flag-title="同步/异步">
+             <span id="/2018/03/18/CSS学习（三）之ID选择器/" class="leancloud_visitors" data-flag-title="CSS学习（三）之ID选择器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -367,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0 字
+                  272 字
                 </span>
               
 
@@ -404,7 +405,24 @@
       
 
       
-        
+        <ul>
+<li>ID选择器前面有一个#号。</li>
+</ul>
+<p>示例：</p>
+<p><code>#intro {font-weight: bold;}</code></p>
+<p><code>&lt;p id=&quot;intro&quot;&gt;This is a paragraph of introduction.&lt;/p&gt;</code></p>
+<a id="more"></a>
+<h4 id="类选择器还是ID选择器？"><a href="#类选择器还是ID选择器？" class="headerlink" title="类选择器还是ID选择器？"></a>类选择器还是ID选择器？</h4><p>区别：</p>
+<ul>
+<li>与类不同，在一个HTML文档中，ID选择器会仅适用一次。(因为在一个HTML文档中一个ID只能出现一次)</li>
+<li>不同于类选择器，ID选择器不能结合使用，因为ID属性不允许有空格分隔的词列表。</li>
+<li>ID能包含更多含义<br>  你可能知道此篇HTML文档中会出现这个ID，但是不确定出现在哪个元素中。ID选择器可以独立于元素来选择ID。</li>
+</ul>
+<p><code>mostImportant {color: red; background: yellow;}</code></p>
+<p>这个规则会和下列各个元素匹配（这些元素不能再同一个文档中出现，因为他们具有相同的ID值）。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;h1 <span class="built_in">id</span>=<span class="string">"mostImportant"</span>&gt;This <span class="keyword">is</span> important!&lt;/h1&gt;</div><div class="line">&lt;em <span class="built_in">id</span>=<span class="string">"mostImportant"</span>&gt;This <span class="keyword">is</span> important!&lt;/em&gt;</div><div class="line">&lt;ul <span class="built_in">id</span>=<span class="string">"mostImportant"</span>&gt;This <span class="keyword">is</span> important!&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>【注】区分大小写（HTML和XHTML将类和ID选择器定义为区分大小写，所以类和ID值的大小写必须与文档中的相应值匹配。）</p>
+
       
     </div>
     
@@ -419,6 +437,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
+          
+        </div>
+      
 
       
       
@@ -428,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/08/SSL-TLS协议握手过程/" rel="next" title="SSL/TLS协议握手过程">
-                <i class="fa fa-chevron-left"></i> SSL/TLS协议握手过程
+              <a href="/2018/03/18/CSS学习（二）之派生选择器/" rel="next" title="CSS学习（二）之派生选择器">
+                <i class="fa fa-chevron-left"></i> CSS学习（二）之派生选择器
               </a>
             
           </div>
@@ -438,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/18/CSS学习（一）/" rel="prev" title="CSS学习（一）">
-                CSS学习（一） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/18/CSS学习（四）之属性选择器/" rel="prev" title="CSS学习（四）之属性选择器">
+                CSS学习（四）之属性选择器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,8 +547,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -543,7 +576,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -657,6 +690,22 @@ var jiathis_config={
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#类选择器还是ID选择器？"><span class="nav-number">1.</span> <span class="nav-text">类选择器还是ID选择器？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -685,7 +734,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">26.4k</span>
+    <span title="Site words total count">27.4k</span>
   
 </div>
 
@@ -709,7 +758,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共26.4k字</span>
+  <span class="post-count">博客全站共27.4k字</span>
 </div>
 
         
