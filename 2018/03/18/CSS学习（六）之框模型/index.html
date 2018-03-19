@@ -106,18 +106,20 @@
 
 
 
-<meta name="description" content="Victory won&apos;t come to me unless I go to it.">
+<meta name="description" content="盒子模型介绍框模型规定了元素框处理元素内容、内边距、边框、外边距的方式。 元素框最内部分是实际的内容，直接包围内容的内边距。内边距呈现了元素的背景。内边距的边缘是边框。边框之外是外边距，外边距默认是透明的，因此不会遮挡其后的任何元素。 【注】背景应用于由内容和内边距、边框组成的区域。 内边距、边框和外边距都是可选的，默认值是0。但是，许多元素将由用户代理样式表设置外边距和内边距。可以通过元素的ma">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS学习（六）之框模型">
 <meta property="og:url" content="http://www.ariesjch.top/2018/03/18/CSS学习（六）之框模型/index.html">
 <meta property="og:site_name" content="一缕微光">
-<meta property="og:description" content="Victory won&apos;t come to me unless I go to it.">
+<meta property="og:description" content="盒子模型介绍框模型规定了元素框处理元素内容、内边距、边框、外边距的方式。 元素框最内部分是实际的内容，直接包围内容的内边距。内边距呈现了元素的背景。内边距的边缘是边框。边框之外是外边距，外边距默认是透明的，因此不会遮挡其后的任何元素。 【注】背景应用于由内容和内边距、边框组成的区域。 内边距、边框和外边距都是可选的，默认值是0。但是，许多元素将由用户代理样式表设置外边距和内边距。可以通过元素的ma">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-18T12:34:59.858Z">
+<meta property="og:image" content="http://www.ariesjch.top/img/hezimoxing.png">
+<meta property="og:updated_time" content="2018-03-19T02:56:19.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS学习（六）之框模型">
-<meta name="twitter:description" content="Victory won&apos;t come to me unless I go to it.">
+<meta name="twitter:description" content="盒子模型介绍框模型规定了元素框处理元素内容、内边距、边框、外边距的方式。 元素框最内部分是实际的内容，直接包围内容的内边距。内边距呈现了元素的背景。内边距的边缘是边框。边框之外是外边距，外边距默认是透明的，因此不会遮挡其后的任何元素。 【注】背景应用于由内容和内边距、边框组成的区域。 内边距、边框和外边距都是可选的，默认值是0。但是，许多元素将由用户代理样式表设置外边距和内边距。可以通过元素的ma">
+<meta name="twitter:image" content="http://www.ariesjch.top/img/hezimoxing.png">
 
 
 
@@ -368,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0 字
+                  518 字
                 </span>
               
 
@@ -384,7 +386,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -405,7 +407,18 @@
       
 
       
-        
+        <h4 id="盒子模型介绍"><a href="#盒子模型介绍" class="headerlink" title="盒子模型介绍"></a>盒子模型介绍</h4><p>框模型规定了元素框处理元素<strong>内容、内边距、边框、外边距</strong>的方式。</p>
+<p>元素框最内部分是实际的内容，直接包围内容的内边距。内边距呈现了元素的背景。内边距的边缘是边框。边框之外是外边距，外边距默认是透明的，因此不会遮挡其后的任何元素。</p>
+<p>【注】背景应用于由内容和内边距、边框组成的区域。</p>
+<p>内边距、边框和外边距都是可选的，默认值是0。但是，许多元素将由用户代理样式表设置外边距和内边距。可以通过元素的<code>margin</code>和<code>padding</code>设置为<code>0</code>来覆盖这些浏览器样式。这可以分别进行，也可以使用通用选择器对所有元素进行设置。如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h4 id="盒子模型图"><a href="#盒子模型图" class="headerlink" title="盒子模型图"></a>盒子模型图</h4><p><img src="/img/hezimoxing.png" width="500px;" height="500px;"></p>
+<p>在CSS中，<code>width</code>和<code>height</code>指的是内容区域的宽度和高度。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。</p>
+<p>【注】内边距、边框和外边距可以应用于一个元素的所有边，也可以应用于单独的边。<br>【注】外边距可以是负值，而且很多情况下都要使用负值的外边距。</p>
+<h4 id="CSS-内边距"><a href="#CSS-内边距" class="headerlink" title="CSS 内边距"></a>CSS 内边距</h4><p><code>padding</code>定义元素的内边距。此属性接受<strong>长度值</strong>和<strong>百分比值</strong>，但不允许是<strong>负值</strong>。</p>
+<h5 id="单内边距属性"><a href="#单内边距属性" class="headerlink" title="单内边距属性"></a>单内边距属性</h5><p>可以使用下面四个单独的属性，分别设置上下左右内边距：<br><figure class="highlight coq"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">padding-<span class="built_in">top</span></div><div class="line">padding-<span class="built_in">bottom</span></div><div class="line">padding-<span class="built_in">left</span></div><div class="line">padding-<span class="built_in">right</span></div></pre></td></tr></table></figure></p>
+<h5 id="内边距的百分比数值"><a href="#内边距的百分比数值" class="headerlink" title="内边距的百分比数值"></a>内边距的百分比数值</h5><p>可以为元素的内边距设置百分数值。百分数值是相对于其父元素的 width 计算的，这一点与外边距一样。所以，如果父元素的 width 改变，它们也会改变。<br>【注】上下内边距与左右内边距一致：即上下内边距的百分数会相对于父元素宽度设置，而不是相对于高度。</p>
+
       
     </div>
     
@@ -444,6 +457,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/19/CSS学习（七）之CSS定位/" rel="prev" title="CSS学习（七）之CSS定位">
+                CSS学习（七）之CSS定位 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -526,8 +543,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -546,7 +572,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">92</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -660,6 +686,22 @@ var jiathis_config={
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#盒子模型介绍"><span class="nav-number">1.</span> <span class="nav-text">盒子模型介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#盒子模型图"><span class="nav-number">2.</span> <span class="nav-text">盒子模型图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS-内边距"><span class="nav-number">3.</span> <span class="nav-text">CSS 内边距</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单内边距属性"><span class="nav-number">3.1.</span> <span class="nav-text">单内边距属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#内边距的百分比数值"><span class="nav-number">3.2.</span> <span class="nav-text">内边距的百分比数值</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -688,7 +730,7 @@ var jiathis_config={
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">27.6k</span>
+    <span title="Site words total count">29.0k</span>
   
 </div>
 
@@ -712,7 +754,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27.6k字</span>
+  <span class="post-count">博客全站共29.0k字</span>
 </div>
 
         
