@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="一缕微光">
 <meta property="og:description" content="CSS定位和浮动CSS为定位和浮动提供了一些属性，利用这些属性可以建立列式布局，将布局的一部分与另一部分重叠。定位的基本思想：允许你定义元素框相对于其正常位置应该出现的位置，或者相对于父元素、另一个元素甚至浏览器窗口本身的位置。 一切皆为框div、h1 或 p 元素常常被称为块级元素。这意味着这些元素显示为一块内容，即“块框”。与之相反，span 和 strong 等元素称为“行内元素”，这是因为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-19T03:35:44.796Z">
+<meta property="og:updated_time" content="2018-03-20T02:27:17.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS学习（七）之CSS定位">
 <meta name="twitter:description" content="CSS定位和浮动CSS为定位和浮动提供了一些属性，利用这些属性可以建立列式布局，将布局的一部分与另一部分重叠。定位的基本思想：允许你定义元素框相对于其正常位置应该出现的位置，或者相对于父元素、另一个元素甚至浏览器窗口本身的位置。 一切皆为框div、h1 或 p 元素常常被称为块级元素。这意味着这些元素显示为一块内容，即“块框”。与之相反，span 和 strong 等元素称为“行内元素”，这是因为">
@@ -408,6 +408,7 @@
         <h4 id="CSS定位和浮动"><a href="#CSS定位和浮动" class="headerlink" title="CSS定位和浮动"></a>CSS定位和浮动</h4><p>CSS为定位和浮动提供了一些属性，利用这些属性可以建立列式布局，将布局的一部分与另一部分重叠。<br>定位的基本思想：允许你定义元素框相对于其正常位置应该出现的位置，或者相对于父元素、另一个元素甚至浏览器窗口本身的位置。</p>
 <h4 id="一切皆为框"><a href="#一切皆为框" class="headerlink" title="一切皆为框"></a>一切皆为框</h4><p>div、h1 或 p 元素常常被称为块级元素。这意味着这些元素显示为一块内容，即“块框”。与之相反，span 和 strong 等元素称为“行内元素”，这是因为它们的内容显示在行中，即“行内框”。</p>
 <p>您可以使用 display 属性改变生成的框的类型。这意味着，通过将 display 属性设置为 block，可以让行内元素（比如 <a> 元素）表现得像块级元素一样。还可以通过把 display 设置为 none，让生成的元素根本没有框。这样的话，该框及其所有内容就不再显示，不占用文档中的空间。</a></p>
+<a id="more"></a>
 <p>但是在一种情况下，即使没有进行显式定义，也会创建块级元素。这种情况发生在把一些文本添加到一个块级元素（比如 div）的开头。即使没有把这些文本定义为段落，它也会被当作段落对待：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span>&gt;</div><div class="line"><span class="keyword">some</span> <span class="built_in">text</span></div><div class="line">&lt;p&gt;Some more <span class="built_in">text</span>.&lt;/p&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>在这种情况下，这个框称为<strong>无名块框</strong>，因为它不与专门定义的元素相关联。</p>
 <h4 id="CSS定位机制"><a href="#CSS定位机制" class="headerlink" title="CSS定位机制"></a>CSS定位机制</h4><p>CSS有三种基本的定位机制：<strong>普通流、浮动、绝对定位。</strong><br>除非专门制定，否则所有框都在普通流中定位。也就是说，普通流中的元素的位置由元素HTML中的位置绝对。</p>

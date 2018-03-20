@@ -407,23 +407,16 @@
 
       
         
-          
-            <h4 id="CSS定位和浮动"><a href="#CSS定位和浮动" class="headerlink" title="CSS定位和浮动"></a>CSS定位和浮动</h4><p>CSS为定位和浮动提供了一些属性，利用这些属性可以建立列式布局，将布局的一部分与另一部分重叠。<br>定位的基本思想：允许你定义元素框相对于其正常位置应该出现的位置，或者相对于父元素、另一个元素甚至浏览器窗口本身的位置。</p>
+          <h4 id="CSS定位和浮动"><a href="#CSS定位和浮动" class="headerlink" title="CSS定位和浮动"></a>CSS定位和浮动</h4><p>CSS为定位和浮动提供了一些属性，利用这些属性可以建立列式布局，将布局的一部分与另一部分重叠。<br>定位的基本思想：允许你定义元素框相对于其正常位置应该出现的位置，或者相对于父元素、另一个元素甚至浏览器窗口本身的位置。</p>
 <h4 id="一切皆为框"><a href="#一切皆为框" class="headerlink" title="一切皆为框"></a>一切皆为框</h4><p>div、h1 或 p 元素常常被称为块级元素。这意味着这些元素显示为一块内容，即“块框”。与之相反，span 和 strong 等元素称为“行内元素”，这是因为它们的内容显示在行中，即“行内框”。</p>
 <p>您可以使用 display 属性改变生成的框的类型。这意味着，通过将 display 属性设置为 block，可以让行内元素（比如 <a> 元素）表现得像块级元素一样。还可以通过把 display 设置为 none，让生成的元素根本没有框。这样的话，该框及其所有内容就不再显示，不占用文档中的空间。</a></p>
-<p>但是在一种情况下，即使没有进行显式定义，也会创建块级元素。这种情况发生在把一些文本添加到一个块级元素（比如 div）的开头。即使没有把这些文本定义为段落，它也会被当作段落对待：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">div</span>&gt;</div><div class="line"><span class="keyword">some</span> <span class="built_in">text</span></div><div class="line">&lt;p&gt;Some more <span class="built_in">text</span>.&lt;/p&gt;</div><div class="line">&lt;/<span class="keyword">div</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>在这种情况下，这个框称为<strong>无名块框</strong>，因为它不与专门定义的元素相关联。</p>
-<h4 id="CSS定位机制"><a href="#CSS定位机制" class="headerlink" title="CSS定位机制"></a>CSS定位机制</h4><p>CSS有三种基本的定位机制：<strong>普通流、浮动、绝对定位。</strong><br>除非专门制定，否则所有框都在普通流中定位。也就是说，普通流中的元素的位置由元素HTML中的位置绝对。</p>
-<p>块级框从上到下一个接一个地排列，框之间的垂直距离是由框的垂直外边距计算出来。</p>
-<p>行内框在一行中水平布置。可以使用水平内边距、边框和外边距调整它们的间距。但是，垂直内边距、边框和外边距不影响行内框的高度。由一行形成的水平框称为行框（Line Box），行框的高度总是足以容纳它包含的所有行内框。不过，设置行高可以增加这个框的高度。</p>
-<h4 id="CSS-position属性"><a href="#CSS-position属性" class="headerlink" title="CSS position属性"></a>CSS position属性</h4><ul>
-<li>static: 元素框正常生成。块级元素生成一个矩形框，作为文档流的一部分，行内元素则会创建一个或多个行框，置于其父元素中。</li>
-<li>relative: 元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留。</li>
-<li>absolute: 元素框从文档流完全删除，并相对于其包含块定位。包含块可能是文档中的另一个元素或者是初始包含块。元素原先在正常文档流中所占的空间会关闭，就好像元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。</li>
-<li>fixed: 元素框的表现类似于将 position 设置为 absolute，不过其包含块是视窗本身。</li>
-</ul>
-<h4 id="absolute-和-fixed-区别"><a href="#absolute-和-fixed-区别" class="headerlink" title="absolute 和 fixed 区别"></a>absolute 和 fixed 区别</h4>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/19/CSS学习（七）之CSS定位/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
